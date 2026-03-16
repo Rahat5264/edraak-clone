@@ -1,67 +1,85 @@
-'use client'
+"use client"
 
-import { ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { useEffect } from 'react'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import content from '@/data/content.json'
 
 export default function Hero() {
+  const raw = content.visionSystem?.videoUrl || ''
+  const sep = raw.includes('?') ? '&' : '?'
+  const src = raw ? `${raw}${sep}autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1` : ''
+
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
+    }
+    setVh()
+    window.addEventListener('resize', setVh)
+    return () => window.removeEventListener('resize', setVh)
+  }, [])
+
   return (
-    <section className="bg-primary text-white min-h-screen flex items-center px-4 py-12">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div className="px-2 sm:px-4 text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight break-words">
-            {content.hero.title}
-          </h1>
-          <p className="w-full text-xl sm:text-2xl md:text-3xl font-semibold leading-snug max-w-xl mt-4">
-            {content.hero.subtitle}
-          </p>
-          <p className="text-sm md:text-base font-medium mb-2 max-w-xl opacity-95 mt-4">
-            {content.hero.description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start w-full mt-6">
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white hover:text-primary font-semibold">
-              <a href="https://calendly.com/your-temp-link" target="_blank" rel="noopener noreferrer">
-                {content.hero.cta}
-              </a>
-            </Button>
-          </div>
-          <button
-            type="button"
-            onClick={() => document.getElementById('vision')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-sm mt-8 opacity-75 flex items-center gap-2 cursor-pointer bg-transparent border-0"
-            aria-label="Scroll to Vision System"
-          >
-            {content.hero.note}
-            <ChevronDown className="w-4 h-4" />
-          </button>
-        </div>
+    <section
+      className="relative flex flex-col overflow-hidden px-4 md:px-12 lg:px-24 bg-gradient-to-r from-teal-400 to-teal-600"
+      style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-offset))' }}
+    >
+      <div
+        className="flex-1 flex items-center w-full min-h-0"
+        style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset))' }}
+      >
+        <div
+          className="max-w-7xl mx-auto w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto"
+          style={{ maxHeight: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset))' }}
+        >
+          <div className="lg:col-span-7 px-4 lg:px-8 text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[72px] leading-tight tracking-tight text-slate-900 font-extrabold">
+              <span className="block">Traceability &amp; Quality</span>
+              <span className="block mt-2 text-lg sm:text-xl md:text-2xl lg:text-[48px] font-semibold">across you manufacturing process</span>
+            </h1>
 
-        <div className="px-2 sm:px-4 flex justify-center md:justify-end">
-          <div className="w-full max-w-3xl md:max-w-2xl lg:max-w-3xl bg-white/5 rounded-2xl shadow-2xl overflow-hidden border border-white/10 p-1 transform transition-transform duration-500 hover:scale-[1.02]">
-            <div className="relative rounded-xl overflow-hidden">
-              <AspectRatio ratio={16 / 9} className="w-full">
-                {
-                  (() => {
-                    const raw = content.visionSystem?.videoUrl || ''
-                    const sep = raw.includes('?') ? '&' : '?'
-                    const src = raw ? `${raw}${sep}autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1` : ''
-                    return (
-                      <iframe
-                        src={src}
-                        title="Product video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      />
-                    )
-                  })()
-                }
-              </AspectRatio>
+            <p className="mt-4 sm:mt-6 max-w-2xl text-slate-900 text-sm sm:text-base md:text-lg leading-relaxed">
+              Connect all of you equipment, capture all real-time updates, Use cameras &amp; Sensors for autonomous data acquisition process.
+            </p>
 
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
-              <div className="pointer-events-none absolute -bottom-6 left-4 w-36 h-36 rounded-full blur-3xl bg-primary/30 opacity-60" />
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 items-center">
+              <a href="#" className="inline-block bg-white text-slate-900 px-6 sm:px-8 py-2.5 rounded shadow-sm font-medium">View Product</a>
+              <a href="#contact" className="inline-block bg-white/90 text-slate-900 px-6 sm:px-8 py-2.5 rounded shadow-sm font-medium">Contact Us</a>
             </div>
+          </div>
+
+          <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
+            <div className="w-full max-w-md sm:max-w-xl lg:max-w-2xl bg-white rounded-md shadow-2xl overflow-hidden">
+              <AspectRatio ratio={16 / 9} className="w-full">
+                <iframe
+                  src={src}
+                  title="Product video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </AspectRatio>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Newsletter bar: absolutely positioned inside the hero so it always shows */}
+      <div className="absolute left-0 bottom-0 w-full bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[64px] sm:h-[72px] md:h-[88px] lg:h-[104px] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
+              alt="Newsletter"
+              className="w-16 sm:w-20 md:w-24 h-10 sm:h-14 md:h-16 object-cover rounded-sm flex-shrink-0"
+            />
+            <div className="text-left">
+              <div className="text-sm sm:text-base md:text-lg font-semibold text-slate-900">Sign Up now to get latest updates</div>
+              <div className="text-xs sm:text-sm md:text-base text-slate-700">Get a chance to see industry leaders talk about implementations</div>
+            </div>
+          </div>
+
+          <div className="flex-shrink-0">
+            <a href="#" className="inline-block bg-white text-slate-900 px-6 sm:px-8 py-2 rounded shadow font-medium">Sign Up</a>
           </div>
         </div>
       </div>

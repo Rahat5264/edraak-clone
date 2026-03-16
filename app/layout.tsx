@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inria_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Navigation from '@/components/sections/Navigation'
 import Footer from '@/components/sections/Footer'
 import { ThemeProvider } from '@/components/theme-provider'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inria = Inria_Sans({ subsets: ["latin"], weight: ['300','400','700'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Edraak Systems | Quality Control & Traceability Solutions for Textiles',
@@ -75,8 +74,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
+    <html lang="en" className={inria.variable}>
+      <body className="antialiased">
         <ThemeProvider attribute="class">
           <Navigation />
           <main>{children}</main>

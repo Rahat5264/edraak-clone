@@ -1,0 +1,35 @@
+/* Central color variables and helpers */
+
+:root {
+	/* Chosen header/footer navy (from provided image) */
+	--site-header-bg: #020026;
+	--site-header-text: #ffffff;
+
+	/* Fallbacks / aliases */
+	--color-primary: var(--site-header-bg);
+	--color-on-primary: var(--site-header-text);
+}
+
+.site-header {
+	background-color: var(--site-header-bg);
+	color: var(--site-header-text);
+}
+.site-header a { color: rgba(255,255,255,0.9); }
+.site-header a:hover { color: #ffffff; }
+.brand-initial {
+	width: 44px;
+	height: 36px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255,255,255,0.04);
+	border-radius: 6px;
+	color: var(--site-header-text);
+	font-weight: 700;
+}
+
+/* Ensure all text in header/footer uses the chosen white color */
+.site-header * {
+	color: var(--site-header-text) !important;
+}
+

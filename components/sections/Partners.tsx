@@ -14,7 +14,7 @@ export default function Partners() {
           <div className="partners-marquee flex gap-8 items-center" aria-hidden="true">
             <div className="flex items-center gap-8">
               {partners.map((partner, idx) => (
-                <div key={`a-${idx}`} className="flex-shrink-0 w-40 h-20 bg-white rounded-lg border border-gray-200 flex items-center justify-center p-2">
+                <div key={`a-${idx}`} className="flex-shrink-0 w-28 sm:w-36 md:w-40 h-14 sm:h-16 md:h-20 bg-white rounded-lg border border-gray-200 flex items-center justify-center p-2">
                   <img
                     src={`https://ui-avatars.com/api/?name=${encodeURIComponent(partner)}&background=ffffff&color=333&size=256&rounded=true`}
                     alt={partner}
@@ -29,7 +29,7 @@ export default function Partners() {
             {/* duplicate for seamless loop */}
             <div className="flex items-center gap-8">
               {partners.map((partner, idx) => (
-                <div key={`b-${idx}`} className="flex-shrink-0 w-40 h-20 bg-white rounded-lg border border-gray-200 flex items-center justify-center p-2">
+                <div key={`b-${idx}`} className="flex-shrink-0 w-28 sm:w-36 md:w-40 h-14 sm:h-16 md:h-20 bg-white rounded-lg border border-gray-200 flex items-center justify-center p-2">
                   <img
                     src={`https://ui-avatars.com/api/?name=${encodeURIComponent(partner)}&background=ffffff&color=333&size=256&rounded=true`}
                     alt={partner}

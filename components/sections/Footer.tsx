@@ -4,7 +4,7 @@ import content from '@/data/content.json'
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-16 px-4">
+    <footer className="site-header text-white py-16 px-4">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-12">
         <div>
           <h4 className="font-bold mb-4">Company</h4>
