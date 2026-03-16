@@ -2,7 +2,7 @@
 
 import Navigation from '@/components/sections/Navigation'
 import Hero from '@/components/sections/Hero'
-import VisionSystem from '@/components/sections/VisionSystem'
+import CameraInspection from '@/components/sections/CameraInspection'
 import Solutions from '@/components/sections/Solutions'
 import Sectors from '@/components/sections/Sectors'
 import Partners from '@/components/sections/Partners'
@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-foreground">
       <Hero />
-      <VisionSystem />
+      <CameraInspection />
       <Solutions />
       <Sectors />
       <Partners />

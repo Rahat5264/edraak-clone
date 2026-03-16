@@ -2,7 +2,10 @@
 
 import { useEffect } from 'react'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import VideoFrame from '@/components/ui/VideoFrame'
 import content from '@/data/content.json'
+import Link from 'next/link'
+import { Button } from '../ui/button'
 
 export default function Hero() {
   const raw = content.visionSystem?.videoUrl || ''
@@ -21,16 +24,14 @@ export default function Hero() {
   return (
     <>
     <section
-      className="relative flex flex-col overflow-hidden px-4 md:px-12 lg:px-24 bg-gradient-to-r from-teal-400 to-teal-600"
-      style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset) - var(--hero-extra-reduce, 0px))' }}
+      className="relative flex flex-col overflow-hidden px-4 md:px-12 lg:px-24 bg-gradient-to-r from-teal-400 to-teal-600 h-[calc(100vh_-_8rem)] md:h-[calc(100vh_-_10rem)] lg:h-[calc(100vh_-_10rem)]"
+      // style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset) - var(--hero-extra-reduce, 0px))' }}
     >
       <div
-        className="flex-1 flex items-center w-full min-h-0 pt-6 sm:pt-0"
-        style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset))' }}
+        className="flex-1 flex items-center w-full md:py-12 lg:py-24"
       >
         <div
-          className="max-w-7xl mx-auto w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto mt-6 sm:mt-0 pb-12 sm:pb-0"
-          style={{ maxHeight: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset))' }}
+          className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto mt-6 sm:mt-0 pb-12 sm:pb-0"
         >
           <div className="lg:col-span-7 px-4 lg:px-8 text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[72px] leading-tight tracking-tight text-slate-900 font-extrabold">
@@ -49,26 +50,31 @@ export default function Hero() {
           </div>
 
           <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
-            <div className="w-full max-w-md sm:max-w-xl lg:max-w-2xl bg-white rounded-md shadow-2xl overflow-hidden">
-              <AspectRatio ratio={16 / 9} className="w-full">
-                <iframe
-                  src={src}
-                  title="Product video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </AspectRatio>
-            </div>
+            <VideoFrame src={src} title="Product video" />
           </div>
         </div>
       </div>
 
     </section>
 
+    {/* For mobile show a 2 rem high signup bar */}
+    <div className="sm:hidden w-full bg-gray-100 relative z-30">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <div className="text-xs text-slate-900 font-medium">
+          Sign Up now to get latest updates
+        </div>
+
+      <Button asChild size="sm" className="bg-gradient-to-r from-teal-400 to-cyan-600 text-white">
+        <Link href="#">
+          Sign Up
+        </Link>
+        </Button>
+      </div>
+    </div>
+
     {/* Newsletter bar: placed outside the hero so hero ends above it */}
-    <div className="w-full bg-gray-100 -mt-6 sm:mt-0 relative z-30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[112px] sm:h-[88px] md:h-[88px] lg:h-[104px] flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div className="w-full bg-gray-100 relative z-30">
+      <div className="hidden max-w-7xl mx-auto p-4 sm:p-6 sm:flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <img
             src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"

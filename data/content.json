@@ -61,10 +61,11 @@
     "barImage": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffabric-processing-end-to-end-illustration.png&w=1920&q=75"
   },
   "visionSystem": {
-    "title": "Camera Inspection in Textiles",
+    "title": "Fabric Quality control using High Speed camera system",
     "description": [
-      "EVS (Edraak Vision System) is an AI camera-based inspection solution for textile production lines. It uses high-resolution cameras to scan fabric continuously and detect defects such as stains, holes, misweaves, and color variations in real time.",
-      "EVS detects faults early to reduce waste and maintain consistent fabric quality. Inspection data is recorded for monitoring, traceability, and better quality control."
+      "EVS (Edraak Vision System) is an AI camera-based inspection solution for textile production lines. It uses high-resolution cameras to scan fabric continuously and detect defects such as stains, holes, and color variations in real time.",
+      "EVS detects faults early to reduce waste and maintain consistent fabric quality.",
+      "Inspection data is recorded for monitoring, traceability, and better quality control."
     ],
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "features": [
