@@ -154,13 +154,13 @@
 }
 
 :root {
-  --hero-bar-height: 64px;
+  --hero-bar-height: 112px;
   --hero-offset: 24px;
 }
 
 @media (min-width: 640px) {
   :root {
-    --hero-bar-height: 72px;
+    --hero-bar-height: 88px;
     --hero-offset: 32px;
   }
 }
@@ -176,6 +176,17 @@
   :root {
     --hero-bar-height: 104px;
     --hero-offset: 48px;
+  }
+}
+
+/* small tweak: reduce hero height a few pixels on mobile so the bar fits cleanly */
+:root {
+  --hero-extra-reduce: 8px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --hero-extra-reduce: 0px;
   }
 }
 

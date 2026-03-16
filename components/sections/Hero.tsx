@@ -19,16 +19,17 @@ export default function Hero() {
   }, [])
 
   return (
+    <>
     <section
       className="relative flex flex-col overflow-hidden px-4 md:px-12 lg:px-24 bg-gradient-to-r from-teal-400 to-teal-600"
-      style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-offset))' }}
+      style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset) - var(--hero-extra-reduce, 0px))' }}
     >
       <div
-        className="flex-1 flex items-center w-full min-h-0"
+        className="flex-1 flex items-center w-full min-h-0 pt-6 sm:pt-0"
         style={{ height: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset))' }}
       >
         <div
-          className="max-w-7xl mx-auto w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto"
+          className="max-w-7xl mx-auto w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto mt-6 sm:mt-0 pb-12 sm:pb-0"
           style={{ maxHeight: 'calc(var(--vh, 1vh) * 100 - var(--hero-bar-height) - var(--hero-offset))' }}
         >
           <div className="lg:col-span-7 px-4 lg:px-8 text-left">
@@ -63,26 +64,28 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Newsletter bar: absolutely positioned inside the hero so it always shows */}
-      <div className="absolute left-0 bottom-0 w-full bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[64px] sm:h-[72px] md:h-[88px] lg:h-[104px] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <img
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
-              alt="Newsletter"
-              className="w-16 sm:w-20 md:w-24 h-10 sm:h-14 md:h-16 object-cover rounded-sm flex-shrink-0"
-            />
-            <div className="text-left">
-              <div className="text-sm sm:text-base md:text-lg font-semibold text-slate-900">Sign Up now to get latest updates</div>
-              <div className="text-xs sm:text-sm md:text-base text-slate-700">Get a chance to see industry leaders talk about implementations</div>
-            </div>
-          </div>
+    </section>
 
-          <div className="flex-shrink-0">
-            <a href="#" className="inline-block bg-white text-slate-900 px-6 sm:px-8 py-2 rounded shadow font-medium">Sign Up</a>
+    {/* Newsletter bar: placed outside the hero so hero ends above it */}
+    <div className="w-full bg-gray-100 -mt-6 sm:mt-0 relative z-30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[112px] sm:h-[88px] md:h-[88px] lg:h-[104px] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
+            alt="Newsletter"
+            className="w-16 sm:w-20 md:w-24 h-10 sm:h-14 md:h-16 object-cover rounded-sm flex-shrink-0"
+          />
+          <div className="text-left">
+            <div className="text-sm sm:text-base md:text-lg font-semibold text-slate-900">Sign Up now to get latest updates</div>
+            <div className="text-xs sm:text-sm md:text-base text-slate-700">Get a chance to see industry leaders talk about implementations</div>
           </div>
         </div>
+
+        <div className="flex-shrink-0">
+          <a href="#" className="inline-block bg-white text-slate-900 px-6 sm:px-8 py-2 rounded shadow font-medium">Sign Up</a>
+        </div>
       </div>
-    </section>
+    </div>
+    </>
   )
 }
