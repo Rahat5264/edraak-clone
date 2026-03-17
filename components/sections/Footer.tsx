@@ -1,59 +1,88 @@
 'use client'
 
+import { Linkedin, Twitter, Youtube } from 'lucide-react'
 import content from '@/data/content.json'
 
 export default function Footer() {
+  const bottomLinks = [
+    content.footer.company.links.find((link: any) => link.label === 'Home'),
+    content.footer.legal.find((link: any) => link.label === 'Terms & Conditions'),
+    content.footer.legal.find((link: any) => link.label === 'Privacy Policy'),
+  ].filter(Boolean)
+
   return (
-    <footer className="site-header text-white py-16 px-4">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-12">
-        <div>
-          <h4 className="font-bold mb-4">Company</h4>
-          <ul className="space-y-2 text-sm opacity-90">
-            {content.footer.company.links.map((link: any, idx: number) => (
-              <li key={idx}>
-                <a href={link.href} className="hover:opacity-100 transition-opacity">{link.label}</a>
-              </li>
-            ))}
-          </ul>
+    <footer className="site-header text-white px-4 py-16 md:py-20">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid gap-14 lg:grid-cols-[1.2fr_1.8fr] items-start">
+          <div>
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight">{content.brand.name}</h3>
+            <div className="socials-bar mt-8 h-12 w-full max-w-sm bg-white text-[var(--site-header-bg)] flex items-center justify-between px-5 text-sm md:text-base font-medium">
+              <span>{content.footer.labels.socials}</span>
+              <div className="flex items-center gap-2">
+                <a href="#" aria-label="Twitter" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
+                  <Twitter className="h-4 w-4" />
+                </a>
+                <a href="#" aria-label="LinkedIn" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a href="#" aria-label="YouTube" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
+                  <Youtube className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div>
+              <h4 className="text-lg md:text-xl font-semibold mb-4">{content.footer.labels.company}</h4>
+              <ul className="space-y-2 text-sm md:text-base text-white/85">
+                {content.footer.company.links.slice(0, 4).map((link: any, idx: number) => (
+                  <li key={idx}>
+                    <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg md:text-xl font-semibold mb-4">{content.footer.labels.products}</h4>
+              <ul className="space-y-2 text-sm md:text-base text-white/85">
+                {content.footer.products.map((product: any, idx: number) => (
+                  <li key={idx}>
+                    <a href={product.href} className="hover:text-white transition-colors">{product.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg md:text-xl font-semibold mb-4">{content.footer.labels.services}</h4>
+              <ul className="space-y-2 text-sm md:text-base text-white/85">
+                {content.footer.services.slice(0, 4).map((service: any, idx: number) => (
+                  <li key={idx}>
+                    <a href={service.href} className="hover:text-white transition-colors">{service.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
         </div>
 
-        <div>
-          <h4 className="font-bold mb-4">Products</h4>
-          <ul className="space-y-2 text-sm opacity-90">
-            {content.footer.products.map((product: any, idx: number) => (
-              <li key={idx}>
-                <a href={product.href} className="hover:opacity-100 transition-opacity">{product.label}</a>
-              </li>
+        <div className="border-t border-white/30 mt-16 pt-8 flex items-center justify-between gap-8 whitespace-nowrap overflow-x-auto">
+          <p className="text-sm md:text-base text-white/90">© {new Date().getFullYear()} {content.brand.name}. {content.footer.labels.rightsSuffix}</p>
+          <div className="flex items-center gap-8 text-sm md:text-base text-white/90 ml-auto">
+            {bottomLinks.map((item: any, idx: number) => (
+              <a
+                key={`${item.label}-${idx}`}
+                href={item.href}
+                className="hover:text-white transition-colors"
+              >
+                {item.label}
+              </a>
             ))}
-          </ul>
+          </div>
         </div>
-
-        <div>
-          <h4 className="font-bold mb-4">Services</h4>
-          <ul className="space-y-2 text-sm opacity-90">
-            {content.footer.services.map((service: any, idx: number) => (
-              <li key={idx}>
-                <a href={service.href} className="hover:opacity-100 transition-opacity">{service.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-bold mb-4">Legal</h4>
-          <ul className="space-y-2 text-sm opacity-90">
-            {content.footer.legal.map((item: any, idx: number) => (
-              <li key={idx}>
-                <a href={item.href} className="hover:opacity-100 transition-opacity">{item.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="border-t border-white/20 pt-8 text-center text-sm opacity-75">
-        <p>{content.footer.company.about}</p>
-        <p className="mt-4">© 2024 {content.brand.name}. All rights reserved.</p>
       </div>
     </footer>
   )

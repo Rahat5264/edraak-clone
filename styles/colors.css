@@ -33,3 +33,8 @@
 	color: var(--site-header-text) !important;
 }
 
+.site-header .socials-bar,
+.site-header .socials-bar * {
+	color: var(--site-header-bg) !important;
+}
+

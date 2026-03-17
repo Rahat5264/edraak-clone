@@ -22,7 +22,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
-            <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
+            <h3 className="text-xl font-bold mb-4">{content.contact.panelTitle}</h3>
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <Input placeholder={content.contact.form.firstName} className="bg-gray-50" />
@@ -36,7 +36,7 @@ export default function Contact() {
 
               {formSubmitted && (
                 <div className="p-3 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm">
-                  Thank you for your message. We will get back to you soon!
+                  {content.contact.successMessage}
                 </div>
               )}
             </form>
@@ -44,8 +44,8 @@ export default function Contact() {
 
           <div className="relative bg-white p-0 rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
             <div className="p-2 md:p-3">
-              <h3 className="text-xl font-bold mb-0">Locations & Map</h3>
-              <p className="text-sm text-gray-600 mb-1">Our main office is shown on the map. Click to open in Google Maps.</p>
+              <h3 className="text-xl font-bold mb-0">{content.contact.map.title}</h3>
+              <p className="text-sm text-gray-600 mb-1">{content.contact.map.description}</p>
             </div>
 
             {content.offices && content.offices.items && content.offices.items.length > 0 ? (
@@ -80,7 +80,7 @@ export default function Contact() {
 
                     {externalMapLink && (
                       <div className="px-3 md:px-4">
-                        <a href={externalMapLink} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">Open in Google Maps</a>
+                        <a href={externalMapLink} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">{content.contact.map.openInMapsLabel}</a>
                       </div>
                     )}
 
@@ -105,7 +105,7 @@ export default function Contact() {
               })()
             ) : (
               <div className="p-6">
-                <p className="text-gray-600">Office details not available.</p>
+                <p className="text-gray-600">{content.contact.map.unavailableMessage}</p>
               </div>
             )}
           </div>

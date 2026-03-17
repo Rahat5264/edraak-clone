@@ -5,6 +5,7 @@ import Hero from '@/components/sections/Hero'
 import CameraInspection from '@/components/sections/CameraInspection'
 import Solutions from '@/components/sections/Solutions'
 import Sectors from '@/components/sections/Sectors'
+import IndustrialUseCases from '@/components/sections/IndustrialUseCases'
 import Partners from '@/components/sections/Partners'
 import Technology from '@/components/sections/Technology'
 import BlogSection from '@/components/sections/BlogSection'
@@ -18,10 +19,11 @@ export default function Home() {
       <CameraInspection />
       <Solutions />
       <Sectors />
+      <IndustrialUseCases />
       <Partners />
       <Technology />
-      <BlogSection />
-      <Contact />
+      {/* <BlogSection /> */}
+      {/* <Contact /> */}
       {/* Footer rendered by app/layout.tsx */}
     </div>
   )

@@ -4,22 +4,33 @@
     "tagline": "Traceability & Quality in Textiles, Apparel & Other Industries"
   },
   "navigation": [
-    { "label": "Solutions", "href": "#solutions" },
-    { "label": "Vision System", "href": "/vision-system" },
+    { "label": "Solutions", "href": "/#solutions" },
+    { "label": "Vision System", "href": "/#camera-inspection" },
     { "label": "Technology", "href": "#technology" },
-    { "label": "Case Studies", "href": "/case-studies" },
+    { "label": "Case Studies", "href": "/#industrial-use-cases" },
     { "label": "Blog", "href": "#blog" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
     "title": "Traceability & Quality",
-    "subtitle": "in Textiles, Apparel & other Industries",
-    "description": "Our Solutions are Simple, Intelligent & Sustainable.",
-    "cta": "Book an Appointment for Free Consultation",
-    "note": "Slide down for more"
+    "subtitle": "across you manufacturing process",
+    "description": "Connect all of you equipment, capture all real-time updates, Use cameras & Sensors for autonomous data acquisition process.",
+    "primaryCtaLabel": "View Product",
+    "primaryCtaHref": "#sectors",
+    "secondaryCtaLabel": "Contact Us",
+    "secondaryCtaHref": "#contact",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "videoTitle": "Product video",
+    "signup": {
+      "title": "Sign Up now to get latest updates",
+      "description": "Get a chance to see industry leaders talk about implementations",
+      "buttonLabel": "Sign Up",
+      "buttonHref": "#"
+    }
   },
   "solutions": {
     "title": "Solutions for Entire Manufacturing Process",
+    "cta": "Learn More",
     "description": [
       "At Edraak we offer complete solutions from processing of fabric to finished garments, including Quality Control, Production Tracking & Planning, Energy Monitoring, and Maintenance for the manufacturing industry.",
       "We leverage technologies such as Computer Vision, Machine Learning, Data Science, Artificial Intelligence & Big Data, and integrate with existing ERPs and data sources to generate meaningful insights that drive better output and efficiency."
@@ -67,7 +78,7 @@
       "EVS detects faults early to reduce waste and maintain consistent fabric quality.",
       "Inspection data is recorded for monitoring, traceability, and better quality control."
     ],
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "videoUrl": "https://db.edraaksystems.com/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-16-at-10.13.02-AM.mp4",
     "features": [
       "Superhuman inspection speed with millimeter-level accuracy",
       "High-resolution fabric imagery for advanced defect detection",
@@ -99,6 +110,7 @@
   "sectors": {
     "title": "Sector Wise Solutions",
     "description": "",
+    "cta": "Learn More",
     "items": [
       {
         "name": "Camera Inspection",
@@ -106,17 +118,38 @@
           {
             "name": "Greige Fabric",
             "content": "EVS inspects greige (raw/unfinished) fabric straight from the loom, detecting common defects like knots, slubs, holes, broken yarns, thick/thin places, and uneven weave in real time. This prevents faulty greige from moving to dyeing, cuts down on rework, improves yield, and keeps weaving consistent.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=1200&q=80",
+              "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=greige+fabric"
           },
           {
             "name": "Dyed",
             "content": "EVS checks dyed fabrics for issues that appear after coloring, such as uneven dyeing (patchy or cloudy shades), stains, dye marks, streaks, and weave faults visible post-dye. Running at full production speed, it flags problems instantly for marking or removal, helping maintain uniform color quality and avoid buyer rejections.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75"
+            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800&q=80",
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=dyed+fabric"
           },
           {
             "name": "Denim",
             "content": "EVS specializes in denim inspection, identifying streaks, holes, broken yarns, slubs, neps, barre marks, and finishing defects on the fly. In busy denim lines, it increases first-quality output, shortens manual checks, lowers rejection rates, and helps meet strict buyer standards.",
-            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/04f59a0e-124b-4cee-a087-24d7d523be5f.jpg"
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/04f59a0e-124b-4cee-a087-24d7d523be5f.jpg",
+            "images": [
+              "https://images.unsplash.com/photo-1549213783-8284d0336c4b?w=800&q=80",
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=denim+fabric"
           }
         ]
       },
@@ -126,27 +159,62 @@
           {
             "name": "Fabric Quality Control",
             "content": "The Fabric Quality Control system streamlines quality control by logging faults and guiding inspections, feeding data into an optimization engine that creates the best cutting plans. This reduces B-grade fabric and boosts efficiency by up to 0.4%.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75"
+            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1534751516642-a1af1ef91f0a?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=fabric+quality+control"
           },
           {
             "name": "Cutting plan optimization",
             "content": "By utilizing advanced algorithms and artificial intelligence, Edraak’s cutting plan optimization minimizes fabric wastage and increases efficiency. This ensures that cutting plans are executed with precision, resulting in reduced operational costs and higher quality output.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252Fwomen-looking-at-excel-sheets.png%3Falt%3Dmedia%26token%3Df70c886c-9def-4477-81c8-5bc9d42a48f3&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800&q=80",
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=cutting+plan+optimization"
           },
           {
             "name": "Width measurement",
             "content": "Edraak’s automatic width sensing device continuously captures fabric width data, triggering alarms when deviations occur, ensuring accurate width without production stops.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffmwp.png&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=width+measurement+fabric"
           },
           {
             "name": "Labeling system",
             "content": "Edraak's automatic labeling system marks fabric faults during production, providing essential data for efficient panel cutting without halting operations.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffault-labeling-system.png&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=labeling+system+fabric"
           },
           {
             "name": "Production tracking",
             "content": "Edraak’s barcode scanning system provides seamless fabric tracking from input to output, resolving fabric length discrepancies and optimizing material use. High-speed scanners and digital meters log precise lengths, monitor fabric consumption, and alert teams to real-time discrepancies. This ensures accurate costing, minimizes waste, and simplifies final product verification, aligning operations for efficiency and quality assurance.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F11%2Fproduction-tracking.png&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=production+tracking+apparel"
           }
         ]
       },
@@ -156,22 +224,50 @@
           {
             "name": "Total quality management",
             "content": "Edraak’s Factory on Phone integrates 7-0 quality control for needlepoint precision, reducing rework, tracking missing garments, and achieving cost savings while boosting efficiency.",
-            "image": "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=600&q=80"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252Fqms-360-app-on-phone-tablet.png%3Falt%3Dmedia%26token%3D320913cc-d2a5-4fca-87e2-d81d5991071e&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80",
+              "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+              "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=apparel+quality+management"
           },
           {
             "name": "Smart sewing system",
             "content": "Edraak's Smart Sewing System automates planning, tracking, and wages, minimizing manual errors and enhancing productivity. The RFID scanner, integrated with the traffic light system, enhances visual management.",
-            "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252FRFID%2520for%2520Traffice%2520Light.png%3Falt%3Dmedia%26token%3D5360d2ee-b459-42c1-82cd-9e527a033e24&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
+              "https://images.unsplash.com/photo-1581092921461-39b9d08a9b2d?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=smart+sewing+system+rfid"
           },
           {
-            "name": "Smart washing system",
+            "name": "Smart wash monitoring",
             "content": "The Smart Wash Monitoring system tracks machine performance, including power and water usage, downtime, and OEE, ensuring maximum efficiency.",
-            "image": "https://images.unsplash.com/photo-1503602642458-232111445657?w=600&q=80"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252Fwashing-station.png%3Falt%3Dmedia%26token%3Db428fc44-5acc-48a8-a775-c376ecbb5f8f&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+              "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?w=800&q=80",
+              "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+              "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=smart+wash+monitoring+industrial"
           },
           {
             "name": "Machine care pro",
             "content": "Machine Care Pro provides real-time monitoring for industrial machinery, ensuring preventive and corrective maintenance to optimize equipment performance and reduce costs.",
-            "image": "https://images.unsplash.com/photo-1581091012184-7a2f6a8f4b1a?w=600&q=80"
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F03%2FautomationLandscape.jpg&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80",
+              "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=800&q=80",
+              "https://images.unsplash.com/photo-1581091870622-2b2c5c2c2f53?w=800&q=80",
+              "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=industrial+machine+maintenance+monitoring"
           }
         ]
       }
@@ -189,6 +285,14 @@
   "technology": {
     "title": "Applied Technology Domains",
     "description": "Camera Vision, Automation, Artificial Intelligence, RFID, IoT, Machine Learning, Big Data, Embedded Systems, Automations",
+    "tabLabels": [
+      "Artificial Intelligence",
+      "Computer Vision",
+      "RFID Technologies",
+      "Spectroscopy",
+      "Data & Business Analytics",
+      "Energy Monitoring"
+    ],
     "items": [
       {
         "title": "Fabric Cutting Optimization - Wastage Reduction",
@@ -200,7 +304,7 @@
         "title": "Spectrophotometer",
         "description": "A spectrometer measures light across different wavelengths to analyze color and material composition. It helps detect variations in color or chemical properties, enabling precise quality control and consistent production in industrial processes.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2024/10/Spectrophotometer.png",
-        "link": ""
+        "link": "https://www.google.com/search?tbm=isch&q=Spectrophotometer"
       },
       {
         "title": "Real Time Width Monitoring",
@@ -241,14 +345,14 @@
         "title": "Quality Control and Production Tracking for Apparel",
         "description": "Edraak Systems has proudly introduced Tracking and Quality Control solution for Stitching & Apparel Lines. This solution enables the factories to enhance quality on needle point. The tracking solution provides the real-time production data & calculate operator Wages. Edraak Systems has proudly introduced Tracking and Quality Control solution for Stitching & Apparel Lines. This solution enables the factories to enhance quality on needle point. The tracking solution provides the real-time production data & calculate operator Wages.Edraak Systems has proudly introduced Tracking and Quality Control solution for Stitching & Apparel Lines. This solution enables the factories to enhance quality on needle point. The tracking solution provides the real-time production data & calculate operator Wages.Edraak Systems has proudly introduced Tracking and Quality Control solution for Stitching & Apparel Lines. This solution enables the factories to enhance quality on needle point. The tracking solution provides the real-time production data & calculate operator Wages.",
           "cta": "Read More",
-          "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80",
+          "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2FInfo-dart-illustration.png&w=1920&q=75",
         "layout": "split"
       },
       {
         "title": "Fabric Inspection & Cutting Optimization",
         "description": "Fabric inspection system scope to mark the faults on fabric digitally and optimized using AI to provide the best cutting plan, and enabling data analysis and reporting for continuous improvement. Optimization uses Artificial Intelligence to evaluate all the defects and maps them to provide the end user with the best possible cutting plan. This leads to increased efficiency and cost savings for the manufacturer.",
         "cta": "Read More",
-        "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2024/10/fabric-cutting-illustration-1.png",
         "layout": "split"
         },
         {
@@ -296,6 +400,14 @@
   "contact": {
     "title": "Get in Touch",
     "description": "",
+    "panelTitle": "Get in Touch",
+    "successMessage": "Thank you for your message. We will get back to you soon!",
+    "map": {
+      "title": "Locations & Map",
+      "description": "Our main office is shown on the map. Click to open in Google Maps.",
+      "openInMapsLabel": "Open in Google Maps",
+      "unavailableMessage": "Office details not available."
+    },
     "form": {
       "firstName": "First Name",
       "lastName": "Last Name",
@@ -323,6 +435,13 @@
   },
   "footer": {
     "phone": "+92 304 2772828 | +92 311 4560506",
+    "labels": {
+      "socials": "Socials",
+      "company": "Company",
+      "products": "Products",
+      "services": "Services",
+      "rightsSuffix": "All rights reserved."
+    },
     "company": {
       "about": "Edraak Systems is a leader in AI-powered quality control and traceability solutions for textile, apparel, and manufacturing industries.",
       "links": [

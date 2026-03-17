@@ -15,33 +15,48 @@ export default function Sectors() {
   const sector = content.sectors.items[activeSector]
   const activeIdx = activeSubTab[activeSector] || 0
   const activeItem = sector.subtabs[activeIdx]
+  const activeImages = Array.isArray((activeItem as any).images) ? ((activeItem as any).images as string[]) : []
   const thumbVisibleCount = 4
   const thumbHeight = 80 // matches h-20
   const thumbGap = 16 // matches gap-4
   const thumbContainerMaxHeight = thumbVisibleCount * thumbHeight + (thumbVisibleCount - 1) * thumbGap
-  const [activeImageIndex, setActiveImageIndex] = useState(0)
 
-  useEffect(() => {
-    setActiveImageIndex(0)
-  }, [activeSector, activeIdx])
+  // keep a per-(sector,subtab) selected thumbnail index so each nested tab remembers its own thumbnail preview selection
+  const [activePreviewIndexMap, setActivePreviewIndexMap] = useState<Record<string, number>>({})
 
-  const hasGallery = Array.isArray(activeItem.images) && activeItem.images.length > 0
-  const thumbnails = hasGallery ? activeItem.images : sector.subtabs.map((t: any) => t.image)
-  const mainImageSrc = hasGallery ? activeItem.images[activeImageIndex] : activeItem.image
+  const hasGallery = activeImages.length > 0
+  // Ensure main `image` is first in thumbnails (dedupe) so the main image appears at top of subimages
+  let thumbnails: string[] = []
+  if (activeItem.image) {
+    if (hasGallery) {
+      const imgs = activeImages
+      thumbnails = [activeItem.image, ...imgs.filter((u: string) => u !== activeItem.image)]
+    } else {
+      thumbnails = [activeItem.image]
+    }
+  } else if (hasGallery) {
+    thumbnails = activeImages
+  } else {
+    thumbnails = []
+  }
+
+  const key = `${activeSector}-${activeIdx}`
+  const currentPreviewIndex = activePreviewIndexMap[key]
+  const mainImageSrc = (typeof currentPreviewIndex === 'number' ? thumbnails[currentPreviewIndex] : (thumbnails[0] || activeItem.image || '/placeholder.jpg'))
 
   return (
-    <section id="sectors" className="min-h-screen flex items-start px-4 bg-white py-16">
+    <section id="sectors" className="min-h-screen flex items-start px-4 bg-white pt-4 sm:pt-16 pb-4 sm:pb-16">
       <div className="max-w-7xl mx-auto w-full">
         <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-8 text-black">{content.sectors.title}</h2>
 
         {/* Main tabs */}
-        <div className="flex items-end gap-4 mb-4 border-b border-gray-200 -mx-2 px-2 pb-4 overflow-x-auto">
+        <div className="flex items-end gap-1 mb-1 border-b border-gray-200 -mx-1 px-1 pb-1 overflow-x-auto">
           {content.sectors.items.map((s: any, idx: number) => (
             <button
               key={idx}
               onClick={() => { setActiveSector(idx); setActiveSubTab(prev => ({ ...prev, [idx]: 0 })) }}
-              className={`whitespace-nowrap mx-1 px-4 py-3 font-medium transition-all border-b-2 ${
-                activeSector === idx ? 'text-teal-600 border-teal-600' : 'text-gray-600 border-transparent hover:text-teal-500'
+              className={`whitespace-nowrap mx-0.5 px-2 py-1 font-medium transition-all ${
+                activeSector === idx ? 'text-[#02879F]' : 'text-gray-600 hover:text-[#02879F]'
               }`}
             >
               {s.name}
@@ -49,28 +64,53 @@ export default function Sectors() {
           ))}
         </div>
 
-        {/* Nested tabs (boxed, full-width, no scrollbar) */}
-        <div className="flex flex-wrap gap-3 mb-6 -mx-1 px-1">
-          {content.sectors.items[activeSector].subtabs.map((subtab: any, idx: number) => (
-            <button
-              key={idx}
-              onClick={() => handleSubTabClick(activeSector, idx)}
-              className={`mx-1 px-6 py-3 rounded-none text-sm font-medium transition-all ${
-                activeIdx === idx ? 'bg-teal-600 text-white border border-teal-600' : 'bg-white text-gray-700 hover:bg-gray-50'
-              }`}
-            >
-              {subtab.name}
-            </button>
-          ))}
-        </div>
+        {/* Nested tabs: mobile = horizontally scrollable; sm+ = evenly distributed grid */}
+        {(() => {
+          const nestedTabs = content.sectors.items[activeSector].subtabs || []
+          return (
+            <>
+              <div className="sm:hidden mb-2 -mx-1 px-1 overflow-x-auto">
+                <div className="flex space-x-0">
+                  {nestedTabs.map((subtab: any, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSubTabClick(activeSector, idx)}
+                      className={`inline-block px-4 py-2 text-sm font-medium transition-all ${
+                        activeIdx === idx ? 'bg-[#02879F] text-white border border-[#02879F]' : 'bg-white text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {subtab.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="hidden sm:block mb-2 -mx-1 px-1">
+                <div style={{ display: 'grid', gridTemplateColumns: `repeat(${nestedTabs.length || 1}, minmax(0, 1fr))`, gap: 0 }}>
+                  {nestedTabs.map((subtab: any, idx: number) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSubTabClick(activeSector, idx)}
+                      className={`w-full px-4 py-2 border-none text-sm font-medium transition-all ${
+                        activeIdx === idx ? 'bg-[#02879F] text-white border border-[#02879F]' : 'bg-white text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {subtab.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </>
+          )
+        })()}
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           <div className="md:col-span-6">
             <div className="prose max-w-none">
               <h3 className="text-2xl font-semibold mb-4">{activeItem.name}</h3>
               <p className="text-black text-lg leading-relaxed mb-6">{activeItem.content}</p>
-              <Button asChild size="lg" className="bg-gradient-to-r from-teal-400 to-cyan-600 text-white">
-                <a href="#contact">Learn More</a>
+              <Button asChild size="lg" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white">
+                <a href="#contact">{content.sectors.cta}</a>
               </Button>
             </div>
           </div>
@@ -78,7 +118,7 @@ export default function Sectors() {
           {/* Right: smaller main image + vertical thumbnails on the right with scrollbar */}
           <div className="md:col-span-6">
             <div className="flex gap-6 items-start">
-              <div className="flex-1 rounded-lg overflow-hidden shadow-lg bg-gray-50">
+              <div className="flex-1 rounded-lg overflow-hidden bg-gray-50">
                 <img src={mainImageSrc} alt={activeItem.name} className="w-full h-64 md:h-80 object-cover block" loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
               </div>
 
@@ -86,17 +126,14 @@ export default function Sectors() {
                 className="w-20 md:w-24 flex flex-col gap-4 overflow-y-auto pr-2"
                 style={thumbnails.length > thumbVisibleCount ? { maxHeight: `${thumbContainerMaxHeight}px` } : undefined}
               >
-                {hasGallery
-                  ? thumbnails.map((img: string, i: number) => (
-                      <button key={i} onClick={() => setActiveImageIndex(i)} className={`block rounded-md overflow-hidden bg-white ${activeImageIndex === i ? 'ring-2 ring-teal-400' : ''}`}>
-                        <img src={img} alt={`${activeItem.name}-${i}`} className="w-full h-20 object-cover block" loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
-                      </button>
-                    ))
-                  : sector.subtabs.map((t: any, i: number) => (
-                      <button key={i} onClick={() => handleSubTabClick(activeSector, i)} className={`block rounded-md overflow-hidden bg-white ${activeIdx === i ? 'ring-2 ring-teal-400' : ''}`}>
-                        <img src={t.image} alt={t.name} className="w-full h-20 object-cover block" loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
-                      </button>
-                    ))}
+                  {thumbnails.map((img: string, i: number) => (
+                    <button
+                      key={i}
+                      onClick={() => setActivePreviewIndexMap(prev => ({ ...prev, [key]: i }))}
+                      className={`block rounded-md overflow-hidden bg-white ${currentPreviewIndex === i ? 'ring-2 ring-[#02879F]' : ''}`}>
+                      <img src={img} alt={`${activeItem.name}-${i}`} className="w-full h-20 object-cover block" loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
+                    </button>
+                  ))}
               </div>
             </div>
           </div>

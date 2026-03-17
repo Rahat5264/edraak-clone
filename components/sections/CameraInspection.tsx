@@ -7,11 +7,12 @@ import content from '@/data/content.json'
 
 export default function CameraInspection() {
   const raw = content.visionSystem?.videoUrl || ''
+  const isMp4 = /\.mp4(\?|$)/i.test(raw)
   const sep = raw.includes('?') ? '&' : '?'
-  const src = raw ? `${raw}${sep}autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1` : ''
+  const src = raw ? (isMp4 ? raw : `${raw}${sep}autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`) : ''
 
   return (
-    <section id="camera-inspection" className="min-h-screen flex items-center bg-white w-full">
+    <section id="camera-inspection" className="relative top-10 md:top-0 min-h-screen flex items-center bg-white w-full">
       <div className="w-full px-4 md:px-12 lg:px-24">
         <div className="w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto mt-6 sm:mt-0 pb-12 sm:pb-0">
           <div className="lg:col-span-7 px-4 lg:px-8 text-left">
@@ -29,14 +30,14 @@ export default function CameraInspection() {
             </div>
 
             <div>
-              <Button asChild size="lg" className="bg-gradient-to-r from-teal-400 to-cyan-600 text-white">
-                <a href="#contact">{content.visionSystem.cta || 'Learn More'}</a>
-              </Button>
+                <Button asChild size="lg" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white">
+                  <a href="#contact">{content.visionSystem.cta}</a>
+                </Button>
             </div>
           </div>
 
           <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
-            <VideoFrame src={src} title="Camera Inspection Video" />
+            <VideoFrame src={src} title="Camera Inspection Video" shadow={false} />
           </div>
         </div>
       </div>
