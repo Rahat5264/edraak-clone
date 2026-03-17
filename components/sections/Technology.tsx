@@ -33,7 +33,7 @@ export default function Technology() {
   return (
     <section id="technology" className="bg-[var(--site-header-bg)] text-white px-4 py-12 md:py-16 md:min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{content.technology.title}</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">{content.technology.title}</h2>
         <p className="text-white/90 max-w-3xl text-base md:text-lg leading-relaxed">{content.visionSystem?.description?.[0] || content.technology.description}</p>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[280px_1fr] lg:gap-10 items-start">
