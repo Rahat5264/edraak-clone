@@ -11,12 +11,12 @@ export default function Footer() {
   ].filter(Boolean)
 
   return (
-    <footer className="site-header text-white px-4 py-16 md:py-20">
+    <footer className="site-header text-white px-4 py-10 md:py-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid gap-14 lg:grid-cols-[1.2fr_1.8fr] items-start">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr] items-start">
           <div>
             <h3 className="text-3xl md:text-4xl font-bold tracking-tight">{content.brand.name}</h3>
-            <div className="socials-bar mt-8 h-12 w-full max-w-sm bg-white text-[var(--site-header-bg)] flex items-center justify-between px-5 text-sm md:text-base font-medium">
+            <div className="socials-bar mt-6 h-12 w-full max-w-sm bg-white text-[var(--site-header-bg)] flex items-center justify-between px-5 text-sm md:text-base font-medium">
               <span>{content.footer.labels.socials}</span>
               <div className="flex items-center gap-2">
                 <a href="#" aria-label="Twitter" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div>
               <h4 className="text-lg md:text-xl font-semibold mb-4">{content.footer.labels.company}</h4>
               <ul className="space-y-2 text-sm md:text-base text-white/85">
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/30 mt-16 pt-8 flex items-center justify-between gap-8 whitespace-nowrap overflow-x-auto">
+        <div className="border-t border-white/30 mt-10 pt-6 flex items-center justify-between gap-6 whitespace-nowrap overflow-x-auto">
           <p className="text-sm md:text-base text-white/90">© {new Date().getFullYear()} {content.brand.name}. {content.footer.labels.rightsSuffix}</p>
           <div className="flex items-center gap-8 text-sm md:text-base text-white/90 ml-auto">
             {bottomLinks.map((item: any, idx: number) => (

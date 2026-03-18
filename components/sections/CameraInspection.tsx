@@ -12,12 +12,18 @@ export default function CameraInspection() {
   const src = raw ? (isMp4 ? raw : `${raw}${sep}autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`) : ''
 
   return (
-    <section id="camera-inspection" className="relative top-10 md:top-0 min-h-screen flex items-center bg-white w-full">
+    <section id="camera-inspection" className="relative top-0 min-h-screen flex items-center bg-white w-full scroll-mt-10 md:scroll-mt-9">
       <div className="w-full px-4 md:px-12 lg:px-24">
         <div className="w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto mt-6 sm:mt-0 pb-12 sm:pb-0">
           <div className="lg:col-span-7 px-4 lg:px-8 text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 mb-6">
-              {content.visionSystem.title}
+            <p className="text-base md:text-2xl text-slate-900 mb-2">
+              {content.visionSystem.breadcrumbPrefix}
+              <span className="font-extrabold">{content.visionSystem.breadcrumbHighlight}</span>
+            </p>
+
+            <h1 className="text-4xl md:text-5xl lg:text-[56px] font-normal leading-tight text-slate-900 mb-4">
+              <span className="font-extrabold">{content.visionSystem.titleBold}</span>{' '}
+              <span>{content.visionSystem.titleRest}</span>
             </h1>
 
             <div className="text-gray-700 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
@@ -27,6 +33,14 @@ export default function CameraInspection() {
                   ))
                 : <p>{content.visionSystem.description}</p>
               }
+
+              {Array.isArray(content.visionSystem.features) && content.visionSystem.features.length > 0 && (
+                <ul className="mt-4 space-y-1 text-slate-900">
+                  {content.visionSystem.features.map((feature: string, i: number) => (
+                    <li key={i} className="leading-snug">• {feature}</li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             <div>

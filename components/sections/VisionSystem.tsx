@@ -29,7 +29,7 @@ export default function VisionSystem() {
   return (
     <section id="vision" className="py-12 md:py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">{content.visionSystem.title}</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold mb-4 text-primary">{content.visionSystem.title}</h2>
 
         <div className="max-w-3xl mx-auto text-gray-600 mb-8 text-lg leading-relaxed">
           {Array.isArray(content.visionSystem.description)

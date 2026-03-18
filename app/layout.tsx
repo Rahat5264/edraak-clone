@@ -3,6 +3,7 @@ import { Inria_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Navigation from '@/components/sections/Navigation'
+import Careers from '@/components/sections/Careers'
 import Footer from '@/components/sections/Footer'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -79,6 +80,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <Navigation />
           <main>{children}</main>
+          <Careers />
           <Footer />
           <Analytics />
         </ThemeProvider>

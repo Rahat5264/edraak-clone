@@ -26,7 +26,7 @@ export default function CaseStudies() {
   return (
     <section id="cases" className="py-20 md:py-32 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">{content.caseStudies.title}</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-center mb-4 text-primary">{content.caseStudies.title}</h2>
 
         {intro && (
           <p className="mx-auto max-w-3xl text-center text-gray-700 mb-10">{intro}</p>

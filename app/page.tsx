@@ -6,7 +6,7 @@ import CameraInspection from '@/components/sections/CameraInspection'
 import Solutions from '@/components/sections/Solutions'
 import Sectors from '@/components/sections/Sectors'
 import IndustrialUseCases from '@/components/sections/IndustrialUseCases'
-import Partners from '@/components/sections/Partners'
+// import Partners from '@/components/sections/Partners'
 import Technology from '@/components/sections/Technology'
 import BlogSection from '@/components/sections/BlogSection'
 import Contact from '@/components/sections/Contact'
@@ -20,7 +20,7 @@ export default function Home() {
       <Solutions />
       <Sectors />
       <IndustrialUseCases />
-      <Partners />
+      {/* <Partners /> */}
       <Technology />
       {/* <BlogSection /> */}
       {/* <Contact /> */}

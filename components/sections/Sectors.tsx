@@ -47,7 +47,7 @@ export default function Sectors() {
   return (
     <section id="sectors" className="min-h-screen flex items-start px-4 bg-white pt-4 sm:pt-16 pb-4 sm:pb-16">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-8 text-black">{content.sectors.title}</h2>
+        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-left mb-8 text-black">{content.sectors.title}</h2>
 
         {/* Main tabs */}
         <div className="flex items-end gap-1 mb-1 border-b border-gray-200 -mx-1 px-1 pb-1 overflow-x-auto">
