@@ -7,7 +7,7 @@ export default function Solutions() {
   return (
     <section id="solutions" className="h-screen flex items-center px-4 bg-white">
       <div className="max-w-7xl mx-auto w-full py-8 md:pt-22 md:pb-8 flex flex-col justify-center">
-        <p className="text-base md:text-2xl text-black mb-2">
+        <p className="text-base md:text-[20px] text-black mb-2">
           {content.solutions.breadcrumbPrefix}
           <span className="font-extrabold">{content.solutions.breadcrumbHighlight}</span>
         </p>

@@ -16,7 +16,7 @@ export default function CameraInspection() {
       <div className="w-full px-4 md:px-12 lg:px-24">
         <div className="w-full min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center overflow-auto mt-6 sm:mt-0 pb-12 sm:pb-0">
           <div className="lg:col-span-7 px-4 lg:px-8 text-left">
-            <p className="text-base md:text-2xl text-slate-900 mb-2">
+            <p className="text-base md:text-[20px] text-slate-900 mb-2">
               {content.visionSystem.breadcrumbPrefix}
               <span className="font-extrabold">{content.visionSystem.breadcrumbHighlight}</span>
             </p>
