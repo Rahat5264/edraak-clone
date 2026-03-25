@@ -50,7 +50,7 @@ export default function Sectors() {
         <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-left mb-8 text-black">{content.sectors.title}</h2>
 
         {/* Main tabs */}
-        <div className="flex items-end gap-1 mb-1 border-b border-gray-200 -mx-1 px-1 pb-1 overflow-x-auto">
+        <div className="flex items-end gap-1 mb-0 border-b border-gray-300 mx-0 px-0 pb-0 overflow-x-auto">
           {content.sectors.items.map((s: any, idx: number) => (
             <button
               key={idx}
@@ -69,7 +69,7 @@ export default function Sectors() {
           const nestedTabs = content.sectors.items[activeSector].subtabs || []
           return (
             <>
-              <div className="sm:hidden mb-2 -mx-1 px-1 overflow-x-auto">
+              <div className="sm:hidden mb-1 mx-0 px-0 overflow-x-auto">
                 <div className="flex space-x-0">
                   {nestedTabs.map((subtab: any, idx: number) => (
                     <button
@@ -85,7 +85,7 @@ export default function Sectors() {
                 </div>
               </div>
 
-              <div className="hidden sm:block mb-2 -mx-1 px-1">
+              <div className="hidden sm:block mb-1 mx-0 px-0">
                 <div style={{ display: 'grid', gridTemplateColumns: `repeat(${nestedTabs.length || 1}, minmax(0, 1fr))`, gap: 0 }}>
                   {nestedTabs.map((subtab: any, idx: number) => (
                     <button

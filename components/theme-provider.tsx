@@ -7,5 +7,10 @@ import {
 } from 'next-themes'
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+  // Ensure a stable default on initial render to avoid SSR/client hydration mismatch.
+  return (
+    <NextThemesProvider {...props} defaultTheme="light" enableSystem={false} enableColorScheme={false}>
+      {children}
+    </NextThemesProvider>
+  )
 }

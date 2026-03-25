@@ -75,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inria.variable}>
+    <html lang="en" className={`${inria.variable} light`}>
       <body className="antialiased">
         <ThemeProvider attribute="class">
           <Navigation />

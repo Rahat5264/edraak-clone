@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import content from '@/data/content.json'
 
 export default function Careers() {
+  const [visible, setVisible] = useState(true)
   const [footerHeight, setFooterHeight] = useState(420)
   const [isDesktop, setIsDesktop] = useState(false)
 
@@ -18,6 +19,16 @@ export default function Careers() {
   }, [])
 
   useEffect(() => {
+    // hide careers section on the /products page
+    try {
+      const path = window.location && window.location.pathname
+      if (typeof path === 'string' && (path.startsWith('/products') || path.startsWith('/privacy-policy') || path.startsWith('/terms-and-conditions'))) {
+        setVisible(false)
+      }
+    } catch (e) {
+      // ignore
+    }
+
     const footer = document.querySelector('footer')
     if (!footer) return
 
@@ -38,6 +49,8 @@ export default function Careers() {
       window.removeEventListener('resize', syncFooterHeight)
     }
   }, [])
+
+  if (!visible) return null
 
   const careers = content.careers
 

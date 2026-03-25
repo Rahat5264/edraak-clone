@@ -19,13 +19,13 @@ export default function Footer() {
             <div className="socials-bar mt-6 h-12 w-full max-w-sm bg-white text-[var(--site-header-bg)] flex items-center justify-between px-5 text-sm md:text-base font-medium">
               <span>{content.footer.labels.socials}</span>
               <div className="flex items-center gap-2">
-                <a href="#" aria-label="Twitter" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
+                <a href="https://twitter.com/edraaksystems" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
                   <Twitter className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
+                <a href="https://twitter.com/edraaksystems" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
                   <Linkedin className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="YouTube" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
+                <a href="https://twitter.com/edraaksystems" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="h-7 w-7 flex items-center justify-center text-[var(--site-header-bg)]">
                   <Youtube className="h-4 w-4" />
                 </a>
               </div>

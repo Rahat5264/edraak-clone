@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import content from '@/data/content.json'
 
 export default function Technology() {
@@ -25,6 +25,16 @@ export default function Technology() {
   }, [])
 
   const activeTab = tabs[activeIndex] || tabs[0]
+
+  useEffect(() => {
+    // Preload all tab images so switching tabs shows images instantly
+    tabs.forEach((t) => {
+      if (t?.image) {
+        const img = new Image()
+        img.src = t.image
+      }
+    })
+  }, [tabs])
 
   return (
     <section id="technology" className="bg-[var(--site-header-bg)] text-white px-4 py-12 md:py-16 md:min-h-screen flex items-center">
@@ -58,7 +68,7 @@ export default function Technology() {
                 src={activeTab.image}
                 alt={activeTab.title}
                 className="w-full h-full object-cover"
-                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   ;(e.currentTarget as HTMLImageElement).src = '/placeholder.jpg'
                 }}
