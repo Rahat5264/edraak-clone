@@ -45,7 +45,7 @@ export default function CameraInspection() {
 
             <div>
                 <Button asChild size="lg" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white">
-                  <a href="#contact">{content.visionSystem.cta}</a>
+                  <a href="/contact">{content.visionSystem.cta}</a>
                 </Button>
             </div>
           </div>

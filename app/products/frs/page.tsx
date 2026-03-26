@@ -1,9 +1,9 @@
 import content from '@/data/content.json'
 import Link from 'next/link'
 
-const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'Spectrophotometer Sensor')
+const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'FRS')
 
-export default function SpectroPage() {
+export default function FrsPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 
   return (

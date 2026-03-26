@@ -135,7 +135,7 @@ export default function ProductsPage() {
                       <img src={p.img} alt={p.title} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                     <div className="p-4 flex-1 flex flex-col">
-                      <p className="text-sm text-teal-700 font-medium uppercase">{p.subtitle}</p>
+                      <p className="text-sm text-[#02879f] font-medium uppercase">{p.subtitle}</p>
                       <h3 className="mt-2 text-lg font-bold text-slate-900">{p.title}</h3>
                       <p className="mt-2 text-sm text-slate-700 flex-1">{p.desc && p.desc.length > 120 ? `${p.desc.slice(0, 120)}...` : p.desc}</p>
                       <div className="mt-4">

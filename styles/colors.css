@@ -38,3 +38,8 @@
 	color: var(--site-header-bg) !important;
 }
 
+/* Active nav link override (higher specificity + !important to beat .site-header *) */
+.site-header a.active {
+    color: #02E3DF !important;
+}
+

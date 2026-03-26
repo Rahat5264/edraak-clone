@@ -110,7 +110,7 @@ export default function Sectors() {
               <h3 className="text-2xl font-semibold mb-4">{activeItem.name}</h3>
               <p className="text-black text-lg leading-relaxed mb-6">{activeItem.content}</p>
               <Button asChild size="lg" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white">
-                <a href="#contact">{content.sectors.cta}</a>
+                <a href="/contact">{content.sectors.cta}</a>
               </Button>
             </div>
           </div>

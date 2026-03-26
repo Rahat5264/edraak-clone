@@ -62,7 +62,7 @@ export default function IndustrialUseCases() {
   }
 
   return (
-    <section id="industrial-use-cases" className="px-4 py-7 sm:py-9 bg-muted/40 scroll-mt-11 md:scroll-mt-15">
+    <section id="industrial-use-cases" className="px-4 py-7 sm:py-9 bg-white scroll-mt-11 md:scroll-mt-15">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold mb-6 text-[var(--site-header-bg)]">{content.caseStudies.title}</h2>
 

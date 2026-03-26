@@ -79,6 +79,17 @@
   --sidebar-ring: oklch(0.55 0.18 185);
 }
 
+/* Hero gradient variables (used across the site) */
+:root {
+  --hero-gradient-start: #02879F;
+  --anchor-active: #02E3DF; /* color used by active anchors */
+  --hero-gradient-end: var(--anchor-active);
+  --hero-gradient: linear-gradient(to top right, var(--hero-gradient-start), var(--hero-gradient-end));
+  --hero-gradient-light-start: color-mix(in oklab, var(--hero-gradient-end) 40%, white);
+  --hero-gradient-light-end: color-mix(in oklab, var(--hero-gradient-start) 40%, white);
+  --hero-gradient-light: linear-gradient(180deg, var(--hero-gradient-light-start), var(--hero-gradient-light-end));
+}
+
 @theme inline {
   --font-sans-fallback: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
@@ -152,3 +163,68 @@
     color: var(--color-primary-foreground);
   }
 }
+
+/* Vision Platform specific styles */
+.vision-products-scroll {
+  /* limit height and allow vertical scroll; responsive heights */
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 8px; /* space for custom thumb */
+}
+
+/* Custom scrollbar to match brand teal */
+.vision-products-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.vision-products-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.vision-products-scroll::-webkit-scrollbar-thumb {
+  background: #02879f;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.0);
+}
+.vision-products-scroll::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.9);
+}
+
+/* Firefox */
+.vision-products-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #02879f transparent;
+}
+
+/* small up/down controls on the product panel */
+.vision-products-controls {
+  position: relative;
+}
+.vision-products-controls .vp-buttons {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vp-btn {
+  width: 34px;
+  height: 34px;
+  background: white;
+  border-radius: 6px;
+  display: inline-grid;
+  place-items: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+.vp-btn svg { width: 14px; height: 14px; color: var(--color-primary); }
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .vision-products-scroll { max-height: 320px; }
+}
+
+/* Hero & image rounding to match screenshot */
+.hero-image-rounded { border-radius: 14px; }
+
+/* Ensure consistent boxed product rows */
+.vp-row { min-height: 72px; }

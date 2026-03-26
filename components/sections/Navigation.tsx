@@ -1,13 +1,20 @@
-'use client'
+"use client"
 
 import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import content from '@/data/content.json'
+import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isDim, setIsDim] = useState(false)
   const navRef = useRef<HTMLElement | null>(null)
+  const pathname = usePathname()
+  const [hash, setHash] = useState('')
+  const router = useRouter()
+  const [activeHref, setActiveHref] = useState('')
+  const [userClickedAnchor, setUserClickedAnchor] = useState(false)
 
   useEffect(() => {
     if (!navRef.current) return
@@ -78,6 +85,153 @@ export default function Navigation() {
     }
   }, [])
 
+  useEffect(() => {
+    const setCurrentHash = () => setHash(window.location.hash || '')
+    setCurrentHash()
+    window.addEventListener('hashchange', setCurrentHash)
+
+    // set activeHref when pathname or hash changes
+    const setCurrentActive = () => {
+      try {
+        const current = `${window.location.pathname}${window.location.hash || ''}`
+        if (window.location.pathname === '/' && !(window.location.hash || '') && !userClickedAnchor) {
+          setActiveHref('')
+        } else {
+          setActiveHref(current)
+        }
+      } catch (e) {
+        setActiveHref(`${pathname}${hash}`)
+      }
+    }
+    setCurrentActive()
+    // update active on route/hash changes
+    const onRouteChange = () => setCurrentActive()
+    window.addEventListener('popstate', onRouteChange)
+
+    return () => {
+      window.removeEventListener('hashchange', setCurrentHash)
+      window.removeEventListener('popstate', onRouteChange)
+    }
+  }, [userClickedAnchor])
+
+  // keep activeHref in sync with route changes (fallback when observer not active)
+  useEffect(() => {
+    if (pathname === '/' && !hash && !userClickedAnchor) {
+      setActiveHref('')
+    } else {
+      setActiveHref(`${pathname}${hash}`)
+    }
+  }, [pathname, hash, userClickedAnchor])
+
+  const normalizeHref = (h: string) => {
+    if (!h) return '/'
+    try {
+      const parts = h.split('#')
+      let p = parts[0] || '/'
+      if (!p.startsWith('/')) p = `/${p}`
+      if (p !== '/' && p.endsWith('/')) p = p.replace(/\/+$|\/+$/g, '')
+      const hashPart = parts[1] ? `#${parts[1]}` : ''
+      return `${p}${hashPart}`
+    } catch (e) {
+      return h
+    }
+  }
+
+  // Intersection observer to detect in-view sections and set live active link
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (pathname === '/' && !userClickedAnchor) return
+    const navItems = content.navigation || []
+    const toObserve: HTMLElement[] = []
+
+    navItems.forEach((item: any) => {
+      const raw = item.href || ''
+      if (!raw.includes('#')) return
+      const id = raw.split('#')[1]
+      if (!id) return
+      const el = document.getElementById(id)
+      if (el) toObserve.push(el)
+    })
+
+    if (toObserve.length === 0) return
+
+    // choose the section with the largest intersectionRatio
+    const io = new IntersectionObserver((entries) => {
+      let best: IntersectionObserverEntry | null = null
+      entries.forEach(entry => {
+        if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry
+      })
+      if (best && best.isIntersecting) {
+        const id = best.target.id
+        const match = navItems.find((it: any) => (it.href || '').includes(`#${id}`))
+        if (match) {
+          const raw = match.href || ''
+          const parts = raw.split('#')
+          const path = parts[0] || '/'
+          const hashPart = parts[1] ? `#${parts[1]}` : ''
+          setActiveHref(`${path}${hashPart}`)
+        }
+      }
+    }, { root: null, rootMargin: '0px 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] })
+
+    toObserve.forEach(el => io.observe(el))
+
+    return () => io.disconnect()
+  }, [pathname])
+
+  // Additional scroll-based fallback: pick section whose top is closest to viewport top
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (pathname === '/' && !userClickedAnchor) return
+    const navItems = content.navigation || []
+    const sectionIds = navItems.map((it: any) => {
+      const raw = it.href || ''
+      if (!raw.includes('#')) return null
+      const parts = raw.split('#')
+      return parts[1] || null
+    }).filter(Boolean) as string[]
+
+    if (sectionIds.length === 0) return
+
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      window.requestAnimationFrame(() => {
+        let bestId: string | null = null
+        let bestDistance = Number.POSITIVE_INFINITY
+        sectionIds.forEach(id => {
+          const el = document.getElementById(id)
+          if (!el) return
+          const rect = el.getBoundingClientRect()
+          const distance = Math.abs(rect.top - 120) // 120px from top as reference
+          if (distance < bestDistance) {
+            bestDistance = distance
+            bestId = id
+          }
+        })
+
+        if (bestId) {
+          const match = navItems.find((it: any) => (it.href || '').includes(`#${bestId}`))
+          if (match) {
+            const raw = match.href || ''
+            const parts = raw.split('#')
+            const path = parts[0] || '/'
+            const hashPart = parts[1] ? `#${parts[1]}` : ''
+            setActiveHref(`${path}${hashPart}`)
+          }
+        }
+
+        ticking = false
+      })
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    // run once
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [pathname])
+
   return (
     <nav
       ref={navRef}
@@ -87,17 +241,77 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="font-semibold text-lg">
+            <a href="/" className="flex items-center font-semibold text-[24px]">
+              <img src={content.brand.logo || '/icon.svg'} alt={content.brand.name} className="h-8 w-auto mr-3" />
               {content.brand.name}
             </a>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {content.navigation.map((item) => (
-              <a key={item.label} href={item.href} className="text-sm font-medium transition-colors" style={{color: 'rgba(255,255,255,0.9)'}}>
-                {item.label}
-              </a>
-            ))}
+            {content.navigation.map((item) => {
+              const raw = item.href || ''
+              let targetPath = raw
+              let targetHash = ''
+              if (raw.includes('#')) {
+                const parts = raw.split('#')
+                targetPath = parts[0] || '/'
+                targetHash = parts[1] ? `#${parts[1]}` : ''
+              }
+
+              const linkHref = `${targetPath}${targetHash}`
+              const isActive = normalizeHref(activeHref) === normalizeHref(linkHref)
+
+              const handleClick = async (e: React.MouseEvent) => {
+                setUserClickedAnchor(true)
+                setActiveHref(linkHref)
+                const id = targetHash.replace('#', '')
+                // If already on the target path
+                if ((targetPath === '' ? '/' : targetPath) === pathname) {
+                  if (targetHash) {
+                    e.preventDefault()
+                    const el = document.getElementById(id)
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' })
+                      setActiveHref(linkHref)
+                    } else {
+                      // fallback: set hash
+                      window.location.hash = targetHash
+                      setActiveHref(linkHref)
+                    }
+                  }
+                  return
+                }
+
+                // Not on target path: navigate then scroll after a short delay
+                e.preventDefault()
+                try {
+                  router.push(linkHref)
+                } catch (err) {
+                  // fallback: set location
+                  window.location.href = linkHref
+                }
+
+                if (targetHash) {
+                  setTimeout(() => {
+                    const el = document.getElementById(id)
+                    if (el) el.scrollIntoView({ behavior: 'smooth' })
+                    else window.location.hash = targetHash
+                  }, 250)
+                }
+              }
+
+              return (
+                <Link
+                  key={item.label}
+                  href={linkHref}
+                  className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''}`}
+                  onClick={handleClick}
+                  style={{ color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.9)' }}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
           </div>
 
           <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
@@ -107,11 +321,44 @@ export default function Navigation() {
 
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-2 pt-4">
-            {content.navigation.map((item) => (
-              <a key={item.label} href={item.href} className="block text-sm font-medium py-2" style={{color: 'rgba(255,255,255,0.95)'}}>
-                {item.label}
-              </a>
-            ))}
+            {content.navigation.map((item) => {
+              const raw = item.href || ''
+              let targetPath = raw
+              let targetHash = ''
+              if (raw.includes('#')) {
+                const parts = raw.split('#')
+                targetPath = parts[0] || '/'
+                targetHash = parts[1] ? `#${parts[1]}` : ''
+              }
+
+              const mobileLinkHref = `${targetPath}${targetHash}`
+              const isActive = normalizeHref(activeHref) === normalizeHref(mobileLinkHref)
+
+              const handleClick = (e: React.MouseEvent) => {
+                setMobileMenuOpen(false)
+                setUserClickedAnchor(true)
+                setActiveHref(mobileLinkHref)
+                if (targetPath === pathname && targetHash) {
+                  e.preventDefault()
+                  const id = targetHash.replace('#', '')
+                  const el = document.getElementById(id)
+                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                  else window.location.hash = targetHash
+                }
+              }
+
+              return (
+                <Link
+                  key={item.label}
+                  href={`${targetPath}${targetHash}`}
+                  onClick={handleClick}
+                  className={`block text-sm font-medium py-2 ${isActive ? 'active' : ''}`}
+                  style={{ color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.95)' }}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
           </div>
         )}
       </div>

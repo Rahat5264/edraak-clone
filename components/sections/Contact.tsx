@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useState } from 'react'
 import { Input } from '@/components/ui/input'
@@ -16,33 +16,34 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 bg-gray-50">
+    <section id="contact" className="py-20 md:py-32 px-4 bg-[var(--background)] text-[var(--foreground)]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-center mb-8 text-primary">{content.contact.title}</h2>
+        {/* main heading removed as requested */}
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+          <div className="bg-[var(--card)] p-8 rounded-3xl border" style={{ borderColor: 'var(--border)' }}>
             <h3 className="text-xl font-bold mb-4">{content.contact.panelTitle}</h3>
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
-                <Input placeholder={content.contact.form.firstName} className="bg-gray-50" />
-                <Input placeholder={content.contact.form.lastName} className="bg-gray-50" />
+                <Input placeholder={content.contact.form.firstName} className="bg-[var(--input)] text-[var(--foreground)]" />
+                <Input placeholder={content.contact.form.lastName} className="bg-[var(--input)] text-[var(--foreground)]" />
               </div>
-              <Input type="email" placeholder={content.contact.form.email} className="bg-gray-50" />
-              <Input type="tel" placeholder={content.contact.form.phone} className="bg-gray-50" />
-              <Textarea placeholder={content.contact.form.message} rows={5} className="bg-gray-50" />
 
-              <Button type="submit" className="bg-primary text-white hover:bg-primary/90 font-semibold">{content.contact.form.submit}</Button>
+              <Input type="email" placeholder={content.contact.form.email} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Input type="tel" placeholder={content.contact.form.phone} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Textarea placeholder={content.contact.form.message} rows={5} className="bg-[var(--input)] text-[var(--foreground)]" />
+
+              <Button type="submit" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white font-normal">{content.contact.form.submit}</Button>
 
               {formSubmitted && (
-                <div className="p-3 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm">
+                <div className="p-3 rounded-lg bg-[#02879f]/10 border border-[#02879f]/20 text-[#02879f] text-sm">
                   {content.contact.successMessage}
                 </div>
               )}
             </form>
           </div>
 
-          <div className="relative bg-white p-0 rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="relative bg-[var(--card)] p-0 rounded-3xl border overflow-hidden" style={{ borderColor: 'var(--border)' }}>
             <div className="p-2 md:p-3">
               <h3 className="text-xl font-bold mb-0">{content.contact.map.title}</h3>
               <p className="text-sm text-gray-600 mb-1">{content.contact.map.description}</p>
@@ -51,12 +52,8 @@ export default function Contact() {
             {content.offices && content.offices.items && content.offices.items.length > 0 ? (
               (() => {
                 const office = content.offices.items[0]
-                // Determine iframe src for embedding the map.
-                // If an explicit Google Maps embed URL is provided, use it (shows exact pin/place).
-                // Otherwise prefer coordinates, else fall back to name+address query.
                 let mapSrc = ''
                 const hasEmbed = office.embedUrl && office.embedUrl.includes('/maps/embed')
-                // external map link to open in new tab (maps search URL)
                 const externalMapLink = office.externalLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((office.name || '') + ' ' + (office.address || office.city || ''))}`
                 if (hasEmbed) {
                   mapSrc = office.embedUrl
@@ -72,15 +69,15 @@ export default function Contact() {
                 return (
                   <>
                     <div className="p-2 md:p-3">
-                      <div className="font-semibold text-primary mb-1">{office.city}, {office.country}</div>
+                      <div className="font-semibold text-[#02879f] mb-1">{office.city}, {office.country}</div>
                       <div className="text-sm text-gray-700 mt-0">{office.address}</div>
-                      <div className="mt-0 text-sm">Phone: <a href={`tel:${office.phone}`} className="text-primary">{office.phone}</a></div>
-                      <div className="mt-0 text-sm">Email: <a href={`mailto:${office.email}`} className="text-primary">{office.email}</a></div>
+                      <div className="mt-0 text-sm">Phone: <a href={`tel:${office.phone}`} className="text-[#02879f]">{office.phone}</a></div>
+                      <div className="mt-0 text-sm">Email: <a href={`mailto:${office.email}`} className="text-[#02879f]">{office.email}</a></div>
                     </div>
 
                     {externalMapLink && (
                       <div className="px-3 md:px-4">
-                        <a href={externalMapLink} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">{content.contact.map.openInMapsLabel}</a>
+                        <a href={externalMapLink} target="_blank" rel="noopener noreferrer" className="text-sm text-[#02879f] underline">{content.contact.map.openInMapsLabel}</a>
                       </div>
                     )}
 
@@ -93,13 +90,10 @@ export default function Contact() {
                         referrerPolicy="no-referrer-when-downgrade"
                       />
 
-                      {/* tint overlay using primary color */}
                       <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute inset-0 bg-primary opacity-30 mix-blend-multiply" />
+                        <div className="absolute inset-0 bg-[#02879f] opacity-30 mix-blend-multiply" />
                       </div>
                     </div>
-
-                    {/* details below map removed as requested */}
                   </>
                 )
               })()

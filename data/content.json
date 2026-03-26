@@ -1,16 +1,16 @@
 {
   "brand": {
     "name": "Edraak Systems",
+    "logo": "https://db.edraaksystems.com/wp-content/uploads/2026/03/Group-38.png",
     "tagline": "Traceability & Quality in Textiles, Apparel & Other Industries"
   },
   "navigation": [
-    { "label": "Solutions", "href": "/#solutions" },
+    { "label": "Vision Platform", "href": "/vision-platform" },
     { "label": "Products", "href": "/products" },
-    { "label": "Vision System", "href": "/#camera-inspection" },
     { "label": "Technology", "href": "#technology" },
     { "label": "Case Studies", "href": "/#industrial-use-cases" },
     { "label": "Blog", "href": "#blog" },
-    { "label": "Contact", "href": "#contact" }
+    { "label": "Contact", "href": "/contact" }
   ],
   "hero": {
     "title": "Intelligent Systems to make your production lines Efficient",
@@ -19,7 +19,7 @@
     "primaryCtaLabel": "Products",
     "primaryCtaHref": "/products",
     "secondaryCtaLabel": "Contact Us",
-    "secondaryCtaHref": "#contact",
+    "secondaryCtaHref": "/contact",
     "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     "videoTitle": "Product video",
     "signup": {
@@ -36,9 +36,9 @@
     "breadcrumbHighlight": "Textile & Apparel Industry",
     "title": "Traceability is now achievable, All the way.",
     "cta": "Learn More",
-    "ctaHref": "#contact",
+    "ctaHref": "/contact",
     "secondaryCta": "Discuss this Case Study →",
-    "secondaryCtaHref": "#contact",
+    "secondaryCtaHref": "/contact",
     "description": [
       "Edraak Systems offers complete traceability across shop floors. With our integrated systems, you can track fabric from source to final garment packing. RFID and barcode tags are used together to enable bundle-wise or individual piece-wise tracking.",
       "Our Fabric & Apparel systems are being used across the industry. Get in touch to learn more."

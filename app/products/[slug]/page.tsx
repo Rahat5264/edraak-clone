@@ -1,9 +1,19 @@
 import content from '@/data/content.json'
 import Link from 'next/link'
 
-const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'Spectrophotometer Sensor')
+function slugify(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
 
-export default function SpectroPage() {
+export async function generateStaticParams() {
+  const products = Array.isArray(content.products) ? content.products : []
+  return products.map((p: any) => ({ slug: slugify(p.title) }))
+}
+
+export default function ProductPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug
+  const prod = (Array.isArray(content.products) ? content.products : []).find((p: any) => slugify(p.title) === slug)
+
   if (!prod) return <div className="p-8">Product not found</div>
 
   return (

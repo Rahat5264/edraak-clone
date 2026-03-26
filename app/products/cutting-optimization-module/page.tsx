@@ -16,7 +16,7 @@ export default function CuttingPage() {
             </div>
 
             <h1 className="mt-6 text-[56px] leading-tight tracking-tight font-normal text-slate-900">{prod.title}</h1>
-            <p className="text-sm text-teal-700 font-medium mt-2">{prod.subtitle}</p>
+            <p className="text-sm text-[#02879f] font-medium mt-2">{prod.subtitle}</p>
             <p className="mt-4 text-lg text-slate-700">{prod.desc}</p>
 
             {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
