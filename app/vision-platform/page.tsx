@@ -17,8 +17,11 @@ export default function VisionPlatformPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 px-4 lg:px-8">
             <p className="text-sm text-[#02879f] font-medium uppercase tracking-wide mb-3">Global Textile Solutions</p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold text-slate-900 leading-tight mb-4">Precision Quality Control for Modern Textile Manufacturing</h1>
-            <p className="text-[18px] text-gray-700 mb-6 max-w-2xl">We help textile manufacturers worldwide utilize smart hardware solutions. From fabric inspection to production tracking, we provide the tools that boost quality and efficiency in every step of your operation.</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold text-slate-900 leading-tight mb-4">Camera Inspection in the Textile Industry</h1>
+            <div className="text-[18px] text-gray-700 mb-6 max-w-2xl space-y-4">
+              <p>EVS (Edraak Vision System) is an AI camera-based inspection solution for textile production lines. It uses high-resolution cameras to scan fabric continuously and detect defects such as stains, holes, misweaves, and color variations in real time.</p>
+              <p>EVS detects faults early to reduce waste and maintain consistent fabric quality. Inspection data is recorded for monitoring, traceability, and better quality control.</p>
+            </div>
             <div className="flex gap-3">
               <a href="/products" className="inline-flex items-center px-5 py-2 rounded bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white shadow">Explore Products</a>
               <a href="/contact" className="inline-flex items-center px-5 py-2 rounded border border-slate-900 bg-white text-slate-900">Contact Sales</a>
@@ -59,6 +62,31 @@ export default function VisionPlatformPage() {
                   <div className="text-[18px] text-gray-700 leading-relaxed">{f}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Camera Inspection in Other Industries */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 px-4 lg:px-8">
+            <p className="text-sm text-[#02879f] font-medium uppercase tracking-wide mb-3">{content.cameraIndustries.title}</p>
+            <h3 className="text-2xl md:text-3xl lg:text-[56px] font-bold text-slate-900 mb-4">{content.cameraIndustries.title}</h3>
+            <div className="text-[18px] text-gray-700 mb-6 max-w-2xl space-y-4">
+              {Array.isArray(content.cameraIndustries.description) ? (
+                content.cameraIndustries.description.map((p: string, i: number) => (
+                  <p key={i}>{p}</p>
+                ))
+              ) : (
+                <p>{content.cameraIndustries.description}</p>
+              )}
+            </div>
+            <a href="/contact" className="inline-flex items-center px-5 py-2 rounded bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white shadow">Learn More</a>
+          </div>
+
+          <div className="lg:col-span-5 px-4 lg:px-8">
+            <div className="w-full rounded-lg overflow-hidden shadow-lg bg-white">
+              <img src={content.cameraIndustries.image} alt="camera-industries" className="w-full h-64 sm:h-72 md:h-80 lg:h-[360px] object-cover hero-image-rounded" />
             </div>
           </div>
         </div>
