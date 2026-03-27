@@ -3,12 +3,13 @@
 import content from '@/data/content.json'
 
 export default function Partners() {
-  const partners = content.partners.items as string[]
+  const p = content?.partners || { items: [] }
+  const partners = (p.items || []) as string[]
 
   return (
     <section className="py-20 md:py-32 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-center mb-4 text-primary">{content.partners.title}</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-center mb-4 text-primary">{p.title || ''}</h2>
 
         <div className="overflow-hidden">
           <div className="partners-marquee flex gap-8 items-center" aria-hidden="true">

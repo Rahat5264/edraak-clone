@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import content from '@/data/content.json'
 
 export default function CaseStudies() {
-  const intro = content.caseStudies.intro
+  const intro = content?.caseStudies?.intro
   const [expanded, setExpanded] = useState<Set<number>>(new Set())
 
   const toggle = (i: number) => {
@@ -26,14 +26,14 @@ export default function CaseStudies() {
   return (
     <section id="cases" className="py-20 md:py-32 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-center mb-4 text-primary">{content.caseStudies.title}</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-center mb-4 text-primary">{content?.caseStudies?.title}</h2>
 
         {intro && (
           <p className="mx-auto max-w-3xl text-center text-gray-700 mb-10">{intro}</p>
         )}
 
         <div className="space-y-8">
-          {content.caseStudies.items.map((study: any, idx: number) => {
+          { (content?.caseStudies?.items || []).map((study: any, idx: number) => {
             const reverse = idx % 2 === 1 // odd-indexed cards reverse on md+
             const isExpanded = expanded.has(idx)
             return (

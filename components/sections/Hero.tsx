@@ -6,6 +6,7 @@ import content from '@/data/content.json'
 
 export default function Hero() {
   const raw = content.hero?.videoUrl || ''
+  const h = content?.hero || {}
   const isMp4 = /\.mp4(\?|$)/i.test(raw)
   const sep = raw.includes('?') ? '&' : '?'
   const src = raw ? (isMp4 ? raw : `${raw}${sep}autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1`) : ''
@@ -37,7 +38,7 @@ export default function Hero() {
         >
           <div className="lg:col-span-7 px-4 lg:px-8 text-left">
             <p className="text-base sm:text-lg md:text-xl text-white/90 tracking-wide">
-              {content.hero.subtitle}
+              {h.subtitle || ''}
             </p>
 
             <h1 className="mt-3 text-3xl sm:text-4xl md:text-[44px] lg:text-[56px] leading-tight tracking-tight text-white font-normal">
@@ -45,17 +46,17 @@ export default function Hero() {
             </h1>
 
             <p className="mt-4 sm:mt-6 max-w-2xl text-white text-sm sm:text-base md:text-lg leading-relaxed">
-              {content.hero.description}
+              {h.description || ''}
             </p>
 
             <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 items-center">
-              <a href={content.hero.primaryCtaHref} className="inline-block bg-white text-slate-900 px-6 sm:px-8 py-2.5 rounded shadow-sm font-medium">{content.hero.primaryCtaLabel}</a>
-              <a href={content.hero.secondaryCtaHref} className="inline-block bg-white/90 text-slate-900 px-6 sm:px-8 py-2.5 rounded shadow-sm font-medium">{content.hero.secondaryCtaLabel}</a>
+              <a href={h.primaryCtaHref || '#'} className="inline-block bg-white text-slate-900 px-6 sm:px-8 py-2.5 rounded shadow-sm font-medium">{h.primaryCtaLabel || ''}</a>
+              <a href={h.secondaryCtaHref || '#'} className="inline-block bg-white/90 text-slate-900 px-6 sm:px-8 py-2.5 rounded shadow-sm font-medium">{h.secondaryCtaLabel || ''}</a>
             </div>
           </div>
 
-          <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
-            <VideoFrame src={src} title={content.hero.videoTitle} shadow={false} />
+            <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
+            <VideoFrame src={src} title={h.videoTitle || ''} shadow={false} />
           </div>
         </div>
       </div>
@@ -65,15 +66,15 @@ export default function Hero() {
     {/* Mobile newsletter bar: keep previous simple layout */}
     <div className="sm:hidden w-full bg-gray-100 relative z-30">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <div className="text-xs text-slate-900 font-medium">
-          {content.hero.signup.title}
+          <div className="text-xs text-slate-900 font-medium">
+          {h.signup?.title || ''}
         </div>
 
         <a
-          href={content.hero.signup.buttonHref}
+          href={h.signup?.buttonHref || '#'}
           className="inline-flex h-9 px-4 items-center justify-center bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white text-sm font-medium"
         >
-          {content.hero.signup.buttonLabel}
+          {h.signup?.buttonLabel || ''}
         </a>
       </div>
     </div>
@@ -92,8 +93,8 @@ export default function Hero() {
             }}
           />
           <div className="text-left min-w-0">
-            <div className="text-base sm:text-xl font-bold text-slate-900 leading-tight">{content.hero.signup.title}</div>
-            <div className="text-sm sm:text-lg text-slate-700 leading-tight">{content.hero.signup.description}</div>
+            <div className="text-base sm:text-xl font-bold text-slate-900 leading-tight">{h.signup?.title || ''}</div>
+            <div className="text-sm sm:text-lg text-slate-700 leading-tight">{h.signup?.description || ''}</div>
           </div>
         </div>
 
@@ -107,11 +108,11 @@ export default function Hero() {
             placeholder="enter email to subscribe"
             className="h-11 sm:h-12 w-full sm:w-72 lg:w-80 bg-white border border-gray-200 px-4 text-sm sm:text-base text-slate-900 placeholder:text-slate-500 outline-none"
           />
-          <button
+            <button
             type="submit"
             className="h-11 sm:h-12 px-6 sm:px-7 bg-white text-slate-900 font-semibold text-sm sm:text-base whitespace-nowrap"
           >
-            {content.hero.signup.buttonLabel} →
+            {h.signup?.buttonLabel || '→'}
           </button>
         </form>
       </div>

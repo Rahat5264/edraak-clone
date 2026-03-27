@@ -12,9 +12,10 @@ export default function Sectors() {
     setActiveSubTab(prev => ({ ...prev, [sectorIndex]: subTabIndex }))
   }
 
-  const sector = content.sectors.items[activeSector]
+  const sectors = content?.sectors || { items: [] }
+  const sector = sectors.items[activeSector] || { subtabs: [] }
   const activeIdx = activeSubTab[activeSector] || 0
-  const activeItem = sector.subtabs[activeIdx]
+  const activeItem = (sector.subtabs && sector.subtabs[activeIdx]) || {}
   const activeImages = Array.isArray((activeItem as any).images) ? ((activeItem as any).images as string[]) : []
   const thumbVisibleCount = 4
   const thumbHeight = 80 // matches h-20
@@ -47,11 +48,11 @@ export default function Sectors() {
   return (
     <section id="sectors" className="min-h-screen flex items-start px-4 bg-white pt-4 sm:pt-16 pb-4 sm:pb-16">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-left mb-8 text-black">{content.sectors.title}</h2>
+        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-left mb-8 text-black">{sectors.title || ''}</h2>
 
         {/* Main tabs */}
         <div className="flex items-end gap-1 mb-0 border-b border-gray-300 mx-0 px-0 pb-0 overflow-x-auto">
-          {content.sectors.items.map((s: any, idx: number) => (
+          {sectors.items.map((s: any, idx: number) => (
             <button
               key={idx}
               onClick={() => { setActiveSector(idx); setActiveSubTab(prev => ({ ...prev, [idx]: 0 })) }}
@@ -66,7 +67,7 @@ export default function Sectors() {
 
         {/* Nested tabs: mobile = horizontally scrollable; sm+ = evenly distributed grid */}
         {(() => {
-          const nestedTabs = content.sectors.items[activeSector].subtabs || []
+          const nestedTabs = (sectors.items[activeSector] && sectors.items[activeSector].subtabs) || []
           return (
             <>
               <div className="sm:hidden mb-1 mx-0 px-0 overflow-x-auto">

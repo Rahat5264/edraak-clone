@@ -7,8 +7,10 @@ export const metadata = {
 }
 
 export default function VisionPlatformPage() {
-  const vision = content.visionSystem
-  const products = content.products || []
+  const vision = content?.visionSystem || {}
+  const products = content?.products || []
+  const cam = content?.cameraIndustries || {}
+  const sectors = content?.sectors || { items: [] }
 
   return (
     <main className="bg-[var(--bg,white)]">
@@ -29,8 +31,8 @@ export default function VisionPlatformPage() {
           </div>
 
           <div className="lg:col-span-5 px-4 lg:px-8">
-            <div className="w-full rounded-lg overflow-hidden shadow-lg bg-white">
-              <img src={content.cameraIndustries.image} alt="machine" className="w-full h-64 sm:h-80 md:h-96 lg:h-[360px] object-cover hero-image-rounded" />
+              <div className="w-full rounded-lg overflow-hidden shadow-lg bg-white">
+              <img src={cam.image || ''} alt="machine" className="w-full h-64 sm:h-80 md:h-96 lg:h-[360px] object-cover hero-image-rounded" />
             </div>
           </div>
         </div>
@@ -51,7 +53,7 @@ export default function VisionPlatformPage() {
             <p className="text-[18px] text-gray-700 leading-relaxed mb-6">Our textile quality control hardware is engineered to handle the toughest demands of modern global fabric production — delivering consistent results you can trust on every roll.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {vision.features.map((f: string, idx: number) => (
+                {(vision.features || []).map((f: string, idx: number) => (
                 <div key={idx} className="flex items-start gap-3">
                   <div className="w-7 h-7 mt-1 flex-shrink-0 flex items-center justify-center">
                     <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
@@ -70,23 +72,23 @@ export default function VisionPlatformPage() {
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 px-4 lg:px-8">
-            <p className="text-sm text-[#02879f] font-medium uppercase tracking-wide mb-3">{content.cameraIndustries.title}</p>
-            <h3 className="text-2xl md:text-3xl lg:text-[56px] font-bold text-slate-900 mb-4">{content.cameraIndustries.title}</h3>
+            <p className="text-sm text-[#02879f] font-medium uppercase tracking-wide mb-3">{cam.title || ''}</p>
+            <h3 className="text-2xl md:text-3xl lg:text-[56px] font-bold text-slate-900 mb-4">{cam.title || ''}</h3>
             <div className="text-[18px] text-gray-700 mb-6 max-w-2xl space-y-4">
-              {Array.isArray(content.cameraIndustries.description) ? (
-                content.cameraIndustries.description.map((p: string, i: number) => (
+              {Array.isArray(cam.description) ? (
+                cam.description.map((p: string, i: number) => (
                   <p key={i}>{p}</p>
                 ))
               ) : (
-                <p>{content.cameraIndustries.description}</p>
+                <p>{cam.description || ''}</p>
               )}
             </div>
             <a href="/contact" className="inline-flex items-center px-5 py-2 rounded bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white shadow">Learn More</a>
           </div>
 
           <div className="lg:col-span-5 px-4 lg:px-8">
-            <div className="w-full rounded-lg overflow-hidden shadow-lg bg-white">
-              <img src={content.cameraIndustries.image} alt="camera-industries" className="w-full h-64 sm:h-72 md:h-80 lg:h-[360px] object-cover hero-image-rounded" />
+              <div className="w-full rounded-lg overflow-hidden shadow-lg bg-white">
+              <img src={cam.image || ''} alt="camera-industries" className="w-full h-64 sm:h-72 md:h-80 lg:h-[360px] object-cover hero-image-rounded" />
             </div>
           </div>
         </div>

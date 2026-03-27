@@ -58,19 +58,19 @@ export default function Careers() {
   return (
     <section
       aria-label="Careers"
-      className="relative overflow-hidden bg-white"
-      style={isDesktop ? { height: `${footerHeight}px` } : undefined}
+      className="relative overflow-hidden bg-[var(--site-header-bg)]"
+      style={isDesktop ? { height: '220px' } : undefined}
     >
       <div className="relative h-full w-full px-4">
         <div className="max-w-7xl mx-auto h-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-10 py-6 md:py-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-black">{careers.title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">{careers.title}</h2>
 
           <div className="md:justify-self-end w-full max-w-md md:max-w-lg">
-            <p className="text-base md:text-lg leading-relaxed text-black">
+            <p className="text-base md:text-lg leading-relaxed text-white">
               {careers.description}
             </p>
-            <Button asChild className="mt-4 bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white" size="lg">
-              <a href={careers.ctaHref} className="inline-flex w-full sm:w-auto items-center justify-center px-6">{careers.ctaLabel}</a>
+            <Button asChild className="mt-4 bg-white" size="lg">
+              <a href={careers.ctaHref} className="inline-flex w-full sm:w-auto items-center justify-center px-6" style={{ color: 'rgb(5,3,42)' }}>{careers.ctaLabel}</a>
             </Button>
           </div>
         </div>

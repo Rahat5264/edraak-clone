@@ -260,6 +260,7 @@ export default function Navigation() {
 
               const linkHref = `${targetPath}${targetHash}`
               const isActive = normalizeHref(activeHref) === normalizeHref(linkHref)
+              const isVision = (item.label || '').toString().trim().toLowerCase() === 'vision platform' || (targetPath || '').toLowerCase() === '/vision-platform'
 
               const handleClick = async (e: React.MouseEvent) => {
                 setUserClickedAnchor(true)
@@ -304,9 +305,12 @@ export default function Navigation() {
                 <Link
                   key={item.label}
                   href={linkHref}
-                  className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''}`}
+                  className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''} ${isVision ? 'vision-link' : ''}`}
                   onClick={handleClick}
-                  style={{ color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.9)' }}
+                  style={{
+                    color: isVision ? '#02E3DF' : (isActive ? '#02E3DF' : 'rgba(255,255,255,0.9)'),
+                    fontSize: isVision ? '18px' : undefined
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -333,6 +337,7 @@ export default function Navigation() {
 
               const mobileLinkHref = `${targetPath}${targetHash}`
               const isActive = normalizeHref(activeHref) === normalizeHref(mobileLinkHref)
+              const isVision = (item.label || '').toString().trim().toLowerCase() === 'vision platform' || (targetPath || '').toLowerCase() === '/vision-platform'
 
               const handleClick = (e: React.MouseEvent) => {
                 setMobileMenuOpen(false)
@@ -352,8 +357,11 @@ export default function Navigation() {
                   key={item.label}
                   href={`${targetPath}${targetHash}`}
                   onClick={handleClick}
-                  className={`block text-sm font-medium py-2 ${isActive ? 'active' : ''}`}
-                  style={{ color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.95)' }}
+                  className={`block text-sm font-medium py-2 ${isActive ? 'active' : ''} ${isVision ? 'vision-link' : ''}`}
+                  style={{
+                    color: isVision ? '#02E3DF' : (isActive ? '#02E3DF' : 'rgba(255,255,255,0.95)'),
+                    fontSize: isVision ? '18px' : undefined
+                  }}
                 >
                   {item.label}
                 </Link>

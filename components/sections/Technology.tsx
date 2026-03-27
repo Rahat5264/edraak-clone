@@ -5,20 +5,23 @@ import content from '@/data/content.json'
 
 export default function Technology() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const tech = content?.technology || {}
 
   const tabs = useMemo(() => {
-    const labels = content.technology?.tabLabels || []
+    const labels = tech.tabLabels || []
 
-    const introText = content.visionSystem?.description?.[0] || content.technology.description
-    const items = content.technology?.items || []
-    const cameraImages = content.cameraIndustries?.images || []
+    // Section intro should come from the technology block; fallback to visionSystem if missing
+    const introText = tech.description || content?.visionSystem?.description?.[0] || ''
+    const items = tech.items || []
+    const cameraImages = content?.cameraIndustries?.images || []
 
     return labels.map((label, idx) => {
       const primaryImage = items[idx]?.image || cameraImages[idx] || '/placeholder.jpg'
 
       return {
         title: label,
-        description: idx === 0 ? introText : items[idx]?.description || introText,
+        // Each tab shows its corresponding item's description (if present)
+        description: items[idx]?.description || '',
         image: primaryImage,
       }
     })
@@ -39,8 +42,8 @@ export default function Technology() {
   return (
     <section id="technology" className="bg-[var(--site-header-bg)] text-white px-4 py-12 md:py-16 md:min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto w-full">
-        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold tracking-tight mb-4 text-white">{content.technology.title}</h2>
-        <p className="text-white/90 max-w-3xl text-base md:text-lg leading-relaxed">{content.visionSystem?.description?.[0] || content.technology.description}</p>
+        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold tracking-tight mb-4 text-white">{tech.title || ''}</h2>
+        <p className="text-white/90 max-w-3xl text-base md:text-lg leading-relaxed">{tech.description || content?.visionSystem?.description?.[0] || ''}</p>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[280px_1fr] lg:gap-10 items-start">
           <div className="flex flex-col gap-2">

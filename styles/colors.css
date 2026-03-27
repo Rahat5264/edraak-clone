@@ -43,3 +43,9 @@
     color: #02E3DF !important;
 }
 
+/* Force Vision Platform nav link appearance regardless of header-wide !important rules */
+.site-header a.vision-link {
+	color: #02E3DF !important;
+	font-size: 18px !important;
+}
+

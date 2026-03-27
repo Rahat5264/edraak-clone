@@ -14,7 +14,7 @@ export default function ContactPage() {
             <div className="lg:col-span-8 px-4 lg:px-8 text-left">
               <p className="text-base sm:text-lg md:text-xl text-white/90 tracking-wide">{(content.contact && content.contact.description) || ''}</p>
 
-              <h1 className="mt-3 text-3xl sm:text-4xl md:text-[44px] lg:text-[44px] leading-tight tracking-tight text-white font-extrabold">{content.contact.title}</h1>
+              <h1 className="mt-3 text-3xl sm:text-4xl md:text-[44px] lg:text-[44px] leading-tight tracking-tight text-white font-extrabold">{content?.contact?.title || ''}</h1>
 
               <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 items-center" />
             </div>

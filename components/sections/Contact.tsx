@@ -8,6 +8,8 @@ import content from '@/data/content.json'
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const c = content?.contact || {}
+  const offices = content?.offices || { items: [] }
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -22,22 +24,22 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-[var(--card)] p-8 rounded-3xl border" style={{ borderColor: 'var(--border)' }}>
-            <h3 className="text-xl font-bold mb-4">{content.contact.panelTitle}</h3>
+            <h3 className="text-xl font-bold mb-4">{c.panelTitle || ''}</h3>
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
-                <Input placeholder={content.contact.form.firstName} className="bg-[var(--input)] text-[var(--foreground)]" />
-                <Input placeholder={content.contact.form.lastName} className="bg-[var(--input)] text-[var(--foreground)]" />
+                <Input placeholder={c.form?.firstName || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+                <Input placeholder={c.form?.lastName || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
               </div>
 
-              <Input type="email" placeholder={content.contact.form.email} className="bg-[var(--input)] text-[var(--foreground)]" />
-              <Input type="tel" placeholder={content.contact.form.phone} className="bg-[var(--input)] text-[var(--foreground)]" />
-              <Textarea placeholder={content.contact.form.message} rows={5} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Input type="email" placeholder={c.form?.email || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Input type="tel" placeholder={c.form?.phone || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Textarea placeholder={c.form?.message || ''} rows={5} className="bg-[var(--input)] text-[var(--foreground)]" />
 
-              <Button type="submit" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white font-normal">{content.contact.form.submit}</Button>
+              <Button type="submit" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white font-normal">{c.form?.submit || ''}</Button>
 
               {formSubmitted && (
                 <div className="p-3 rounded-lg bg-[#02879f]/10 border border-[#02879f]/20 text-[#02879f] text-sm">
-                  {content.contact.successMessage}
+                  {c.successMessage || ''}
                 </div>
               )}
             </form>
@@ -45,13 +47,13 @@ export default function Contact() {
 
           <div className="relative bg-[var(--card)] p-0 rounded-3xl border overflow-hidden" style={{ borderColor: 'var(--border)' }}>
             <div className="p-2 md:p-3">
-              <h3 className="text-xl font-bold mb-0">{content.contact.map.title}</h3>
-              <p className="text-sm text-gray-600 mb-1">{content.contact.map.description}</p>
+              <h3 className="text-xl font-bold mb-0">{c.map?.title || ''}</h3>
+              <p className="text-sm text-gray-600 mb-1">{c.map?.description || ''}</p>
             </div>
 
-            {content.offices && content.offices.items && content.offices.items.length > 0 ? (
+            {offices && offices.items && offices.items.length > 0 ? (
               (() => {
-                const office = content.offices.items[0]
+                const office = offices.items[0]
                 let mapSrc = ''
                 const hasEmbed = office.embedUrl && office.embedUrl.includes('/maps/embed')
                 const externalMapLink = office.externalLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((office.name || '') + ' ' + (office.address || office.city || ''))}`
@@ -77,8 +79,8 @@ export default function Contact() {
 
                     {externalMapLink && (
                       <div className="px-3 md:px-4">
-                        <a href={externalMapLink} target="_blank" rel="noopener noreferrer" className="text-sm text-[#02879f] underline">{content.contact.map.openInMapsLabel}</a>
-                      </div>
+                          <a href={externalMapLink} target="_blank" rel="noopener noreferrer" className="text-sm text-[#02879f] underline">{c.map?.openInMapsLabel || ''}</a>
+                        </div>
                     )}
 
                     <div className="h-[240px] md:h-[300px] w-full relative">

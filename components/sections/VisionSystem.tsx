@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react'
 
 export default function VisionSystem() {
   const scrollRef = useRef<HTMLDivElement | null>(null)
+  const v = content?.visionSystem || {}
 
   useEffect(() => {
     const el = scrollRef.current
@@ -29,26 +30,26 @@ export default function VisionSystem() {
   return (
     <section id="vision" className="py-12 md:py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold mb-4 text-primary">{content.visionSystem.title}</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold mb-4 text-primary">{v.title || ''}</h2>
 
         <div className="max-w-3xl mx-auto text-gray-600 mb-8 text-lg leading-relaxed">
-          {Array.isArray(content.visionSystem.description)
-            ? content.visionSystem.description.map((para: string, i: number) => (
-                <p key={i} className={i === content.visionSystem.description.length - 1 ? '' : 'mb-4'}>
+          {Array.isArray(v.description)
+            ? v.description.map((para: string, i: number) => (
+                <p key={i} className={i === (v.description?.length || 0) - 1 ? '' : 'mb-4'}>
                   {para}
                 </p>
               ))
-            : <p>{content.visionSystem.description}</p>
+            : <p>{v.description || ''}</p>
           }
         </div>
 
         <div className="mx-auto w-full md:w-3/4 lg:w-2/3 bg-white rounded-lg shadow-lg overflow-hidden mb-8">
           <div className="aspect-video bg-gray-100">
-            <iframe
+              <iframe
               width="100%"
               height="100%"
-              src={content.visionSystem.videoUrl}
-              title="Edraak Vision System"
+              src={v.videoUrl || ''}
+              title={v.title || 'Edraak Vision System'}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -70,7 +71,7 @@ export default function VisionSystem() {
                 >
                   <div className="flex items-center h-full px-10 md:px-16 space-x-12 whitespace-nowrap">
                     <div className="inline-flex items-center space-x-12">
-                      {content.visionSystem.features.map((feature: string, idx: number) => (
+                      {(v.features || []).map((feature: string, idx: number) => (
                         <div key={idx} className="inline-flex items-center gap-3">
                           <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>
                           <span className="text-sm text-primary leading-snug">{feature}</span>
@@ -80,7 +81,7 @@ export default function VisionSystem() {
 
                     {/* duplicate for smooth looping */}
                     <div className="inline-flex items-center space-x-12">
-                      {content.visionSystem.features.map((feature: string, idx: number) => (
+                      {(v.features || []).map((feature: string, idx: number) => (
                         <div key={`dup-${idx}`} className="inline-flex items-center gap-3">
                           <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>
                           <span className="text-sm text-primary leading-snug">{feature}</span>

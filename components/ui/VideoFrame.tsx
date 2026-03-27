@@ -24,13 +24,17 @@ export default function VideoFrame({ src, title = 'Video', shadow = true }: Prop
               muted
               playsInline
               controls
+              controlsList="nodownload"
+              disablePictureInPicture
+              disableRemotePlayback
+              onContextMenu={(e) => e.preventDefault()}
               className="w-full h-full"
             />
           ) : (
             <iframe
               src={src}
               title={title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
               allowFullScreen
               className="w-full h-full"
             />

@@ -20,7 +20,7 @@
     "primaryCtaHref": "/products",
     "secondaryCtaLabel": "Contact Us",
     "secondaryCtaHref": "/contact",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "videoUrl": "https://db.edraaksystems.com/wp-content/uploads/2026/03/Quality-and-Tracebility-Solutions-4.mp4",
     "videoTitle": "Product video",
     "signup": {
       "title": "Subscribe now to get latest updates",
@@ -86,7 +86,7 @@
     "titleRest": "using High Speed camera system",
     "title": "Fabric Quality control using High Speed camera system",
     "description": [
-      "AI-powered, Ultra high-speed, High-precision, textile quality control"
+      "A quick overview of how we use technology to create impact in the industry."
     ],
     "videoUrl": "https://db.edraaksystems.com/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-16-at-10.13.02-AM.mp4",
     "features": [
@@ -319,51 +319,161 @@
   },
   "products": [
     {
-      "title": "FRS",
-      "subtitle": "Fault Registration System",
-      "category": "Textile & Apparel",
-      "desc": "A custom-built industrial keyboard designed specifically for factory use, with keys customized according to industrial faults and machine operations.",
-      "bullets": [
-        "Customized key layout based on machine faults and processes",
-        "Dedicated function keys for fast and accurate input",
-        "Color-coded keys to reduce operator errors",
-        "Rugged industrial design for continuous operation",
-        "Long-life keys suitable for harsh environments"
+      "title": "High Speed Inspection",
+      "subtitle": "EVS(Edraak Vision System)",
+      "category": "EVS(Edraak Vision System)",
+      "desc": "High-speed inspection module for fabric and material lines using EVS vision technology.",
+      "bullets": ["High frame-rate capture", "Defect classification", "Real-time marking"],
+      "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+      ]
+    },
+    {
+      "title": "On Loom Inspection",
+      "subtitle": "EVS(Edraak Vision System)",
+      "category": "EVS(Edraak Vision System)",
+      "desc": "On-loom inspection solution that integrates with weaving machines to detect defects early.",
+      "bullets": ["Edge embedding on looms", "Immediate operator alerts", "Lightweight integration"],
+      "img": "https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+        "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+      ]
+    },
+    {
+      "title": "Traceability System",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Complete traceability platform for bundle and piece-level tracking across production lines.",
+      "bullets": ["Bundle & piece-level tracking", "RFID and barcode support", "Dashboard & reports"],
+      "img": "https://images.unsplash.com/photo-1581091870622-2b2c5c2c2f53?w=1600&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1581091870622-2b2c5c2c2f53?w=800&q=80",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
       ],
-      "img": "https://picsum.photos/id/1011/1600/900"
+      "modules": [
+        "Processing Traceability",
+        "Planning Software",
+        "Audit Inspection",
+        "Fabric Batch Making",
+        "Processing",
+        "Lab Testing",
+        "Inspection"
+      ]
     },
     {
-      "title": "High-Speed Camera Module",
-      "subtitle": "Vision Hardware",
-      "category": "AI Vision System",
-      "desc": "Ultra high-speed camera module optimized for fabric inspection at production speed with micro-level accuracy.",
-      "bullets": ["High frame-rate imaging", "Low-light performance", "Industrial connectors", "Sync with encoder"],
-      "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600"
+      "title": "Processing Traceability",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Module for capturing and tracing processing steps across machines.",
+      "bullets": ["Step-level trace logs", "Operator tagging", "Sync with central DB"],
+      "img": "https://picsum.photos/seed/processing/1200/800",
+      "images": ["https://picsum.photos/seed/processing/800/600"]
     },
     {
-      "title": "RFID Tracking Unit",
-      "subtitle": "Traceability",
-      "category": "Traceability",
-      "desc": "Robust RFID readers and tags for bundle and piece-level tracking through the production line.",
-      "bullets": ["High read-range", "Durable tags", "Easy integration", "Real-time updates"],
-      "img": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600"
+      "title": "Planning Software",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Planning and scheduling module to optimize traceability workflows.",
+      "bullets": ["Order planning", "Batch grouping", "Schedule visualization"],
+      "img": "https://picsum.photos/seed/planning/1200/800"
     },
     {
-      "title": "Spectrophotometer Sensor",
-      "subtitle": "Color Control",
-      "category": "Color Control",
-      "desc": "Inline color measurement to detect shade variations and ensure color consistency.",
-      "bullets": ["Accurate color readings", "Fast sampling", "API integration"],
-      "img": "https://picsum.photos/id/1031/1600/900"
+      "title": "Audit Inspection",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Audit tools for on-floor inspections and compliance checks.",
+      "bullets": ["Checklist driven audits", "Non-conformance logs", "Reports & sign-off"],
+      "img": "https://picsum.photos/seed/audit/1200/800"
     },
     {
-      "title": "Cutting Optimization Module",
-      "subtitle": "Optimization",
-      "category": "Optimization",
-      "desc": "Software and hardware combined module to optimize cutting plans and reduce fabric waste.",
-      "bullets": ["AI-driven layouts", "Integration with inspection system", "Yield reports"],
-      "img": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1600"
+      "title": "Fabric Batch Making",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Batch making module to combine rolls into traceable batches.",
+      "bullets": ["Batch IDs", "Composition tracking", "Batch-level QC"],
+      "img": "https://picsum.photos/seed/batch/1200/800"
+    },
+    {
+      "title": "Processing",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Processing module for recording finishing and chemical treatments.",
+      "bullets": ["Process parameters", "Operator notes", "Time-stamped logs"],
+      "img": "https://picsum.photos/seed/processing2/1200/800"
+    },
+    {
+      "title": "Lab Testing",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Lab testing integration for material sampling and test reports.",
+      "bullets": ["Sample tracking", "Result import", "Certificate generation"],
+      "img": "https://picsum.photos/seed/lab/1200/800"
+    },
+    {
+      "title": "Inspection",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "desc": "Inspection module providing visual and sensor-based QC integration.",
+      "bullets": ["Inspection logs", "Image attachments", "Defect classification"],
+      "img": "https://picsum.photos/seed/inspection/1200/800"
+    },
+    {
+      "title": "Weft Straighter",
+      "subtitle": "Accessories",
+      "category": "Accessories",
+      "desc": "Weft straightening hardware for better fabric alignment before inspection.",
+      "bullets": ["Easy mount", "Low maintenance"],
+      "img": "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=1600&q=80"
+    },
+    {
+      "title": "Labelling System",
+      "subtitle": "Accessories",
+      "category": "Accessories",
+      "desc": "Automatic labelling system to mark defects and batches.",
+      "bullets": ["Fast label printing", "Adhesive options"],
+      "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80"
+    },
+    {
+      "title": "Width Measurement System",
+      "subtitle": "Accessories",
+      "category": "Accessories",
+      "desc": "Inline width measurement sensors for continuous width monitoring.",
+      "bullets": ["High accuracy", "Alarm on deviation"],
+      "img": "https://picsum.photos/seed/width/1200/800"
+    },
+    {
+      "title": "On Line Moisture System",
+      "subtitle": "Accessories",
+      "category": "Accessories",
+      "desc": "Moisture sensing for wet processes and drying control.",
+      "bullets": ["Non-contact sensing", "Continuous logging"],
+      "img": "https://picsum.photos/seed/moisture/1200/800"
+    },
+    {
+      "title": "Spectro Photometer",
+      "subtitle": "Accessories",
+      "category": "Accessories",
+      "desc": "Handheld spectrophotometer for color checks and QC.",
+      "bullets": ["Accurate delta E", "Portable"],
+      "img": "https://picsum.photos/seed/spectro/1200/800"
+    },
+    {
+      "title": "Trading - Products / Services",
+      "subtitle": "Trading",
+      "category": "Trading",
+      "desc": "Trading services — products and services can be added as per requirement.",
+      "bullets": ["Custom sourcing", "After-sales support"],
+      "img": "https://picsum.photos/seed/trading/1200/800"
     }
+  ],
+  "productCategoriesOrder": [
+    "EVS(Edraak Vision System)",
+    "Traceability System",
+    "Accessories",
+    "Trading"
   ],
   "productsHero": {
     "subtitle": "Our Products",
@@ -376,62 +486,66 @@
   },
   "technology": {
     "title": "Technology Domains",
-    "description": "Camera Vision, Automation, Artificial Intelligence, RFID, IoT, Machine Learning, Big Data, Embedded Systems, Automations",
+    "description": "A quick overview of how we use technology to create impact in the industry.",
     "tabLabels": [
       "Artificial Intelligence",
       "Computer Vision",
-      "RFID Technologies",
-      "Spectroscopy",
-      "Data & Business Analytics",
+      "Robotics",
+      "Spectrophotometer",
+      "RFID & Barcoding",
       "Energy Monitoring",
-      "Robotics"
+      "Data & Business Analytics"
     ],
     "items": [
       {
-        "title": "Fabric Cutting Optimization - Wastage Reduction",
-        "description": "Using Artificial Intelligence to plan the cutting of the fabric based on the distribution of the faults, this helps avoid any short pieces & excessive fabric waste.",
+        "title": "Artificial Intelligence",
+        "description": "Cut plan optimization leverages AI to analyze fabric quality, defects, and order constraints, generating efficient layouts that minimize wastage, improve yield, and ensure consistent decision-making across production processes.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/7f056ae68bfcfdfe2ccc91083e0797aa4a786fc0-scaled.png",
         "link": "https://www.google.com/search?tbm=isch&q=Fabric+Cutting+Optimization"
       },
       {
-        "title": "Spectrophotometer",
-        "description": "A spectrometer measures light across different wavelengths to analyze color and material composition. It helps detect variations in color or chemical properties, enabling precise quality control and consistent production in industrial processes.",
+        "title": "Computer Vision",
+        "description": "Our computer vision platform learns fabric patterns and detects defects in real time, enabling automated inspection, high-speed monitoring, and consistent quality control without reliance on manual human inspection.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-scaled.png",
-        "link": "https://www.google.com/search?tbm=isch&q=Spectrophotometer"
-      },
-      {
-        "title": "Real Time Width Monitoring",
-        "description": "Fabric width data is crucial in fabric production, aiding in both shrinkage control and final quality assurance. The system streamlines the width measurement process, saving time and effectively adding an extra day's worth of production each month."
-      ,
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/4ef864cde094714d11b4698933c9a79d0654eb90.png",
-        "link": "https://www.google.com/search?tbm=isch&q=Real+Time+Width+Monitoring"
-      },
-      {
-        "title": "Production Tracking in Apparel/Stitching",
-        "description": "Calculating real-time production capacity in planning lines is challenging with simultaneous operations, styles, and personnel, making floor visibility difficult. Edraak accurately enables precise tracking, wage calculation, and production planning."
-      ,
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/76266cd6265e8d0d42022acac36803c53261cae8.png",
-        "link": "https://www.google.com/search?tbm=isch&q=Production+Tracking+Apparel+Stitching"
-      },
-      {
-        "title": "Fabric Tracking and Seam Detection",
-        "description": "Using high speed vision technologies, Edraak Systems offers cutting edge solution to detect seams and barcodes from moving on any processing machines and at any speed. This ensures traceability and accurate cost calculations."
-      ,
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/e46c30b8b3de85481eb81a268d6b400d52af0194.png",
         "link": "https://www.google.com/search?tbm=isch&q=Fabric+Tracking+Seam+Detection"
       },
       {
-        "title": "Data Analysis & Business Analytics",
-        "description": "Gathering data from various sources, including existing and proprietary ones, to develop a more powerful decision-making engine."
-      ,
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png",
-        "link": "https://www.google.com/search?tbm=isch&q=Data+Analysis+Business+Analytics"
-      },
-      {
         "title": "Robotics",
-        "description": "Robotics-enabled automation supports precise, repeatable industrial operations and integrates with vision and data systems for smarter execution.",
+        "description": "Robotic systems enable precise marking and removal of defective areas, reducing manual intervention, improving accuracy, and ensuring seamless integration with inspection and cutting processes for higher operational efficiency.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/d393d14be34baf192609b2e7c5487a7ba973a078.png",
         "link": "https://www.google.com/search?tbm=isch&q=industrial+robotics+automation"
+      },
+      {
+        "title": "Spectrophotometer",
+        "description": "Spectrophotometer-based monitoring detects subtle color variations during production, ensuring consistency across batches, reducing rejections, and minimizing line losses caused by shade mismatches or dyeing inconsistencies.",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/76266cd6265e8d0d42022acac36803c53261cae8.png",
+        "link": "https://www.google.com/search?tbm=isch&q=Spectrophotometer"
+      },
+      {
+        "title": "RFID & Barcoding",
+        "description": "RFID and barcoding systems track production in real time, enabling precise material identification, process visibility, and root cause analysis by linking defects, operators, and machines across the manufacturing workflow.",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/4ef864cde094714d11b4698933c9a79d0654eb90.png",
+        "link": "https://www.google.com/search?tbm=isch&q=Production+Tracking+Apparel+Stitching"
+      },
+      {
+        "title": "Energy Monitoring",
+        "description": "Energy monitoring systems capture real-time consumption data across machines, enabling accurate costing, identifying inefficiencies, and supporting data-driven decisions to optimize energy usage and reduce operational expenses.",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png",
+        "link": "https://www.google.com/search?tbm=isch&q=Real+Time+Width+Monitoring"
+      }
+      ,
+      {
+        "title": "Data & Business Analytics",
+        "description": "Gathering data from various sources, including existing and proprietary ones, to develop a more powerful decision-making engine that turns inspection, production, and energy data into actionable insights.",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/e46c30b8b3de85481eb81a268d6b400d52af0194.png",
+        "link": "https://www.google.com/search?tbm=isch&q=Data+Analysis+Business+Analytics"
+      }
+      ,
+      {
+        "title": "Data & Business Analytics",
+        "description": "Gathering data from various sources, including existing and proprietary ones, to develop a more powerful decision-making engine that turns inspection, production, and energy data into actionable insights.",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png",
+        "link": "https://www.google.com/search?tbm=isch&q=Data+Analysis+Business+Analytics"
       }
     ]
   },
@@ -447,12 +561,12 @@
       },
       {
         "title": "Fabric Color Sensors",
-        "description": "Spectrometers, installed on your machines helps you identify color and shade variation issues at the fabric stage.",
+        "description": "Spectrometers, installed on your machines helps you identify color and shade variation issues at the production stage.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/Rectangle-9371.png"
       },
       {
         "title": "Sewing Traceability & QC",
-        "description": "Bundle Flow or Single piece, we got you covered. Equipped with latest IoT device installed on each machines. We can track your production while in production using RFIDs or Barcodes.",
+        "description": "Bundle Flow or Single piece, we got you covered. Equipped with latest IoT device installed on each machines. We can log production & quality data.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/904d337b6c085e8bba065345dc9e943d6e6b309b.png"
       },
       {
@@ -467,7 +581,7 @@
       },
       {
         "title": "Digital Data Loggers",
-        "description": "Industrial grade digital data loggers to allow users to input data manually and also assisted with automation data.",
+        "description": "Industrial grade digital data loggers to allow users to input data manually and Also link machine & sensors.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/7416f4777e551f66832b6b56d8cb72b658e09b48-scaled.png"
       }
     ]
@@ -555,10 +669,7 @@
       "links": [
         { "label": "Home", "href": "#" },
         { "label": "About Us", "href": "#" },
-        { "label": "Quality Policy", "href": "https://db.edraaksystems.com/wp-content/uploads/2024/02/Quality-Policy-1.pdf" },
-        { "label": "Careers", "href": "#" },
-        { "label": "Case Studies", "href": "#" },
-        { "label": "Clients Feedback", "href": "#" }
+        { "label": "Careers", "href": "#" }
       ]
     },
     "products": [
@@ -576,42 +687,9 @@
       { "label": "System Analysis & Advisory", "href": "#" }
     ],
     "legal": [
+      { "label": "Quality Policy", "href": "https://db.edraaksystems.com/wp-content/uploads/2024/02/Quality-Policy-1.pdf" },
       { "label": "Terms & Conditions", "href": "/terms-and-conditions" },
       { "label": "Privacy Policy", "href": "/privacy-policy" }
     ]
-  }
-  ,
-  "legalPages": {
-    "privacyPolicy": {
-      "title": "Privacy Policy",
-      "content": [
-        "Throughout this site, there are several areas where we collect information, including name, title, company name, address, telephone number, fax number, e-mail address, department, industry, country, city, state, and zip code. In some instances, we may verify or combine this information with data that has been previously obtained. This information, where noted, will not be saved or recorded except for EDRAAK SYSTEMS' own use.",
-        "We compile and use this information to complete transactions and keep our customers apprised of new products, product enhancements, and services.",
-        "The information we collect is never sold, rented, leased, traded, swapped, marketed, exchanged, bartered, distributed, or disclosed in any way. We don’t like to receive junk mail or spam and know our customers don’t either.",
-        "We also want to make sure the information we have collected is up-to-date and accurate. If there are inaccuracies please e-mail the correct information to mail@edraaksystems.com"
-      ]
-    },
-    "termsAndConditions": {
-      "title": "Terms & Conditions",
-      "content": [
-        "Acceptance of Terms and Conditions: The following are terms of a legal agreement between any user of this web site ('User') and Edraak Systems. By accessing, browsing or using this web site (the 'Site') the User agrees to be bound by these access terms and conditions. The material provided on or accessed by way of this Site is protected by law, including without limitation, United States copyright laws and international treaties. This Site is controlled or operated by Edraak Systems from its offices in Lahore Pakistan.",
-        "A User who accesses this Site from anywhere does so on his/her own initiative and is separately responsible for compliance with any applicable local law on internet usage and web site access.",
-        "Information on this Site may contain inaccuracies or typographical errors, and Edraak Systems assumes no liability for and reserves the right to correct such inaccuracies or errors at any time. Edraak Systems may also make changes, updates and improvements to this Site or these access terms and conditions, at any time without notice.",
-        "Links to Third-Party Web Sites: This Site may contain links to third-party web sites. Such linked websites are not under the control of Edraak Systems, and Edraak Systems assumes no responsibility for the contents of any such linked web site, any link contained in a linked web site, any changes or updates to such linked web sites, or any material transmitted or downloaded from any linked web site. Edraak Systems is providing these links to third-party web sites solely as a convenience to User, and the inclusion of such links do not imply endorsement by Edraak Systems of those third-party web sites.",
-        "Use Restrictions: The copyright in all material (including still and moving images) provided, maintained or accessible on this Site is held by Edraak Systems or by the original creator of the material or its assignee. Except as stated herein, none of this material may be copied, reproduced, distributed, republished, downloaded, displayed, posted or transmitted in any form or by any means, including without limitation, by electronic, mechanical, photocopying or other recording means, without the prior written permission of Edraak Systems or the appropriate copyright owner. Users also may not, without prior written permission from Edraak Systems, 'mirror' any material contained in this Site, perform 'deep links' or use any Trademark as a metatag relative to any other web site.",
-        "Disclaimer of Warranty: THE MATERIALS MAINTAINED ON OR ACCESSED BY WAY OF THIS SITE ARE PROVIDED 'AS IS' WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT OR OTHER VIOLATION OF RIGHTS. Edraak Systems DOES NOT WARRANT OR MAKE ANY REPRESENTATIONS REGARDING THE USE, VALIDITY, ACCURACY, OR RELIABILITY OF, OR THE RESULTS OF ANY USE OF, OR OTHERWISE RESPECTING, THE MATERIALS MAINTAINED ON OR ACCESSED BY WAY OF THIS SITE OR ANY WEB SITE LINKED TO THIS SITE.",
-        "Limitation of Liability: UNDER NO CIRCUMSTANCE (INCLUDING NEGLIGENCE AND TO THE FULLEST EXTEND PERMITTED BY APPLICABLE LAW) WILL Edraak Systems BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL DAMAGES (INCLUDING WITHOUT LIMITATION, BUSINESS INTERRUPTION, DELAYS, LOSS OF DATA OR PROFIT) ARISING OUT OF THE USE OR THE INABILITY TO USE THE MATERIALS MAINTAINED ON OR ACCESSED BY WAY OF THIS SITE EVEN IF Edraak Systems HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IF USE OF SUCH MATERIALS RESULTS IN THE NEED FOR SERVICING, REPAIR OR CORRECTION OF USER EQUIPMENT OR DATA, USER ASSUMES ANY COSTS ASSOCIATED THEREWITH.",
-        "Applicable Laws: Any claim relating to this Site or the use of this Site and the materials contained or accessed by way thereof are governed exclusively by the laws of the State of Texas, United States of America, without regard to conflict of law principles.",
-        "Privacy Statement: This statement explains our practices regarding personal information you may supply to us when visiting an Edraak Systems web site.",
-        "Personal Information: Normally, you can visit a Edraak Systems web site without revealing any information about yourself. However, there are times when we may request information from you. Also, some web site functions may require you to complete a registration form. Most information requested will relate to the company that you work for or represent. However, sometimes we may request information specifically about you.",
-        "We may ask you to voluntarily provide us with demographic information for market research, as well as information about your interests and experiences with our products or that of your company or employer. Occasionally, we may share provided information and e-mail addresses with our affiliates and other reputable organizations whose products or services we think you may find interesting.",
-        "Information Security: We conduct our business in compliance with applicable laws on data privacy protection and data security and take reasonable precautions to keep all information obtained from our online visitors secure against unauthorized access and use. If needed to conduct electronic commerce, provided credit card numbers will be used only for payment processing and will not be disclosed to any other third parties.",
-        "Other Web Sites and Public Forums: Our web sites may contain links to other third-party web sites. Edraak Systems is not responsible for the privacy practices of those web sites. We also may make available forums, message boards and news groups to our customers. Please remember that any information disclosed in using those facilities may become public information or may be subject to separate disclosure and use rules, and you should exercise caution when deciding whether to disclose personal information.",
-        "Cookies - What is a Cookie?: A cookie is either a small text file that is stored on your hard drive or some information that is stored in memory until you close your browser. Edraak Systems web site may save information on your system in the form of cookies to provide you a more personalized browsing experience, access to a secure implementation, or to better track usage of Edraak Systems web site.",
-        "Cookies - What is its purpose?: Edraak Systems web site may allow you to register or choose personalization options so that you can be directed dynamically to information on the web pages that suits your interest. By using a cookie, the web site automatically can read your preferences and customize the web pages without any action on your part. Other areas of Edraak Systems web site may require you to login. In those cases, your username may be stored in a cookie so that the username field automatically can be filled in for you on subsequent visits. If you set your browser not to accept these cookies, your access to or use of certain pages or functionality on Edraak Systems web site may be restricted. Please refer to the informational web site for the Internet browser that you use for more information on cookies.",
-        "General Terms and Conditions of Sale: These general terms and conditions of sale only apply to purchases of Edraak Systems branded products and related services made directly from Edraak Systems. Purchases made from appointed distributors or other independent resellers will be subject to terms and conditions of sale as may be separately established by each such distributor or reseller, which will in no event be binding upon Edraak Systems unless otherwise expressly agreed to. However, Edraak Systems extends its standard Manufacturer’s Warranty to customers purchasing Edraak Systems branded products and related services from their local authorized Edraak Systems distributor. Such Manufacturer’s Warranty is in lieu of all other warranties, which are expressly disclaimed.",
-        "General: These general terms and conditions of sale (along with any associated written specification, quotation and/or supplemental terms and conditions provided by Seller) exclusively will govern the sale or licensing by Seller of all goods and services (including without limitation, hardware, firmware and software products, training, programming, maintenance, engineering, and services – hereinafter, 'Products') furnished to Buyer hereunder, whether such sale or licensing is effected by paper-based transactions or via facsimile or other forms of electronic data interchange ('EDI') or electronic commerce, and represents the entire agreement between Buyer and Seller with respect thereto. Buyer’s receipt or acceptance of delivery of any of the Products ordered or purchased hereunder will constitute its acceptance of these terms and conditions. No addition or modification to these terms and conditions will be binding on Seller unless agreed to in writing signed by an authorized representative at Seller’s headquarters. Seller objects to and rejects other terms and conditions that may be proposed by Buyer or that appear on or are referenced in Buyer’s purchase order or requisition that are in addition to or otherwise not consistent with the terms and conditions set forth or referenced herein."
-      ]
-    }
   }
 }

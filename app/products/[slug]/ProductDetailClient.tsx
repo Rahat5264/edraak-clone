@@ -1,0 +1,136 @@
+"use client"
+
+import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+
+function slugify(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
+export default function ProductDetailClient() {
+  const pathname = usePathname() || ''
+  const parts = pathname.split('/').filter(Boolean)
+  const slug = parts[parts.length - 1] || ''
+
+  const [content, setContent] = useState<any | null>(null)
+  const [prod, setProd] = useState<any | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let mounted = true
+    setLoading(true)
+    fetch('/api/content')
+      .then(r => r.json())
+      .then(c => {
+        if (!mounted) return
+        setContent(c)
+        const products = Array.isArray(c.products) ? c.products : []
+        const found = products.find((p: any) => {
+          const s = slugify(p.title || '')
+          if (!slug) return false
+          if (s === slug) return true
+          if ((p.title || '').toString().toLowerCase() === decodeURIComponent(slug || '').toLowerCase()) return true
+          return false
+        })
+        setProd(found || null)
+      })
+      .catch(() => { if (mounted) setContent(null) })
+      .finally(() => { if (mounted) setLoading(false) })
+    return () => { mounted = false }
+  }, [slug])
+
+  if (loading) return <div className="p-8">Loading…</div>
+  if (!content) return <div className="p-8">Could not load content</div>
+  if (!prod) {
+    const available = (Array.isArray(content.products) ? content.products : []).map((p: any) => slugify(p.title || ''))
+    return (
+      <div className="p-8">
+        <h2 className="text-xl font-semibold mb-2">Product not found</h2>
+        <p className="mb-2">Requested slug: <strong>{slug || '(empty)'}</strong></p>
+        <p className="mb-2">Decoded slug: <strong>{(() => { try { return decodeURIComponent(slug || '') } catch (e) { return '(decode error)' } })()}</strong></p>
+        <p className="mb-2">Available product slugs:</p>
+        <ul className="list-disc pl-6">
+          {available.map(s => <li key={s}><code>{s}</code></li>)}
+        </ul>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-white py-12">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2">
+            <div className="rounded-md overflow-hidden shadow-md">
+              <img src={(prod.img || (prod.images && prod.images[0]) || '')} alt={prod.title} className="w-full h-80 object-cover" />
+            </div>
+
+            <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
+            {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
+
+            {prod.desc && (
+              <div className="mt-4 text-lg text-slate-700 space-y-4">
+                {typeof prod.desc === 'string' ? <p>{prod.desc}</p> : (Array.isArray(prod.desc) ? prod.desc.map((d: string, i: number) => <p key={i}>{d}</p>) : null)}
+              </div>
+            )}
+
+            {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Key points</h4>
+                <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                  {prod.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}
+                </ul>
+              </div>
+            )}
+
+            {Array.isArray(prod.modules) && prod.modules.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Modules</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {prod.modules.map((m: string, i: number) => (
+                    <div key={i} className="p-3 border bg-slate-50" style={{ borderRadius: 0 }}>
+                      {m}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="mt-8 flex gap-3">
+              <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
+              <a href={`mailto:sales@edraaksystems.com?subject=Product%20Inquiry:%20${encodeURIComponent(prod.title)}`} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Inquiry</a>
+            </div>
+          </div>
+
+          <aside className="lg:col-span-1">
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm font-medium text-slate-700">Category</p>
+                <p className="text-sm" style={{ color: 'rgb(5,3,42)' }}>{prod.category || prod.subtitle || '—'}</p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium text-slate-700">Gallery</h4>
+                <div className="grid grid-cols-3 gap-2 mt-2">
+                  {((prod.images && Array.isArray(prod.images) && prod.images) || []).length > 0 ? (
+                    prod.images.map((u: string, i: number) => (
+                      <div key={i} className="h-20 w-full overflow-hidden rounded-md bg-gray-100">
+                        <img src={u} alt={`${prod.title}-${i}`} className="w-full h-full object-cover" />
+                      </div>
+                    ))
+                  ) : (
+                    <div className="h-20 w-full overflow-hidden rounded-md bg-gray-100">
+                      <img src={prod.img} alt={prod.title} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                </div>
+              </div>
+
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  )
+}
