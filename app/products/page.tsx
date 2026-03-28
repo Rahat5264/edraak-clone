@@ -1,8 +1,10 @@
+
 "use client"
+export const dynamic = 'force-dynamic'
 
 import Link from 'next/link'
 import { useMemo, useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import content from '@/data/content.json'
 
 function slugify(s: string) {
@@ -12,13 +14,9 @@ function slugify(s: string) {
 export default function ProductsPage() {
   const products = Array.isArray(content.products) ? content.products : []
   const router = useRouter()
-  const searchParams = useSearchParams()
 
   const [query, setQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string | null>(() => {
-    // prefer explicit URL query param, fallback to sessionStorage for mobile/back navigation
-    const fromUrl = searchParams?.get('category') ?? null
-    if (fromUrl) return fromUrl
     try {
       const fromStorage = typeof window !== 'undefined' ? sessionStorage.getItem('products:selectedCategory') : null
       return fromStorage
@@ -59,18 +57,25 @@ export default function ProductsPage() {
 
   // smooth UI transition when switching categories or query
   const changeCategory = (cat: string | null) => {
+    // fade out, switch category, then fade in
     setTransitioning(true)
     window.setTimeout(() => {
       setSelectedCategory(cat)
-      setTransitioning(false)
-    }, 160)
+      // allow DOM to update before fading in
+      window.setTimeout(() => setTransitioning(false), 200)
+    }, 200)
   }
 
   useEffect(() => {
-    // trigger a short transition when query changes
+    // when query changes, do the same fade-out / fade-in sequence
+    if (query === undefined) return
     setTransitioning(true)
-    const t = window.setTimeout(() => setTransitioning(false), 160)
-    return () => clearTimeout(t)
+    const t1 = window.setTimeout(() => {
+      const t2 = window.setTimeout(() => setTransitioning(false), 200)
+      // cleanup inner timeout if needed
+      return () => clearTimeout(t2)
+    }, 200)
+    return () => clearTimeout(t1)
   }, [query])
 
   // Inquiry modal state
@@ -124,11 +129,23 @@ export default function ProductsPage() {
   }, [query, selectedCategory])
 
   // keep selectedCategory in sync with URL search param (back/forward support)
+  // sync selectedCategory with URL params on mount and on back/forward
   useEffect(() => {
-    const cat = searchParams?.get('category') ?? null
-    if (cat !== selectedCategory) setSelectedCategory(cat)
+    const readCategoryFromUrl = () => {
+      try {
+        const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+        const cat = params ? params.get('category') : null
+        if (cat !== selectedCategory) setSelectedCategory(cat)
+      } catch (e) {
+        // ignore
+      }
+    }
+    readCategoryFromUrl()
+    const onPop = () => readCategoryFromUrl()
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams])
+  }, [])
 
   // persist selection to sessionStorage as a fallback for mobile navigation/back behavior
   useEffect(() => {
