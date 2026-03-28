@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 function slugify(s: string) {
@@ -16,6 +16,9 @@ export default function ProductDetailClient() {
   const [content, setContent] = useState<any | null>(null)
   const [prod, setProd] = useState<any | null>(null)
   const [loading, setLoading] = useState(true)
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const [backCategory, setBackCategory] = useState<string | null>(null)
 
   useEffect(() => {
     let mounted = true
@@ -39,6 +42,24 @@ export default function ProductDetailClient() {
       .finally(() => { if (mounted) setLoading(false) })
     return () => { mounted = false }
   }, [slug])
+
+  // determine a category to use for the Back link: prefer URL param, fallback to sessionStorage
+  useEffect(() => {
+    try {
+      const catFromUrl = searchParams?.get('category') ?? null
+      if (catFromUrl) {
+        setBackCategory(catFromUrl)
+        return
+      }
+      if (typeof window !== 'undefined') {
+        const catFromStorage = sessionStorage.getItem('products:selectedCategory')
+        if (catFromStorage) setBackCategory(catFromStorage)
+      }
+    } catch (e) {
+      // ignore
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams])
 
   if (loading) return <div className="p-8">Loading…</div>
   if (!content) return <div className="p-8">Could not load content</div>
@@ -75,6 +96,45 @@ export default function ProductDetailClient() {
               </div>
             )}
 
+            {prod.summary && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Summary</h4>
+                <p className="text-slate-700">{prod.summary}</p>
+              </div>
+            )}
+
+            {Array.isArray(prod.need) && prod.need.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Need</h4>
+                <ul className="list-disc pl-6 text-slate-700">
+                  {prod.need.map((n: string, i: number) => <li key={i}>{n}</li>)}
+                </ul>
+              </div>
+            )}
+
+            {prod.existingProcess && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Existing Process</h4>
+                <p className="text-slate-700">{prod.existingProcess}</p>
+              </div>
+            )}
+
+            {prod.proposedProcess && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Proposed Process</h4>
+                <p className="text-slate-700">{prod.proposedProcess}</p>
+              </div>
+            )}
+
+            {Array.isArray(prod.advantages) && prod.advantages.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Advantages</h4>
+                <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                  {prod.advantages.map((a: string, i: number) => <li key={i}>{a}</li>)}
+                </ul>
+              </div>
+            )}
+
             {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
               <div className="mt-6">
                 <h4 className="text-lg font-semibold mb-2">Key points</h4>
@@ -98,7 +158,7 @@ export default function ProductDetailClient() {
             )}
 
             <div className="mt-8 flex gap-3">
-              <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
+              <Link href={backCategory ? `/products?category=${encodeURIComponent(backCategory)}` : '/products'} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
               <a href={`mailto:sales@edraaksystems.com?subject=Product%20Inquiry:%20${encodeURIComponent(prod.title)}`} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Inquiry</a>
             </div>
           </div>

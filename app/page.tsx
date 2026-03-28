@@ -11,6 +11,7 @@ import Technology from '@/components/sections/Technology'
 import BlogSection from '@/components/sections/BlogSection'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
+import Careers from '@/components/sections/CareersWrapper'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <IndustrialUseCases />
       {/* <Partners /> */}
       <Technology />
+      <Careers />
       {/* <BlogSection /> */}
       {/* <Contact /> */}
       {/* Footer rendered by app/layout.tsx */}

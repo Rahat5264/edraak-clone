@@ -322,24 +322,62 @@
       "title": "High Speed Inspection",
       "subtitle": "EVS(Edraak Vision System)",
       "category": "EVS(Edraak Vision System)",
-      "desc": "High-speed inspection module for fabric and material lines using EVS vision technology.",
-      "bullets": ["High frame-rate capture", "Defect classification", "Real-time marking"],
-      "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80",
+      "summary": "An AI-powered camera inspection solution for production lines. It uses high-resolution cameras and advanced algorithms to scan fabrics in real time and accurately spot fabric defects.",
+      "need": [
+        "Frame with a system of high-speed rollers",
+        "High-speed inspection cameras",
+        "AI-powered software to analyse and identify the faults"
+      ],
+      "existingProcess": "Manual inspection running at a max of 40-45 m/min.",
+      "proposedProcess": "An AI-powered high-speed system running a maximum speed of 150 m/min for all types of fabric.",
+      "desc": "High-speed, AI-driven fabric inspection for production lines. EVS inspects fabric at-line or on-loom and provides real-time fault detection, marking, and reporting to reduce waste and speed up quality decisions.",
+      "greige": "EVS inspects greige (raw/unfinished) fabric straight from the loom, detecting defects such as knots, slubs, holes, broken yarns, thick/thin areas, and uneven weave in real time.",
+      "dyed": "EVS checks dyed fabrics for issues that appear after coloring, such as uneven dyeing (patchy or cloudy shades), stains, dye marks, streaks, and weave faults visible post-dye. Running at full production speed, it flags problems instantly for marking or removal, helping maintain uniform color quality.",
+      "denim": "EVS specializes in denim inspection, identifying streaks, holes, broken yarns, slubs, neps, barre marks, and finishing defects on the fly. In busy denim lines, it shortens manual checks and lowers rejection rates.",
+      "features": [
+        "Superhuman inspection speed with micro-level accuracy",
+        "High-resolution fabric imagery for advanced defect detection",
+        "Synchronized with cutting machines for efficient roll-making",
+        "Digital traceability and reduced reliance on manual inspection"
+      ],
+      "bullets": [
+        "AI-powered real-time defect detection",
+        "Up to 150 m/min inspection speed",
+        "High-speed roller frame and camera integration",
+        "Reporting, dashboarding and fault export"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-640x400.png",
       "images": [
-        "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-640x400.png"
       ]
     },
     {
       "title": "On Loom Inspection",
       "subtitle": "EVS(Edraak Vision System)",
       "category": "EVS(Edraak Vision System)",
-      "desc": "On-loom inspection solution that integrates with weaving machines to detect defects early.",
-      "bullets": ["Edge embedding on looms", "Immediate operator alerts", "Lightweight integration"],
-      "img": "https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&q=80",
+      "summary": "Inline fabric inspection system for looms and warp knitting machines.",
+      "desc": "The Edraak Loom Inspection (ELI) is a vision system designed for inline surface inspection and quality monitoring of fabric. It detects weaving defects and deviations directly after the reed. Due to its modular and compact design, the inspection system can be integrated or retrofitted onto looms, weaving machines, or warp knitting machines. Using ELI prevents long-running defects and provides immediate quality information at the source of production.",
+      "need": [
+        "Inline high-speed cameras",
+        "Integration with loom/warp machines",
+        "Fault mapping dashboard"
+      ],
+      "bullets": [
+        "Detects weaving defects directly after the reed",
+        "Modular, compact design for retrofit or integration",
+        "Prevents long-running defects and B-quality fabrics",
+        "Supports all material widths (delivered to match your width)",
+        "Dashboard for fault mapping, export, and synchronization"
+      ],
+      "features": [
+        "Delivered per material width and ready after integration",
+        "Custom backend↔frontend synchronization",
+        "Fault mapping software aggregates quality across all connected ELI units",
+        "Export or sync only inspection data relevant to your organization and customers"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg",
       "images": [
-        "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
-        "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg"
       ]
     },
     {
@@ -424,41 +462,164 @@
       "title": "Weft Straighter",
       "subtitle": "Accessories",
       "category": "Accessories",
-      "desc": "Weft straightening hardware for better fabric alignment before inspection.",
-      "bullets": ["Easy mount", "Low maintenance"],
-      "img": "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=1600&q=80"
+      "summary": "The Weft Straightener determines and analyzes distortion, then corrects measured skew and bow.",
+      "need": [
+        "Weft alignment Cameras/Sensors",
+        "Roller system (Bow/skew)"
+      ],
+      "existingProcess": "Manually operated weft straighteners are in use.",
+      "proposedProcess": "Major functional sets: Detection (Sensors/Cameras), Analyzing (Software/Control Circuit), Straightening (Rollers). Detection creates an image or signal of the weft line angle continuously. Analyzing uses a digital signal processor and software to calculate angle and generate roller commands. Straightening drives the skew and bow rollers opposite to the measured distortion to produce a straight weft line.",
+      "majorFunctionalSets": {
+        "detection": "Use optoelectronic sensors or imaging cameras to capture the weft line angle instantly. Sensors are optimized per fabric type.",
+        "analyzing": "Software and a DSP analyze weft angles in real time and compute corrective commands for rollers.",
+        "straightening": "Roller drives receive commands to move opposite the measured angle, correcting skew and bow distortions."
+      },
+      "detectionDetails": [
+        "Optoelectronic sensor (tunable for fabric types)",
+        "Imaging cameras for high-resolution weft line capture"
+      ],
+      "analyzingDetails": "Algorithms compute weft line angle and issue closed-loop commands; DSP-based calculation ensures low latency and reliable control.",
+      "straighteningDetails": "Skew and bow rollers are actuated by the controller to counter the measured distortion and maintain alignment.",
+      "features": [
+        "Real-time weft angle detection",
+        "DSP-based low-latency angle computation",
+        "Closed-loop roller control for skew and bow",
+        "Supports multiple fabric types via sensor tuning",
+        "Integrates with factory PLC/SCADA and reporting"
+      ],
+      "desc": "Automated weft straightening system that detects distortion and applies precise roller corrections to maintain fabric alignment before inspection or further processing.",
+      "bullets": [
+        "Detection: sensors or cameras capture weft angle continuously",
+        "Analysis: DSP/software computes corrective commands",
+        "Correction: Roller drives apply skew and bow adjustments",
+        "Reduces manual intervention and production waste",
+        "Improves downstream inspection and cutting accuracy"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/weft-straitner.png",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/weft-straitner.png",
+        "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
+      ]
     },
     {
       "title": "Labelling System",
       "subtitle": "Accessories",
       "category": "Accessories",
-      "desc": "Automatic labelling system to mark defects and batches.",
-      "bullets": ["Fast label printing", "Adhesive options"],
-      "img": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80"
+      "summary": "Real-time fabric fault applicator that integrates with Edraak Mapping for accurate fault marking.",
+      "desc": "A real-time fabric fault applicator that integrates with the Edraak Mapping system to provide fault marking with substantial accuracy. Capable of applying stickers to running fabric without stopping the machine at speeds up to 150 m/min. The system automatically calibrates for different color tags and adapts to fabric speed for consistent application.",
+      "features": [
+        "Integrates with Edraak Mapping for precise fault localisation",
+        "Applies stickers at running speeds up to 150 m/min without stopping the line",
+        "Automatic calibration for different color tags and fabric speeds",
+        "Configurable tag types and placement offsets",
+        "Closed-loop verification to ensure sticker applied correctly"
+      ],
+      "bullets": [
+        "Real-time fault marking",
+        "High-speed sticker applicator (≤150 m/min)",
+        "Automatic color-tag calibration",
+        "Integrates with factory reporting and mapping systems"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
+      ]
     },
     {
       "title": "Width Measurement System",
       "subtitle": "Accessories",
       "category": "Accessories",
-      "desc": "Inline width measurement sensors for continuous width monitoring.",
+      "desc": "Edraak’s automatic width-sensing device continuously captures fabric width data, triggering alarms when deviations occur, ensuring accurate width without production stops.",
       "bullets": ["High accuracy", "Alarm on deviation"],
-      "img": "https://picsum.photos/seed/width/1200/800"
+      "img": "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png",
+      "images": [
+        "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png"
+      ]
     },
     {
-      "title": "On Line Moisture System",
+      "title": "In-Line Moisture Meter",
       "subtitle": "Accessories",
       "category": "Accessories",
-      "desc": "Moisture sensing for wet processes and drying control.",
-      "bullets": ["Non-contact sensing", "Continuous logging"],
-      "img": "https://picsum.photos/seed/moisture/1200/800"
+      "summary": "Senses the moisture of fabric on the production line.",
+      "need": [
+        "Inline moisture sensors",
+        "Dashboard",
+        "Feed Back",
+        "Report"
+      ],
+      "existingProcess": "Manual inspection by the checker; machine speed is adjusted manually by the operator.",
+      "proposedProcess": "The fabric moisture will be tested at three points along the width, and machine speed will be varied based on the analysis. Electrical resistance between two poles of an electrode is measured; configurations include an electrode with a counter-roller, two isolated rollers, or other electrode arrangements. Measurements are suitable behind dryers, stenters, sizing machines, cylinder dryers, humidifiers, or in front of padding mangles. Measurement and control of moisture improve process stability, product quality, and energy efficiency.",
+      "pros": [
+        "Optimizes process quality, efficiency, and reproducibility",
+        "Reduces energy consumption through better dryer control",
+        "Maintains high and consistent output moisture to avoid over-drying/overdying",
+        "Enables automated feedback control and reporting"
+      ],
+      "installationOptions": [
+        "Dryers (stenter frame, cylinder dryer)",
+        "Sanforizer",
+        "Sizing machine"
+      ],
+      "sensorTypes": [
+        {
+          "type": "Wheel-type sensors",
+          "notes": "Wheel sensors provide non-invasive measurement; measuring range and accuracy depend on fabric and sensor setup."
+        },
+        {
+          "type": "Roller-type Electrode",
+          "notes": "Suitable for natural fibers or blends with not more than 5% synthetics; may require electrostatic precautions."
+        }
+      ],
+      "limitations": [
+        "Wheel-type measuring range: ~4 .. 16% for cotton; accuracy lower than roller methods",
+        "Roller-type recommended for natural fibers and low-synthetic blends; limited protection against electrostatics"
+      ],
+      "desc": "Inline moisture meter for continuous fabric moisture monitoring and automated control.",
+      "bullets": [
+        "Three-point width sensing for better cross-width control",
+        "Automatic feedback to machine-speed control",
+        "Configurable electrode arrangements (roller, wheel)",
+        "Dashboard, reporting and feedback outputs for process control",
+        "Helps avoid over-drying and improves product reproducibility"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/online-moisture.png",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/online-moisture.png",
+        "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80"
+      ]
     },
     {
-      "title": "Spectro Photometer",
+      "title": "Spectrophotometer",
       "subtitle": "Accessories",
       "category": "Accessories",
-      "desc": "Handheld spectrophotometer for color checks and QC.",
-      "bullets": ["Accurate delta E", "Portable"],
-      "img": "https://picsum.photos/seed/spectro/1200/800"
+      "summary": "Senses the color shade of fabric on the production line.",
+      "need": [
+        "Inline Spectrophotometer",
+        "Dashboard",
+        "Report"
+      ],
+      "existingProcess": "A sample is cut, and the fabric is tested in the lab.",
+      "proposedProcess": "The color shade of fabric will be sensed and analysed on the production line in real time. An alarm will be triggered in case of deviation. A complete report of the fabric will be prepared at the end of the process.",
+      "advantages": [
+        "Multiple color indicators can be measured",
+        "Waterproof and dust-proof, protection class IP66",
+        "LED light source for longer service",
+        "Internal calibration to ensure high instrument stability",
+        "Double light path spectroscopy for high speed and precision",
+        "Improves accuracy compared to machine-vision color measurements when paired with ESM for inline monitoring"
+      ],
+      "desc": "Industrial inline spectrophotometer for continuous color monitoring and quality control.",
+      "bullets": [
+        "Real-time color sensing on the production line",
+        "Automatic deviation alarms and thresholding",
+        "Edge-ready for factory integration (IP66 rated)",
+        "Dashboard integration and end-of-run reporting",
+        "Internal self-calibration and long-life LED illumination"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/spectrophotometer.jpg",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/spectrophotometer.jpg"
+      ]
     },
     {
       "title": "Trading - Products / Services",
@@ -477,7 +638,7 @@
   ],
   "productsHero": {
     "subtitle": "Our Products",
-    "title": "Quality Control & Traceability Solutions ",
+    "title": "Products ",
     "description": "High-speed textile inspection hardware and industrial systems to reduce waste, increase yield, and ensure consistent quality across production lines.",
     "primaryCtaLabel": "Explore Products",
     "primaryCtaHref": "/products",
@@ -544,7 +705,7 @@
       {
         "title": "Data & Business Analytics",
         "description": "Gathering data from various sources, including existing and proprietary ones, to develop a more powerful decision-making engine that turns inspection, production, and energy data into actionable insights.",
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/e46c30b8b3de85481eb81a268d6b400d52af0194.png",
         "link": "https://www.google.com/search?tbm=isch&q=Data+Analysis+Business+Analytics"
       }
     ]
@@ -652,8 +813,96 @@
     "title": "Careers",
     "description": "Join the team that’s building for the future, Check available openings.",
     "ctaLabel": "View Openings",
-    "ctaHref": "#",
-    "backgroundImage": "https://db.edraaksystems.com/wp-content/uploads/2026/03/19cff8e33b293450019ed0f10ba25ed19207ab9e.png"
+    "ctaHref": "/career",
+    "backgroundImage": "https://db.edraaksystems.com/wp-content/uploads/2026/03/19cff8e33b293450019ed0f10ba25ed19207ab9e.png",
+    "items": [
+      {
+        "title": "Senior Computer Vision Engineer",
+        "location": "Lahore, Pakistan",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1200&q=80",
+        "short": "Design and deploy computer vision models for high-speed fabric inspection.",
+        "description": "We are looking for a Senior Computer Vision Engineer to lead our EVS model development, optimize inference pipelines, and integrate algorithms with the production system.",
+        "responsibilities": [
+          "Develop and optimize real-time vision models",
+          "Work with engineering to deploy models on edge hardware",
+          "Lead labeling and dataset curation efforts"
+        ],
+        "qualifications": [
+          "MS/PhD in Computer Vision or related field",
+          "3+ years experience in production CV systems",
+          "Strong Python and PyTorch/TensorFlow skills"
+        ]
+      },
+      {
+        "title": "Business Development Manager",
+        "location": "Remote / Hybrid",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80",
+        "short": "Grow partnerships and close deals in textile and industrial sectors.",
+        "description": "Lead go-to-market efforts, manage key accounts, and work with product teams to align solutions to customer needs.",
+        "responsibilities": [
+          "Identify and pursue new business opportunities",
+          "Manage proposal and RFP responses",
+          "Maintain client relationships and track pipeline"
+        ],
+        "qualifications": [
+          "5+ years in B2B sales or BD roles",
+          "Experience in industrial or textile sectors preferred",
+          "Proven track record of closing enterprise deals"
+        ]
+      },
+      {
+        "title": "Frontend Engineer",
+        "location": "Lahore, Pakistan",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+        "short": "Build elegant UI and client-side features for our web apps.",
+        "description": "Work on React/Next.js applications, implement designs, and collaborate with designers and backend engineers.",
+        "responsibilities": ["Implement responsive UI","Optimize client performance","Collaborate on design implementation"],
+        "qualifications": ["3+ years with React/Next.js","Strong HTML/CSS skills","Familiarity with TypeScript"]
+      },
+      {
+        "title": "Backend Engineer",
+        "location": "Remote",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+        "short": "Design and maintain APIs and data services.",
+        "description": "Build scalable backend services, REST/GraphQL APIs, and data processing pipelines.",
+        "responsibilities": ["Design APIs","Optimize database queries","Ensure reliability and monitoring"],
+        "qualifications": ["3+ years backend experience","Node.js/TypeScript or Python","Database experience (Postgres/Mongo)"]
+      },
+      {
+        "title": "QA Engineer",
+        "location": "Hybrid",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1581092795360-6c7b6c0d7b7a?w=1200&q=80",
+        "short": "Maintain product quality through testing and automation.",
+        "description": "Develop automated test suites, manage QA processes, and work closely with engineers to prevent regressions.",
+        "responsibilities": ["Create automated tests","Run test cycles","Report and track bugs"],
+        "qualifications": ["Experience with test automation","Familiarity with CI/CD","Attention to detail"]
+      },
+      {
+        "title": "Product Manager",
+        "location": "Remote / Lahore",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80",
+        "short": "Define product roadmap and coordinate cross-functional teams.",
+        "description": "Lead product discovery, prioritize features, and work with stakeholders to deliver value.",
+        "responsibilities": ["Define roadmap","Gather customer feedback","Coordinate releases"],
+        "qualifications": ["Product management experience","Strong communication","Analytical mindset"]
+      },
+      {
+        "title": "DevOps Engineer",
+        "location": "Remote",
+        "type": "Full-time",
+        "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=80",
+        "short": "Manage infrastructure, CI/CD and deployments.",
+        "description": "Automate deployments, monitor systems, and improve reliability and scalability.",
+        "responsibilities": ["Maintain CI/CD","Monitor infrastructure","Implement IaC"],
+        "qualifications": ["Experience with cloud providers","Terraform/Ansible","Container orchestration"]
+      }
+    ]
   },
   "footer": {
     "phone": "+92 304 2772828 | +92 311 4560506",

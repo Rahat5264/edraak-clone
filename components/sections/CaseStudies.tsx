@@ -57,7 +57,7 @@ export default function CaseStudies() {
                   <div className="md:w-1/2 w-full overflow-hidden flex-shrink-0 md:h-full">
                     {study.image ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
+                      <img src={study.image} alt={study.title} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
                     ) : (
                       <div className="w-full h-full bg-gray-200" />
                     )}

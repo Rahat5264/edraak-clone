@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import content from '@/data/content.json'
 
 function slugify(s: string) {
@@ -10,10 +11,24 @@ function slugify(s: string) {
 
 export default function ProductsPage() {
   const products = Array.isArray(content.products) ? content.products : []
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
   const [query, setQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(() => {
+    // prefer explicit URL query param, fallback to sessionStorage for mobile/back navigation
+    const fromUrl = searchParams?.get('category') ?? null
+    if (fromUrl) return fromUrl
+    try {
+      const fromStorage = typeof window !== 'undefined' ? sessionStorage.getItem('products:selectedCategory') : null
+      return fromStorage
+    } catch (e) {
+      return null
+    }
+  })
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false)
   const [mobileCategoryQuery, setMobileCategoryQuery] = useState('')
+  const [transitioning, setTransitioning] = useState(false)
 
   const categories = useMemo(() => {
     const set = new Set<string>()
@@ -41,6 +56,22 @@ export default function ProductsPage() {
       return matchesQuery && matchesCategory
     })
   }, [products, query, selectedCategory])
+
+  // smooth UI transition when switching categories or query
+  const changeCategory = (cat: string | null) => {
+    setTransitioning(true)
+    window.setTimeout(() => {
+      setSelectedCategory(cat)
+      setTransitioning(false)
+    }, 160)
+  }
+
+  useEffect(() => {
+    // trigger a short transition when query changes
+    setTransitioning(true)
+    const t = window.setTimeout(() => setTransitioning(false), 160)
+    return () => clearTimeout(t)
+  }, [query])
 
   // Inquiry modal state
   const [inquiryOpen, setInquiryOpen] = useState(false)
@@ -92,6 +123,39 @@ export default function ProductsPage() {
     setVisibleCount(BATCH_SIZE)
   }, [query, selectedCategory])
 
+  // keep selectedCategory in sync with URL search param (back/forward support)
+  useEffect(() => {
+    const cat = searchParams?.get('category') ?? null
+    if (cat !== selectedCategory) setSelectedCategory(cat)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams])
+
+  // persist selection to sessionStorage as a fallback for mobile navigation/back behavior
+  useEffect(() => {
+    try {
+      if (typeof window === 'undefined') return
+      if (selectedCategory) sessionStorage.setItem('products:selectedCategory', selectedCategory)
+      else sessionStorage.removeItem('products:selectedCategory')
+    } catch (e) {
+      // ignore storage errors
+    }
+  }, [selectedCategory])
+
+  // update URL when category changes so navigation back returns to same filter
+  useEffect(() => {
+    try {
+      if (selectedCategory) {
+        router.push(`/products?category=${encodeURIComponent(selectedCategory)}`)
+      } else {
+        router.push(`/products`)
+      }
+    } catch (e) {
+      // ignore router errors
+    }
+    // we only want to run this when selectedCategory changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCategory])
+
   return (
     <div className="min-h-screen bg-white text-foreground">
       {/* Simple heading + text (no hero) */}
@@ -139,14 +203,14 @@ export default function ProductsPage() {
 
               <div className="flex flex-col gap-2">
                 <button
-                  onClick={() => { setSelectedCategory(null); setMobileFilterOpen(false); setMobileCategoryQuery('') }}
+                  onClick={() => { changeCategory(null); setMobileFilterOpen(false); setMobileCategoryQuery('') }}
                   className="text-left w-full px-3 py-2"
                   style={{ borderRadius: 0, ...(selectedCategory === null ? { backgroundColor: 'rgb(5,3,42)', color: '#fff' } : {}) }}
                 >All</button>
                 {categories.filter(c => c.toLowerCase().includes(mobileCategoryQuery.toLowerCase())).map((c) => (
                   <button
                     key={c}
-                    onClick={() => { setSelectedCategory(c); setMobileFilterOpen(false); setMobileCategoryQuery('') }}
+                    onClick={() => { changeCategory(c); setMobileFilterOpen(false); setMobileCategoryQuery('') }}
                     className="text-left w-full px-3 py-2"
                     style={{ borderRadius: 0, ...(selectedCategory === c ? { backgroundColor: 'rgb(5,3,42)', color: '#fff' } : {}) }}
                   >{c}</button>
@@ -168,9 +232,9 @@ export default function ProductsPage() {
               <div>
                 <p className="text-sm font-medium text-slate-700 mb-2">Category</p>
                 <div className="space-y-2">
-                  <button onClick={() => setSelectedCategory(null)} className="block text-left w-full px-3 py-2" style={{ borderRadius: 0, ...(selectedCategory === null ? { backgroundColor: 'rgb(5,3,42)', color: '#fff' } : {}) }}>All</button>
+                  <button onClick={() => changeCategory(null)} className="block text-left w-full px-3 py-2" style={{ borderRadius: 0, ...(selectedCategory === null ? { backgroundColor: 'rgb(5,3,42)', color: '#fff' } : {}) }}>All</button>
                   {categories.map((c) => (
-                    <button key={c} onClick={() => setSelectedCategory(c)} className="block text-left w-full px-3 py-2" style={{ borderRadius: 0, ...(selectedCategory === c ? { backgroundColor: 'rgb(5,3,42)', color: '#fff' } : {}) }}>{c}</button>
+                    <button key={c} onClick={() => changeCategory(c)} className="block text-left w-full px-3 py-2" style={{ borderRadius: 0, ...(selectedCategory === c ? { backgroundColor: 'rgb(5,3,42)', color: '#fff' } : {}) }}>{c}</button>
                   ))}
                 </div>
               </div>
@@ -178,7 +242,7 @@ export default function ProductsPage() {
           </aside>
 
           <div className="lg:col-span-9">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" style={{ transition: 'opacity 160ms ease, transform 160ms ease', opacity: transitioning ? 0 : 1, transform: transitioning ? 'translateY(6px)' : 'translateY(0)', willChange: 'opacity, transform' }}>
               {(selectedCategory ? filtered : filtered.slice(0, visibleCount)).map((p: any, idx: number) => {
                 const slug = slugify(p.title)
                 return (
@@ -196,8 +260,8 @@ export default function ProductsPage() {
                         <p className="mt-3 text-sm text-slate-200">{p.desc && p.desc.length > 140 ? `${p.desc.slice(0, 140)}...` : p.desc}</p>
                       </div>
 
-                      <div className="mt-6 flex items-center gap-4">
-                          <Link href={`/products/${slug}`} className="px-4 py-2" style={{backgroundColor: '#ffffff', color: '#000000', textDecoration: 'none', border: '1px solid rgba(0,0,0,0.08)'}}>Read more</Link>
+                        <div className="mt-6 flex items-center gap-4">
+                          <Link href={selectedCategory ? `/products/${slug}?category=${encodeURIComponent(selectedCategory)}` : `/products/${slug}`} className="px-4 py-2" style={{backgroundColor: '#ffffff', color: '#000000', textDecoration: 'none', border: '1px solid rgba(0,0,0,0.08)'}}>Read more</Link>
                         <button onClick={() => openInquiry(p)} className="px-4 py-2" style={{backgroundColor: '#ffffff', color: '#000000', border: '1px solid rgba(0,0,0,0.08)'}}>Inquiry</button>
                       </div>
                     </div>

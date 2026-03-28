@@ -69,8 +69,8 @@ export default function Careers() {
             <p className="text-base md:text-lg leading-relaxed text-white">
               {careers.description}
             </p>
-            <Button asChild className="mt-4 bg-white" size="lg">
-              <a href={careers.ctaHref} className="inline-flex w-full sm:w-auto items-center justify-center px-6" style={{ color: 'rgb(5,3,42)' }}>{careers.ctaLabel}</a>
+            <Button asChild className="mt-4 bg-white hover:bg-white" size="lg">
+              <a href={careers.ctaHref} className="inline-flex w-full sm:w-auto items-center justify-center px-6 text-[#05032A] hover:text-[#05032A]" style={{ color: 'rgb(5,3,42)' }}>{careers.ctaLabel}</a>
             </Button>
           </div>
         </div>
