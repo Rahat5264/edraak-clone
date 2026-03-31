@@ -5,8 +5,9 @@ function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 
-export default function JobPage({ params }: { params: { slug: string } }) {
-  const slug = params.slug || ''
+export default async function JobPage({ params }: { params: any }) {
+  const resolved = await params
+  const slug = resolved?.slug || ''
   const jobs = Array.isArray(content.careers?.items) ? content.careers.items : []
   const job = jobs.find((j: any) => slugify(j.title || '') === slug) || null
 
