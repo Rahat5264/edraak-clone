@@ -111,7 +111,6 @@
     "images": [
       "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75",
       "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
-      "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
       "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600&q=80",
       "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80",
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80"
@@ -693,15 +692,7 @@
         "description": "Energy monitoring systems capture real-time consumption data across machines, enabling accurate costing, identifying inefficiencies, and supporting data-driven decisions to optimize energy usage and reduce operational expenses.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png",
         "link": "https://www.google.com/search?tbm=isch&q=Real+Time+Width+Monitoring"
-      }
-      ,
-      {
-        "title": "Data & Business Analytics",
-        "description": "Gathering data from various sources, including existing and proprietary ones, to develop a more powerful decision-making engine that turns inspection, production, and energy data into actionable insights.",
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/e46c30b8b3de85481eb81a268d6b400d52af0194.png",
-        "link": "https://www.google.com/search?tbm=isch&q=Data+Analysis+Business+Analytics"
-      }
-      ,
+      },
       {
         "title": "Data & Business Analytics",
         "description": "Gathering data from various sources, including existing and proprietary ones, to develop a more powerful decision-making engine that turns inspection, production, and energy data into actionable insights.",

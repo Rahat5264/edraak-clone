@@ -23,6 +23,7 @@ export default function Home() {
       <IndustrialUseCases />
       {/* <Partners /> */}
       <Technology />
+
       <Careers />
       {/* <BlogSection /> */}
       {/* <Contact /> */}

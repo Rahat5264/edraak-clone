@@ -1,0 +1,110 @@
+{
+  "visionSystem": {
+    "breadcrumbPrefix": "Edraak Systems → Edraak Vision Systems → ",
+    "breadcrumbHighlight": "Textiles Inspection",
+    "titleBold": "Fabric Quality control",
+    "titleRest": "using High Speed camera system",
+    "title": "Fabric Quality control using High Speed camera system",
+    "description": [
+      "AI-powered vision platform delivering customizable, scalable solutions for quality control, traceability, and process optimization across industries."
+    ],
+    "videoUrl": "https://db.edraaksystems.com/wp-content/uploads/2026/03/WhatsApp-Video-2026-03-16-at-10.13.02-AM.mp4",
+    "features": [
+      "Superhuman inspection speed with Micro-level accuracy",
+      "High-resolution fabric imagery for advanced defect detection",
+      "Integrated with optimization engine for improved yield",
+      "Automated fault labeling and tagging",
+      "Synchronized with cutting machines for efficient roll-making",
+      "Digital traceability and reduced reliance on manual inspection",
+      "Quick return on investment through enhanced operational efficiency",
+      "Working on Denim, Dyed & Greige Fabrics. Knits & Prints Coming Soon."
+    ],
+    "cta": "Learn More"
+  },
+  "cameraIndustries": {
+    "title": "Camera Inspection in Other Industries",
+    "description": [
+      "EVS (Edraak Vision System) provides reliable camera-based inspection for a wide range of industrial production lines. High-resolution cameras continuously scan products and surfaces to detect defects, damages, or inconsistencies in real time during production.",
+      "Used in pharma, food, electronics, and automotive, it quickly detects defects, reduces waste, and ensures consistent product quality."
+    ],
+    "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
+    "images": [
+      "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75",
+      "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
+      "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1600&q=80",
+      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80"
+    ],
+    "layout": "hero"
+  },
+  "sectors": {
+    "title": "Sector Wise Solutions",
+    "items": [
+      {
+        "name": "Camera Inspection",
+        "subtabs": [
+          {
+            "name": "Greige Fabric",
+            "content": "EVS inspects greige (raw/unfinished) fabric straight from the loom, detecting common defects like knots, slubs, holes, broken yarns, thick/thin places, and uneven weave in real time. This prevents faulty greige from moving to dyeing, cuts down on rework, improves yield, and keeps weaving consistent.",
+            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=1200&q=80",
+              "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=greige+fabric"
+          },
+          {
+            "name": "Dyed",
+            "content": "EVS checks dyed fabrics for issues that appear after coloring, such as uneven dyeing (patchy or cloudy shades), stains, dye marks, streaks, and weave faults visible post-dye. Running at full production speed, it flags problems instantly for marking or removal, helping maintain uniform color quality and avoid buyer rejections.",
+            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75",
+            "images": [
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800&q=80",
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=dyed+fabric"
+          },
+          {
+            "name": "Denim",
+            "content": "EVS specializes in denim inspection, identifying streaks, holes, broken yarns, slubs, neps, barre marks, and finishing defects on the fly. In busy denim lines, it increases first-quality output, shortens manual checks, lowers rejection rates, and helps meet strict buyer standards.",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/04f59a0e-124b-4cee-a087-24d7d523be5f.jpg",
+            "images": [
+              "https://images.unsplash.com/photo-1549213783-8284d0336c4b?w=800&q=80",
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=denim+fabric"
+          },
+          {
+            "name": "On-Loom",
+            "content": "EVS on-loom inspection monitors fabric quality directly during weaving to detect defects at the earliest stage. Real-time alerts help operators react immediately, reducing downstream losses, rework, and machine downtime.",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/8e08325a8a600cf0a745a92d48a9fb355f32029b-scaled.png",
+            "images": [
+              "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
+              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
+              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=on+loom+fabric+inspection"
+          },
+          {
+            "name": "Apparel Inspection",
+            "content": "EVS apparel inspection checks stitched garments for visual defects, stitching issues, shade mismatches, and labeling errors before dispatch. It supports consistent final quality and faster quality assurance decisions.",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/904d337b6c085e8bba065345dc9e943d6e6b309b.png",
+            "images": [
+              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+              "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+              "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80",
+              "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+            ],
+            "link": "https://www.google.com/search?tbm=isch&q=apparel+inspection+quality+control"
+          }
+        ]
+      }
+    ]
+  }
+}

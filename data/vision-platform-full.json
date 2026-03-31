@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "pageTitle": "Edraak Systems | Quality Control & Traceability Solutions for Textiles",
+    "metaDescription": "Advanced machine vision and AI-powered quality control solutions for textile, apparel, and manufacturing industries. Real-time traceability and defect detection."
+  },
+  "hero": {
+    "pretitle": "Edraak Vision System",
+    "title": "AI Vision System.",
+    "description": "AI-powered vision platform delivering customizable, scalable solutions for quality control, traceability, and process optimization across industries.",
+    "ctas": [
+      { "label": "Explore Products", "href": "/products" },
+      { "label": "Contact Sales", "href": "/contact" }
+    ],
+    "image": {
+      "src": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
+      "alt": "EVS Camera System"
+    },
+    "overlayStat": { "value": "99.7%", "label": "Detection Accuracy" }
+  },
+
+  "stats": [
+    { "value": "99.7%", "title": "Accuracy", "subtitle": "Defect detection" },
+    { "value": "50+", "title": "Defect Types", "subtitle": "Automatically identified" },
+    { "value": "24/7", "title": "Operation", "subtitle": "Non-stop monitoring" },
+    { "value": "4K", "title": "Resolution", "subtitle": "Ultra HD cameras" }
+  ],
+
+  "capabilities": {
+    "pretitle": "Capabilities",
+    "heading": "Built for Excellence.",
+    "items": [
+      { "title": "Superhuman Inspection", "description": "Micro-level accuracy with high-resolution fabric imagery" },
+      { "title": "Real-time Detection", "description": "AI-powered defect identification as fabric moves" },
+      { "title": "Yield Optimization", "description": "Integrated engine for improved cutting plans" },
+      { "title": "Digital Traceability", "description": "Complete fabric history from loom to finished goods" }
+    ]
+  },
+
+  "applications": {
+    "pretitle": "Applications",
+    "heading": "Fabric Types.",
+    "items": [
+      { "name": "Greige Fabric", "description": "Inspect raw fabric straight from the loom, detecting knots, slubs, holes, and uneven weave." },
+      { "name": "Dyed Fabric", "description": "Check for uneven dyeing, stains, dye marks, and streaks visible post-dyeing." },
+      { "name": "Denim", "description": "Specialized detection for streaks, neps, barre marks, and finishing defects." },
+      { "name": "On-Loom", "description": "Real-time monitoring during weaving with instant operator alerts." }
+    ]
+  },
+
+  "advancedTechnology": {
+    "pretitle": "Why Choose EVS",
+    "heading": "Advanced Technology.",
+    "features": [
+      "Superhuman inspection speed with Micro-level accuracy",
+      "High-resolution fabric imagery for advanced defect detection",
+      "Integrated with optimization engine for improved yield",
+      "Automated fault labeling and tagging",
+      "Synchronized with cutting machines for efficient roll-making",
+      "Digital traceability and reduced reliance on manual inspection"
+    ]
+  },
+
+  "otherIndustries": {
+    "pretitle": "Beyond Textiles",
+    "heading": "Other Industries.",
+    "description": "EVS provides reliable camera-based inspection for pharma, food, electronics, and automotive industries.",
+    "image": {
+      "src": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
+      "alt": "Camera inspection in other industries"
+    },
+    "cta": { "label": "Learn More", "href": "/contact" }
+  },
+
+  "getStartedCta": {
+    "pretitle": "Get Started",
+    "title": "Ready to Upgrade Your Quality Control?",
+    "description": "Join leading textile manufacturers who trust EVS for fabric inspection.",
+    "ctas": [
+      { "label": "Contact Sales", "href": "/contact" },
+      { "label": "View Hardware", "href": "/products" }
+    ]
+  },
+
+  "source": {
+    "file": "d:/edraak changes/dist/vision-platform/index.html",
+    "extractedAt": "2026-03-31"
+  }
+}
