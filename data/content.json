@@ -127,7 +127,7 @@
         "subtabs": [
           {
             "name": "Greige Fabric",
-            "content": "EVS inspects greige (raw/unfinished) fabric straight from the loom, detecting common defects like knots, slubs, holes, broken yarns, thick/thin places, and uneven weave in real time. This prevents faulty greige from moving to dyeing, cuts down on rework, improves yield, and keeps weaving consistent.",
+            "content": "Raw fabric coming straight from the loom is inspected for issues such as knots, slubs, holes, broken yarns, and uneven weave. Detecting defects early prevents faulty fabric from moving into dyeing, reducing rework and improving overall yield and consistency.",
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F72e6efcb-c3dd-49d9-b69b-74e662512191.jpg&w=828&q=75",
             "images": [
               "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
@@ -139,7 +139,7 @@
           },
           {
             "name": "Dyed",
-            "content": "EVS checks dyed fabrics for issues that appear after coloring, such as uneven dyeing (patchy or cloudy shades), stains, dye marks, streaks, and weave faults visible post-dye. Running at full production speed, it flags problems instantly for marking or removal, helping maintain uniform color quality and avoid buyer rejections.",
+            "content": "After dyeing, fabrics are checked for uneven shades, stains, dye marks, streaks, and visible weave faults. Running at full production speed, the system highlights issues instantly so they can be corrected, ensuring uniform color quality and minimizing buyer rejections.",
             "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75",
             "images": [
               "https://db.edraaksystems.com/wp-content/uploads/2026/03/slub-2.png",
@@ -152,7 +152,7 @@
           },
           {
             "name": "Denim",
-            "content": "EVS specializes in denim inspection, identifying streaks, holes, broken yarns, slubs, neps, barre marks, and finishing defects on the fly. In busy denim lines, it increases first-quality output, shortens manual checks, lowers rejection rates, and helps meet strict buyer standards.",
+            "content": "In denim production, defects like streaks, holes, broken yarns, slubs, neps, and barre marks are identified during the process. This continuous monitoring improves first-quality output, reduces rejection rates, and helps maintain strict buyer expectations in fast-moving production lines.",
             "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/04f59a0e-124b-4cee-a087-24d7d523be5f.jpg",
             "images": [
               "https://images.unsplash.com/photo-1549213783-8284d0336c4b?w=800&q=80",
@@ -164,7 +164,7 @@
           },
           {
             "name": "On-Loom",
-            "content": "EVS on-loom inspection monitors fabric quality directly during weaving to detect defects at the earliest stage. Real-time alerts help operators react immediately, reducing downstream losses, rework, and machine downtime.",
+            "content": "Quality is monitored directly during the weaving process to detect defects at the earliest stage. Real-time alerts allow operators to take immediate action, helping reduce downstream losses, rework, and unnecessary machine downtime.",
             "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/8e08325a8a600cf0a745a92d48a9fb355f32029b-scaled.png",
             "images": [
               "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
@@ -176,7 +176,7 @@
           },
           {
             "name": "Apparel Inspection",
-            "content": "EVS apparel inspection checks stitched garments for visual defects, stitching issues, shade mismatches, and labeling errors before dispatch. It supports consistent final quality and faster quality assurance decisions.",
+            "content": "Finished garments are checked for visual defects, stitching issues, shade mismatches, and labeling errors before dispatch. This ensures every piece meets quality standards and supports faster, more reliable final inspections, reducing the chances of defective products reaching customers.",
             "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/904d337b6c085e8bba065345dc9e943d6e6b309b.png",
             "images": [
               "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
@@ -208,10 +208,9 @@
             "content": "By utilizing advanced algorithms and artificial intelligence, Edraak’s cutting plan optimization minimizes fabric wastage and increases efficiency. This ensures that cutting plans are executed with precision, resulting in reduced operational costs and higher quality output.",
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252Fwomen-looking-at-excel-sheets.png%3Falt%3Dmedia%26token%3Df70c886c-9def-4477-81c8-5bc9d42a48f3&w=828&q=75",
             "images": [
-              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
-              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
-              "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800&q=80",
-              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Cutiing-plan.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-25-150959.png"
+              
             ],
             "link": "https://www.google.com/search?tbm=isch&q=cutting+plan+optimization"
           },
@@ -220,10 +219,10 @@
             "content": "Edraak’s automatic width sensing device continuously captures fabric width data, triggering alarms when deviations occur, ensuring accurate width without production stops.",
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffmwp.png&w=828&q=75",
             "images": [
-              "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80",
-              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
-              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80",
-              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141655.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141642.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141642.png"
+              
             ],
             "link": "https://www.google.com/search?tbm=isch&q=width+measurement+fabric"
           },
@@ -232,7 +231,7 @@
             "content": "Edraak's automatic labeling system marks fabric faults during production, providing essential data for efficient panel cutting without halting operations.",
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffault-labeling-system.png&w=828&q=75",
             "images": [
-              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fault-Labeling-System-2.png",
               "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
               "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
               "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
@@ -244,9 +243,9 @@
             "content": "Edraak’s barcode scanning system provides seamless fabric tracking from input to output, resolving fabric length discrepancies and optimizing material use. High-speed scanners and digital meters log precise lengths, monitor fabric consumption, and alert teams to real-time discrepancies. This ensures accurate costing, minimizes waste, and simplifies final product verification, aligning operations for efficiency and quality assurance.",
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F11%2Fproduction-tracking.png&w=828&q=75",
             "images": [
-              "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
-              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/sasasas.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-27-182201.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-27-182328.png",
               "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
             ],
             "link": "https://www.google.com/search?tbm=isch&q=production+tracking+apparel"
