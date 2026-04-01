@@ -176,12 +176,11 @@
           {
             "name": "Apparel Inspection",
             "content": "Finished garments are checked for visual defects, stitching issues, shade mismatches, and labeling errors before dispatch. This ensures every piece meets quality standards and supports faster, more reliable final inspections, reducing the chances of defective products reaching customers.",
-            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/904d337b6c085e8bba065345dc9e943d6e6b309b.png",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-01-at-5.32.56-PM.jpeg",
             "images": [
-              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-              "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
-              "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80",
-              "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-01-at-5.32.54-PM.jpeg",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-01-at-5.32.55-PM.jpeg"
+           
             ],
             "link": "https://www.google.com/search?tbm=isch&q=apparel+inspection+quality+control"
           }
@@ -378,33 +377,18 @@
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg"
       ]
     },
-    {
-      "title": "Traceability System",
-      "subtitle": "Traceability System",
-      "category": "Traceability System",
-      "desc": "Complete traceability platform for bundle and piece-level tracking across production lines.",
-      "bullets": ["Bundle & piece-level tracking", "RFID and barcode support", "Dashboard & reports"],
-      "img": "https://images.unsplash.com/photo-1581091870622-2b2c5c2c2f53?w=1600&q=80",
-      "images": [
-        "https://images.unsplash.com/photo-1581091870622-2b2c5c2c2f53?w=800&q=80",
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
-      ],
-      "modules": [
-        "Processing Traceability",
-        "Planning Software",
-        "Audit Inspection",
-        "Fabric Batch Making",
-        "Processing",
-        "Lab Testing",
-        "Inspection"
-      ]
-    },
+
     {
       "title": "Processing Traceability",
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Module for capturing and tracing processing steps across machines.",
-      "bullets": ["Step-level trace logs", "Operator tagging", "Sync with central DB"],
+      "bullets": [
+        "Step-level trace logs",
+        "Operator tagging",
+        "Sync with central database",
+        "Machine-to-machine flow tracking"
+      ],
       "img": "https://picsum.photos/seed/processing/1200/800",
       "images": ["https://picsum.photos/seed/processing/800/600"]
     },
@@ -413,7 +397,12 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Planning and scheduling module to optimize traceability workflows.",
-      "bullets": ["Order planning", "Batch grouping", "Schedule visualization"],
+      "bullets": [
+        "Production planning & scheduling",
+        "Machine load visualization",
+        "Recipe and parameter management",
+        "Real-time capacity monitoring"
+      ],
       "img": "https://picsum.photos/seed/planning/1200/800"
     },
     {
@@ -421,7 +410,12 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Audit tools for on-floor inspections and compliance checks.",
-      "bullets": ["Checklist driven audits", "Non-conformance logs", "Reports & sign-off"],
+      "bullets": [
+        "On-floor inspection tools",
+        "Compliance checking",
+        "Digital audit reports",
+        "Real-time audit logging"
+      ],
       "img": "https://picsum.photos/seed/audit/1200/800"
     },
     {
@@ -429,7 +423,12 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Batch making module to combine rolls into traceable batches.",
-      "bullets": ["Batch IDs", "Composition tracking", "Batch-level QC"],
+      "bullets": [
+        "Roll combination into batches",
+        "QR code generation & attachment",
+        "Batch-level traceability",
+        "Accurate quantity and length recording"
+      ],
       "img": "https://picsum.photos/seed/batch/1200/800"
     },
     {
@@ -437,7 +436,12 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Processing module for recording finishing and chemical treatments.",
-      "bullets": ["Process parameters", "Operator notes", "Time-stamped logs"],
+      "bullets": [
+        "Finishing process recording",
+        "Chemical treatment logging",
+        "Recipe verification",
+        "Real-time process parameter tracking"
+      ],
       "img": "https://picsum.photos/seed/processing2/1200/800"
     },
     {
@@ -445,7 +449,13 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Lab testing integration for material sampling and test reports.",
-      "bullets": ["Sample tracking", "Result import", "Certificate generation"],
+      "bullets": [
+        "Material sampling management",
+        "Integration with laboratory equipment",
+        "Digital test report generation",
+        "Test results linked to batch/roll traceability",
+        "Quality compliance documentation"
+      ],
       "img": "https://picsum.photos/seed/lab/1200/800"
     },
     {
@@ -453,7 +463,13 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Inspection module providing visual and sensor-based QC integration.",
-      "bullets": ["Inspection logs", "Image attachments", "Defect classification"],
+      "bullets": [
+        "Visual and AI-powered fabric inspection",
+        "Sensor-based quality control",
+        "Real-time fault detection",
+        "High-speed camera integration",
+        "Automatic fault mapping and marking"
+      ],
       "img": "https://picsum.photos/seed/inspection/1200/800"
     },
     {
