@@ -140,25 +140,24 @@
           {
             "name": "Dyed",
             "content": "After dyeing, fabrics are checked for uneven shades, stains, dye marks, streaks, and visible weave faults. Running at full production speed, the system highlights issues instantly so they can be corrected, ensuring uniform color quality and minimizing buyer rejections.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2026%2F03%2F00edcecf-8f94-4c29-9fe8-bdf22fa7469c.jpg&w=828&q=75",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/Seam.png",
             "images": [
-              "https://db.edraaksystems.com/wp-content/uploads/2026/03/slub-2.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/03/color-stain20.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/03/double-pick.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/03/knot.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/03/loose-end.png"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Slub.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Short-End.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Stain.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Miss-Pick.png"
             ],
             "link": "https://www.google.com/search?tbm=isch&q=dyed+fabric"
           },
           {
             "name": "Denim",
             "content": "In denim production, defects like streaks, holes, broken yarns, slubs, neps, and barre marks are identified during the process. This continuous monitoring improves first-quality output, reduces rejection rates, and helps maintain strict buyer expectations in fast-moving production lines.",
-            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/04f59a0e-124b-4cee-a087-24d7d523be5f.jpg",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/Double-Pick.png",
             "images": [
-              "https://images.unsplash.com/photo-1549213783-8284d0336c4b?w=800&q=80",
-              "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
-              "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
-              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Slub.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Finger-Mark.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Double-Pick.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Broken-Pick-Weft-Loose-2.png"
             ],
             "link": "https://www.google.com/search?tbm=isch&q=denim+fabric"
           },
