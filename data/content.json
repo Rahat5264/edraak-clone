@@ -378,7 +378,7 @@
         "Machine-to-machine flow tracking"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.png",
-      "images": ["https://picsum.photos/seed/processing/800/600"]
+      "images": ["https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.png"]
     },
     {
       "title": "Planning Software",
@@ -444,7 +444,7 @@
         "Test results linked to batch/roll traceability",
         "Quality compliance documentation"
       ],
-      "img": "https://picsum.photos/seed/lab/1200/800"
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/76266cd6265e8d0d42022acac36803c53261cae8.png"
     },
     {
       "title": "Inspection",
@@ -912,7 +912,7 @@
       "links": [
         { "label": "Home", "href": "#" },
         { "label": "About Us", "href": "#" },
-        { "label": "Careers", "href": "#" }
+        { "label": "Careers", "href": "https://edraak-clone.vercel.app/career" }
       ]
     },
     "products": [
