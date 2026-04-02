@@ -137,6 +137,34 @@ export default function Navigation() {
     }
   }
 
+  const scrollToIdWithOffset = (id: string, behavior: ScrollBehavior = 'smooth') => {
+    if (typeof window === 'undefined') return false
+    const el = document.getElementById(id)
+    if (!el) return false
+    const nav = navRef.current
+    const headerHeight = nav ? nav.getBoundingClientRect().height : 0
+    const y = el.getBoundingClientRect().top + window.scrollY - headerHeight
+    window.scrollTo({ top: Math.max(0, y), behavior })
+    return true
+  }
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const handleHash = () => {
+      const h = window.location.hash || ''
+      if (!h) return
+      const id = h.replace('#', '')
+      setTimeout(() => {
+        scrollToIdWithOffset(id)
+      }, 50)
+    }
+
+    // run once on mount if there's a hash
+    handleHash()
+    window.addEventListener('hashchange', handleHash)
+    return () => window.removeEventListener('hashchange', handleHash)
+  }, [])
+
   // Intersection observer to detect in-view sections and set live active link
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -193,6 +221,7 @@ export default function Navigation() {
 
     if (sectionIds.length === 0) return
 
+    const headerHeight = navRef.current ? navRef.current.getBoundingClientRect().height : 0
     let ticking = false
     const onScroll = () => {
       if (ticking) return
@@ -204,7 +233,7 @@ export default function Navigation() {
           const el = document.getElementById(id)
           if (!el) return
           const rect = el.getBoundingClientRect()
-          const distance = Math.abs(rect.top - 120) // 120px from top as reference
+          const distance = Math.abs(rect.top - headerHeight) // use header height as reference
           if (distance < bestDistance) {
             bestDistance = distance
             bestId = id
@@ -270,12 +299,10 @@ export default function Navigation() {
                 if ((targetPath === '' ? '/' : targetPath) === pathname) {
                   if (targetHash) {
                     e.preventDefault()
-                    const el = document.getElementById(id)
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth' })
+                    const scrolled = scrollToIdWithOffset(id)
+                    if (scrolled) {
                       setActiveHref(linkHref)
                     } else {
-                      // fallback: set hash
                       window.location.hash = targetHash
                       setActiveHref(linkHref)
                     }
@@ -294,9 +321,8 @@ export default function Navigation() {
 
                 if (targetHash) {
                   setTimeout(() => {
-                    const el = document.getElementById(id)
-                    if (el) el.scrollIntoView({ behavior: 'smooth' })
-                    else window.location.hash = targetHash
+                    const scrolled = scrollToIdWithOffset(id)
+                    if (!scrolled) window.location.hash = targetHash
                   }, 250)
                 }
               }
@@ -343,12 +369,27 @@ export default function Navigation() {
                 setMobileMenuOpen(false)
                 setUserClickedAnchor(true)
                 setActiveHref(mobileLinkHref)
+                const id = targetHash.replace('#', '')
+
                 if (targetPath === pathname && targetHash) {
                   e.preventDefault()
-                  const id = targetHash.replace('#', '')
-                  const el = document.getElementById(id)
-                  if (el) el.scrollIntoView({ behavior: 'smooth' })
-                  else window.location.hash = targetHash
+                  const scrolled = scrollToIdWithOffset(id)
+                  if (!scrolled) window.location.hash = targetHash
+                  return
+                }
+
+                if (targetHash) {
+                  e.preventDefault()
+                  try {
+                    router.push(mobileLinkHref)
+                  } catch (err) {
+                    window.location.href = mobileLinkHref
+                  }
+
+                  setTimeout(() => {
+                    const scrolled = scrollToIdWithOffset(id)
+                    if (!scrolled) window.location.hash = targetHash
+                  }, 250)
                 }
               }
 
