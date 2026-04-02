@@ -251,10 +251,12 @@
           {
             "name": "Total quality management",
             "content": "Edraak’s Factory on Phone integrates 7-0 quality control for needlepoint precision, reducing rework, tracking missing garments, and achieving cost savings while boosting efficiency.",
-            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252Fqms-360-app-on-phone-tablet.png%3Falt%3Dmedia%26token%3D320913cc-d2a5-4fca-87e2-d81d5991071e&w=828&q=75",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/Untitled_design-removebg-preview.png",
             "images": [
               "https://db.edraaksystems.com/wp-content/uploads/2026/04/Operator-status.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fault-Detail.png"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fault-Detail.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-5.06.38-PM.jpeg",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-5.06.38-PM-1.jpeg"
               
             ],
             "link": "https://www.google.com/search?tbm=isch&q=apparel+quality+management"
@@ -669,7 +671,7 @@
       {
         "title": "Computer Vision",
         "description": "Our computer vision platform learns fabric patterns and detects defects in real time, enabling automated inspection, high-speed monitoring, and consistent quality control without reliance on manual human inspection.",
-        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-scaled.png",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/20250703_162743-scaled.jpg",
         "link": "https://www.google.com/search?tbm=isch&q=Fabric+Tracking+Seam+Detection"
       },
       {
