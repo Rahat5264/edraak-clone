@@ -460,7 +460,7 @@
         "High-speed camera integration",
         "Automatic fault mapping and marking"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-2.jpg"
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
     },
     {
       "title": "Weft Straightener",
@@ -524,7 +524,7 @@
         "Automatic color-tag calibration",
         "Integrates with factory reporting and mapping systems"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png",
+      "img": "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/2-1.png",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
       ]
@@ -624,21 +624,12 @@
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/spectrophotometer.jpg"
       ]
-    },
-    {
-      "title": "Trading - Products / Services",
-      "subtitle": "Trading",
-      "category": "Trading",
-      "desc": "Trading services — products and services can be added as per requirement.",
-      "bullets": ["Custom sourcing", "After-sales support"],
-      "img": "https://picsum.photos/seed/trading/1200/800"
     }
   ],
   "productCategoriesOrder": [
     "EVS(Edraak Vision System)",
     "Traceability System",
-    "Accessories",
-    "Trading"
+    "Accessories"
   ],
   "productsHero": {
     "subtitle": "Our Products",

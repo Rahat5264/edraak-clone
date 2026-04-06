@@ -51,7 +51,7 @@ export default function VisionPlatformPage() {
               </h1>
 
               <p className="font-body text-lg md:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
-                AI-powered camera inspection for textile production lines. Detect defects in real-time with superhuman speed and micro-level accuracy.
+Detect fabric defects instantly with high precision and unmatched speed, faster and more accurate than manual inspection.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -128,7 +128,7 @@ export default function VisionPlatformPage() {
         <div className="max-w-[980px] mx-auto">
           <div className="max-w-[600px] mb-16 md:mb-20">
             <p className="font-heading text-sm text-gray-500 font-semibold mb-3">Capabilities</p>
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight">Built for<br /><span className="text-gray-400">Excellence.</span></h2>
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight">Edraak Vision<br /><span className="text-gray-400">System.</span></h2>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -136,32 +136,32 @@ export default function VisionPlatformPage() {
               <div className="w-12 h-12 rounded-xl bg-[#02879F]/10 flex items-center justify-center mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-eye w-6 h-6 text-[#02879F]" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Superhuman Inspection</h3>
-              <p className="font-body text-gray-500">Micro-level accuracy with high-resolution fabric imagery</p>
+              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Advanced Vision Intelligence</h3>
+              <p className="font-body text-gray-500">Ultra-precise AI analysis with high-resolution fabric scanning</p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all">
               <div className="w-12 h-12 rounded-xl bg-[#02879F]/10 flex items-center justify-center mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-zap w-6 h-6 text-[#02879F]" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Real-time Detection</h3>
-              <p className="font-body text-gray-500">AI-powered defect identification as fabric moves</p>
+              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Dynamic Real-Time Detection</h3>
+              <p className="font-body text-gray-500">Continuous AI monitoring and instant defect flagging during production</p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all">
               <div className="w-12 h-12 rounded-xl bg-[#02879F]/10 flex items-center justify-center mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chart-column w-6 h-6 text-[#02879F]" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Yield Optimization</h3>
-              <p className="font-body text-gray-500">Integrated engine for improved cutting plans</p>
+              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Automated Cutting Optimization</h3>
+              <p className="font-body text-gray-500">AI-powered planning system that maximizes fabric utilization and grade-A output</p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all">
               <div className="w-12 h-12 rounded-xl bg-[#02879F]/10 flex items-center justify-center mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-scan w-6 h-6 text-[#02879F]" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path></svg>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Digital Traceability</h3>
-              <p className="font-body text-gray-500">Complete fabric history from loom to finished goods</p>
+              <h3 className="font-heading text-xl font-semibold text-gray-900 mb-2">Digital Fabric Lifecycle Tracking</h3>
+              <p className="font-body text-gray-500">End-to-end traceability and complete history of every roll</p>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@ export default function VisionPlatformPage() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             <div>
               <p className="font-heading text-sm text-gray-500 font-semibold mb-3">Why Choose EVS</p>
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight">Advanced<br /><span className="text-gray-400">Technology.</span></h2>
+              <h2 className="font-heading text-4xl sm:text-5xl md:text-[56px] font-bold text-gray-900 leading-[1.1] tracking-tight">Next-Gen<br /><span className="text-gray-400">Fabric Inspection.</span></h2>
             </div>
 
             <div className="space-y-4">
@@ -201,42 +201,42 @@ export default function VisionPlatformPage() {
                 <div className="w-6 h-6 rounded-full bg-[#02879F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 text-[#02879F]" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
                 </div>
-                <p className="font-body text-gray-700">Superhuman inspection speed with Micro-level accuracy</p>
+                <p className="font-body text-gray-700">Blazing-fast inspection with microscopic accuracy</p>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                 <div className="w-6 h-6 rounded-full bg-[#02879F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 text-[#02879F]" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
                 </div>
-                <p className="font-body text-gray-700">High-resolution fabric imagery for advanced defect detection</p>
+                <p className="font-body text-gray-700">Advanced high-resolution imaging for reliable defect identification</p>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                 <div className="w-6 h-6 rounded-full bg-[#02879F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 text-[#02879F]" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
                 </div>
-                <p className="font-body text-gray-700">Integrated with optimization engine for improved yield</p>
+                <p className="font-body text-gray-700">Smart optimization engine that maximizes A-grade output</p>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                 <div className="w-6 h-6 rounded-full bg-[#02879F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 text-[#02879F]" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
                 </div>
-                <p className="font-body text-gray-700">Automated fault labeling and tagging</p>
+                <p className="font-body text-gray-700">Fully automated fault labeling and sticker application</p>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                 <div className="w-6 h-6 rounded-full bg-[#02879F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 text-[#02879F]" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
                 </div>
-                <p className="font-body text-gray-700">Synchronized with cutting machines for efficient roll-making</p>
+                <p className="font-body text-gray-700">Direct integration with cutting machines for optimized roll cutting</p>
               </div>
 
               <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                 <div className="w-6 h-6 rounded-full bg-[#02879F]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 text-[#02879F]" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
                 </div>
-                <p className="font-body text-gray-700">Digital traceability and reduced reliance on manual inspection</p>
+                <p className="font-body text-gray-700">Complete digital traceability reducing manual work and human error</p>
               </div>
             </div>
           </div>
