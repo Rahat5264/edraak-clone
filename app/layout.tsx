@@ -52,19 +52,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
+        type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
+    shortcut: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
+    apple: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
   },
 }
 
