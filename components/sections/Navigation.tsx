@@ -16,6 +16,11 @@ export default function Navigation() {
   const [activeHref, setActiveHref] = useState('')
   const [userClickedAnchor, setUserClickedAnchor] = useState(false)
 
+  const navItems = (content.navigation || []).filter((it: any) => {
+    const label = (it.label || '').toString().trim().toLowerCase()
+    return label !== 'blog'
+  })
+
   useEffect(() => {
     if (!navRef.current) return
 
@@ -94,8 +99,12 @@ export default function Navigation() {
     const setCurrentActive = () => {
       try {
         const current = `${window.location.pathname}${window.location.hash || ''}`
+        // If we are at root with no hash and the user hasn't clicked an anchor, show no active
         if (window.location.pathname === '/' && !(window.location.hash || '') && !userClickedAnchor) {
           setActiveHref('')
+        // If the user just clicked an anchor on the same page, don't override the activeHref we set in the click handler
+        } else if (window.location.pathname === '/' && !(window.location.hash || '') && userClickedAnchor) {
+          return
         } else {
           setActiveHref(current)
         }
@@ -118,6 +127,10 @@ export default function Navigation() {
   useEffect(() => {
     if (pathname === '/' && !hash && !userClickedAnchor) {
       setActiveHref('')
+    // When the user clicked an anchor on the same page we may not have a hash in the URL
+    // yet (we scroll manually). Don't override the manually-set activeHref in that case.
+    } else if (pathname === '/' && !hash && userClickedAnchor) {
+      return
     } else {
       setActiveHref(`${pathname}${hash}`)
     }
@@ -169,7 +182,6 @@ export default function Navigation() {
   useEffect(() => {
     if (typeof window === 'undefined') return
     if (pathname === '/' && !userClickedAnchor) return
-    const navItems = content.navigation || []
     const toObserve: HTMLElement[] = []
 
     navItems.forEach((item: any) => {
@@ -211,7 +223,6 @@ export default function Navigation() {
   useEffect(() => {
     if (typeof window === 'undefined') return
     if (pathname === '/' && !userClickedAnchor) return
-    const navItems = content.navigation || []
     const sectionIds = navItems.map((it: any) => {
       const raw = it.href || ''
       if (!raw.includes('#')) return null
@@ -277,7 +288,7 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {content.navigation.map((item) => {
+            {navItems.map((item) => {
               const raw = item.href || ''
               let targetPath = raw
               let targetHash = ''
@@ -327,15 +338,33 @@ export default function Navigation() {
                 }
               }
 
+              // For Vision Platform: disable navigation and show a hover tooltip (desktop) / inline label (mobile)
+              if (isVision) {
+                return (
+                  <div key={item.label} className="relative inline-block group">
+                    <button
+                      type="button"
+                      onClick={(e) => { e.preventDefault(); /* intentionally disabled */ }}
+                      className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''} vision-link`}
+                      style={{ color: '#02E3DF', fontSize: '18px', background: 'transparent', border: 0, padding: 0 }}
+                    >
+                      {item.label}
+                    </button>
+                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 mt-2 w-max bg-black text-white text-xs px-2 py-1 rounded shadow opacity-0 group-hover:opacity-100 transition-opacity">
+                      Coming soon
+                    </div>
+                  </div>
+                )
+              }
+
               return (
                 <Link
                   key={item.label}
                   href={linkHref}
-                  className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''} ${isVision ? 'vision-link' : ''}`}
+                  className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''}`}
                   onClick={handleClick}
                   style={{
-                    color: isVision ? '#02E3DF' : (isActive ? '#02E3DF' : 'rgba(255,255,255,0.9)'),
-                    fontSize: isVision ? '18px' : undefined
+                    color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.9)'
                   }}
                 >
                   {item.label}
@@ -349,9 +378,9 @@ export default function Navigation() {
           </button>
         </div>
 
-        {mobileMenuOpen && (
+          {mobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-2 pt-4">
-            {content.navigation.map((item) => {
+            {navItems.map((item) => {
               const raw = item.href || ''
               let targetPath = raw
               let targetHash = ''
@@ -393,15 +422,23 @@ export default function Navigation() {
                 }
               }
 
+              if (isVision) {
+                return (
+                  <div key={item.label} className="block text-sm font-medium py-2" style={{ color: '#02E3DF', fontSize: '18px' }}>
+                    <span>{item.label}</span>
+                    <span className="ml-2 text-xs text-slate-400">Coming soon</span>
+                  </div>
+                )
+              }
+
               return (
                 <Link
                   key={item.label}
                   href={`${targetPath}${targetHash}`}
                   onClick={handleClick}
-                  className={`block text-sm font-medium py-2 ${isActive ? 'active' : ''} ${isVision ? 'vision-link' : ''}`}
+                  className={`block text-sm font-medium py-2 ${isActive ? 'active' : ''}`}
                   style={{
-                    color: isVision ? '#02E3DF' : (isActive ? '#02E3DF' : 'rgba(255,255,255,0.95)'),
-                    fontSize: isVision ? '18px' : undefined
+                    color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.95)'
                   }}
                 >
                   {item.label}

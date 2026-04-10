@@ -214,7 +214,8 @@
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffmwp.png&w=828&q=75",
             "images": [
               "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffmwp.png&w=828&q=75",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141655.png"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141655.png",
+              "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png"
             
               
             ],
@@ -226,8 +227,8 @@
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F10%2Ffault-labeling-system.png&w=828&q=75",
             "images": [
               "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fault-Labeling-System-2.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/2-1.png",
-              "https://images.unsplash.com/photo-1520975913406-5c9c9b0f4f2a?w=800&q=80"
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/2-1.png"
+              
             ],
             "link": "https://www.google.com/search?tbm=isch&q=labeling+system+fabric"
           },
@@ -236,9 +237,9 @@
             "content": "Edraak’s barcode scanning system provides seamless fabric tracking from input to output, resolving fabric length discrepancies and optimizing material use. High-speed scanners and digital meters log precise lengths, monitor fabric consumption, and alert teams to real-time discrepancies. This ensures accurate costing, minimizes waste, and simplifies final product verification, aligning operations for efficiency and quality assurance.",
             "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2024%2F11%2Fproduction-tracking.png&w=828&q=75",
             "images": [
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/sasasas.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-27-182201.png",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-27-182328.png"
+              
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-27-182328.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141655.png"
           
             ],
             "link": "https://www.google.com/search?tbm=isch&q=production+tracking+apparel"
@@ -363,6 +364,8 @@
         "Fault mapping software aggregates quality across all connected ELI units",
         "Export or sync only inspection data relevant to your organization and customers"
       ],
+      "comingSoon": true,
+      "comingSoonText": "Coming soon",
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg"
@@ -500,6 +503,8 @@
         "Reduces manual intervention and production waste",
         "Improves downstream inspection and cutting accuracy"
       ],
+      "comingSoon": true,
+      "comingSoonText": "Coming soon",
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/weft-straitner.png",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/weft-straitner.png",
@@ -587,6 +592,8 @@
         "Dashboard, reporting and feedback outputs for process control",
         "Helps avoid over-drying and improves product reproducibility"
       ],
+      "comingSoon": true,
+      "comingSoonText": "Coming soon",
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/online-moisture.png",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/online-moisture.png",
@@ -621,9 +628,9 @@
         "Dashboard integration and end-of-run reporting",
         "Internal self-calibration and long-life LED illumination"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/spectrophotometer.jpg",
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-10-at-5.42.32-PM.jpeg",
       "images": [
-        "https://db.edraaksystems.com/wp-content/uploads/2026/03/spectrophotometer.jpg"
+        "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-10-at-1.17.23-PM.jpeg"
       ]
     }
   ],
@@ -790,7 +797,7 @@
         "name": "Edraak Systems",
         "address": "105-Muzammil Town, 19 Km Off Multan Road, Lahore",
         "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.3045171026965!2d74.17943237540214!3d31.43328257425404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918fe67da54d5b7%3A0xe0ba41499f0d4270!2sEdraak%20Systems!5e0!3m2!1sen!2s!4v1773395742222!5m2!1sen!2s",
-        "phone": "+92 300 2772828 | +92 311 4560506",
+        "phone": "+92 321 7973753 | +92 311 4560506",
         "email": "mail@edraaksystems.com",
         "latitude": 31.5204,
         "longitude": 74.3587
@@ -893,7 +900,7 @@
     ]
   },
   "footer": {
-    "phone": "+92 304 2772828 | +92 311 4560506",
+    "phone": "+92 321 7973753 | +92 311 4560506",
     "labels": {
       "socials": "Socials",
       "company": "Company",

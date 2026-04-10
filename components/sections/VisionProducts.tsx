@@ -25,8 +25,12 @@ export default function VisionProducts({ products }: { products: any[] }) {
       <div ref={ref} className="vision-products-scroll p-4">
         {products.slice(0, 12).map((p: any, i: number) => (
           <div key={i} className="flex items-center gap-4 bg-white rounded p-3 border-b last:border-b-0 vp-row">
-            <div className="w-20 h-20 rounded overflow-hidden flex-shrink-0 bg-gray-100">
-              <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+            <div className="w-20 h-20 rounded overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center text-sm text-gray-700 font-semibold">
+              {p.comingSoon ? (
+                <div className="w-full h-full flex items-center justify-center">{p.comingSoonText || 'Coming soon'}</div>
+              ) : (
+                <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+              )}
             </div>
             <div className="flex-1">
               <div className="flex items-center justify-between">

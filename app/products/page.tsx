@@ -265,7 +265,9 @@ export default function ProductsPage() {
                 return (
                   <div key={slug} className="bg-white overflow-hidden shadow-sm border border-gray-200 flex flex-col h-full">
                     <div className="h-56 bg-gray-100 overflow-hidden flex-shrink-0">
-                      {p.img ? (
+                      {p.comingSoon ? (
+                        <div className="w-full h-full flex items-center justify-center text-2xl font-semibold text-gray-500">{p.comingSoonText || 'Coming soon'}</div>
+                      ) : p.img ? (
                         <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
                       ) : (
                         <div className="w-full h-full bg-gray-200" />

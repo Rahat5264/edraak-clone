@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import content from '@/data/content.json'
 import { Button } from '@/components/ui/button'
 
@@ -14,7 +14,22 @@ export default function Sectors() {
 
   const sectors = content?.sectors || { items: [] }
   const sector = sectors.items[activeSector] || { subtabs: [] }
-  const activeIdx = activeSubTab[activeSector] || 0
+
+  const shouldHideSubtab = (subtab: any) => {
+    const name = String(subtab?.name || '').toLowerCase().replace(/[\s-]/g, '')
+    return name === 'onloom'
+  }
+
+  const originalNestedTabs = sector.subtabs || []
+  const visibleSubtabs = originalNestedTabs.map((s: any, idx: number) => ({ subtab: s, idx })).filter(({ subtab }) => !shouldHideSubtab(subtab))
+
+  const activeIdx = typeof activeSubTab[activeSector] === 'number'
+    ? activeSubTab[activeSector]
+    : (() => {
+        const firstVisible = originalNestedTabs.findIndex((st: any) => !shouldHideSubtab(st))
+        return firstVisible >= 0 ? firstVisible : 0
+      })()
+
   const activeItem = (sector.subtabs && sector.subtabs[activeIdx]) || {}
   const activeImages = Array.isArray((activeItem as any).images) ? ((activeItem as any).images as string[]) : []
   const thumbVisibleCount = 4
@@ -70,37 +85,37 @@ export default function Sectors() {
           const nestedTabs = (sectors.items[activeSector] && sectors.items[activeSector].subtabs) || []
           return (
             <>
-              <div className="sm:hidden mb-1 mx-0 px-0 overflow-x-auto">
-                <div className="flex space-x-0">
-                  {nestedTabs.map((subtab: any, idx: number) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSubTabClick(activeSector, idx)}
-                      className={`inline-block px-4 py-2 text-sm font-medium transition-all ${
-                        activeIdx === idx ? 'bg-[#02879F] text-white border border-[#02879F]' : 'bg-white text-gray-700 hover:bg-gray-50'
-                      }`}
-                    >
-                      {subtab.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
+                  <div className="sm:hidden mb-1 mx-0 px-0 overflow-x-auto">
+                    <div className="flex space-x-0">
+                      {visibleSubtabs.map(({ subtab, idx }: any) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleSubTabClick(activeSector, idx)}
+                          className={`inline-block px-4 py-2 text-sm font-medium transition-all ${
+                            activeIdx === idx ? 'bg-[#02879F] text-white border border-[#02879F]' : 'bg-white text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          {subtab.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
-              <div className="hidden sm:block mb-1 mx-0 px-0">
-                <div style={{ display: 'grid', gridTemplateColumns: `repeat(${nestedTabs.length || 1}, minmax(0, 1fr))`, gap: 0 }}>
-                  {nestedTabs.map((subtab: any, idx: number) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSubTabClick(activeSector, idx)}
-                      className={`w-full px-4 py-2 border-none text-sm font-medium transition-all ${
-                        activeIdx === idx ? 'bg-[#02879F] text-white border border-[#02879F]' : 'bg-white text-gray-700 hover:bg-gray-50'
-                      }`}
-                    >
-                      {subtab.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
+                  <div className="hidden sm:block mb-1 mx-0 px-0">
+                    <div style={{ display: 'grid', gridTemplateColumns: `repeat(${visibleSubtabs.length || 1}, minmax(0, 1fr))`, gap: 0 }}>
+                      {visibleSubtabs.map(({ subtab, idx }: any) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleSubTabClick(activeSector, idx)}
+                          className={`w-full px-4 py-2 border-none text-sm font-medium transition-all ${
+                            activeIdx === idx ? 'bg-[#02879F] text-white border border-[#02879F]' : 'bg-white text-gray-700 hover:bg-gray-50'
+                          }`}
+                        >
+                          {subtab.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
             </>
           )
         })()}

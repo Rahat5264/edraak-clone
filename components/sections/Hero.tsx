@@ -20,8 +20,33 @@ export default function Hero() {
     return () => window.removeEventListener('resize', setVh)
   }, [])
 
-  const handleNewsletterSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const email = String(formData.get('email') || '').trim()
+
+    if (!email) {
+      alert(content.hero?.signup?.errorMessage || 'Please provide a valid email.')
+      return
+    }
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+
+      if (res.ok) {
+        alert(content.hero?.signup?.successMessage || 'Thanks for subscribing — we’ll be in touch soon.')
+        form.reset()
+      } else {
+        alert(content.hero?.signup?.errorMessage || 'Subscription failed. Please try again later.')
+      }
+    } catch (err) {
+      alert(content.hero?.signup?.errorMessage || 'Subscription failed. Please try again later.')
+    }
   }
 
   return (
@@ -103,6 +128,7 @@ export default function Hero() {
           className="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3"
         >
           <input
+            name="email"
             type="email"
             required
             placeholder="enter email to subscribe"

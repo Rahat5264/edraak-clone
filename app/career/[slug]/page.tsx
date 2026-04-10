@@ -1,16 +1,17 @@
-import content from '@/data/content.json'
-import JobDetailClient from '@/components/career/JobDetailClient'
+import React from 'react'
+import Link from 'next/link'
 
-function slugify(s: string) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-}
-
-export default async function JobPage({ params }: { params: any }) {
-  const resolved = await params
-  const slug = resolved?.slug || ''
-  const jobs = Array.isArray(content.careers?.items) ? content.careers.items : []
-  const job = jobs.find((j: any) => slugify(j.title || '') === slug) || null
-
-  // Always render the client component. The client will resolve the job if server-side lookup fails.
-  return <JobDetailClient job={job} jobs={jobs} slug={slug} />
+export default function JobPageSlug() {
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-white py-20">
+      <div className="max-w-2xl text-center px-6">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">Careers — Coming Soon</h1>
+        <p className="text-lg text-gray-700 mb-6">
+          This position page is temporarily unavailable while we update our listings. For enquiries and CV submissions, email{' '}
+          <a href="mailto:career@edraaksystems.com" className="text-[#02879F]">career@edraaksystems.com</a>.
+        </p>
+        <Link href="/career" className="text-sm text-gray-500 underline">Back to careers</Link>
+      </div>
+    </main>
+  )
 }
