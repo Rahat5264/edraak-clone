@@ -16,8 +16,12 @@ export default function Sectors() {
   const sector = sectors.items[activeSector] || { subtabs: [] }
 
   const shouldHideSubtab = (subtab: any) => {
-    const name = String(subtab?.name || '').toLowerCase().replace(/[\s-]/g, '')
-    return name === 'onloom'
+    const raw = String(subtab?.name || '').toLowerCase()
+    const name = raw.replace(/[\s-]/g, '')
+    const hideList = ['onloom', 'machinecarepro', 'smartwashmonitoring', 'washmonitoring', 'washmonitoringsystem']
+    if (hideList.includes(name)) return true
+    if (/wash.*monitor|monitor.*wash|washmonitor/i.test(raw)) return true
+    return false
   }
 
   const originalNestedTabs = sector.subtabs || []
