@@ -365,9 +365,9 @@
       ],
       "comingSoon": true,
       "comingSoonText": "Coming soon",
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg",
+      "img": "",
       "images": [
-        "https://db.edraaksystems.com/wp-content/uploads/2026/03/on-loom-inspection.jpg"
+        ""
       ]
     },
 
@@ -425,7 +425,7 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg"
     },
     {
-      "title": "Processing",
+      "title": "Fabric Production Processing",
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "desc": "Processing module for recording finishing and chemical treatments.",

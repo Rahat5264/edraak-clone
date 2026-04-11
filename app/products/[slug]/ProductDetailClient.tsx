@@ -84,7 +84,11 @@ export default function ProductDetailClient() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="rounded-md overflow-hidden shadow-md">
-              <img src={(prod.img || (prod.images && prod.images[0]) || '')} alt={prod.title} className="w-full h-80 object-cover" />
+              {prod.comingSoon ? (
+                <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-2xl font-semibold text-gray-500">{prod.comingSoonText || 'Coming soon'}</div>
+              ) : (
+                <img src={(prod.img || (prod.images && prod.images[0]) || '')} alt={prod.title} className="w-full h-80 object-cover" />
+              )}
             </div>
 
             <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
@@ -173,7 +177,9 @@ export default function ProductDetailClient() {
               <div>
                 <h4 className="text-sm font-medium text-slate-700">Gallery</h4>
                 <div className="grid grid-cols-3 gap-2 mt-2">
-                  {((prod.images && Array.isArray(prod.images) && prod.images) || []).length > 0 ? (
+                  {prod.comingSoon ? (
+                    <div className="h-20 w-full overflow-hidden rounded-md bg-gray-100 col-span-3 flex items-center justify-center text-sm font-medium text-gray-500">{prod.comingSoonText || 'Coming soon'}</div>
+                  ) : (((prod.images && Array.isArray(prod.images) && prod.images) || []).length > 0 ? (
                     prod.images.map((u: string, i: number) => (
                       <div key={i} className="h-20 w-full overflow-hidden rounded-md bg-gray-100">
                         <img src={u} alt={`${prod.title}-${i}`} className="w-full h-full object-cover" />
@@ -183,7 +189,7 @@ export default function ProductDetailClient() {
                     <div className="h-20 w-full overflow-hidden rounded-md bg-gray-100">
                       <img src={prod.img} alt={prod.title} className="w-full h-full object-cover" />
                     </div>
-                  )}
+                  ))}
                 </div>
               </div>
 
