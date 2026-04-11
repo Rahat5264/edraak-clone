@@ -175,8 +175,7 @@
             "content": "Finished garments are checked for visual defects, stitching issues, shade mismatches, and labeling errors before dispatch. This ensures every piece meets quality standards and supports faster, more reliable final inspections, reducing the chances of defective products reaching customers.",
             "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-01-at-5.32.56-PM.jpeg",
             "images": [
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.36.07-PM.jpeg",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-01-at-5.32.55-PM.jpeg"
+              
            
             ],
             "link": "https://www.google.com/search?tbm=isch&q=apparel+inspection+quality+control"
@@ -189,7 +188,7 @@
           {
             "name": "Fabric Quality Control",
             "content": "The Fabric Quality Control system streamlines quality control by logging faults and guiding inspections, feeding data into an optimization engine that creates the best cutting plans. This reduces B-grade fabric and boosts efficiency by up to 0.4%.",
-            "image": "https://www.edraaksystems.com/_next/image?url=https%3A%2F%2Fdb.edraaksystems.com%2Fwp-content%2Fuploads%2F2022%2F04%2FNDF-BG.jpg&w=828&q=75",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/Fabric-Quality-Control-image-3.png",
             "images": [
               "https://db.edraaksystems.com/wp-content/uploads/2026/03/Screenshot-2026-03-05-140923.png",
               "https://db.edraaksystems.com/wp-content/uploads/2026/03/Screenshot-2026-03-05-140527.png",
@@ -265,10 +264,10 @@
           {
             "name": "Smart sewing system",
             "content": "Edraak's Smart Sewing System automates planning, tracking, and wages, minimizing manual errors and enhancing productivity. The RFID scanner, integrated with the traffic light system, enhances visual management.",
-            "image": "https://edraaksystems.com/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fedraak-frontend.appspot.com%2Fo%2Fmedia%252FRFID%2520for%2520Traffice%2520Light.png%3Falt%3Dmedia%26token%3D5360d2ee-b459-42c1-82cd-9e527a033e24&w=828&q=75",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-2.49.18-PM.jpeg",
             "images": [
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-2.49.18-PM.jpeg",
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/RFID-Device.png"
+              
+              
               
             ],
             "link": "https://www.google.com/search?tbm=isch&q=smart+sewing+system+rfid"
