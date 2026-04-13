@@ -41,7 +41,10 @@ export default function Footer() {
     'visual fault detection': '/products/high-speed-inspection',
     'fabric width sensing': '/products/width-measurement-system',
     'fabric color sensors': '/products/spectrophotometer',
-    'energy monitoring': '/energy-monitoring'
+    'fabric traceability': '/fabric-traceability',
+    'sewing traceability & qc': '/sewing-traceability-qc',
+    'energy monitoring': '/energy-monitoring',
+    'artificial intelligence': '/artificial-intelligence'
   }
 
   return (
@@ -104,6 +107,8 @@ export default function Footer() {
                     href = 'https://www.edraaksystems.com/products/spectrophotometer'
                   } else if (l.includes('energy')) {
                       href = '/energy-monitoring'
+                  } else if (l.includes('artificial') || l.includes('intelligence') || l === 'ai') {
+                    href = '/artificial-intelligence'
                   }
 
                   return (
