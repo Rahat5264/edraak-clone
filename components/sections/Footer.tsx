@@ -17,6 +17,33 @@ export default function Footer() {
     ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-4'
     : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-5'
 
+  const slugify = (s: string) => {
+    return (s || '').toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  }
+
+  const findProductLinkForCaseStudy = (cs: any) => {
+    if (!cs) return ''
+    const csText = `${cs.title || ''} ${cs.description || ''}`.toLowerCase()
+    if (!Array.isArray(content.products)) return ''
+    for (const p of content.products) {
+      const keys = `${p.title || ''} ${p.subtitle || ''} ${p.summary || ''}`.toLowerCase()
+      const words = keys.split(/\W+/).filter(Boolean).filter((w: string) => w.length > 3)
+      for (const w of words) {
+        if (csText.includes(w)) {
+          return `/products/${slugify(p.title || p.subtitle || 'product')}`
+        }
+      }
+    }
+    return ''
+  }
+
+  const caseStudyToProductHref: Record<string, string> = {
+    'visual fault detection': '/products/high-speed-inspection',
+    'fabric width sensing': '/products/width-measurement-system',
+    'fabric color sensors': '/products/spectrophotometer',
+    'energy monitoring': '/energy-monitoring'
+  }
+
   return (
     <footer className="site-header text-white px-4 py-10 md:py-12">
       <div className="max-w-7xl mx-auto">
@@ -68,11 +95,23 @@ export default function Footer() {
             <div>
               <h4 className="text-lg md:text-xl font-semibold mb-4">Technologies</h4>
               <ul className="space-y-2 text-sm md:text-base text-white/85">
-                {(content.technology?.tabLabels || []).map((label: any, idx: number) => (
-                  <li key={idx}>
-                    <a href={`#technology`} className="hover:text-white transition-colors">{label}</a>
-                  </li>
-                ))}
+                {(content.technology?.tabLabels || []).map((label: any, idx: number) => {
+                  const l = (label || '').toString().toLowerCase()
+                  let href = '#technology'
+                  if (l.includes('computer') || l.includes('vision')) {
+                    href = 'https://www.edraaksystems.com/products/high-speed-inspection'
+                  } else if (l.includes('spectrophotometer')) {
+                    href = 'https://www.edraaksystems.com/products/spectrophotometer'
+                  } else if (l.includes('energy')) {
+                      href = '/energy-monitoring'
+                  }
+
+                  return (
+                    <li key={idx}>
+                      <a href={href} className="hover:text-white transition-colors">{label}</a>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 
@@ -95,11 +134,19 @@ export default function Footer() {
             <div>
               <h4 className="text-lg md:text-xl font-semibold mb-4">Case Studies</h4>
               <ul className="space-y-2 text-sm md:text-base text-white/85">
-                {content.caseStudies?.items?.map((cs: any, idx: number) => (
-                  <li key={idx}>
-                    <a href={cs.image ? '/#industrial-use-cases' : '/#industrial-use-cases'} className="hover:text-white transition-colors">{cs.title}</a>
-                  </li>
-                ))}
+                {content.caseStudies?.items?.map((cs: any, idx: number) => {
+                  const key = (cs?.title || '').toString().toLowerCase().trim()
+                  const productLink = caseStudyToProductHref[key] || findProductLinkForCaseStudy(cs)
+                  return (
+                    <li key={idx}>
+                      {productLink ? (
+                        <a href={productLink} className="hover:text-white transition-colors">{cs.title}</a>
+                      ) : (
+                        <span className="text-white/85">{cs.title}</span>
+                      )}
+                    </li>
+                  )
+                })}
               </ul>
             </div>
 
