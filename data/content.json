@@ -213,7 +213,7 @@
             "image": "https://db.edraaksystems.com/wp-content/uploads/2024/10/fmwp.png",
             "images": [
               
-              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141655.png",
+              "https://db.edraaksystems.com/wp-content/uploads/2026/04/Screenshot-2026-03-05-141655-1.png",
               "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png"
             
               
@@ -223,7 +223,7 @@
           {
             "name": "Labeling system",
             "content": "Edraak's automatic labeling system marks fabric faults during production, providing essential data for efficient panel cutting without halting operations.",
-            "image": "https://db.edraaksystems.com/wp-content/uploads/2024/10/fault-labeling-system.png",
+            "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fault-Labeling-System-2.png",
             "images": [
               "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fault-Labeling-System-2.png",
               "https://db.edraaksystems.com/wp-content/uploads/2026/04/2-1.png"
@@ -375,26 +375,81 @@
       "title": "Processing Traceability",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "desc": "Module for capturing and tracing processing steps across machines.",
+      "summary": "Edraak Traceability System is an IoT-based production planning and tracking system designed for high-speed, paperless, and real-time traceable production.",
+      "desc": "Module for capturing and tracing processing steps across machines and enabling paperless, real-time production tracking.",
+      "need": [
+        "QR Printers",
+        "QR Scanners",
+        "Operator Module",
+        "Planning and tracking software"
+      ],
+      "existingProcess": "The planning is done using conventional methods without any real production feedback and analysis. The process is tracked by a 24-hour or shift production system.",
+      "proposedProcess": "Comprehensive software for production planning and tracking.\nEasy-to-use, customizable interface to guide operation.\nReal-time production tracking with precise encoders.\nMachine flow selection.\nOne-time recipe and flow creation for every article.\nFlow and recipes can be automatically assigned for repeat articles.\nProcess completion is tracked in real time.\nComplete tracking of all the operations on each roll.\nRecipe and parameter verification on the machine module to minimise human error.\nPrevious and next machine guidance for the operator.",
       "bullets": [
-        "Production planning and tracking software",
-        "Operator guidance for process flow, machine parameters, and process recipe",
-        "Sync with the central database",
-        "Machine-to-machine flow tracking"
+        "QR printing and high-speed QR scanning",
+        "Operator module with guided workflows",
+        "Planning & track software with recipe management",
+        "Real-time encoder-based production tracking",
+        "Machine-to-machine flow tracking and verification",
+        "Automatic recipe assignment for repeat articles",
+        "Complete roll-level operation history and audit trail"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.png",
       "images": ["https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.png"]
     },
     {
       "title": "Planning Software",
-      "subtitle": "Traceability System",
+      "subtitle": "Production Planning & Control System (PPC)",
       "category": "Traceability System",
-      "desc": "Planning and scheduling module to optimize production workflows.",
+      "summary": "Production Planning & Control System (PPC): A department-wise production planning and control system that streamlines fabric flow from Greige to Finishing departments with proper user rights, real-time tracking, and automated workflows.",
+      "desc": "Planning and scheduling module to optimize production workflows across departments, with route and recipe management.",
+      "basicFlow": [
+        {
+          "name": "Greige Department",
+          "content": "Maintains fabric inventory data from ERP. Issues fabric upon request from production departments."
+        },
+        {
+          "name": "PPC (Production Planning & Control)",
+          "content": "Creates production plans based on market orders, fabric availability, and urgency. Monitors real-time status of all production departments."
+        },
+        {
+          "name": "Production Departments (Bleaching, Dyeing, Finishing)",
+          "content": "Receive plans from PPC, create machine routes, and manage production according to machine availability and urgency."
+        }
+      ],
+      "keyProcesses": [
+        {
+          "name": "Fabric Request & Issuance",
+          "content": "Production departments raise fabric requests to Greige. Greige can issue fabric fully, partially, or reject the request."
+        },
+        {
+          "name": "Route Planning",
+          "content": "Production departments create machine routes for lots. Route templates can be configured and loaded instantly."
+        },
+        {
+          "name": "Machine Planning & WIP",
+          "content": "Departments can plan and monitor lots on their machines with real-time WIP visibility."
+        },
+        {
+          "name": "Parameters & Recipes",
+          "content": "Department-wise machine parameters and recipes with controlled access (read/write/create)."
+        }
+      ],
+      "additionalFeatures": [
+        "Complete production history and change tracking",
+        "Integrated department-wise reports",
+        "Trolleys & batch stock reporting",
+        "Lab verification and testing reports",
+        "Completed orders with full details (start/end time, parameters, recipes, and lab results)"
+      ],
+      "userRightsSecurity": "System is fully segregated by departments and designations (Manager, Supervisor, Shift In-charge). Users only see their relevant orders, screens, recipes, and parameters.",
       "bullets": [
-        "Production planning & scheduling",
-        "Machine load visualization",
-        "Recipe and parameter management",
-        "Real-time capacity monitoring"
+        "Department-wise planning and control",
+        "ERP-integrated fabric issuance",
+        "Route templates and machine routing",
+        "Real-time WIP and capacity monitoring",
+        "Parameter & recipe access controls",
+        "Comprehensive reporting and audit trails"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed.png"
     },
@@ -402,25 +457,45 @@
       "title": "Audit Inspection",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "desc": "Audit tools for on-floor inspections and compliance checks.",
-      "bullets": [
-        "On-floor inspection tools",
-        "Compliance checking",
-        "Digital audit reports",
-        "Real-time audit logging"
+      "summary": "Improved accuracy and speed of fault mapping by enhancing the operator interface, measurements, and precise labeling.",
+      "desc": "A real-time fabric fault mapping and labeling solution that improves operator UX, provides accurate measurements, and automates sticker application on running fabric.",
+      "need": [
+        "Digital Encoder",
+        "HMI Display",
+        "Fault Marking Keyboard",
+        "Label Dispensing System",
+        "IOT-based Software"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/9IsAq.jpg"
+      "existingProcess": "Faults are marked manually and recorded on paper, then uploaded to the system. The workflow is slow and prone to human error.",
+      "proposedProcess": "A real-time fabric fault applicator integrated with the Edraak Mapping system, capable of applying stickers to running fabric without stopping the machine at speeds up to 150 m/min. The system supports calibration for different color tags and automatically adjusts timing based on fabric speed to ensure consistent placement.",
+      "bullets": [
+        "Real-time sticker application up to 150 m/min",
+        "Automatic speed-aware calibration for consistent labeling",
+        "Digital encoder for pixel-accurate fault localisation",
+        "Operator HMI and fault-marking keyboard for fast interaction",
+        "Label dispensing system with closed-loop verification",
+        "IoT-based software integrated with Edraak Mapping to remove paper logging"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/9IsAq.jpg",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/04/9IsAq.jpg"
+      ]
     },
     {
       "title": "Fabric Batch Making",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "desc": "A batch-making module to combine rolls into traceable batches.",
+      "summary": "Batch-making module that collects roll quantities and precise lengths, attaching QR stickers for seam-level traceability during processing.",
+      "whatHappens": "The module collects data of quantity of rolls and the length of each roll in the batch. QR code stickers are attached to every seam for traceability in processing.",
+      "whatOperatorCanDo": "Verify the fabric roll quantity and length before batch completion.",
+      "whyItMatters": "Auto identification and measurement reduces the time of roll records, improves machine efficiency, provides precise fabric length measurement, and updates roll data in the database in real time.",
+      "desc": "Combine rolls into traceable batches with seam-level QR tagging and automatic length capture.",
       "bullets": [
-        "Roll the combination into batches",
-        "QR code generation & attachment",
-        "Batch-level traceability",
-        "Accurate quantity and length recording"
+        "Automatically captures roll quantity and per-roll length",
+        "Attaches QR stickers at every seam for full-process traceability",
+        "Operator verification of roll counts and measured lengths",
+        "Real-time updates to the batch and roll database",
+        "Improves efficiency and measurement precision compared to manual recording"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg"
     },
@@ -428,40 +503,36 @@
       "title": "Fabric Production Processing",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "desc": "Processing module for recording finishing and chemical treatments.",
+      "summary": "Processing module for tracking production flow, recipes, and real-time updates via QR and encoders.",
+      "desc": "Processing module for recording finishing and chemical treatments, verifying recipes and machine parameters, and updating process completion in real time.",
+      "whatHappens": "The module provides complete flow tracking of previous and next operations. Provides machine parameters and recipe details for verification. Real-time process completion updated in the database by QR code scanning and encoder data.",
+      "whatOperatorCanDo": "Verifies fabric recipe and machine parameters. Update faults or any change in recipe or parameters on the module. Can verify previous and next operations of the fabric. Can analyze fabric shade variation in real time.",
+      "whyItMatters": "Recipe and parameters verification reduces human error probability. Production flow ensures smooth operation and operations tracking. The data of the production process and recipe change is updated in the database in real time. Shade variation can be addressed during operation rather than at the end of operation.",
       "bullets": [
         "Finishing process recording",
         "Chemical treatment logging",
-        "Recipe verification",
-        "Real-time process parameter tracking"
+        "Recipe verification and parameter checks",
+        "Real-time process completion via QR and encoder data",
+        "Shade variation analysis and real-time intervention"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.jpg"
     },
-    {
-      "title": "Lab Testing",
-      "subtitle": "Traceability System",
-      "category": "Traceability System",
-      "desc": "Lab testing integration for material sampling and test reports.",
-      "bullets": [
-        "Material sampling management",
-        "Integration with laboratory equipment",
-        "Digital test report generation",
-        "Test results linked to batch/roll traceability",
-        "Quality compliance documentation"
-      ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/76266cd6265e8d0d42022acac36803c53261cae8.png"
-    },
+    
     {
       "title": "Manual Inspection",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "desc": "Inspection module providing visual and sensor-based QC integration.",
+      "summary": "Custom keyboard and digital sensors are used to identify faults and measure fabric on the machine.",
+      "desc": "Inspection module providing visual and sensor-based QC integration, with machine-mounted keyboard and live measurement display.",
+      "whatHappens": "Custom Keyboard and digital sensors are used to identify faults and measure fabric.",
+      "whatOperatorCanDo": "Mark and record faults on the machine with a customized keyboard. Check fabric measurement on screen.",
+      "whyItMatters": "On-machine fault marking reduces logging time and improves machine efficiency. Precise meters record fault locations and automatic fabric length measurement provides accurate results. Faults and measurement data are updated in the database in real time.",
       "bullets": [
-        "Visual and AI-powered fabric inspection",
-        "Sensor-based quality control",
-        "Real-time fault detection",
-        "High-speed camera integration",
-        "Automatic fault mapping and marking"
+        "Machine-mounted custom fault-marking keyboard",
+        "Digital sensors for precise fabric measurement",
+        "On-screen verification of measurements and faults",
+        "Real-time database updates for faults and measurements",
+        "Reduces manual logging time and improves accuracy"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
     },
@@ -538,8 +609,21 @@
       "title": "Width Measurement System",
       "subtitle": "Accessories",
       "category": "Accessories",
+      "summary": "To measure the width of the fabric in real-time.",
+      "need": [
+        "Width measuring system",
+        "Software interface"
+      ],
+      "existingProcess": "Checked manually at random intervals, causing a slow production and a high probability of error.",
+      "proposedProcess": "Edraak’s automatic width-sensing device continuously captures fabric width data, triggering alarms when deviations occur, ensuring accurate width without production stops.",
       "desc": "Edraak’s automatic width-sensing device continuously captures fabric width data, triggering alarms when deviations occur, ensuring accurate width without production stops.",
-      "bullets": ["High accuracy", "Alarm on deviation"],
+      "bullets": [
+        "Real-time width capture",
+        "Automatic alarms on deviation",
+        "No production stops required",
+        "Dashboard & software interface for trend analysis",
+        "Configurable thresholds and alerts"
+      ],
       "img": "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png",
       "images": [
         "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png"
