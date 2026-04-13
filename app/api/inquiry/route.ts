@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs/promises'
 import path from 'path'
+import nodemailer from "nodemailer"
 
 async function writeInquiries(entry: any) {
   const file = path.join(process.cwd(), 'data', 'inquiries.json')
@@ -39,7 +40,7 @@ export async function POST(req: Request) {
     // Try to send email if nodemailer & SMTP env vars are present
     const toEmail = process.env.EMAIL_TO || 'sales@edraaksystems.com'
     try {
-      const nodemailer = await import('nodemailer')
+      nodemailer
       const host = process.env.SMTP_HOST
       const user = process.env.SMTP_USER
       const pass = process.env.SMTP_PASS

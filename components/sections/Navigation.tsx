@@ -357,7 +357,7 @@ export default function Navigation() {
                 )
               }
 
-              return (
+                return (
                 <Link
                   key={item.label}
                   href={linkHref}
@@ -431,7 +431,7 @@ export default function Navigation() {
                 )
               }
 
-              return (
+                return (
                 <Link
                   key={item.label}
                   href={`${targetPath}${targetHash}`}

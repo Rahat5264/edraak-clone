@@ -13,6 +13,10 @@ export default function Footer() {
     content.footer.legal.find((link: any) => link.label === 'Privacy Policy'),
   ].filter(Boolean)
 
+  const columnsClass = content.footer?.showIndustries === false
+    ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-4'
+    : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-5'
+
   return (
     <footer className="site-header text-white px-4 py-10 md:py-12">
       <div className="max-w-7xl mx-auto">
@@ -35,7 +39,7 @@ export default function Footer() {
             </div>
           </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:-ml-12">
+            <div className={`grid ${columnsClass} gap-8 md:-ml-12`}>
             {/* Column 1 - Company */}
             <div>
               <h4 className="text-lg md:text-xl font-semibold mb-4">{content.footer.labels.company}</h4>
@@ -73,6 +77,7 @@ export default function Footer() {
             </div>
 
             {/* Column 4 - Industries */}
+            {content.footer?.showIndustries !== false && (
             <div>
               <h4 className="text-lg md:text-xl font-semibold mb-4">Industries</h4>
               <ul className="space-y-2 text-sm md:text-base text-white/85">
@@ -84,6 +89,7 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+            )}
 
             {/* Column 5 - Case Studies */}
             <div>

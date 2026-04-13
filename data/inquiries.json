@@ -14,5 +14,67 @@
     "company": "Edraaksystems",
     "message": "hi",
     "createdAt": "2026-04-11T06:19:30.928Z"
+  },
+  {
+    "product": "High Speed Inspection",
+    "name": "Rahat",
+    "address": "Abbas",
+    "company": "Abbas",
+    "message": "im rahat and my mail is xyz.com",
+    "createdAt": "2026-04-13T09:11:44.084Z"
+  },
+  {
+    "product": "High Speed Inspection",
+    "name": "Rahat Abbas",
+    "email": "rahatabbas154@gmail.com",
+    "address": "19 km multan road lahore pakistan",
+    "company": "Edraaksystems",
+    "message": "test message",
+    "createdAt": "2026-04-13T09:24:42.611Z"
+  },
+  {
+    "product": "On Loom Inspection",
+    "name": "Rahat Abbas",
+    "email": "rahatabbas154@gmail.com",
+    "address": "House No. 157-A2, Block 4, Township, Lahore, Pakistan.",
+    "company": "Optiweb Studio",
+    "message": "new test mail. from rahat",
+    "createdAt": "2026-04-13T09:36:15.631Z"
+  },
+  {
+    "product": "On Loom Inspection",
+    "name": "rahat abbas",
+    "email": "rahatabbas154@gmail.com",
+    "address": "105-Muzamil Town, 19km Off Multan Road, Lahore",
+    "company": "Edraaksystems",
+    "message": "new email",
+    "createdAt": "2026-04-13T09:42:28.084Z"
+  },
+  {
+    "product": "On Loom Inspection",
+    "name": "rahat abbas",
+    "email": "rahatabbas154@gmail.com",
+    "address": "105-Muzamil Town, 19km Off Multan Road, Lahore",
+    "company": "Edraaksystems",
+    "message": "new email",
+    "createdAt": "2026-04-13T09:42:30.728Z"
+  },
+  {
+    "product": "High Speed Inspection",
+    "name": "rahat abbas",
+    "email": "rahatabbas154@gmail.com",
+    "address": "105-Muzamil Town, 19km Off Multan Road, Lahore",
+    "company": "Edraaksystems",
+    "message": "hhhhhhhhhhhhhhhhhhhh",
+    "createdAt": "2026-04-13T09:49:13.415Z"
+  },
+  {
+    "product": "High Speed Inspection",
+    "name": "rahat abbas",
+    "email": "rahatabbas154@gmail.com",
+    "address": "105-Muzamil Town, 19km Off Multan Road, Lahore",
+    "company": "Edraaksystems",
+    "message": "test",
+    "createdAt": "2026-04-13T09:54:26.904Z"
   }
 ]

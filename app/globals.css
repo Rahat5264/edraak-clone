@@ -91,6 +91,7 @@
 }
 
 @theme inline {
+  --font-sans: "Inria Sans", var(--font-sans-fallback);
   --font-sans-fallback: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
   --color-background: var(--background);
@@ -138,7 +139,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans, var(--font-sans-fallback));
-    font-weight: 300;
+    font-weight: 400;
   }
   /* Headings default to primary color; headings inside a primary background stay primary-foreground (usually white) */
   h1, h2, h3, h4, h5, h6 {

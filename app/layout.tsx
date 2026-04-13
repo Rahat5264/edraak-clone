@@ -6,7 +6,7 @@ import Navigation from '@/components/sections/Navigation'
 import Footer from '@/components/sections/Footer'
 import { ThemeProvider } from '@/components/theme-provider'
 
-const inria = Inria_Sans({ subsets: ["latin"], weight: ['300','400','700'], variable: '--font-sans' });
+const inria = Inria_Sans({ subsets: ["latin"], weight: ['300','700'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Edraak Systems | Quality Control & Traceability Solutions for Textiles',

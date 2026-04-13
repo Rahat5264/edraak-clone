@@ -822,6 +822,11 @@
         "title": "Digital Data Loggers",
         "description": "Industrial grade digital data loggers to allow users to input data manually and Also link machine & sensors.",
         "image": "https://db.edraaksystems.com/wp-content/uploads/2026/03/7416f4777e551f66832b6b56d8cb72b658e09b48-scaled.png"
+      },
+      {
+        "title": "Energy Monitoring",
+        "description": "Real-time energy monitoring system that tracks exact usage of electricity, water, steam, and air per unit produced (piece, roll, batch, or product).",
+        "image": "https://db.edraaksystems.com/wp-content/uploads/2026/04/istockphoto-2150647185-612x612.webp.webp"
       }
     ]
   },
@@ -991,6 +996,7 @@
       "services": "Services",
       "rightsSuffix": "All rights reserved."
     },
+    "showIndustries": false,
     "company": {
       "about": "Edraak Systems is a leader in AI-powered quality control and traceability solutions for textile, apparel, and manufacturing industries.",
       "links": [
