@@ -22,6 +22,7 @@ const n8nRequest = async ({
         headers: {
           "Content-Type": "application/json",
           secret: secret,
+          "CF-Bypass-Token": process.env.CF_BYPASS_TOKEN || "",
           ...headers,
         },
         body: body ? JSON.stringify({ ...body }) : undefined,

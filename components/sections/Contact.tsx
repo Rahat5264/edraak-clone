@@ -5,15 +5,23 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import content from '@/data/content.json'
+import { contactUs } from '@/app/actions/contact-us'
+import { toast } from 'sonner'
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const c = content?.contact || {}
   const offices = content?.offices || { items: [] }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFormSubmitted(true)
+    const response= await contactUs(new FormData(e.target as HTMLFormElement))
+    if (!response) {
+      toast.error('Submission failed. Please try again later.')
+    } else {
+      toast.success(c.successMessage || 'Thanks for reaching out! We’ll get back to you soon.')
+      setFormSubmitted(true)
+    }
     setTimeout(() => setFormSubmitted(false), 3000)
   }
 
