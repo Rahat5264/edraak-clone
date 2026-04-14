@@ -1,24 +1,24 @@
 import Link from 'next/link'
 
 const prod = {
-  title: 'Fabric Traceability',
-  subtitle: 'Fabric Traceability',
-  summary: 'Linked with digital encoders, Ultra High Speed Scanners detect seam optically, also the Barcode in real-time. Giving you the most accurate fabric meters.',
+  title: 'Visual Fault Detection',
+  subtitle: 'EVS(Edraak Vision System)',
+  summary: 'AI-based vision inspection for woven and non-woven fabrics that detects visual faults in real time to reduce waste and improve yield.',
   need: [
-    'Digital encoders for precise length measurement',
-    'Ultra high-speed optical seam scanners',
-    'Real-time barcode / RFID scanning',
-    'Integration with MES / traceability database'
+    'High-speed inspection cameras and lighting',
+    'High-speed roller/frame and mounting hardware',
+    'AI-powered defect detection and classification software',
+    'Integration with marking, removal, or MES systems'
   ],
-  existingProcess: 'Manual measurements and batch-level estimations create inaccuracies and gaps in traceability.',
-  proposedProcess: 'Automated seam detection combined with encoder and barcode scans delivers roll- and piece-level traceability and precise fabric metering.',
-  img: 'https://db.edraaksystems.com/wp-content/uploads/2026/03/Good-Morning-Facebook-Post.png',
+  existingProcess: `Many factories rely on manual visual inspection which is slow, inconsistent and prone to human error; defects are often discovered too late causing increased waste and rework.`,
+  proposedProcess: `An inline AI-powered vision system inspects fabric at production speeds, classifies defects (holes, stains, slubs, mis-weaves, yarn faults), and provides real-time alerts, marking and reporting to reduce waste and improve production traceability.`,
+  img: 'https://db.edraaksystems.com/wp-content/uploads/2026/03/Frame-427319550.png',
   images: [
-    'https://db.edraaksystems.com/wp-content/uploads/2026/03/Good-Morning-Facebook-Post.png'
+    'https://db.edraaksystems.com/wp-content/uploads/2026/03/Frame-427319550.png'
   ]
 }
 
-export default function FabricTraceabilityPage() {
+export default function VisualFaultDetectionPage() {
   return (
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-4xl mx-auto px-4">
@@ -34,6 +34,12 @@ export default function FabricTraceabilityPage() {
 
             <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
             {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
+
+            {prod.desc && (
+              <div className="mt-4 text-lg text-slate-700 space-y-4">
+                {typeof prod.desc === 'string' ? <p>{prod.desc}</p> : (Array.isArray(prod.desc) ? prod.desc.map((d: string, i: number) => <p key={i}>{d}</p>) : null)}
+              </div>
+            )}
 
             {prod.summary && (
               <div className="mt-6">

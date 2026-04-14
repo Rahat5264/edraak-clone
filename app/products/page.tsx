@@ -81,11 +81,11 @@ export default function ProductsPage() {
   // Inquiry modal state
   const [inquiryOpen, setInquiryOpen] = useState(false)
   const [inquiryProduct, setInquiryProduct] = useState<any>(null)
-  const [inquiryForm, setInquiryForm] = useState({ name: '', address: '', company: '', message: '', product: '' })
+  const [inquiryForm, setInquiryForm] = useState({ name: '', email: '', address: '', company: '', message: '', product: '' })
 
   const openInquiry = (p: any) => {
     setInquiryProduct(p)
-    setInquiryForm({ name: '', address: '', company: '', message: '', product: p.title || '' })
+    setInquiryForm({ name: '', email: '', address: '', company: '', message: '', product: p.title || '' })
     setInquiryOpen(true)
   }
 
@@ -96,6 +96,14 @@ export default function ProductsPage() {
 
   const submitInquiry = async (e: React.FormEvent) => {
     e.preventDefault()
+    // require a valid email before sending
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!inquiryForm.email || !emailRegex.test(inquiryForm.email)) {
+      // eslint-disable-next-line no-alert
+      alert('Please enter a valid email address')
+      return
+    }
+
     try {
       const res = await fetch('/api/inquiry', {
         method: 'POST',
@@ -310,8 +318,8 @@ export default function ProductsPage() {
           <div className="absolute inset-0 bg-black/50" onClick={closeInquiry} />
           <div className="bg-white w-full max-w-lg mx-4 rounded-md z-60 p-6">
             <h3 className="text-xl font-bold mb-4">Product Inquiry</h3>
-            <form onSubmit={submitInquiry} className="space-y-4">
-              <div>
+            <form onSubmit={submitInquiry} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="sm:col-span-2">
                 <label className="block text-sm font-medium mb-1">Product</label>
                 <select value={inquiryForm.product} onChange={e => setInquiryForm(f => ({ ...f, product: e.target.value }))} className="w-full border px-3 py-2 bg-white">
                   {products.map((pp: any) => (
@@ -319,24 +327,33 @@ export default function ProductsPage() {
                   ))}
                 </select>
               </div>
+
               <div>
                 <label className="block text-sm font-medium mb-1">Name</label>
                 <input value={inquiryForm.name} onChange={e => setInquiryForm(f => ({ ...f, name: e.target.value }))} className="w-full rounded border px-3 py-2" required />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Email</label>
+                <input value={inquiryForm.email} onChange={e => setInquiryForm(f => ({ ...f, email: e.target.value }))} className="w-full rounded border px-3 py-2" required />
+              </div>
+
               <div>
                 <label className="block text-sm font-medium mb-1">Address</label>
                 <input value={inquiryForm.address} onChange={e => setInquiryForm(f => ({ ...f, address: e.target.value }))} className="w-full rounded border px-3 py-2" />
               </div>
+
               <div>
                 <label className="block text-sm font-medium mb-1">Company</label>
                 <input value={inquiryForm.company} onChange={e => setInquiryForm(f => ({ ...f, company: e.target.value }))} className="w-full rounded border px-3 py-2" />
               </div>
-              <div>
+
+              <div className="sm:col-span-2">
                 <label className="block text-sm font-medium mb-1">Message</label>
                 <textarea value={inquiryForm.message} onChange={e => setInquiryForm(f => ({ ...f, message: e.target.value }))} className="w-full rounded border px-3 py-2" rows={4} />
               </div>
 
-              <div className="flex justify-end gap-3">
+              <div className="sm:col-span-2 flex justify-end gap-3">
                 <button type="button" onClick={closeInquiry} className="px-4 py-2 border" style={{borderRadius:0}}>Cancel</button>
                 <button type="submit" className="px-4 py-2 text-white" style={{backgroundColor: 'rgb(5,3,42)', borderRadius:0}}>Send Inquiry</button>
               </div>

@@ -38,7 +38,8 @@ export default function Footer() {
   }
 
   const caseStudyToProductHref: Record<string, string> = {
-    'visual fault detection': '/products/high-speed-inspection',
+    'visual fault detection': '/visual-fault-detection',
+    'rfid & barcoding': '/rfid-and-barcoding',
     'fabric width sensing': '/products/width-measurement-system',
     'fabric color sensors': '/products/spectrophotometer',
     'fabric traceability': '/fabric-traceability',
@@ -105,10 +106,14 @@ export default function Footer() {
                     href = 'https://www.edraaksystems.com/products/high-speed-inspection'
                   } else if (l.includes('spectrophotometer')) {
                     href = 'https://www.edraaksystems.com/products/spectrophotometer'
+                  } else if (l.includes('rfid') || l.includes('barcod')) {
+                    href = '/rfid-and-barcoding'
                   } else if (l.includes('energy')) {
                       href = '/energy-monitoring'
                   } else if (l.includes('artificial') || l.includes('intelligence') || l === 'ai') {
                     href = '/artificial-intelligence'
+                    } else if (l.includes('data') || l.includes('business') || l.includes('analytics')) {
+                      href = '/data-and-business-analytics'
                   }
 
                   return (

@@ -1,24 +1,43 @@
 import Link from 'next/link'
+import content from '../../data/content.json'
+
+const tech = (content?.technology?.items || []).find((i: any) => {
+  const t = (i?.title || '').toLowerCase()
+  return t.includes('data') || t.includes('analytics') || t.includes('business')
+})
+
+// Create an organic, non-repetitive intro and a concise summary derived from the tech card
+const baseDesc = Array.isArray(tech?.description) ? tech.description.join(' ') : (tech?.description || '')
+const refinedIntro = baseDesc
+  ? baseDesc + ' We ingest inspection, production and energy telemetry, normalize it, and surface dashboards, alerts, and exportable reports tailored to operations and management.'
+  : 'We unify inspection, production and energy data to provide dashboards, anomaly detection and predictive insights that improve yield and reduce downtime.'
+
+const summary = baseDesc
+  ? 'Turn disparate production and inspection data into clear, actionable insights that reduce waste, improve yield, and lower operating costs.'
+  : 'Transform data into actionable operational insights.'
+
+const needHints = tech?.need ?? (baseDesc.includes(',') ? baseDesc.split(',').slice(0,3).map((s:any)=> s.trim()) : [])
+const images = tech?.image ? [tech.image] : ((tech?.images && tech.images.length) ? tech.images : [])
 
 const prod = {
-  title: 'Fabric Traceability',
-  subtitle: 'Fabric Traceability',
-  summary: 'Linked with digital encoders, Ultra High Speed Scanners detect seam optically, also the Barcode in real-time. Giving you the most accurate fabric meters.',
-  need: [
-    'Digital encoders for precise length measurement',
-    'Ultra high-speed optical seam scanners',
-    'Real-time barcode / RFID scanning',
-    'Integration with MES / traceability database'
-  ],
-  existingProcess: 'Manual measurements and batch-level estimations create inaccuracies and gaps in traceability.',
-  proposedProcess: 'Automated seam detection combined with encoder and barcode scans delivers roll- and piece-level traceability and precise fabric metering.',
-  img: 'https://db.edraaksystems.com/wp-content/uploads/2026/03/Good-Morning-Facebook-Post.png',
-  images: [
-    'https://db.edraaksystems.com/wp-content/uploads/2026/03/Good-Morning-Facebook-Post.png'
+  title: tech?.title ?? 'Data & Business Analytics',
+  subtitle: tech?.title ?? 'Data & Business Analytics',
+  summary,
+  desc: refinedIntro,
+  need: needHints,
+  proposedProcess: 'Collect data from cameras, machines and sensors; normalize and store in a unified analytics engine; provide dashboards, anomaly detection, and scheduled reports to operations and management.',
+  img: images[0] ?? '',
+  images,
+  bullets: tech?.bullets ?? [
+    'Unified production and inspection dashboards',
+    'Custom KPI reports and scheduled exports',
+    'Anomaly detection and alerts',
+    'Predictive insights for maintenance and yield optimization',
+    'API-ready datasets for BI integration'
   ]
 }
 
-export default function FabricTraceabilityPage() {
+export default function DataAnalyticsPage() {
   return (
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-4xl mx-auto px-4">
@@ -34,6 +53,12 @@ export default function FabricTraceabilityPage() {
 
             <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
             {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
+
+            {prod.desc && (
+              <div className="mt-4 text-lg text-slate-700 space-y-4">
+                {typeof prod.desc === 'string' ? <p>{prod.desc}</p> : (Array.isArray(prod.desc) ? prod.desc.map((d: string, i: number) => <p key={i}>{d}</p>) : null)}
+              </div>
+            )}
 
             {prod.summary && (
               <div className="mt-6">
@@ -51,17 +76,19 @@ export default function FabricTraceabilityPage() {
               </div>
             )}
 
-            {prod.existingProcess && (
-              <div className="mt-6">
-                <h4 className="text-lg font-semibold mb-2">Existing Process</h4>
-                <p className="text-slate-700">{prod.existingProcess}</p>
-              </div>
-            )}
-
             {prod.proposedProcess && (
               <div className="mt-6">
                 <h4 className="text-lg font-semibold mb-2">Proposed Process</h4>
                 <p className="text-slate-700">{prod.proposedProcess}</p>
+              </div>
+            )}
+
+            {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Key Points</h4>
+                <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                  {prod.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}
+                </ul>
               </div>
             )}
 

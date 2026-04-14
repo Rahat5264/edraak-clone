@@ -21,14 +21,21 @@ async function writeInquiries(entry: any) {
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-    const { product, name, address, company, message } = body || {}
-    if (!product || !name) {
+    const { product, name, email, address, company, message } = body || {}
+    if (!product || !name || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    // basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
     const entry = {
       product,
       name,
+      email: email || '',
       address: address || '',
       company: company || '',
       message: message || '',
@@ -53,7 +60,7 @@ export async function POST(req: Request) {
           auth: { user, pass }
         })
 
-        const text = `New product inquiry\n\nProduct: ${entry.product}\nName: ${entry.name}\nCompany: ${entry.company}\nAddress: ${entry.address}\nMessage: ${entry.message}\nDate: ${entry.createdAt}`
+        const text = `New product inquiry\n\nProduct: ${entry.product}\nName: ${entry.name}\nEmail: ${entry.email}\nCompany: ${entry.company}\nAddress: ${entry.address}\nMessage: ${entry.message}\nDate: ${entry.createdAt}`
 
         await transporter.sendMail({
           from: user,
