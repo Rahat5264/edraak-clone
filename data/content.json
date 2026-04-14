@@ -394,8 +394,8 @@
         "Automatic recipe assignment for repeat articles",
         "Complete roll-level operation history and audit trail"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.png",
-      "images": ["https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.png"]
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fabric-Q-C-e1776170328273.png",
+      "images": ["https://db.edraaksystems.com/wp-content/uploads/2026/04/Fabric-Q-C-e1776170328273.png"]
     },
     {
       "title": "Planning Software",
@@ -578,6 +578,43 @@
       ]
     },
     
+    {
+      "title": "Highspeed Barcode + Seam Sensor",
+      "subtitle": "Traceability System",
+      "category": "Traceability System",
+      "summary": "High-speed inline system combining optical seam detection and barcode/QR capture with encoder synchronization and AI-powered read validation for precise roll metering and automated traceability.",
+      "desc": "An integrated sensor-fusion module that pairs an optical seam detector with a high-speed barcode/QR reader and encoder input. Frames and sensor ticks are analyzed at the edge using lightweight AI models to verify reads, flag ambiguous captures, and score seam quality. Verified seam+barcode events are recorded as position-anchored traceability records and can trigger automated labeling, batching, or downstream verification workflows.",
+      "need": [
+        "Industrial high-speed barcode/QR reader (camera or laser)",
+        "Optical seam detection sensor (line-scan or camera)",
+        "Rotary encoder for position anchoring",
+        "Edge compute with AI inference (NPU/accelerator)",
+        "Controller/HMI for operator interaction and label applicator integration"
+      ],
+      "existingProcess": "Seam detection and barcode reads are frequently handled by separate devices or manual checks. Timing drift and unsynchronized reads cause reconciliation work, missed tags, and occasional loss of roll metadata.",
+      "proposedProcess": "The module performs low-latency sensor fusion: the seam sensor triggers a camera capture while the barcode reader attempts a read. An AI verifier analyzes the image and read confidence, and encoder ticks anchor the event position. On low-confidence reads the system retries, captures a supporting image for review, or requests HMI confirmation before committing the record.",
+      "whatHappens": "When fabric passes, the seam sensor emits a trigger that timestamps with encoder ticks. The barcode reader and camera capture the nearby frame; the edge AI validates the barcode and assigns a confidence score. High-confidence events are logged and associated with the roll ID; ambiguous events are retried or queued for operator review. Successful events can trigger label application and update batch records in Edraak Mapping.",
+      "whatOperatorCanDo": "Inspect recent seam+barcode events and confidence scores on the HMI, accept or reject ambiguous events, tune retry thresholds, force a label reprint, and export event logs or images for audits.",
+      "whyItMatters": "Guarantees seam-barcode pairing with position accuracy, eliminating manual reconciliation and preventing downstream mis-labeling. This enables automated batching, accurate cutting/packing handoffs, and auditable traceability for quality and compliance.",
+      "features": [
+        "Sensor fusion: seam trigger + barcode capture + encoder anchoring",
+        "AI-based read validation with confidence scoring",
+        "Retry-and-verify flow with optional image capture",
+        "Edge-first processing for low-latency decisions",
+        "Automatic label application and batch handoff integration"
+      ],
+      "bullets": [
+        "Inline seam detection tightly synchronized with barcode reads",
+        "High-speed barcode/QR capture with AI validation",
+        "Encoder-anchored event records for precise metering",
+        "Automatic retry and reprint on ambiguous reads",
+        "Reduces manual reconciliation and improves downstream automation"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg"
+      ]
+    },
     {
       "title": "Manual Inspection",
       "subtitle": "Traceability System",

@@ -1,51 +1,34 @@
 import Link from 'next/link'
-import InquiryButton from '@/components/ui/InquiryButton'
 import content from '@/data/content.json'
+import InquiryButton from '@/components/ui/InquiryButton'
 
-const findCase = (title: string) => {
+const findProduct = () => {
   try {
-    const items = Array.isArray((content as any).caseStudies) ? (content as any).caseStudies : []
-    return items.find((c: any) => (c && c.title && c.title.toString().toLowerCase() === title.toLowerCase())) || null
+    const products = Array.isArray((content as any).products) ? (content as any).products : []
+    return products.find((p: any) => (p && p.title && p.title.toString().toLowerCase() === 'highspeed barcode + seam sensor')) || null
   } catch (e) {
     return null
   }
 }
 
-const cs = findCase('Digital Data Loggers')
+const prodData = findProduct()
 
-const prod = cs
-  ? {
-      title: cs.title,
-      subtitle: 'Industrial Data Loggers',
-      summary: cs.description || 'Industrial grade data loggers for machine and operator data capture.',
-      desc: cs.description || '',
-      bullets: [
-        'Collect manual operator inputs and machine sensor data',
-        'Industrial-grade hardware with local buffering',
-        'Integrates with PLCs, sensors and edge devices',
-        'Exportable logs and easy reporting',
-      ],
-      img: cs.image || '' ,
-      images: cs.image ? [cs.image] : []
-    }
-  : {
-      title: 'Digital Data Loggers',
-      subtitle: 'Industrial Data Loggers',
-      summary: 'Industrial grade data loggers for machine and operator data capture.',
-      desc: 'Industrial grade digital data loggers to allow users to input data manually and also link machine & sensors.',
-      bullets: [
-        'Collect manual operator inputs and machine sensor data',
-        'Industrial-grade hardware with local buffering',
-        'Integrates with PLCs, sensors and edge devices',
-        'Exportable logs and easy reporting',
-      ],
-      img: 'https://db.edraaksystems.com/wp-content/uploads/2026/03/7416f4777e551f66832b6b56d8cb72b658e09b48-scaled.png',
-      images: [
-        'https://db.edraaksystems.com/wp-content/uploads/2026/03/7416f4777e551f66832b6b56d8cb72b658e09b48-scaled.png'
-      ]
-    }
+const prod = prodData || {
+  title: 'Highspeed Barcode + Seam Sensor',
+  subtitle: 'Traceability System',
+  summary: 'Combined inline barcode reader and optical seam sensor for precise roll metering and traceability.',
+  desc: 'Highspeed inline barcode reader coupled with an optical seam sensor, synchronized to encoders for accurate position tagging and reliable roll identification.',
+  bullets: [
+    'Inline seam detection with encoder sync',
+    'High-speed barcode/QR reading',
+    'Automatic association of seam events to roll IDs',
+    'Supports automated labeling and batching workflows'
+  ],
+  img: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg',
+  images: ['https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg']
+}
 
-export default function DigitalDataLoggersPage() {
+export default function HighspeedBarcodePage() {
   return (
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-4xl mx-auto px-4">
@@ -53,13 +36,13 @@ export default function DigitalDataLoggersPage() {
           <div className="lg:col-span-2">
             <div className="rounded-md overflow-hidden shadow-md">
               {prod.img ? (
-                <img src={prod.img} alt={prod.title} className="w-full h-64 object-cover" />
+                <img src={prod.img} alt={prod.title} className="w-full h-80 object-cover" />
               ) : (
-                <div className="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-500">Image</div>
+                <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-gray-500">Image</div>
               )}
             </div>
 
-            <h1 className="mt-6 text-3xl md:text-4xl font-semibold text-slate-900">{prod.title}</h1>
+            <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
             {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
 
             {prod.desc && (
@@ -85,7 +68,7 @@ export default function DigitalDataLoggersPage() {
             )}
 
             <div className="mt-8 flex gap-3">
-              <Link href="/case-studies" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
+              <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
               <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
             </div>
           </div>

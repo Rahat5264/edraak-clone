@@ -3,6 +3,8 @@
 import { FormEvent, useEffect } from 'react'
 import VideoFrame from '@/components/ui/VideoFrame'
 import content from '@/data/content.json'
+import { subscriber } from '@/app/actions/subscriber'
+import { toast } from 'sonner'
 
 export default function Hero() {
   const raw = content.hero?.videoUrl || ''
@@ -32,20 +34,16 @@ export default function Hero() {
     }
 
     try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      })
+      const res = await subscriber({ email})
 
-      if (res.ok) {
-        alert(content.hero?.signup?.successMessage || 'Thanks for subscribing — we’ll be in touch soon.')
+      if (res) {
+        toast.success(content.hero?.signup?.successMessage || 'Thanks for subscribing — we’ll be in touch soon.')
         form.reset()
       } else {
-        alert(content.hero?.signup?.errorMessage || 'Subscription failed. Please try again later.')
+        toast.error(content.hero?.signup?.errorMessage || 'Subscription failed. Please try again later.')
       }
     } catch (err) {
-      alert(content.hero?.signup?.errorMessage || 'Subscription failed. Please try again later.')
+      toast.error(content.hero?.signup?.errorMessage || 'Subscription failed. Please try again later.')
     }
   }
 

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import content from '../../data/content.json'
+import InquiryButton from '@/components/ui/InquiryButton'
 
 const tech = (content?.technology?.items || []).find((i: any) => {
   const t = (i?.title || '').toLowerCase()
@@ -94,7 +95,7 @@ export default function DataAnalyticsPage() {
 
             <div className="mt-8 flex gap-3">
               <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
-              <a href={`mailto:sales@edraaksystems.com?subject=Product%20Inquiry:%20${encodeURIComponent(prod.title)}`} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Inquiry</a>
+              <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
             </div>
           </div>
 

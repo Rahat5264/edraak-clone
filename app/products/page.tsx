@@ -6,8 +6,7 @@ import Link from 'next/link'
 import { useMemo, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import content from '@/data/content.json'
-import { toast } from 'sonner'
-import { sendInquiry } from '../actions/send-inquiry'
+import InquiryButton from '@/components/ui/InquiryButton'
 
 function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -80,60 +79,9 @@ export default function ProductsPage() {
     return () => clearTimeout(t1)
   }, [query])
 
-  // Inquiry modal state
-  const [inquiryOpen, setInquiryOpen] = useState(false)
-  const [inquiryProduct, setInquiryProduct] = useState<any>(null)
-  const [inquiryForm, setInquiryForm] = useState({ name: '', email: '', address: '', company: '', message: '', product: '' })
+  
 
-  const openInquiry = (p: any) => {
-    setInquiryProduct(p)
-    setInquiryForm({ name: '', email: '', address: '', company: '', message: '', product: p.title || '' })
-    setInquiryOpen(true)
-  }
-
-  const closeInquiry = () => {
-    setInquiryOpen(false)
-    setInquiryProduct(null)
-  }
-
-  const submitInquiry = async (e: React.FormEvent) => {
-    e.preventDefault()
-    // require a valid email before sending
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!inquiryForm.email || !emailRegex.test(inquiryForm.email)) {
-      // eslint-disable-next-line no-alert
-      alert('Please enter a valid email address')
-      return
-    }
-
-    try {
-      const res = await sendInquiry(inquiryForm)
-      console.log(res)
-      if (res) {
-        // simple success feedback
-        closeInquiry()
-        // eslint-disable-next-line no-toast.
-        toast.success('Inquiry sent — we will contact you soon.')
-      } else {
-        // eslint-disable-next-line no-toast.
-        toast.error('Failed to send inquiry')
-        closeInquiry();
-
-      }
-    } catch (err) {
-      // eslint-disable-next-line no-toast.
-      toast.error('Network error while sending inquiry')
-    }
-  }
-
-  // Load more / pagination
-  const BATCH_SIZE = 6
-  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE)
-
-  useEffect(() => {
-    // reset visible count when query or category changes
-    setVisibleCount(BATCH_SIZE)
-  }, [query, selectedCategory])
+  // show all products (no "Load more" pagination)
 
   // keep selectedCategory in sync with URL search param (back/forward support)
   // sync selectedCategory with URL params on mount and on back/forward
@@ -267,7 +215,7 @@ export default function ProductsPage() {
 
           <div className="lg:col-span-9">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" style={{ transition: 'opacity 160ms ease, transform 160ms ease', opacity: transitioning ? 0 : 1, transform: transitioning ? 'translateY(6px)' : 'translateY(0)', willChange: 'opacity, transform' }}>
-              {(selectedCategory ? filtered : filtered.slice(0, visibleCount)).map((p: any, idx: number) => {
+              {filtered.map((p: any, idx: number) => {
                 const slug = slugify(p.title)
                 return (
                   <div key={slug} className="bg-white overflow-hidden shadow-sm border border-gray-200 flex flex-col h-full">
@@ -288,7 +236,7 @@ export default function ProductsPage() {
 
                         <div className="mt-6 flex items-center gap-4">
                           <Link href={selectedCategory ? `/products/${slug}?category=${encodeURIComponent(selectedCategory)}` : `/products/${slug}`} className="px-4 py-2" style={{backgroundColor: '#ffffff', color: '#000000', textDecoration: 'none', border: '1px solid rgba(0,0,0,0.08)'}}>Read more</Link>
-                        <button onClick={() => openInquiry(p)} className="px-4 py-2" style={{backgroundColor: '#ffffff', color: '#000000', border: '1px solid rgba(0,0,0,0.08)'}}>Inquiry</button>
+                          <InquiryButton product={p} className="px-4 py-2" style={{backgroundColor: '#ffffff', color: '#000000', border: '1px solid rgba(0,0,0,0.08)'}} />
                       </div>
                     </div>
                   </div>
@@ -296,70 +244,12 @@ export default function ProductsPage() {
               })}
             </div>
 
-            {/* Load more */}
-            {!selectedCategory && filtered.length > visibleCount && (
-              <div className="mt-6 flex justify-center">
-                <button
-                  onClick={() => setVisibleCount(v => v + BATCH_SIZE)}
-                  className="px-6 py-2 text-white"
-                  style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}
-                >
-                  Load more
-                </button>
-              </div>
-            )}
+            {/* pagination removed — all products are shown */}
           </div>
         </div>
       </section>
 
-      {inquiryOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/50" onClick={closeInquiry} />
-          <div className="bg-white w-full max-w-lg mx-4 rounded-md z-60 p-6">
-            <h3 className="text-xl font-bold mb-4">Product Inquiry</h3>
-            <form onSubmit={submitInquiry} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="sm:col-span-2">
-                <label className="block text-sm font-medium mb-1">Product</label>
-                <select value={inquiryForm.product} onChange={e => setInquiryForm(f => ({ ...f, product: e.target.value }))} className="w-full border px-3 py-2 bg-white">
-                  {products.map((pp: any) => (
-                    <option key={pp.title} value={pp.title}>{pp.title}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Name</label>
-                <input value={inquiryForm.name} onChange={e => setInquiryForm(f => ({ ...f, name: e.target.value }))} className="w-full rounded border px-3 py-2" required />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Email</label>
-                <input value={inquiryForm.email} onChange={e => setInquiryForm(f => ({ ...f, email: e.target.value }))} className="w-full rounded border px-3 py-2" required />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Address</label>
-                <input value={inquiryForm.address} onChange={e => setInquiryForm(f => ({ ...f, address: e.target.value }))} className="w-full rounded border px-3 py-2" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Company</label>
-                <input value={inquiryForm.company} onChange={e => setInquiryForm(f => ({ ...f, company: e.target.value }))} className="w-full rounded border px-3 py-2" />
-              </div>
-
-              <div className="sm:col-span-2">
-                <label className="block text-sm font-medium mb-1">Message</label>
-                <textarea value={inquiryForm.message} onChange={e => setInquiryForm(f => ({ ...f, message: e.target.value }))} className="w-full rounded border px-3 py-2" rows={4} />
-              </div>
-
-              <div className="sm:col-span-2 flex justify-end gap-3">
-                <button type="button" onClick={closeInquiry} className="px-4 py-2 border" style={{borderRadius:0}}>Cancel</button>
-                <button type="submit" className="px-4 py-2 text-white" style={{backgroundColor: 'rgb(5,3,42)', borderRadius:0}}>Send Inquiry</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      
     </div>
   )
 }

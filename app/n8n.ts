@@ -39,6 +39,8 @@ const n8nRequest = async ({
     console.warn("N8N webhook URL or secret is not configured");
     return false
   }
+
+  return true;
 };
 
 export { n8nRequest };
