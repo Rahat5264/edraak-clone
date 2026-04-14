@@ -401,8 +401,20 @@
       "title": "Planning Software",
       "subtitle": "Production Planning & Control System (PPC)",
       "category": "Traceability System",
-      "summary": "Production Planning & Control System (PPC): A department-wise production planning and control system that streamlines fabric flow from Greige to Finishing departments with proper user rights, real-time tracking, and automated workflows.",
-      "desc": "Planning and scheduling module to optimize production workflows across departments, with route and recipe management.",
+      "summary": "A central Production Planning & Control (PPC) system that automates scheduling, routes, and recipe assignment while ingesting live shop-floor data to adapt plans and reduce lead time.",
+      "desc": "PPC coordinates orders, capacity, and materials into executable production plans. It assigns machine recipes, publishes work to operator HMIs, and monitors execution using real-time signals (encoders, machine status, inspection results). When deviations occur, PPC reschedules and alerts operators to maintain throughput and quality.",
+      "need": [
+        "Central scheduling engine and database",
+        "ERP/order feed and API integration",
+        "Machine connectivity (PLC/IIoT) and encoder inputs",
+        "Operator HMIs and mobile dashboards",
+        "Integration with Edraak Mapping and inspection data"
+      ],
+      "existingProcess": "Many sites plan using spreadsheets or ad-hoc systems; changes require manual coordination, causing downtime, inaccurate priorities, and fragmented traceability.",
+      "proposedProcess": "PPC ingests orders and capacity, generates optimized schedules, assigns routes and recipes to machines, and continuously monitors execution. It raises exceptions for quality or throughput issues and rebalances work with minimal human intervention.",
+      "whatHappens": "Orders are loaded into PPC, which allocates capacity, creates lot routes, and dispatches tasks to machine HMIs. As production runs, PPC consumes machine signals and inspection outcomes to confirm completion, update WIP status, and trigger downstream processes like labeling, cutting, or packing.",
+      "whatOperatorCanDo": "Operators can accept/reject assignments, request rework, adjust priorities, view lot histories, and update recipe parameters from the HMI or supervisor console.",
+      "whyItMatters": "Automates repetitive planning tasks, reduces lead times and WIP, improves on-time delivery, and ensures every production event is linked to an order for full traceability and faster root-cause analysis.",
       "basicFlow": [
         {
           "name": "Greige Department",
@@ -434,6 +446,14 @@
           "name": "Parameters & Recipes",
           "content": "Department-wise machine parameters and recipes with controlled access (read/write/create)."
         }
+      ],
+      "features": [
+        "Automated schedule generation and optimization",
+        "Real-time execution monitoring and exception handling",
+        "Recipe management with version control",
+        "Operator HMIs with task lists and KPIs",
+        "APIs for ERP and Edraak Mapping integration",
+        "Reporting and historical traceability per lot"
       ],
       "additionalFeatures": [
         "Complete production history and change tracking",
@@ -485,56 +505,115 @@
       "title": "Fabric Batch Making",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "summary": "Batch-making module that collects roll quantities and precise lengths, attaching QR stickers for seam-level traceability during processing.",
-      "whatHappens": "The module collects data of quantity of rolls and the length of each roll in the batch. QR code stickers are attached to every seam for traceability in processing.",
-      "whatOperatorCanDo": "Verify the fabric roll quantity and length before batch completion.",
-      "whyItMatters": "Auto identification and measurement reduces the time of roll records, improves machine efficiency, provides precise fabric length measurement, and updates roll data in the database in real time.",
-      "desc": "Combine rolls into traceable batches with seam-level QR tagging and automatic length capture.",
-      "bullets": [
-        "Automatically captures roll quantity and per-roll length",
-        "Attaches QR stickers at every seam for full-process traceability",
-        "Operator verification of roll counts and measured lengths",
-        "Real-time updates to the batch and roll database",
-        "Improves efficiency and measurement precision compared to manual recording"
+      "summary": "Automated batch-making module that aggregates rolls, measures and tags seams with QR/label stickers, and records per-roll metadata for reliable traceability and faster dispatch.",
+      "desc": "The Fabric Batch Making module automates roll assembly and identification for downstream processing and shipping. Using encoders, sensors and a label/printer-applicator, it captures precise roll length and quantity, applies machine-readable tags at seam points, and logs each roll to the central Edraak Mapping database. This removes manual counting and written records, improves inventory accuracy, and enables seamless traceability across departments.",
+      "need": [
+        "Label/QR printer-applicator with quick-change roll",
+        "Digital encoder and seam detection sensor",
+        "HMI/PLC for configuration and templates",
+        "Integration with Edraak Mapping/inspection feeds",
+        "Mounting and guide hardware for roll capture"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg"
+      "existingProcess": "Operators currently stop or slow lines to measure and tag rolls manually or record measurements on paper/spreadsheets. This process is slow, error-prone, and causes tracking gaps between production and dispatch.",
+      "proposedProcess": "As rolls complete, the system measures length using encoder feedback, prints or dispenses a QR/label at the seam automatically, and stores metadata (length, weight if available, operator, timestamp, batch id) to the mapping database. Operators supervise via HMI and can approve, split, or merge batches without stopping production.",
+      "whatHappens": "Sensors and encoders detect roll completion and seam position. The controller computes the correct dispenser timing, applies the tag, verifies placement with a sensor, and records the event with associated metadata for traceability.",
+      "whatOperatorCanDo": "Configure label templates, change label rolls quickly, split or merge batches, review placement logs, reprint labels if needed, and perform maintenance without halting production.",
+      "whyItMatters": "Eliminates manual transcription and labeling errors, reduces labor and downtime, improves inventory accuracy and traceability, and accelerates downstream operations like cutting, packing and shipping.",
+      "features": [
+        "Encoder-synchronized roll length measurement",
+        "Inline QR/label printing and high-speed application",
+        "Placement verification sensor with retry/logging",
+        "Configurable batch rules and HMI-driven templates",
+        "Automatic logging to Edraak Mapping for per-roll traceability",
+        "Quick-change label spindles and low-maintenance design"
+      ],
+      "bullets": [
+        "Automates roll measurement and tagging",
+        "Reduces manual labor and human errors",
+        "Provides per-roll metadata for traceability and analytics",
+        "Supports quick label/media changes and multiple label sizes",
+        "Integrates with inspection systems and production workflows"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg"
+      ]
     },
     {
       "title": "Fabric Production Processing",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "summary": "Processing module for tracking production flow, recipes, and real-time updates via QR and encoders.",
-      "desc": "Processing module for recording finishing and chemical treatments, verifying recipes and machine parameters, and updating process completion in real time.",
-      "whatHappens": "The module provides complete flow tracking of previous and next operations. Provides machine parameters and recipe details for verification. Real-time process completion updated in the database by QR code scanning and encoder data.",
-      "whatOperatorCanDo": "Verifies fabric recipe and machine parameters. Update faults or any change in recipe or parameters on the module. Can verify previous and next operations of the fabric. Can analyze fabric shade variation in real time.",
-      "whyItMatters": "Recipe and parameters verification reduces human error probability. Production flow ensures smooth operation and operations tracking. The data of the production process and recipe change is updated in the database in real time. Shade variation can be addressed during operation rather than at the end of operation.",
-      "bullets": [
-        "Finishing process recording",
-        "Chemical treatment logging",
-        "Recipe verification and parameter checks",
-        "Real-time process completion via QR and encoder data",
-        "Shade variation analysis and real-time intervention"
+      "summary": "An inline production processing module that enforces recipes, captures machine parameters, and records process completion with encoder and QR evidence for end-to-end traceability.",
+      "desc": "This module records finishing and chemical treatment steps, verifies machine recipes and parameters before production runs, and logs completion events in real time. It integrates encoder feedback, QR scans and optional color sensors to ensure every roll carries an auditable process history.",
+      "need": [
+        "Encoder integration for accurate length and timing",
+        "QR/label scanners for lot identification",
+        "Recipe and parameter management",
+        "HMI for operator verification and overrides",
+        "Integration with Edraak Mapping database and analytics"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.jpg"
+      "existingProcess": "Operators rely on manual checks, verbal confirmations and paper logs to verify recipes and record finishes. This causes missed parameter changes and late detection of shade or recipe errors.",
+      "proposedProcess": "Before production starts, the system loads the recipe and parameters for the lot. Machine sensors and encoders validate runtime parameters. QR scans or encoder ticks confirm each operation step and update the central database automatically.",
+      "whatHappens": "When a lot enters a process step, the module reads the lot ID (QR/NFC), loads the assigned recipe, and displays required parameters on the operator HMI. Encoders and sensors confirm machine speed and applied settings; successful completion is timestamped and stored together with param snapshots.",
+      "whatOperatorCanDo": "Verify or select recipes from the HMI, acknowledge parameter checks, record exceptions or parameter changes, add notes for the lot, and trigger rework workflows if required.",
+      "whyItMatters": "Prevents incorrect recipe application, reduces rework and rejects, and shortens the time to detect shade or parameter drift. The result is higher first-pass yield, auditable process records, and faster corrective actions.",
+      "features": [
+        "Recipe enforcement with parameter snapshots",
+        "Encoder-synced operation completion logging",
+        "QR-based lot recognition and audit trail",
+        "Optional color/shade sensors for inline QC",
+        "Operator HMI with exception workflows",
+        "APIs for analytics and downstream integration"
+      ],
+      "bullets": [
+        "Real-time recipe and parameter verification",
+        "Automatic operation completion logging via encoders",
+        "QR/label evidence tied to each process step",
+        "Inline shade monitoring and alerts",
+        "Operator-driven exception handling and rework triggers"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.jpg",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.jpg"
+      ]
     },
     
     {
       "title": "Manual Inspection",
       "subtitle": "Traceability System",
       "category": "Traceability System",
-      "summary": "Custom keyboard and digital sensors are used to identify faults and measure fabric on the machine.",
-      "desc": "Inspection module providing visual and sensor-based QC integration, with machine-mounted keyboard and live measurement display.",
-      "whatHappens": "Custom Keyboard and digital sensors are used to identify faults and measure fabric.",
-      "whatOperatorCanDo": "Mark and record faults on the machine with a customized keyboard. Check fabric measurement on screen.",
-      "whyItMatters": "On-machine fault marking reduces logging time and improves machine efficiency. Precise meters record fault locations and automatic fabric length measurement provides accurate results. Faults and measurement data are updated in the database in real time.",
-      "bullets": [
-        "Machine-mounted custom fault-marking keyboard",
-        "Digital sensors for precise fabric measurement",
-        "On-screen verification of measurements and faults",
-        "Real-time database updates for faults and measurements",
-        "Reduces manual logging time and improves accuracy"
+      "summary": "An on-machine inspection module that combines a fault-marking keyboard, sensors and HMI to capture precise fault locations and fabric measurements directly to the traceability database.",
+      "desc": "Manual Inspection replaces paper-based fault logging with a machine-mounted keyboard and digital sensors. Operators mark faults and measurements on the running fabric; the system records coordinates, timestamps and optional images to provide accurate, searchable QC records.",
+      "need": [
+        "Machine-mounted fault-marking keyboard",
+        "Digital encoder and length measurement sensors",
+        "HMI display for immediate feedback",
+        "Network connectivity to Edraak Mapping database",
+        "Optional camera for image capture"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
+      "existingProcess": "Operators note faults on paper or spreadsheets, later transcribing them into the system. Measurements are taken manually and combined with visual notes, causing delays and errors.",
+      "proposedProcess": "Operators press keys on a dedicated keyboard when a fault is observed. The system records the encoder position, fabric length and fault type instantly, optionally capturing an image. Data syncs to the central database in real time.",
+      "whatHappens": "When a fault is marked, the encoder provides the precise location, the keyboard captures the fault code and the HMI shows a confirmation. The system timestamps and links the record to the lot ID, making the fault searchable and actionable.",
+      "whatOperatorCanDo": "Mark fault types, add notes, request re-inspection, view previous fault history for the lot, and start a corrective workflow from the HMI.",
+      "whyItMatters": "Eliminates double-entry and transcription errors, shortens QC cycles, and provides precise location data for analysis and corrective action—reducing scrap and rework costs.",
+      "features": [
+        "Fast, ergonomic machine-mounted keyboard for fault entry",
+        "Encoder-linked location logging",
+        "Inline length and measurement capture",
+        "Optional image capture for visual evidence",
+        "Realtime sync to Edraak Mapping and analytics"
+      ],
+      "bullets": [
+        "Replaces paper logging with instant digital records",
+        "Gives pixel-accurate fault locations using encoder data",
+        "Supports immediate corrective workflows from the HMI",
+        "Integrates with labeling and batch systems for traceability",
+        "Improves accuracy and reduces time-to-action for QC"
+      ],
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png",
+      "images": [
+        "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
+      ]
     },
     {
       "title": "Weft Straightener",
@@ -585,20 +664,35 @@
       "title": "Labelling System",
       "subtitle": "Accessories",
       "category": "Accessories",
-      "summary": "Real-time fabric fault applicator that integrates with Edraak Mapping for accurate fault marking.",
-      "desc": "A real-time fabric fault applicator that integrates with the Edraak Mapping system to provide fault marking with substantial accuracy. Capable of applying stickers to running fabric without stopping the machine at speeds up to 150 m/min. The system automatically calibrates for different color tags and adapts to fabric speed for consistent application.",
+      "summary": "Automated inline label applicator for fault marking, seams, and roll identification — works without stopping the production line.",
+      "desc": "The Labelling System is an inline, high‑precision label and sticker applicator designed to automate fault marking and seam/roll identification on fabric production lines. Tightly integrated with Edraak Mapping and inspection systems, it synchronizes with encoder and vision signals to apply labels at exact coordinates while the material is running — removing manual labeling steps, reducing errors, and improving throughput and traceability.",
+      "need": [
+        "Label applicator head with precision actuator",
+        "Label stock roll & dispensing mechanism",
+        "Digital encoder or seam/defect sensor integration",
+        "PLC/controller and HMI for templates and monitoring",
+        "Mounting hardware for conveyor or machine frame",
+        "Integration with Edraak Mapping / inspection outputs"
+      ],
+      "existingProcess": "Labeling and fault marking are often done manually or by stopping the line to apply stickers, which increases labor, creates inconsistencies, and reduces throughput.",
+      "proposedProcess": "Labels are applied automatically at configured offsets or at fault coordinates reported by the inspection/encoder system. The applicator compensates for fabric speed and stretch, verifies placement with a sensor, and logs each event to the mapping database for downstream traceability.",
+      "whatHappens": "When a defect or seam is detected, the controller computes the exact timing using encoder feedback and triggers the applicator. The dispenser places the label, a verification sensor confirms correct placement, and the system records the placement with a timestamp and location for traceability and reporting.",
+      "whatOperatorCanDo": "Operators configure placement rules and label templates from the HMI, change label rolls quickly, view placement logs, pause or override labeling for maintenance, and adjust offsets without stopping production.",
+      "whyItMatters": "Automates repetitive manual labeling tasks, eliminates missed or mis‑placed labels, reduces labor costs, prevents unnecessary stoppages, and provides seam- and defect-level traceability for faster root-cause analysis and higher productivity.",
       "features": [
-        "Integrates with Edraak Mapping for precise fault localisation",
-        "Applies stickers at running speeds up to 150 m/min without stopping the line",
-        "Automatic calibration for different color tags and fabric speeds",
-        "Configurable tag types and placement offsets",
-        "Closed-loop verification to ensure sticker applied correctly"
+        "Inline label application at production speeds (model-dependent)",
+        "Encoder-synchronized dispensing for pixel-accurate placement",
+        "Closed-loop verification sensor to confirm placement",
+        "Support for multiple label sizes/types and quick-change spindles",
+        "Configurable templates, rules, and HMI-driven setup",
+        "Integration with Edraak Mapping and inspection data for full traceability"
       ],
       "bullets": [
-        "Real-time fault marking",
-        "High-speed sticker applicator (≤150 m/min)",
-        "Automatic color-tag calibration",
-        "Integrates with factory reporting and mapping systems"
+        "Automates label application and fault marking",
+        "Reduces manual labor and line stoppages",
+        "Ensures consistent label placement and verification",
+        "Provides seam- and defect-level traceability",
+        "Quick maintenance and label roll replacement"
       ],
       "img": "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/2-1.png",
       "images": [
