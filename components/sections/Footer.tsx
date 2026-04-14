@@ -39,6 +39,7 @@ export default function Footer() {
 
   const caseStudyToProductHref: Record<string, string> = {
     'visual fault detection': '/visual-fault-detection',
+    'digital data loggers': '/digital-data-loggers',
     'rfid & barcoding': '/rfid-and-barcoding',
     'fabric width sensing': '/products/width-measurement-system',
     'fabric color sensors': '/products/spectrophotometer',

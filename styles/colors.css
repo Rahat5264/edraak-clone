@@ -49,3 +49,9 @@
 	font-size: 18px !important;
 }
 
+/* Also apply vision-link rules to non-anchor elements (buttons/divs) that use the same class */
+.site-header .vision-link {
+	color: #02E3DF !important;
+	font-size: 18px !important;
+}
+

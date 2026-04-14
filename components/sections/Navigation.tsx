@@ -345,8 +345,8 @@ export default function Navigation() {
                     <button
                       type="button"
                       onClick={(e) => { e.preventDefault(); /* intentionally disabled */ }}
-                      className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''} vision-link`}
-                      style={{ color: '#02E3DF', fontSize: '18px', background: 'transparent', border: 0, padding: 0 }}
+                      className={`text-sm md:text-base text-white/85 hover:text-white transition-colors ${isActive ? 'active' : ''} vision-link`}
+                      style={{ background: 'transparent', border: 0, padding: 0 }}
                     >
                       {item.label}
                     </button>
@@ -361,11 +361,8 @@ export default function Navigation() {
                 <Link
                   key={item.label}
                   href={linkHref}
-                  className={`text-sm font-medium transition-colors ${isActive ? 'active' : ''}`}
+                  className={`text-sm md:text-base text-white/85 hover:text-white transition-colors ${isActive ? 'active' : ''}`}
                   onClick={handleClick}
-                  style={{
-                    color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.9)'
-                  }}
                 >
                   {item.label}
                 </Link>
@@ -424,7 +421,7 @@ export default function Navigation() {
 
               if (isVision) {
                 return (
-                  <div key={item.label} className="block text-sm font-medium py-2" style={{ color: '#02E3DF', fontSize: '18px' }}>
+                  <div key={item.label} className="block text-sm md:text-base text-white/85 hover:text-white font-normal py-2 vision-link" style={{ fontSize: '18px' }}>
                     <span>{item.label}</span>
                     <span className="ml-2 text-xs text-slate-400">Coming soon</span>
                   </div>
@@ -436,10 +433,7 @@ export default function Navigation() {
                   key={item.label}
                   href={`${targetPath}${targetHash}`}
                   onClick={handleClick}
-                  className={`block text-sm font-medium py-2 ${isActive ? 'active' : ''}`}
-                  style={{
-                    color: isActive ? '#02E3DF' : 'rgba(255,255,255,0.95)'
-                  }}
+                  className={`block text-sm md:text-base text-white/85 hover:text-white py-2 ${isActive ? 'active' : ''}`}
                 >
                   {item.label}
                 </Link>
