@@ -5,6 +5,7 @@ import './globals.css'
 import Navigation from '@/components/sections/Navigation'
 import Footer from '@/components/sections/Footer'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
 
 const inria = Inria_Sans({ subsets: ["latin"], weight: ['300','700'], variable: '--font-sans' });
 
@@ -71,6 +72,7 @@ export default function RootLayout({
       <body className="antialiased">
         <ThemeProvider attribute="class">
           <Navigation />
+          <Toaster />
           <main>{children}</main>
           <Footer />
           <Analytics />

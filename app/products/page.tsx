@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { useMemo, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import content from '@/data/content.json'
+import { toast } from 'sonner'
+import { sendInquiry } from '../actions/send-inquiry'
 
 function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -105,25 +107,22 @@ export default function ProductsPage() {
     }
 
     try {
-      const res = await fetch('/api/inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(inquiryForm)
-      })
-
-      if (res.ok) {
+      const res = await sendInquiry(inquiryForm)
+      console.log(res)
+      if (res) {
         // simple success feedback
         closeInquiry()
-        // eslint-disable-next-line no-alert
-        alert('Inquiry sent — we will contact you soon.')
+        // eslint-disable-next-line no-toast.
+        toast.success('Inquiry sent — we will contact you soon.')
       } else {
-        const data = await res.json()
-        // eslint-disable-next-line no-alert
-        alert('Failed to send inquiry: ' + (data?.error || res.statusText))
+        // eslint-disable-next-line no-toast.
+        toast.error('Failed to send inquiry')
+        closeInquiry();
+
       }
     } catch (err) {
-      // eslint-disable-next-line no-alert
-      alert('Network error while sending inquiry')
+      // eslint-disable-next-line no-toast.
+      toast.error('Network error while sending inquiry')
     }
   }
 
