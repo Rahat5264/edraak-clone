@@ -399,8 +399,13 @@ export default function Navigation() {
 
                 if (targetPath === pathname && targetHash) {
                   e.preventDefault()
-                  const scrolled = scrollToIdWithOffset(id)
-                  if (!scrolled) window.location.hash = targetHash
+                  // Wait briefly to allow the mobile header/menu to close and layout to stabilize
+                  // before measuring header height and scrolling. This prevents the target
+                  // section from being clipped on small screens.
+                  setTimeout(() => {
+                    const scrolled = scrollToIdWithOffset(id)
+                    if (!scrolled) window.location.hash = targetHash
+                  }, 80)
                   return
                 }
 

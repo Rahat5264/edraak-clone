@@ -229,3 +229,10 @@
 
 /* Ensure consistent boxed product rows */
 .vp-row { min-height: 72px; }
+
+/* Mobile anchor offset: ensure sections referenced by hash (e.g. #technology)
+   appear fully below the sticky header on small screens. Adjust value if
+   your mobile header height differs. */
+@media (max-width: 768px) {
+  #technology { scroll-margin-top: 72px; }
+}
