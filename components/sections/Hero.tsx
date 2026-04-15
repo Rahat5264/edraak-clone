@@ -86,19 +86,24 @@ export default function Hero() {
 
     </section>
 
-    {/* Mobile newsletter bar: keep previous simple layout */}
+    {/* Mobile newsletter bar: show only email input connected to desktop handler */}
     <div className="sm:hidden w-full bg-gray-100 relative z-30">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          <div className="text-xs text-slate-900 font-medium">
-          {h.signup?.title || ''}
-        </div>
-
-        <a
-          href={h.signup?.buttonHref || '#'}
-          className="inline-flex h-9 px-4 items-center justify-center bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white text-sm font-medium"
-        >
-          {h.signup?.buttonLabel || ''}
-        </a>
+      <div className="max-w-7xl mx-auto px-4 py-3">
+        <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-3">
+          <input
+            name="email"
+            type="email"
+            required
+            placeholder="Enter your email"
+            className="h-9 flex-1 bg-white border border-gray-200 px-3 text-sm text-slate-900 placeholder:text-slate-500 outline-none rounded"
+          />
+          <button
+            type="submit"
+            className="h-9 px-4 bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white text-sm font-medium rounded"
+          >
+            {h.signup?.buttonLabel || 'Subscribe'}
+          </button>
+        </form>
       </div>
     </div>
 
