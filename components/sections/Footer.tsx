@@ -46,6 +46,7 @@ export default function Footer() {
     'fabric traceability': '/fabric-traceability',
     'sewing traceability & qc': '/sewing-traceability-qc',
     'energy monitoring': '/energy-monitoring',
+    'robotics': '/robotics',
     'artificial intelligence': '/artificial-intelligence'
   }
 
@@ -109,12 +110,14 @@ export default function Footer() {
                     href = 'https://www.edraaksystems.com/products/spectrophotometer'
                   } else if (l.includes('rfid') || l.includes('barcod')) {
                     href = '/rfid-and-barcoding'
+                  } else if (l.includes('robot') || l.includes('robotic')) {
+                    href = '/robotics'
                   } else if (l.includes('energy')) {
-                      href = '/energy-monitoring'
+                    href = '/energy-monitoring'
                   } else if (l.includes('artificial') || l.includes('intelligence') || l === 'ai') {
                     href = '/artificial-intelligence'
-                    } else if (l.includes('data') || l.includes('business') || l.includes('analytics')) {
-                      href = '/data-and-business-analytics'
+                  } else if (l.includes('data') || l.includes('business') || l.includes('analytics')) {
+                    href = '/data-and-business-analytics'
                   }
 
                   return (
