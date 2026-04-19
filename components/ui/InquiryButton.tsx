@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+const DISABLE_INQUIRY = true
+
 type Props = {
   product?: any
   title?: string
@@ -10,6 +12,8 @@ type Props = {
 }
 
 export default function InquiryButton({ product, title, className, style }: Props) {
+  if (DISABLE_INQUIRY) return null
+
   const handle = (e: React.MouseEvent) => {
     e.preventDefault()
     const detail = { product: product || { title: title || '' } }
