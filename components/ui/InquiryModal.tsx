@@ -5,11 +5,7 @@ import content from '@/data/content.json'
 import { toast } from 'sonner'
 import { sendInquiry } from '@/app/actions/send-inquiry'
 
-const DISABLE_INQUIRY = true
-
 export default function InquiryModal() {
-  if (DISABLE_INQUIRY) return null
-
   // Build product options from multiple content sources so top-level pages
   // (case studies, technology items, etc.) that aren't in `content.products`
   // also appear in the inquiry select.
