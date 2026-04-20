@@ -15,7 +15,10 @@ export default function Contact() {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const response= await contactUs(new FormData(e.target as HTMLFormElement))
+    const formEl = e.target as HTMLFormElement
+    const fd = new FormData(formEl)
+    const payload = Object.fromEntries(fd.entries())
+    const response = await contactUs(payload)
     if (!response) {
       toast.error('Submission failed. Please try again later.')
     } else {
@@ -35,13 +38,13 @@ export default function Contact() {
             <h3 className="text-xl font-bold mb-4">{c.panelTitle || ''}</h3>
             <form onSubmit={handleFormSubmit} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
-                <Input placeholder={c.form?.firstName || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
-                <Input placeholder={c.form?.lastName || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+                <Input name="firstName" placeholder={c.form?.firstName || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+                <Input name="lastName" placeholder={c.form?.lastName || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
               </div>
 
-              <Input type="email" placeholder={c.form?.email || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
-              <Input type="tel" placeholder={c.form?.phone || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
-              <Textarea placeholder={c.form?.message || ''} rows={5} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Input type="email" name="email" placeholder={c.form?.email || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Input type="tel" name="phone" placeholder={c.form?.phone || ''} className="bg-[var(--input)] text-[var(--foreground)]" />
+              <Textarea name="message" placeholder={c.form?.message || ''} rows={5} className="bg-[var(--input)] text-[var(--foreground)]" />
 
               <Button type="submit" className="bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white font-normal">{c.form?.submit || ''}</Button>
 
