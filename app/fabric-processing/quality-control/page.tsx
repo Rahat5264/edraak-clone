@@ -5,6 +5,7 @@ import InquiryButton from '@/components/ui/InquiryButton'
 export default function FabricQualityControlPage() {
   const prod: any = content || {}
   const media: any = prod.media || {}
+  const paragraphs: string[] = prod.paragraphs || prod.desc || []
 
   return (
     <div className="min-h-screen bg-white py-12">
@@ -24,9 +25,9 @@ export default function FabricQualityControlPage() {
             <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title || 'Fabric Quality Control'}</h1>
             {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
 
-            {prod.desc && (
+            {paragraphs && paragraphs.length > 0 && (
               <div className="mt-4 text-lg text-slate-700 space-y-4">
-                {Array.isArray(prod.desc) ? prod.desc.map((d: any, i: number) => <p key={i}>{d}</p>) : <p>{prod.desc}</p>}
+                {paragraphs.map((d: any, i: number) => <p key={i}>{d}</p>)}
               </div>
             )}
 
