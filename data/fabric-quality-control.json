@@ -1,0 +1,26 @@
+{
+  "title": "Fabric Quality Control",
+  "subtitle": "Fabric Quality Control",
+  "summary": "Fabric quality control is essential in textile production. EVS provides high-speed, AI-powered automated fabric inspection to reduce waste and improve yield.",
+  "desc": [
+    "Fabric quality control is essential in textile production. It ensures defects are detected early and fabric meets required standards. However, manual inspection is often slow, inconsistent, and dependent on human judgment.",
+    "EVS (Edraak Vision System) is a modern fabric quality control system built for high-speed, AI-powered automated fabric inspection. It uses high-resolution cameras and smart algorithms to scan fabric in real time, detect defects, and provide instant feedback during production.",
+    "Traditional inspection typically runs at 40–45 meters per minute, making it hard to maintain consistent quality. Defects are often missed, leading to higher waste and delays. Without a strong textile quality control system, efficiency and product quality are affected.",
+    "EVS solves this with an advanced fabric defect detection system that operates at speeds up to 150 meters per minute. As an industrial inspection system, it works across fabric types and integrates into production lines or looms for continuous monitoring and accurate detection.",
+    "When a defect is detected, the system logs and marks it instantly. This creates reliable data that helps teams take quick action and improve consistency in quality control in the textile industry.",
+    "All inspection data is available in a simple dashboard, showing defect patterns, fabric quality trends, and production performance. Reports can be easily exported for better planning and process improvement.",
+    "With high-speed inspection, real-time monitoring, and intelligent reporting, EVS improves fabric quality control. It reduces waste, lowers defect rates, improves fabric yield, and increases efficiency in modern textile manufacturing."
+  ],
+  "capabilities": [
+    "Real-time fabric defect detection",
+    "High-speed inspection up to 150 m/min",
+    "AI-powered automated fabric inspection",
+    "Integration with production lines and looms",
+    "Automated defect marking and data logging",
+    "Dashboard reporting with exportable data"
+  ],
+  "media": {
+    "type": "image",
+    "url": ""
+  }
+}
