@@ -7,8 +7,9 @@ import Footer from '@/components/sections/Footer'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from 'sonner'
 import InquiryModal from '@/components/ui/InquiryModal'
+import Script from 'next/script'
 
-const inria = Inria_Sans({ subsets: ["latin"], weight: ['300','700'], variable: '--font-sans' });
+const inria = Inria_Sans({ subsets: ["latin"], weight: ['300', '700'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Edraak Systems | Quality Control & Traceability Solutions for Textiles',
@@ -70,6 +71,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inria.variable} light`}>
+      <head>
+        <Script async strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_TAG}`}></Script>
+        {/* Clarity */}
+
+        <Script id="clarity-script" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jvj59mnu8j")`}
+        </Script>
+      </head>
       <body className="antialiased">
         <ThemeProvider attribute="class">
           <Navigation />
