@@ -73,6 +73,7 @@ export default function RootLayout({
     <html lang="en" className={`${inria.variable} light`}>
       <head>
         <Script async strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_TAG}`}></Script>
+        <meta name="google-site-verification" content="MlvyPgepZrLNb2RX-4Fm2p0JQh7ypCYR_Xtg2c4_kDM" />
         {/* Clarity */}
 
         <Script id="clarity-script" strategy="afterInteractive">
