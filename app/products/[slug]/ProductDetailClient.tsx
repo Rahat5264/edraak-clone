@@ -73,7 +73,7 @@ export default function ProductDetailClient() {
         <p className="mb-2">Decoded slug: <strong>{(() => { try { return decodeURIComponent(slug || '') } catch (e) { return '(decode error)' } })()}</strong></p>
         <p className="mb-2">Available product slugs:</p>
         <ul className="list-disc pl-6">
-          {available.map(s => <li key={s}><code>{s}</code></li>)}
+          {available.map((s: any) => <li key={s}><code>{s}</code></li>)}
         </ul>
       </div>
     )

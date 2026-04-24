@@ -41,7 +41,7 @@ export default function RfidPage() {
               <h4 className="text-sm font-medium text-slate-700">Gallery</h4>
               <div className="grid grid-cols-3 gap-2">
                 {((prod.images && Array.isArray(prod.images) && prod.images) || []).length > 0 ? (
-                  prod.images.map((u: string, i: number) => (
+                  prod.images?.map((u: string, i: number) => (
                     <div key={i} className="h-20 w-full overflow-hidden rounded-md bg-gray-100">
                       <img src={u} alt={`${prod.title}-${i}`} className="w-full h-full object-cover" />
                     </div>
@@ -54,8 +54,7 @@ export default function RfidPage() {
               </div>
               </div>
               <div className="sticky top-24"><QuickLinks /></div>
-            </div>
-          </aside>
+            </aside>
         </div>
       </div>
     </div>
