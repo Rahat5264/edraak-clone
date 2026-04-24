@@ -307,17 +307,9 @@
   },
   "products": [
     {
-      "title": "High Speed Inspection",
+      "title": "Camera Inspection System",
       "subtitle": "EVS(Edraak Vision System)",
       "category": "EVS(Edraak Vision System)",
-      "summary": "An AI-powered camera inspection solution for production lines. It uses high-resolution cameras and advanced algorithms to scan fabrics in real time and accurately spot fabric defects.",
-      "need": [
-        "Frame with a system of high-speed rollers",
-        "High-speed inspection cameras",
-        "AI-powered software to analyse and identify the faults"
-      ],
-      "existingProcess": "Manual inspection running at a max of 40-45 m/min.",
-      "proposedProcess": "An AI-powered high-speed system running a maximum speed of 150 m/min for all types of fabric.",
       "desc": "High-speed, AI-driven fabric inspection for production lines. EVS inspects fabric at-line or on-loom and provides real-time fault detection, marking, and reporting to reduce waste and speed up quality decisions.",
       "greige": "EVS inspects greige (raw/unfinished) fabric straight from the loom, detecting defects such as knots, slubs, holes, broken yarns, thick/thin areas, and uneven weave in real time.",
       "dyed": "EVS checks dyed fabrics for issues that appear after coloring, such as uneven dyeing (patchy or cloudy shades), stains, dye marks, streaks, and weave faults visible post-dye. Running at full production speed, it flags problems instantly for marking or removal, helping maintain uniform color quality.",
@@ -328,15 +320,28 @@
         "Synchronized with cutting machines for efficient roll-making",
         "Digital traceability and reduced reliance on manual inspection"
       ],
-      "bullets": [
-        "AI-powered real-time defect detection",
-        "Up to 150 m/min inspection speed",
-        "High-speed roller frame and camera integration",
-        "Reporting, dashboarding and fault export"
-      ],
+      
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-640x400.png",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-640x400.png"
+      ],
+      "pageContent": [
+        
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-1.jpg", "alt": "Image 1" },
+        { "type": "text", "text": "In today’s high-speed textile industry, traditional Fabric Quality Control methods are no longer sufficient to ensure consistent product quality. Most mills still rely heavily on human inspectors, where decisions are made at an individual level, leading to inconsistencies and lack of standardization. As production speeds increase, the gap between inspection capability and manufacturing output continues to widen, resulting in missed defects, higher wastage, and quality risks." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-2.jpg", "alt": "Image 2" },
+        { "type": "text", "text": "Manual inspection also comes with inherent limitations. Humans can typically inspect fabric at speeds of around 15 meters per minute, which is significantly lower than modern production speeds. Additionally, expecting operators to monitor full-width fabric continuously over long shifts is unrealistic. Factors such as fatigue, skill variation, and high operator turnover further reduce reliability. In many cases, mills rely on limited sampling instead of full inspection, which means a large portion of defects go undetected." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-3.jpg", "alt": "Image 3" },
+        { "type": "text", "text": "Camera inspection systems solve these challenges by bringing automation, consistency, and scalability into Fabric Quality Control. These systems use high-speed industrial cameras installed directly on the production line to capture fabric images in real time. Unlike manual methods, camera inspection ensures 100% fabric coverage, continuously monitoring the entire width without interruption. This eliminates dependency on human attention and ensures that no section of fabric goes unchecked." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-4.jpg", "alt": "Image 4" },
+        { "type": "text", "text": "One of the key advantages of camera-based Fabric Quality Control is its ability to operate at high speeds. Modern systems can capture and process images at speeds of up to 100–120 meters per minute while maintaining detection accuracy. This aligns inspection capability with production output, allowing manufacturers to scale without compromising on quality. The system works continuously, without fatigue, delivering consistent results across shifts and operators." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-5.jpg", "alt": "Image 5" },
+        { "type": "text", "text": "Another critical benefit is real-time defect detection. Camera inspection systems analyze images instantly using vision algorithms, identifying defects as soon as they occur. This allows immediate action, reducing the chances of defects propagating further down the production line. Early detection helps minimize rework, reduce wastage, and improve overall process efficiency. Camera inspection systems also act as a centralized, data-driven quality control system. Instead of relying on scattered decisions by individual operators, all inspection data is captured, processed, and stored in a structured manner. This creates a standardized quality protocol across the factory. Manufacturers gain complete visibility into defect patterns, production performance, and quality trends, enabling better decision-making and continuous improvement." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-6.jpg", "alt": "Image 6" },
+        { "type": "text", "text": "An additional advantage is the creation of a pictorial record of fabric quality. Every meter of fabric is recorded and stored as an image, which can be accessed later for review, audits, or customer claims. This level of traceability is not possible with manual inspection systems. It ensures transparency and builds trust with customers, as manufacturers can clearly demonstrate the quality of shipped fabric. Over time, camera inspection systems continue to improve. As more data is collected, the system evolves and adapts to different fabric types, defect patterns, and production conditions. This makes it increasingly effective and tailored to specific manufacturing environments. Unlike static manual processes, camera-based systems become smarter and more efficient with usage." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-8.jpg", "alt": "Image 7" },
+        { "type": "text", "text": "Ultimately, camera inspection systems transform Fabric Quality Control from a reactive process into a proactive and intelligent system. They enable manufacturers to \"see everything\" on the production line, ensuring that they know exactly what they are shipping to customers. By combining high-speed imaging, real-time analysis, and data-driven insights, camera inspection becomes the foundation of modern textile quality control. It is no longer just about detecting defects—it is about building a standardized, scalable, and reliable quality control system. For manufacturers aiming to compete globally, adopting camera-based Fabric Quality Control is no longer optional; it is essential for delivering consistent quality, reducing costs, and driving operational excellence." },
+        { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-7.jpg", "alt": "Image 8" }
       ]
     },
     {

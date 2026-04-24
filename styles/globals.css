@@ -123,3 +123,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Utility to hide native scrollbars while keeping element scrollable */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

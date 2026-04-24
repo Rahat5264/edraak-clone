@@ -105,9 +105,9 @@ export default function Footer() {
                   const l = (label || '').toString().toLowerCase()
                   let href = '#technology'
                   if (l.includes('computer') || l.includes('vision')) {
-                    href = 'https://www.edraaksystems.com/products/high-speed-inspection'
+                    href = '/products/camera-inspection-system'
                   } else if (l.includes('spectrophotometer')) {
-                    href = 'https://www.edraaksystems.com/products/spectrophotometer'
+                    href = '/products/spectrophotometer'
                   } else if (l.includes('rfid') || l.includes('barcod')) {
                     href = '/rfid-and-barcoding'
                   } else if (l.includes('robot') || l.includes('robotic')) {

@@ -82,8 +82,13 @@ export default function ProductDetailClient() {
   return (
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-4xl mx-auto px-4">
+        <style jsx>{`
+          .no-scrollbar::-webkit-scrollbar { display: none; }
+          .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        `}</style>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
+            <div className="no-scrollbar" style={{ maxHeight: 'calc(100vh - 6rem)', overflowY: 'auto', paddingRight: '1rem' }}>
             <div className="rounded-md overflow-hidden shadow-md">
               {prod.comingSoon ? (
                 <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-2xl font-semibold text-gray-500">{prod.comingSoonText || 'Coming soon'}</div>
@@ -95,11 +100,29 @@ export default function ProductDetailClient() {
             <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
             {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
 
-            {prod.desc && (
+            {prod.pageContent && Array.isArray(prod.pageContent) ? (
+              <div className="mt-4 text-lg text-slate-700 space-y-6">
+                {prod.pageContent.map((item: any, i: number) => {
+                  if (!item) return null
+                  if (item.type === 'heading') return <h2 key={i} className="text-2xl font-semibold">{item.text}</h2>
+                  if (item.type === 'text') return <p key={i}>{item.text}</p>
+                  if (item.type === 'image') return (
+                    item.src ? (
+                      <div key={i} className="w-full">
+                        <img src={item.src} alt={item.alt || ''} className="w-full object-cover" />
+                      </div>
+                    ) : (
+                      <div key={i} className="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-500">Image placeholder</div>
+                    )
+                  )
+                  return null
+                })}
+              </div>
+            ) : (prod.desc && (
               <div className="mt-4 text-lg text-slate-700 space-y-4">
                 {typeof prod.desc === 'string' ? <p>{prod.desc}</p> : (Array.isArray(prod.desc) ? prod.desc.map((d: string, i: number) => <p key={i}>{d}</p>) : null)}
               </div>
-            )}
+            ))}
 
             {prod.summary && (
               <div className="mt-6">
@@ -166,6 +189,7 @@ export default function ProductDetailClient() {
               <Link href={backCategory ? `/products?category=${encodeURIComponent(backCategory)}` : '/products'} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
               <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
             </div>
+            </div>
           </div>
 
           <aside className="lg:col-span-1">
@@ -192,6 +216,17 @@ export default function ProductDetailClient() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
+                <ul className="space-y-2 text-sm">
+                  {Array.isArray(content.products) ? content.products.map((p: any, i: number) => (
+                    <li key={i}>
+                      <Link href={`/products/${slugify((p.title || '').toString())}`} className="text-[var(--site-header-bg)] hover:underline">{p.title}</Link>
+                    </li>
+                  )) : null}
+                </ul>
               </div>
 
             </div>
