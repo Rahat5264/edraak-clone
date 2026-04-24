@@ -12,27 +12,25 @@ export default function CameraModulePage() {
       <div className="max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <div className="no-scrollbar" style={{ maxHeight: 'calc(100vh - 6rem)', overflowY: 'auto', paddingRight: '1rem' }}>
-              <div className="rounded-md overflow-hidden shadow-md">
-                <img src={prod.img} alt={prod.title} className="w-full h-72 object-cover" />
-              </div>
+            <div className="rounded-md overflow-hidden shadow-md">
+              <img src={prod.img} alt={prod.title} className="w-full h-72 object-cover" />
+            </div>
 
-              <h1 className="mt-6 text-[56px] leading-tight tracking-tight font-normal text-slate-900">{prod.title}</h1>
-              <p className="text-sm text-[#02879f] font-medium mt-2">{prod.subtitle}</p>
-              <p className="mt-4 text-lg text-slate-700">{prod.desc}</p>
+            <h1 className="mt-6 text-[56px] leading-tight tracking-tight font-normal text-slate-900">{prod.title}</h1>
+            <p className="text-sm text-[#02879f] font-medium mt-2">{prod.subtitle}</p>
+            <p className="mt-4 text-lg text-slate-700">{prod.desc}</p>
 
-              {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
-                <div className="mt-6">
-                  <h4 className="text-lg font-semibold mb-2">Key points</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-slate-700">
-                    {prod.bullets.map((b: string) => <li key={b}>{b}</li>)}
-                  </ul>
-                </div>
-              )}
-
+            {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
               <div className="mt-6">
-                <Link href="/products" className="inline-block bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white px-4 py-2 rounded">Back</Link>
+                <h4 className="text-lg font-semibold mb-2">Key points</h4>
+                <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                  {prod.bullets.map((b: string) => <li key={b}>{b}</li>)}
+                </ul>
               </div>
+            )}
+
+            <div className="mt-6">
+              <Link href="/products" className="inline-block bg-gradient-to-tr from-[#02879F] to-[#02E3DF] text-white px-4 py-2 rounded">Back</Link>
             </div>
           </div>
 

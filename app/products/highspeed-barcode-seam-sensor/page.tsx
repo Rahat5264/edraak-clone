@@ -35,44 +35,42 @@ export default function HighspeedBarcodePage() {
       <div className="max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <div className="no-scrollbar" style={{ maxHeight: 'calc(100vh - 6rem)', overflowY: 'auto', paddingRight: '1rem' }}>
-              <div className="rounded-md overflow-hidden shadow-md">
-                {prod.img ? (
-                  <img src={prod.img} alt={prod.title} className="w-full h-80 object-cover" />
-                ) : (
-                  <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-gray-500">Image</div>
-                )}
+            <div className="rounded-md overflow-hidden shadow-md">
+              {prod.img ? (
+                <img src={prod.img} alt={prod.title} className="w-full h-80 object-cover" />
+              ) : (
+                <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-gray-500">Image</div>
+              )}
+            </div>
+
+            <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
+            {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
+
+            {prod.desc && (
+              <div className="mt-4 text-lg text-slate-700 space-y-4">
+                <p>{prod.desc}</p>
               </div>
+            )}
 
-              <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
-              {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
-
-              {prod.desc && (
-                <div className="mt-4 text-lg text-slate-700 space-y-4">
-                  <p>{prod.desc}</p>
-                </div>
-              )}
-
-              {prod.summary && (
-                <div className="mt-6">
-                  <h4 className="text-lg font-semibold mb-2">Summary</h4>
-                  <p className="text-slate-700">{prod.summary}</p>
-                </div>
-              )}
-
-              {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
-                <div className="mt-6">
-                  <h4 className="text-lg font-semibold mb-2">Key points</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-slate-700">
-                    {prod.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}
-                  </ul>
-                </div>
-              )}
-
-              <div className="mt-8 flex gap-3">
-                <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
-                <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
+            {prod.summary && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Summary</h4>
+                <p className="text-slate-700">{prod.summary}</p>
               </div>
+            )}
+
+            {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Key points</h4>
+                <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                  {prod.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}
+                </ul>
+              </div>
+            )}
+
+            <div className="mt-8 flex gap-3">
+              <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
+              <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
             </div>
           </div>
 
