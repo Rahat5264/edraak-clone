@@ -1,7 +1,16 @@
-"use client"
-
 import React from 'react'
 import content from '@/data/terms.json'
+
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${content?.title || 'Terms & Conditions'} | Edraak Systems`
+  return {
+    title,
+    description: (Array.isArray(content?.content) ? content.content.slice(0, 2).join(' ') : content?.content) || 'Terms and conditions for Edraak Systems.',
+    alternates: { canonical: `${SITE_URL}/terms-and-conditions` }
+  }
+}
 
 export default function TermsPage() {
   return (

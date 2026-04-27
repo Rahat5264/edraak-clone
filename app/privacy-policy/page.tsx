@@ -1,7 +1,16 @@
-"use client"
-
 import React from 'react'
 import content from '@/data/privacy.json'
+
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${content?.title || 'Privacy Policy'} | Edraak Systems`
+  return {
+    title,
+    description: (Array.isArray(content?.content) ? content.content.slice(0, 2).join(' ') : content?.content) || 'Privacy policy for Edraak Systems.',
+    alternates: { canonical: `${SITE_URL}/privacy-policy` }
+  }
+}
 
 export default function PrivacyPolicyPage() {
   return (

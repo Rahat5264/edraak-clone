@@ -1,8 +1,13 @@
 import Contact from '@/components/sections/Contact'
 import content from '@/data/content.json'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 export const metadata = {
-  title: 'Contact',
+  title: `Contact | ${content?.brand?.name || 'Edraak Systems'}`,
+  description: content?.brand?.tagline || 'Contact Edraak Systems for traceability and quality solutions.',
+  openGraph: { title: `Contact | ${content?.brand?.name || 'Edraak Systems'}`, description: content?.brand?.tagline || '' },
+  alternates: { canonical: `${SITE_URL}/contact` }
 }
 
 export default function ContactPage() {

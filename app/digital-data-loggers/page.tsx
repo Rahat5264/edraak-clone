@@ -3,6 +3,14 @@ import InquiryButton from '@/components/ui/InquiryButton'
 import content from '@/data/content.json'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = prod?.title ? `${prod.title} | Edraak Systems` : 'Digital Data Loggers | Edraak Systems'
+  const description = prod?.summary || prod?.desc || 'Industrial data loggers and monitoring solutions.'
+  return { title, description, openGraph: { title, description, url: `${SITE_URL}/digital-data-loggers` }, alternates: { canonical: `${SITE_URL}/digital-data-loggers` } }
+}
+
 const findCase = (title: string) => {
   try {
     const items = Array.isArray((content as any).caseStudies) ? (content as any).caseStudies : []

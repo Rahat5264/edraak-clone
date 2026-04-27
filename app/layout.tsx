@@ -11,6 +11,27 @@ import Script from 'next/script'
 
 const inria = Inria_Sans({ subsets: ["latin"], weight: ['300', '700'], variable: '--font-sans' });
 
+const SITE_URL = 'https://www.edraaksystems.com'
+const ORG_JSONLD = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Edraak Systems',
+    url: SITE_URL,
+    logo: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Edraak Systems',
+    url: SITE_URL,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Edraak Systems',
+    },
+  },
+])
+
 export const metadata: Metadata = {
   title: 'Edraak Systems | Quality Control & Traceability Solutions for Textiles',
   description: 'Advanced machine vision and AI-powered quality control solutions for textile, apparel, and manufacturing industries. Real-time traceability and defect detection.',
@@ -83,6 +104,7 @@ export default function RootLayout({
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "jvj59mnu8j")`}
         </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ORG_JSONLD }} />
       </head>
       <body className="antialiased">
         <ThemeProvider attribute="class">

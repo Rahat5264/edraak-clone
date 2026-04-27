@@ -28,6 +28,20 @@ const prod = prodData || {
   img: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg',
   images: ['https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg']
 }
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.desc || prod.summary || 'Highspeed barcode + seam sensor by Edraak Systems.'
+  const url = `${SITE_URL}/products/highspeed-barcode-seam-sensor`
+  return {
+    title,
+    description,
+    openGraph: { title, description, url, images: [{ url: prod.img || '', alt: prod.title }] },
+    twitter: { card: 'summary_large_image', title, description, images: [prod.img || ''] },
+    alternates: { canonical: url }
+  }
+}
 
 export default function HighspeedBarcodePage() {
   return (
@@ -94,3 +108,4 @@ export default function HighspeedBarcodePage() {
     </div>
   )
 }
+

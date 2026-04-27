@@ -107,3 +107,11 @@ export default function SewingTraceabilityQCPage() {
     </div>
   )
 }
+
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || prod.desc || 'Sewing traceability and quality control solutions.'
+  return { title, description, openGraph: { title, description, url: `${SITE_URL}/sewing-traceability-qc` }, alternates: { canonical: `${SITE_URL}/sewing-traceability-qc` } }
+}

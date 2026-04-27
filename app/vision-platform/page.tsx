@@ -4,6 +4,18 @@ import { Button } from '@/components/ui/button'
 
 export const metadata = {
   title: 'Vision Platform - Edraak Systems',
+  description: (content && (content.description || content?.visionSystem?.description)) || 'Edraak Vision Platform — AI-powered fabric inspection and traceability.',
+  openGraph: {
+    title: 'Vision Platform - Edraak Systems',
+    description: (content && (content.description || content?.visionSystem?.description)) || 'Edraak Vision Platform — AI-powered fabric inspection and traceability.',
+    url: 'https://www.edraaksystems.com/vision-platform',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vision Platform - Edraak Systems',
+    description: (content && (content.description || content?.visionSystem?.description)) || 'Edraak Vision Platform — AI-powered fabric inspection and traceability.',
+  },
+  alternates: { canonical: 'https://www.edraaksystems.com/vision-platform' },
 }
 
 export default function VisionPlatformPage() {

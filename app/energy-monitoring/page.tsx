@@ -18,6 +18,21 @@ const prod = {
   ]
 }
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || prod.proposedProcess || 'Energy monitoring solutions for manufacturing.'
+  const url = `${SITE_URL}/energy-monitoring`
+  return {
+    title,
+    description,
+    openGraph: { title, description, url, images: [{ url: prod.img || '', alt: prod.title }] },
+    twitter: { card: 'summary_large_image', title, description, images: [prod.img || ''] },
+    alternates: { canonical: url }
+  }
+}
+
 export default function EnergyMonitoringPage() {
   return (
     <div className="min-h-screen bg-white py-12">

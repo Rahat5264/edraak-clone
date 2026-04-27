@@ -20,6 +20,21 @@ const prod = {
   ]
 }
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || prod.proposedProcess || prod.existingProcess || 'Edraak Systems solutions for visual inspection.'
+  const url = `${SITE_URL}/visual-fault-detection`
+  return {
+    title,
+    description,
+    openGraph: { title, description, url, images: [{ url: prod.img || '', alt: prod.title }] },
+    twitter: { card: 'summary_large_image', title, description, images: [prod.img || ''] },
+    alternates: { canonical: url }
+  }
+}
+
 export default function VisualFaultDetectionPage() {
   return (
     <div className="min-h-screen bg-white py-12">
@@ -113,3 +128,7 @@ export default function VisualFaultDetectionPage() {
     </div>
   )
 }
+
+// structured data
+// JSON-LD will be rendered server-side inside the page
+export function generateStaticParams() { return [] }

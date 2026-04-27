@@ -3,6 +3,14 @@ import Link from 'next/link'
 import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'Spectrophotometer Sensor')
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  if (!prod) return { title: 'Spectrophotometer Sensor | Edraak Systems', alternates: { canonical: `${SITE_URL}/products/spectrophotometer-sensor` } }
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.desc || prod.summary || 'Spectrophotometer sensor for color and quality monitoring.'
+  return { title, description, openGraph: { title, description, url: `${SITE_URL}/products/spectrophotometer-sensor` }, alternates: { canonical: `${SITE_URL}/products/spectrophotometer-sensor` } }
+}
 
 export default function SpectroPage() {
   if (!prod) return <div className="p-8">Product not found</div>
