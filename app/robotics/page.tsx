@@ -22,11 +22,6 @@ const prod: any = {
   images: techRobotics.image ? [techRobotics.image] : ['https://db.edraaksystems.com/wp-content/uploads/2026/03/d393d14be34baf192609b2e7c5487a7ba973a078.png']
 }
 
-export const metadata = {
-  title: prod.title,
-  description: prod.summary || prod.proposedProcess || 'Robotic integration for marking, removal and automated handling in textile inspection workflows.',
-}
-
 export default function RoboticsPage() {
   return (
     <div className="min-h-screen bg-white py-12">

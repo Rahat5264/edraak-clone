@@ -5,11 +5,6 @@ import QuickLinks from '@/components/sections/QuickLinks'
 
 const contentData: any = content
 
-export const metadata = {
-  title: contentData?.title || 'Fabric Quality Control',
-  description: Array.isArray(contentData?.paragraphs) ? contentData.paragraphs.slice(0,2).join(' ') : (contentData?.desc || 'Fabric quality control and inspection systems.'),
-}
-
 export default function FabricQualityControlPage() {
   const prod: any = contentData || {}
   const media: any = prod.media || {}
