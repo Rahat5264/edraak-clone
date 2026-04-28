@@ -12,6 +12,7 @@ const inria = Inria_Sans({ subsets: ["latin"], weight: ['300', '700'], variable:
 
 // Site-level metadata removed — pages now define their own `metadata` exports.
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
