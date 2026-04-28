@@ -20,6 +20,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.desc || 'AI-based visual fault detection for woven and non-woven fabrics to reduce waste and improve yield.',
+}
+
 export default function VisualFaultDetectionPage() {
   return (
     <div className="min-h-screen bg-white py-12">

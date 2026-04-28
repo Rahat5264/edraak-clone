@@ -4,6 +4,11 @@ import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'Cutting Optimization Module')
 
+export const metadata = {
+  title: prod?.title || 'Cutting Optimization Module',
+  description: '',
+}
+
 export default function CuttingPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 

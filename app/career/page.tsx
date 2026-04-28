@@ -1,5 +1,10 @@
 import React from 'react'
 
+export const metadata = {
+  title: 'Careers',
+  description: 'Open positions and career opportunities at Edraak Systems. Contact career@edraaksystems.com for enquiries.',
+}
+
 export default function CareerPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white py-20">

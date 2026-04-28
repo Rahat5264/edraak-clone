@@ -1,7 +1,10 @@
-"use client"
-
 import React from 'react'
 import content from '@/data/terms.json'
+
+export const metadata = {
+  title: content?.title || 'Terms and Conditions',
+  description: Array.isArray(content?.content) ? content.content.slice(0,2).join(' ') : (content?.content || 'Terms and conditions for use of Edraak Systems services and website.'),
+}
 
 export default function TermsPage() {
   return (

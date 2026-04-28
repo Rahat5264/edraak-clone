@@ -62,6 +62,25 @@ export default function ProductDetailClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
+  // ensure the browser tab and meta description reflect the loaded product
+  useEffect(() => {
+    if (!prod) return
+    try {
+      const title = prod.title || 'Product'
+      document.title = `${title} | Edraak Systems`
+      let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null
+      if (meta) meta.content = ''
+      else {
+        meta = document.createElement('meta')
+        meta.name = 'description'
+        meta.content = ''
+        document.head.appendChild(meta)
+      }
+    } catch (e) {
+      // ignore DOM errors during SSR hydration
+    }
+  }, [prod])
+
   if (loading) return <div className="p-8">Loading…</div>
   if (!content) return <div className="p-8">Could not load content</div>
   if (!prod) {

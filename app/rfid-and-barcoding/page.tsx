@@ -28,6 +28,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.desc || 'Real-time production tracking using RFID and barcode scanning for improved visibility and automation.',
+}
+
 export default function RfidAndBarcodingPage() {
   return (
     <div className="min-h-screen bg-white py-12">

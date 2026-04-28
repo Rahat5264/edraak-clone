@@ -19,6 +19,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.desc || 'AI-powered fabric inspection and predictive analytics for textile manufacturing.',
+}
+
 export default function ArtificialIntelligencePage() {
   return (
     <div className="min-h-screen bg-white py-12">

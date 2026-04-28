@@ -3,7 +3,8 @@ import content from '@/data/vision-platform.json'
 import { Button } from '@/components/ui/button'
 
 export const metadata = {
-  title: 'Vision Platform - Edraak Systems',
+  title: 'Vision Platform',
+  description: (content?.visionSystem?.description && Array.isArray(content.visionSystem.description)) ? content.visionSystem.description.join(' ') : (content?.hero?.description || 'AI-powered vision platform for high-speed fabric inspection and traceability.'),
 }
 
 export default function VisionPlatformPage() {

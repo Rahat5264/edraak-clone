@@ -18,6 +18,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.subtitle || 'Energy and utilities monitoring to measure electricity, water, steam and air per roll or process.',
+}
+
 export default function EnergyMonitoringPage() {
   return (
     <div className="min-h-screen bg-white py-12">

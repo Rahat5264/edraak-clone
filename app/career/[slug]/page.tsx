@@ -1,6 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'Careers',
+  description: 'Job details and application information — contact career@edraaksystems.com for enquiries.',
+}
+
 export default function JobPageSlug() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white py-20">

@@ -4,6 +4,11 @@ import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'RFID Tracking Unit')
 
+export const metadata = {
+  title: prod?.title || 'RFID Tracking Unit',
+  description: '',
+}
+
 export default function RfidPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 

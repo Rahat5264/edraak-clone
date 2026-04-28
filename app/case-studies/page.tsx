@@ -1,8 +1,11 @@
-"use client"
-
 // Navigation and Footer are provided by app/layout.tsx
 import CaseStudies from '@/components/sections/CaseStudies'
 import Contact from '@/components/sections/Contact'
+
+export const metadata = {
+  title: 'Case Studies',
+  description: 'Industrial case studies showcasing Edraak Systems deployments and results across textile production lines.',
+}
 
 export default function CaseStudiesPage() {
   return (

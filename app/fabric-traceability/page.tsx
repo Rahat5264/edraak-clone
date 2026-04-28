@@ -20,6 +20,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.proposedProcess || 'Automated fabric traceability using encoders, seam detection and barcode/RFID scanning.',
+}
+
 export default function FabricTraceabilityPage() {
   return (
     <div className="min-h-screen bg-white py-12">

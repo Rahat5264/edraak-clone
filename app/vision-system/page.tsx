@@ -4,7 +4,8 @@ import content from '@/data/content.json'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
 export const metadata = {
-  title: 'Edraak Vision System',
+  title: 'Camera Inspection System',
+  description: Array.isArray(content?.visionSystem?.description) ? content.visionSystem.description.join(' ') : (content?.visionSystem?.description || 'High-speed AI-driven camera inspection for fabric quality control.'),
 }
 
 export default function VisionSystemPage() {

@@ -4,6 +4,11 @@ import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'Spectrophotometer Sensor')
 
+export const metadata = {
+  title: prod?.title || 'Spectrophotometer Sensor',
+  description: '',
+}
+
 export default function SpectroPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 

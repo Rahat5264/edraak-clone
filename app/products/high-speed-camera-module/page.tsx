@@ -4,6 +4,11 @@ import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'High-Speed Camera Module')
 
+export const metadata = {
+  title: prod?.title || 'High-Speed Camera Module',
+  description: '',
+}
+
 export default function CameraModulePage() {
   if (!prod) return <div className="p-8">Product not found</div>
 

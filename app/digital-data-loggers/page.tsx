@@ -46,6 +46,11 @@ const prod = cs
       ]
     }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.desc || 'Industrial data loggers for machine and operator telemetry, integrated with analytics and reporting.',
+}
+
 export default function DigitalDataLoggersPage() {
   return (
     <div className="min-h-screen bg-white py-12">

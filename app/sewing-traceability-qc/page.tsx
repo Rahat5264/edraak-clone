@@ -20,6 +20,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.desc || 'Bundle and single-piece traceability with QC for sewing lines, using IoT devices and scanning solutions.',
+}
+
 export default function SewingTraceabilityQCPage() {
   return (
     <div className="min-h-screen bg-white py-12">

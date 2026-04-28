@@ -39,6 +39,11 @@ const prod = {
   ]
 }
 
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || (Array.isArray(prod.desc) ? prod.desc.join(' ') : prod.desc) || 'Transform data into actionable operational insights.',
+}
+
 export default function DataAnalyticsPage() {
   return (
     <div className="min-h-screen bg-white py-12">

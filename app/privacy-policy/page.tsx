@@ -1,7 +1,10 @@
-"use client"
-
 import React from 'react'
 import content from '@/data/privacy.json'
+
+export const metadata = {
+  title: content?.title || 'Privacy Policy',
+  description: Array.isArray(content?.content) ? content.content.slice(0,2).join(' ') : (content?.content || 'Our privacy policy describing data handling and user privacy.'),
+}
 
 export default function PrivacyPolicyPage() {
   return (
