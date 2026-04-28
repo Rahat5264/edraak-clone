@@ -3,18 +3,34 @@ import Link from 'next/link'
 import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'Spectrophotometer Sensor')
+
 const SITE_URL = 'https://www.edraaksystems.com'
 
-export async function generateMetadata() {
-  if (!prod) return { title: 'Spectrophotometer Sensor | Edraak Systems', alternates: { canonical: `${SITE_URL}/products/spectrophotometer-sensor` } }
-  const title = `${prod.title} | Edraak Systems`
-  const description = prod.desc || prod.summary || 'Spectrophotometer sensor for color and quality monitoring.'
-  return { title, description, openGraph: { title, description, url: `${SITE_URL}/products/spectrophotometer-sensor` }, alternates: { canonical: `${SITE_URL}/products/spectrophotometer-sensor` } }
+function getMetaDescription(prod: any) {
+  if (!prod) return ''
+  const candidate = prod.summary || prod.desc
+  if (typeof candidate === 'string' && candidate.trim()) {
+    const cleaned = candidate.replace(/\s+/g, ' ').trim()
+    return cleaned.length > 160 ? `${cleaned.slice(0, 157).trim()}...` : cleaned
+  }
+  if (Array.isArray(prod.pageContent)) {
+    const text = prod.pageContent.map((c: any) => (typeof c.text === 'string' ? c.text : '')).filter(Boolean).join(' ')
+    const cleaned = text.replace(/\s+/g, ' ').trim()
+    return cleaned.length > 160 ? `${cleaned.slice(0, 157).trim()}...` : cleaned
+  }
+  return ''
 }
 
 export const metadata = {
   title: prod?.title || 'Spectrophotometer Sensor',
-  description: '',
+  description: getMetaDescription(prod),
+  openGraph: {
+    title: prod?.title || 'Spectrophotometer Sensor',
+    description: getMetaDescription(prod),
+    url: `${SITE_URL}/products/spectrophotometer-sensor`,
+  },
+  twitter: { card: 'summary_large_image', title: prod?.title || 'Spectrophotometer Sensor', description: getMetaDescription(prod) },
+  alternates: { canonical: `${SITE_URL}/products/spectrophotometer-sensor` },
 }
 
 export default function SpectroPage() {
@@ -53,7 +69,7 @@ export default function SpectroPage() {
             <div className="space-y-4">
               <h4 className="text-sm font-medium text-slate-700">Gallery</h4>
               <div className="grid grid-cols-3 gap-2">
-                {((prod.images && Array.isArray(prod.images) && prod.images) || []).length > 0 ? (
+                {Array.isArray(prod.images) && prod.images.length > 0 ? (
                   prod.images.map((u: string, i: number) => (
                     <div key={i} className="h-20 w-full overflow-hidden rounded-md bg-gray-100">
                       <img src={u} alt={`${prod.title}-${i}`} className="w-full h-full object-cover" />

@@ -3,40 +3,38 @@ import Link from 'next/link'
 import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === 'High-Speed Camera Module')
+
 const SITE_URL = 'https://www.edraaksystems.com'
 
-export async function generateMetadata() {
-  if (!prod) return { title: 'High-Speed Camera Module | Edraak Systems', alternates: { canonical: `${SITE_URL}/products/high-speed-camera-module` } }
-  const title = `${prod.title} | Edraak Systems`
-  const description = prod.desc || prod.summary || 'High-speed camera module for fabric inspection.'
-  const url = `${SITE_URL}/products/high-speed-camera-module`
-  return {
-    title,
-    description,
-    keywords: [prod.title, prod.category, prod.subtitle].filter(Boolean).join(', '),
-    openGraph: { title, description, url, images: [{ url: prod.img || '', alt: prod.title }] },
-    twitter: { card: 'summary_large_image', title, description, images: [prod.img || ''] },
-    alternates: { canonical: url }
+function getMetaDescription(prod: any) {
+  if (!prod) return ''
+  const candidate = prod.summary || prod.desc
+  if (typeof candidate === 'string' && candidate.trim()) {
+    const cleaned = candidate.replace(/\s+/g, ' ').trim()
+    return cleaned.length > 160 ? `${cleaned.slice(0, 157).trim()}...` : cleaned
   }
+  if (Array.isArray(prod.pageContent)) {
+    const text = prod.pageContent.map((c: any) => (typeof c.text === 'string' ? c.text : '')).filter(Boolean).join(' ')
+    const cleaned = text.replace(/\s+/g, ' ').trim()
+    return cleaned.length > 160 ? `${cleaned.slice(0, 157).trim()}...` : cleaned
+  }
+  return ''
 }
 
 export const metadata = {
   title: prod?.title || 'High-Speed Camera Module',
-  description: '',
+  description: getMetaDescription(prod),
+  openGraph: {
+    title: prod?.title || 'High-Speed Camera Module',
+    description: getMetaDescription(prod),
+    url: `${SITE_URL}/products/high-speed-camera-module`,
+  },
+  twitter: { card: 'summary_large_image', title: prod?.title || 'High-Speed Camera Module', description: getMetaDescription(prod) },
+  alternates: { canonical: `${SITE_URL}/products/high-speed-camera-module` },
 }
 
 export default function CameraModulePage() {
   if (!prod) return <div className="p-8">Product not found</div>
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: prod.title,
-    description: prod.desc || prod.summary || '',
-    image: prod.img || (prod.images && prod.images[0]) || '',
-    url: `${SITE_URL}/products/high-speed-camera-module`,
-    brand: { '@type': 'Organization', name: 'Edraak Systems', url: SITE_URL }
-  }
 
   return (
     <div className="min-h-screen bg-white py-12">
