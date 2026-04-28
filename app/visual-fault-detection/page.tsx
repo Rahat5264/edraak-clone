@@ -20,19 +20,9 @@ const prod = {
   ]
 }
 
-const SITE_URL = 'https://www.edraaksystems.com'
-
-export async function generateMetadata() {
-  const title = `${prod.title} | Edraak Systems`
-  const description = prod.summary || prod.proposedProcess || prod.existingProcess || 'Edraak Systems solutions for visual inspection.'
-  const url = `${SITE_URL}/visual-fault-detection`
-  return {
-    title,
-    description,
-    openGraph: { title, description, url, images: [{ url: prod.img || '', alt: prod.title }] },
-    twitter: { card: 'summary_large_image', title, description, images: [prod.img || ''] },
-    alternates: { canonical: url }
-  }
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || prod.desc || 'AI-based visual fault detection for woven and non-woven fabrics to reduce waste and improve yield.',
 }
 
 export default function VisualFaultDetectionPage() {

@@ -4,10 +4,8 @@ import content from '@/data/content.json'
 const SITE_URL = 'https://www.edraaksystems.com'
 
 export const metadata = {
-  title: `Contact | ${content?.brand?.name || 'Edraak Systems'}`,
-  description: content?.brand?.tagline || 'Contact Edraak Systems for traceability and quality solutions.',
-  openGraph: { title: `Contact | ${content?.brand?.name || 'Edraak Systems'}`, description: content?.brand?.tagline || '' },
-  alternates: { canonical: `${SITE_URL}/contact` }
+  title: content?.contact?.title || 'Contact',
+  description: content?.contact?.description || 'Get in touch with Edraak Systems for product enquiries, demos, and partnerships.',
 }
 
 export default function ContactPage() {

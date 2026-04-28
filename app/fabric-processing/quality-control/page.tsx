@@ -3,6 +3,11 @@ import content from '../../../data/fabric-quality-control.json'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+export const metadata = {
+  title: content?.title || 'Fabric Quality Control',
+  description: Array.isArray(content?.paragraphs) ? content.paragraphs.slice(0,2).join(' ') : (content?.desc || 'Fabric quality control and inspection systems.'),
+}
+
 export default function FabricQualityControlPage() {
   const prod: any = content || {}
   const media: any = prod.media || {}

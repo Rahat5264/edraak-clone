@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Inria_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -11,79 +10,8 @@ import Script from 'next/script'
 
 const inria = Inria_Sans({ subsets: ["latin"], weight: ['300', '700'], variable: '--font-sans' });
 
-const SITE_URL = 'https://www.edraaksystems.com'
-const ORG_JSONLD = JSON.stringify([
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Edraak Systems',
-    url: SITE_URL,
-    logo: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Edraak Systems',
-    url: SITE_URL,
-    publisher: {
-      '@type': 'Organization',
-      name: 'Edraak Systems',
-    },
-  },
-])
+// Site-level metadata removed — pages now define their own `metadata` exports.
 
-export const metadata: Metadata = {
-  title: 'Edraak Systems | Quality Control & Traceability Solutions for Textiles',
-  description: 'Advanced machine vision and AI-powered quality control solutions for textile, apparel, and manufacturing industries. Real-time traceability and defect detection.',
-  keywords: 'textile quality control, apparel inspection, machine vision, AI manufacturing, traceability, fabric inspection',
-  authors: [{ name: 'Edraak Systems' }],
-  creator: 'Edraak Systems',
-  publisher: 'Edraak Systems',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://edraaksystems.com',
-    siteName: 'Edraak Systems',
-    title: 'Edraak Systems | Quality Control & Traceability Solutions',
-    description: 'Advanced machine vision and AI-powered quality control solutions for textile and apparel manufacturing.',
-    images: [
-      {
-        url: '/placeholder.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Edraak Systems',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Edraak Systems | Quality Control & Traceability Solutions',
-    description: 'Advanced machine vision and AI-powered quality control solutions for textile and apparel manufacturing.',
-    creator: '@EdraakSystems',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
-        type: 'image/png',
-      },
-    ],
-    shortcut: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
-    apple: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
-  },
-}
 
 export default function RootLayout({
   children,
@@ -95,6 +23,8 @@ export default function RootLayout({
       <head>
         <Script async strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_TAG}`}></Script>
         <meta name="google-site-verification" content="MlvyPgepZrLNb2RX-4Fm2p0JQh7ypCYR_Xtg2c4_kDM" />
+        <link rel="icon" href="https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png" />
+        <link rel="apple-touch-icon" href="https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png" />
         {/* Clarity */}
 
         <Script id="clarity-script" strategy="afterInteractive">

@@ -60,6 +60,12 @@ export default async function JobPageSlug({ params }: { params: { slug: string }
     jobLocation: job?.location ? { '@type': 'Place', address: job.location } : undefined,
   }
 
+export const metadata = {
+  title: 'Careers',
+  description: 'Job details and application information — contact career@edraaksystems.com for enquiries.',
+}
+
+export default function JobPageSlug() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white py-20">
       <div className="max-w-2xl text-center px-6">

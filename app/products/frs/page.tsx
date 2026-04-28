@@ -5,22 +5,12 @@ import QuickLinks from "@/components/sections/QuickLinks"
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === "Facial Recognition System")
 const SITE_URL = "https://www.edraaksystems.com"
 
-export async function generateMetadata() {
-  if (!prod) return { title: "Facial Recognition System | Edraak Systems", alternates: { canonical: SITE_URL + "/products/frs" } }
-  const title = prod.title + " | Edraak Systems"
-  const description = prod.desc || prod.summary || "Facial Recognition System by Edraak Systems."
-  const url = SITE_URL + "/products/frs"
-  return {
-    title,
-    description,
-    keywords: [prod.title, prod.category, prod.subtitle].filter(Boolean).join(", "),
-    openGraph: { title, description, url, images: [{ url: prod.img || "", alt: prod.title }] },
-    twitter: { card: "summary_large_image", title, description, images: [prod.img || ""] },
-    alternates: { canonical: url }
-  }
+export const metadata = {
+  title: prod?.title || 'FRS',
+  description: '',
 }
 
-export default function FRSPage() {
+export default function FrsPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 
   const jsonLd = {

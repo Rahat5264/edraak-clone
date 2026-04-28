@@ -5,22 +5,12 @@ import QuickLinks from "@/components/sections/QuickLinks"
 const prod = (Array.isArray(content.products) ? content.products : []).find(p => p.title === "RFID Asset Tracking Unit")
 const SITE_URL = "https://www.edraaksystems.com"
 
-export async function generateMetadata() {
-  if (!prod) return { title: "RFID Asset Tracking Unit | Edraak Systems", alternates: { canonical: SITE_URL + "/products/rfid-tracking-unit" } }
-  const title = prod.title + " | Edraak Systems"
-  const description = prod.desc || prod.summary || "RFID Asset Tracking Unit by Edraak Systems."
-  const url = SITE_URL + "/products/rfid-tracking-unit"
-  return {
-    title,
-    description,
-    keywords: [prod.title, prod.category, prod.subtitle].filter(Boolean).join(", "),
-    openGraph: { title, description, url, images: [{ url: prod.img || "", alt: prod.title }] },
-    twitter: { card: "summary_large_image", title, description, images: [prod.img || ""] },
-    alternates: { canonical: url }
-  }
+export const metadata = {
+  title: prod?.title || 'RFID Tracking Unit',
+  description: '',
 }
 
-export default function RFIDPage() {
+export default function RfidPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 
   const jsonLd = {

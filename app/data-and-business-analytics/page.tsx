@@ -39,12 +39,9 @@ const prod = {
   ]
 }
 
-const SITE_URL = 'https://www.edraaksystems.com'
-
-export async function generateMetadata() {
-  const title = `${prod.title} | Edraak Systems`
-  const description = prod.summary || prod.desc || 'Data and business analytics for production and inspection.'
-  return { title, description, openGraph: { title, description, url: `${SITE_URL}/data-and-business-analytics` }, alternates: { canonical: `${SITE_URL}/data-and-business-analytics` } }
+export const metadata = {
+  title: prod.title,
+  description: prod.summary || (Array.isArray(prod.desc) ? prod.desc.join(' ') : prod.desc) || 'Transform data into actionable operational insights.',
 }
 
 export default function DataAnalyticsPage() {

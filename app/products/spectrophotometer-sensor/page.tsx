@@ -12,6 +12,11 @@ export async function generateMetadata() {
   return { title, description, openGraph: { title, description, url: `${SITE_URL}/products/spectrophotometer-sensor` }, alternates: { canonical: `${SITE_URL}/products/spectrophotometer-sensor` } }
 }
 
+export const metadata = {
+  title: prod?.title || 'Spectrophotometer Sensor',
+  description: '',
+}
+
 export default function SpectroPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 

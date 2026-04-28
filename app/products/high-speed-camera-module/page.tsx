@@ -20,6 +20,11 @@ export async function generateMetadata() {
   }
 }
 
+export const metadata = {
+  title: prod?.title || 'High-Speed Camera Module',
+  description: '',
+}
+
 export default function CameraModulePage() {
   if (!prod) return <div className="p-8">Product not found</div>
 

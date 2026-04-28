@@ -1,3 +1,4 @@
+import content from '@/data/content.json'
 import Navigation from '@/components/sections/Navigation'
 import content from '@/data/content.json'
 
@@ -27,6 +28,11 @@ import BlogSection from '@/components/sections/BlogSection'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/sections/Footer'
 import Careers from '@/components/sections/CareersWrapper'
+
+export const metadata = {
+  title: content?.brand?.name || 'Edraak Systems',
+  description: content?.hero?.description || content?.brand?.tagline || 'Traceability & Quality in Textiles, Apparel & Other Industries',
+}
 
 export default function Home() {
   return (

@@ -6,19 +6,8 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 const SITE_URL = 'https://www.edraaksystems.com'
 
 export const metadata = {
-  title: 'Edraak Vision System | Edraak Systems',
-  description: (content.visionSystem && content.visionSystem.description) || 'Edraak Vision System — camera inspection and AI-driven fabric quality control.',
-  openGraph: {
-    title: 'Edraak Vision System | Edraak Systems',
-    description: (content.visionSystem && content.visionSystem.description) || 'Camera inspection and AI-driven fabric quality control.',
-    url: `${SITE_URL}/vision-system`,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Edraak Vision System | Edraak Systems',
-    description: (content.visionSystem && content.visionSystem.description) || 'Camera inspection and AI-driven fabric quality control.',
-  },
-  alternates: { canonical: `${SITE_URL}/vision-system` },
+  title: 'Camera Inspection System',
+  description: Array.isArray(content?.visionSystem?.description) ? content.visionSystem.description.join(' ') : (content?.visionSystem?.description || 'High-speed AI-driven camera inspection for fabric quality control.'),
 }
 
 export default function VisionSystemPage() {

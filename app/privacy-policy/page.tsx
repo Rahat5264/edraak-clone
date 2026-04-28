@@ -1,15 +1,9 @@
 import React from 'react'
 import content from '@/data/privacy.json'
 
-const SITE_URL = 'https://www.edraaksystems.com'
-
-export async function generateMetadata() {
-  const title = `${content?.title || 'Privacy Policy'} | Edraak Systems`
-  return {
-    title,
-    description: (Array.isArray(content?.content) ? content.content.slice(0, 2).join(' ') : content?.content) || 'Privacy policy for Edraak Systems.',
-    alternates: { canonical: `${SITE_URL}/privacy-policy` }
-  }
+export const metadata = {
+  title: content?.title || 'Privacy Policy',
+  description: Array.isArray(content?.content) ? content.content.slice(0,2).join(' ') : (content?.content || 'Our privacy policy describing data handling and user privacy.'),
 }
 
 export default function PrivacyPolicyPage() {

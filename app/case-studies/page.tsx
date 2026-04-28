@@ -14,6 +14,11 @@ export async function generateMetadata() {
   }
 }
 
+export const metadata = {
+  title: 'Case Studies',
+  description: 'Industrial case studies showcasing Edraak Systems deployments and results across textile production lines.',
+}
+
 export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-white text-foreground">

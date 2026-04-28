@@ -20,6 +20,11 @@ export async function generateMetadata() {
   }
 }
 
+export const metadata = {
+  title: prod?.title || 'Cutting Optimization Module',
+  description: '',
+}
+
 export default function CuttingPage() {
   if (!prod) return <div className="p-8">Product not found</div>
 
