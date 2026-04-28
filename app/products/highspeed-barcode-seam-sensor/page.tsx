@@ -2,6 +2,7 @@ import Link from 'next/link'
 import content from '@/data/content.json'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
+import TitleClient from '@/components/ui/TitleClient'
 
 const findProduct = () => {
   try {
@@ -29,48 +30,64 @@ const prod = prodData || {
   images: ['https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg']
 }
 
+export const metadata = {
+  title: prod?.title || 'Highspeed Barcode + Seam Sensor',
+  description: '',
+}
+
 export default function HighspeedBarcodePage() {
   return (
     <div className="min-h-screen bg-white py-12">
       <div className="max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <div className="rounded-md overflow-hidden shadow-md">
-              {prod.img ? (
-                <img src={prod.img} alt={prod.title} className="w-full h-80 object-cover" />
-              ) : (
-                <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-gray-500">Image</div>
+            <TitleClient title={prod.title} />
+            <style dangerouslySetInnerHTML={{ __html: `
+              /* Outer container hides native scrollbar, inner container scrolls */
+              #product-left-column { max-height: calc(100vh - 6rem); overflow: hidden; }
+              #product-left-column-inner { overflow-y: auto; padding-right: 1rem; margin-right: -17px; }
+              #product-left-column-inner::-webkit-scrollbar { display: none; width: 0; height: 0; }
+              #product-left-column-inner { -ms-overflow-style: none; scrollbar-width: none; }
+            ` }} />
+            <div id="product-left-column">
+              <div id="product-left-column-inner" className="no-scrollbar">
+                <div className="rounded-md overflow-hidden shadow-md">
+                {prod.img ? (
+                  <img src={prod.img} alt={prod.title} className="w-full h-80 object-cover" />
+                ) : (
+                  <div className="w-full h-80 bg-gray-100 flex items-center justify-center text-gray-500">Image</div>
+                )}
+              </div>
+
+              <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
+              {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
+
+              {prod.desc && (
+                <div className="mt-4 text-lg text-slate-700 space-y-4">
+                  <p>{prod.desc}</p>
+                </div>
               )}
-            </div>
 
-            <h1 className="mt-6 text-4xl md:text-5xl leading-tight font-semibold text-slate-900">{prod.title}</h1>
-            {prod.subtitle && <p className="text-sm font-medium mt-2" style={{ color: 'rgb(5,3,42)' }}>{prod.subtitle}</p>}
+              {prod.summary && (
+                <div className="mt-6">
+                  <h4 className="text-lg font-semibold mb-2">Summary</h4>
+                  <p className="text-slate-700">{prod.summary}</p>
+                </div>
+              )}
 
-            {prod.desc && (
-              <div className="mt-4 text-lg text-slate-700 space-y-4">
-                <p>{prod.desc}</p>
+              {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
+                <div className="mt-6">
+                  <h4 className="text-lg font-semibold mb-2">Key points</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                    {prod.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              <div className="mt-8 flex gap-3">
+                <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
+                <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
               </div>
-            )}
-
-            {prod.summary && (
-              <div className="mt-6">
-                <h4 className="text-lg font-semibold mb-2">Summary</h4>
-                <p className="text-slate-700">{prod.summary}</p>
-              </div>
-            )}
-
-            {Array.isArray(prod.bullets) && prod.bullets.length > 0 && (
-              <div className="mt-6">
-                <h4 className="text-lg font-semibold mb-2">Key points</h4>
-                <ul className="list-disc pl-6 space-y-2 text-slate-700">
-                  {prod.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}
-                </ul>
-              </div>
-            )}
-
-            <div className="mt-8 flex gap-3">
-              <Link href="/products" className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Back</Link>
-              <InquiryButton product={prod} className="inline-block px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }} />
             </div>
           </div>
 
