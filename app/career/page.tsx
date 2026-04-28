@@ -1,4 +1,12 @@
 import React from 'react'
+import content from '@/data/content.json'
+
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const siteName = content?.brand?.name || 'Edraak Systems'
+  return { title: `Careers | ${siteName}`, description: 'Careers and job openings at Edraak Systems.', alternates: { canonical: `${SITE_URL}/career` } }
+}
 
 export const metadata = {
   title: 'Careers',

@@ -34,6 +34,7 @@ export default function RootLayout({
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "jvj59mnu8j")`}
         </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ORG_JSONLD }} />
       </head>
       <body className="antialiased">
         <ThemeProvider attribute="class">

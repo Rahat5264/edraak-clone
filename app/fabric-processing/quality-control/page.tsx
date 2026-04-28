@@ -71,3 +71,18 @@ export default function FabricQualityControlPage() {
     </div>
   )
 }
+
+const SITE_URL = 'https://www.edraaksystems.com'
+
+export async function generateMetadata() {
+  const title = `${content.title || 'Fabric Quality Control'} | Edraak Systems`
+  const description = content.subtitle || (content.paragraphs && content.paragraphs[0]) || 'Fabric quality control solutions by Edraak Systems.'
+  const url = `${SITE_URL}/fabric-processing/quality-control`
+  return {
+    title,
+    description,
+    openGraph: { title, description, url, images: [{ url: (content.media && content.media.url) || '', alt: content.title || '' }] },
+    twitter: { card: 'summary_large_image', title, description, images: [(content.media && content.media.url) || ''] },
+    alternates: { canonical: url }
+  }
+}

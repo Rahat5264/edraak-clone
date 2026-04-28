@@ -3,6 +3,8 @@ import content from '@/data/content.json'
 // Sectors section removed per request
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 export const metadata = {
   title: 'Camera Inspection System',
   description: Array.isArray(content?.visionSystem?.description) ? content.visionSystem.description.join(' ') : (content?.visionSystem?.description || 'High-speed AI-driven camera inspection for fabric quality control.'),

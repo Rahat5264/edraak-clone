@@ -118,3 +118,7 @@ export default function VisualFaultDetectionPage() {
     </div>
   )
 }
+
+// structured data
+// JSON-LD will be rendered server-side inside the page
+export function generateStaticParams() { return [] }

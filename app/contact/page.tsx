@@ -1,6 +1,8 @@
 import Contact from '@/components/sections/Contact'
 import content from '@/data/content.json'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 export const metadata = {
   title: content?.contact?.title || 'Contact',
   description: content?.contact?.description || 'Get in touch with Edraak Systems for product enquiries, demos, and partnerships.',

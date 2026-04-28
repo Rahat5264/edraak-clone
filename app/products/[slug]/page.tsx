@@ -1,5 +1,7 @@
 import content from '@/data/content.json'
 import ProductDetailClient from './ProductDetailClient'
+import fs from 'fs'
+import path from 'path'
 
 function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
