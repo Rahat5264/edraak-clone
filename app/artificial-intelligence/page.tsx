@@ -2,7 +2,7 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const prod = {
+const prod: any = {
   title: 'Artificial Intelligence',
   subtitle: 'AI-powered Fabric Inspection',
   summary: 'We use AI to inspect fabric for defects, color deviations, and pattern anomalies — leveraging the same high-speed camera pipelines and model training workflows used across our inspection products, repurposed for advanced anomaly detection and predictive analytics.',

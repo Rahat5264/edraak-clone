@@ -2,7 +2,7 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const prod = {
+const prod: any = {
   title: 'Energy Monitoring',
   subtitle: 'Energy Monitoring',
   summary: 'To calculate the exact amount of all utilities (Electricity, water, steam & air) used on a single fabric roll/piece.',

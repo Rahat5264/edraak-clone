@@ -2,7 +2,7 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const prod = {
+const prod: any = {
   title: 'Sewing Traceability & QC',
   subtitle: 'Bundle Flow or Single Piece Traceability',
   summary: 'Bundle Flow or Single piece, we got you covered. Equipped with latest IoT device installed on each machines. We can log production & quality data.',

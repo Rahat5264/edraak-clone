@@ -64,15 +64,9 @@ export default function HighspeedBarcodePage() {
       <div className="max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <style dangerouslySetInnerHTML={{ __html: `
-              /* Outer container hides native scrollbar, inner container scrolls */
-              #product-left-column { max-height: calc(100vh - 6rem); overflow: hidden; }
-              #product-left-column-inner { overflow-y: auto; padding-right: 1rem; margin-right: -17px; }
-              #product-left-column-inner::-webkit-scrollbar { display: none; width: 0; height: 0; }
-              #product-left-column-inner { -ms-overflow-style: none; scrollbar-width: none; }
-            ` }} />
+
             <div id="product-left-column">
-              <div id="product-left-column-inner" className="no-scrollbar">
+              <div id="product-left-column-inner" className='overflow-visible'>
                 <div className="rounded-md overflow-hidden shadow-md">
                   {prod.img ? (
                     <img src={prod.img} alt={prod.title} className="w-full h-80 object-cover" />

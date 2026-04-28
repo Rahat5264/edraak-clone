@@ -3,13 +3,15 @@ import content from '../../../data/fabric-quality-control.json'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+const contentData: any = content
+
 export const metadata = {
-  title: content?.title || 'Fabric Quality Control',
-  description: Array.isArray(content?.paragraphs) ? content.paragraphs.slice(0,2).join(' ') : (content?.desc || 'Fabric quality control and inspection systems.'),
+  title: contentData?.title || 'Fabric Quality Control',
+  description: Array.isArray(contentData?.paragraphs) ? contentData.paragraphs.slice(0,2).join(' ') : (contentData?.desc || 'Fabric quality control and inspection systems.'),
 }
 
 export default function FabricQualityControlPage() {
-  const prod: any = content || {}
+  const prod: any = contentData || {}
   const media: any = prod.media || {}
   const paragraphs: string[] = prod.paragraphs || prod.desc || []
 
@@ -75,14 +77,14 @@ export default function FabricQualityControlPage() {
 const SITE_URL = 'https://www.edraaksystems.com'
 
 export async function generateMetadata() {
-  const title = `${content.title || 'Fabric Quality Control'} | Edraak Systems`
-  const description = content.subtitle || (content.paragraphs && content.paragraphs[0]) || 'Fabric quality control solutions by Edraak Systems.'
+  const title = `${contentData.title || 'Fabric Quality Control'} | Edraak Systems`
+  const description = contentData.subtitle || (contentData.paragraphs && contentData.paragraphs[0]) || 'Fabric quality control solutions by Edraak Systems.'
   const url = `${SITE_URL}/fabric-processing/quality-control`
   return {
     title,
     description,
-    openGraph: { title, description, url, images: [{ url: (content.media && content.media.url) || '', alt: content.title || '' }] },
-    twitter: { card: 'summary_large_image', title, description, images: [(content.media && content.media.url) || ''] },
+    openGraph: { title, description, url, images: [{ url: (contentData.media && contentData.media.url) || '', alt: contentData.title || '' }] },
+    twitter: { card: 'summary_large_image', title, description, images: [(contentData.media && contentData.media.url) || ''] },
     alternates: { canonical: url }
   }
 }

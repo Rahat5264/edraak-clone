@@ -47,7 +47,7 @@ function traverseJSON(value: any, keyPath: string[], cb: (val: any, keyPath: str
 }
 
 async function collectPages(dir: string) {
-  const pages: { path: string; lastmod: string }[] = [];
+  const pages: { path: string; lastmod?: string }[] = [];
 
   // load content.json products for validation of product pages
   let contentProducts: any[] = [];
@@ -160,6 +160,7 @@ async function collectPages(dir: string) {
   }
 
   // 3) read data files and try to enumerate slugs for each dynamic base
+  // Be conservative: only enumerate arrays that clearly represent items (objects with title/slug/name)
   const dataFiles = await readJSONDataFiles();
   for (const base of Array.from(dynamicBases)) {
     const baseName = base.startsWith('/') ? base.slice(1) : base;
@@ -173,16 +174,19 @@ async function collectPages(dir: string) {
         const keyName = keyPath.length ? String(keyPath[keyPath.length - 1]) : path.basename(df.file, '.json');
         const normKey = slugify(keyName);
         const fileBase = slugify(path.basename(df.file, '.json'));
+
+        // Primary match: exact key name or filename matches the dynamic base
         if (normKey === normalizedBase || fileBase === normalizedBase) {
           for (const item of val) {
-            if (typeof item === 'string') {
-              const s = slugify(item);
-              if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
-            } else if (item && typeof item === 'object') {
+            if (item && typeof item === 'object') {
               let s: string | null = null;
               if (typeof item.slug === 'string') s = slugify(item.slug);
               else if (typeof item.title === 'string') s = slugify(item.title);
               else if (typeof item.name === 'string') s = slugify(item.name);
+              if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
+            } else if (typeof item === 'string') {
+              // allow string slugs only when the array is directly named for the base
+              const s = slugify(item);
               if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
             }
           }
@@ -190,40 +194,20 @@ async function collectPages(dir: string) {
       });
     }
 
-    // fallback: loose matching when exact key not found (try to match parent keys or filenames)
-    if (slugs.size === 0) {
-      for (const df of dataFiles) {
-        traverseJSON(df.content, [], (val, keyPath) => {
-          if (!Array.isArray(val)) return;
-          const keyPathStr = keyPath.join('.');
-          if (!keyPathStr) return;
-          if (slugify(keyPathStr).includes(normalizedBase) || slugify(df.file).includes(normalizedBase)) {
-            for (const item of val) {
-              if (typeof item === 'string') {
-                const s = slugify(item);
-                if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
-              } else if (item && typeof item === 'object') {
-                let s: string | null = null;
-                if (typeof item.slug === 'string') s = slugify(item.slug);
-                else if (typeof item.title === 'string') s = slugify(item.title);
-                else if (typeof item.name === 'string') s = slugify(item.name);
-                if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
-              }
-            }
-          }
-        });
-      }
-    }
+    // NOTE: intentionally skip broad loose matching to avoid generating
+    // low-value tag-like URLs (e.g. from responsibilities/qualifications arrays).
+    // If no slugs were found by exact key/filename match, leave it empty.
 
     for (const s of slugs) {
       const urlPath = (base === '/' || base === '') ? `/${s}` : `${base}/${s}`;
-      const lastmod = slugMtime.get(s) || new Date().toISOString();
-      pages.push({ path: urlPath, lastmod });
+      const m = slugMtime.get(s);
+      if (m) pages.push({ path: urlPath, lastmod: m });
+      else pages.push({ path: urlPath });
     }
   }
 
   // dedupe by path
-  const map = new Map<string, { path: string; lastmod: string }>();
+  const map = new Map<string, { path: string; lastmod?: string }>();
   for (const p of pages) map.set(p.path, p);
   return Array.from(map.values());
 }
@@ -251,9 +235,8 @@ export async function GET() {
 
   const urlEntries = pages
     .map(p => {
-      const priority = computePriority(p.path);
-      const changefreq = computeChangefreq(p.path);
-      return `  <url>\n    <loc>${SITE_URL}${p.path}</loc>\n    <lastmod>${p.lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+      const lastmodTag = p.lastmod ? `\n    <lastmod>${p.lastmod}</lastmod>` : '';
+      return `  <url>\n    <loc>${SITE_URL}${p.path}</loc>${lastmodTag}\n  </url>`;
     })
     .join('\n');
 

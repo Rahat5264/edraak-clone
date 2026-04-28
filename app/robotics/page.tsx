@@ -3,9 +3,9 @@ import InquiryButton from '@/components/ui/InquiryButton'
 import content from '@/data/content.json'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const techRobotics = (content.technology?.items || []).find((t: any) => (t.title || '').toString().toLowerCase() === 'robotics') || {}
+const techRobotics: any = (content.technology?.items || []).find((t: any) => (t.title || '').toString().toLowerCase() === 'robotics') || {}
 
-const prod = {
+const prod: any = {
   title: techRobotics.title || 'Robotics',
   subtitle: 'Robotics in Textile Industry',
   summary: 'Robotic systems enable precise marking and removal of defective areas, reducing manual intervention, improving accuracy, and ensuring seamless integration with inspection and cutting processes for higher operational efficiency.',

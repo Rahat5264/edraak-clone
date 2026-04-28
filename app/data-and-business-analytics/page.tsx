@@ -3,7 +3,9 @@ import content from '../../data/content.json'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const tech = (content?.technology?.items || []).find((i: any) => {
+const contentData: any = content
+
+const tech: any = (contentData?.technology?.items || []).find((i: any) => {
   const t = (i?.title || '').toLowerCase()
   return t.includes('data') || t.includes('analytics') || t.includes('business')
 })
@@ -21,7 +23,7 @@ const summary = baseDesc
 const needHints = tech?.need ?? (baseDesc.includes(',') ? baseDesc.split(',').slice(0,3).map((s:any)=> s.trim()) : [])
 const images = tech?.image ? [tech.image] : ((tech?.images && tech.images.length) ? tech.images : [])
 
-const prod = {
+const prod: any = {
   title: tech?.title ?? 'Data & Business Analytics',
   subtitle: tech?.title ?? 'Data & Business Analytics',
   summary,

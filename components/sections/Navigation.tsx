@@ -196,13 +196,14 @@ export default function Navigation() {
     if (toObserve.length === 0) return
 
     // choose the section with the largest intersectionRatio
-    const io = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
       let best: IntersectionObserverEntry | null = null
       entries.forEach(entry => {
         if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry
       })
-      if (best && best.isIntersecting) {
-        const id = best.target.id
+      const activeEntry = best as IntersectionObserverEntry | null
+      if (activeEntry?.isIntersecting) {
+        const id = activeEntry.target.id
         const match = navItems.find((it: any) => (it.href || '').includes(`#${id}`))
         if (match) {
           const raw = match.href || ''

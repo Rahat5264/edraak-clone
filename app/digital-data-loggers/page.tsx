@@ -22,7 +22,7 @@ const findCase = (title: string) => {
 
 const cs = findCase('Digital Data Loggers')
 
-const prod = cs
+const prod: any = cs
   ? {
       title: cs.title,
       subtitle: 'Industrial Data Loggers',

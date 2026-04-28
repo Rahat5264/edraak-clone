@@ -2,7 +2,7 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const prod = {
+const prod: any = {
   title: 'Fabric Traceability',
   subtitle: 'Fabric Traceability',
   summary: 'Linked with digital encoders, Ultra High Speed Scanners detect seam optically, also the Barcode in real-time. Giving you the most accurate fabric meters.',

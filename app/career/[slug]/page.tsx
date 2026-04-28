@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import fs from 'fs'
 import path from 'path'
@@ -26,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description,
       openGraph: { title, description, url: `https://www.edraaksystems.com/career/${slug}` },
       twitter: { card: 'summary', title, description },
-      alternates: { canonical: `https://www.edraaksystems.com/career/${slug}` }
+      alternates: { canonical: `https://www.edraaksystems.com/career/${slug}` },
     }
   } catch (e) {
     return { title: 'Careers — Edraak Systems', description: 'Careers at Edraak Systems' }
@@ -60,12 +59,6 @@ export default async function JobPageSlug({ params }: { params: { slug: string }
     jobLocation: job?.location ? { '@type': 'Place', address: job.location } : undefined,
   }
 
-export const metadata = {
-  title: 'Careers',
-  description: 'Job details and application information — contact career@edraaksystems.com for enquiries.',
-}
-
-export default function JobPageSlug() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white py-20">
       <div className="max-w-2xl text-center px-6">

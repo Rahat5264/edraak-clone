@@ -2,7 +2,7 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const prod = {
+const prod: any = {
   title: 'RFID AND BARCODING',
   subtitle: 'Production Tracking',
   summary: 'A digital system that captures live production data through operator and bundle scanning, ensuring accurate tracking of output, work-in-progress, and performance.',

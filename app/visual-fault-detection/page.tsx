@@ -2,7 +2,7 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
-const prod = {
+const prod: any = {
   title: 'Visual Fault Detection',
   subtitle: 'EVS(Edraak Vision System)',
   summary: 'AI-based vision inspection for woven and non-woven fabrics that detects visual faults in real time to reduce waste and improve yield.',

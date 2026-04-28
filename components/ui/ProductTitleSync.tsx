@@ -56,13 +56,6 @@ export default function ProductTitleSync() {
           }
         }
 
-        if (left) {
-          left.style.maxHeight = 'calc(100vh - 6rem)'
-          left.style.overflowY = 'auto'
-          left.style.paddingRight = '1rem'
-          left.classList.add('no-scrollbar')
-        }
-
         // ensure aside QuickLinks stays visible (sticky)
         const gridParent = (left && left.closest('.grid')) || h1?.closest('.grid')
         const aside = (gridParent && gridParent.querySelector('aside')) || document.querySelector('aside')

@@ -2,15 +2,17 @@ import React from 'react'
 import content from '@/data/vision-platform.json'
 import { Button } from '@/components/ui/button'
 
+const visionContent: any = content
+
 export const metadata = {
   title: 'Vision Platform',
-  description: (content?.visionSystem?.description && Array.isArray(content.visionSystem.description)) ? content.visionSystem.description.join(' ') : (content?.hero?.description || 'AI-powered vision platform for high-speed fabric inspection and traceability.'),
+  description: (visionContent?.visionSystem?.description && Array.isArray(visionContent.visionSystem.description)) ? visionContent.visionSystem.description.join(' ') : (visionContent?.hero?.description || 'AI-powered vision platform for high-speed fabric inspection and traceability.'),
 }
 
 export default function VisionPlatformPage() {
-  const vision = content?.visionSystem || {}
-  const cam = content?.cameraIndustries || {}
-  const sectors = content?.sectors || { items: [] }
+  const vision = visionContent?.visionSystem || {}
+  const cam = visionContent?.cameraIndustries || {}
+  const sectors = visionContent?.sectors || { items: [] }
 
   const fabricTypes = [
     {

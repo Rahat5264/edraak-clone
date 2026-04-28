@@ -64,7 +64,7 @@ export default function Contact() {
 
             {offices && offices.items && offices.items.length > 0 ? (
               (() => {
-                const office = offices.items[0]
+                const office: any = offices.items[0]
                 let mapSrc = ''
                 const hasEmbed = office.embedUrl && office.embedUrl.includes('/maps/embed')
                 const externalMapLink = office.externalLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((office.name || '') + ' ' + (office.address || office.city || ''))}`
