@@ -96,7 +96,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inria.variable} light`}>
       <head>
-        <Script async strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_TAG}`}></Script>
         <meta name="google-site-verification" content="MlvyPgepZrLNb2RX-4Fm2p0JQh7ypCYR_Xtg2c4_kDM" />
         <link rel="icon" href="https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png" />
         <link rel="apple-touch-icon" href="https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png" />
@@ -120,6 +119,22 @@ export default function RootLayout({
           <Footer />
           <Analytics />
         </ThemeProvider>
+          {/* Google Analytics Script */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_G_TAG}`}
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_G_TAG}');
+          `}
+        </Script>
+
       </body>
     </html>
   )
