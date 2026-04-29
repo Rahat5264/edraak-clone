@@ -15,7 +15,14 @@ function getMetaDescription(prod: any) {
     return cleaned.length > 160 ? `${cleaned.slice(0, 157).trim()}...` : cleaned
   }
   if (Array.isArray(prod.pageContent)) {
-    const text = prod.pageContent.map((c: any) => (typeof c.text === 'string' ? c.text : '')).filter(Boolean).join(' ')
+    const parts: string[] = []
+    prod.pageContent.forEach((c: any) => {
+      if (typeof c.text === 'string') parts.push(c.text)
+      else if (Array.isArray(c.text)) {
+        parts.push(...c.text.map((seg: any) => (seg.type === 'link' ? seg.label : (seg.text || ''))))
+      }
+    })
+    const text = parts.join(' ')
     const cleaned = text.replace(/\s+/g, ' ').trim()
     return cleaned.length > 160 ? `${cleaned.slice(0, 157).trim()}...` : cleaned
   }

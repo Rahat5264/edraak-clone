@@ -124,7 +124,33 @@ export default function ProductDetailClient() {
                 {prod.pageContent.map((item: any, i: number) => {
                   if (!item) return null
                   if (item.type === 'heading') return <h2 key={i} className="text-2xl font-semibold">{item.text}</h2>
-                  if (item.type === 'text') return <p key={i}>{item.text}</p>
+                  if (item.type === 'text') {
+                    // support both string text (legacy) and array of segments (new)
+                    if (typeof item.text === 'string') return <p key={i}>{item.text}</p>
+                    if (Array.isArray(item.text)) {
+                      return (
+                        <p key={i}>
+                          {item.text.map((seg: any, si: number) => {
+                            if (!seg) return null
+                            if (seg.type === 'link') {
+                              const styleObj: any = {}
+                              if (seg.color) styleObj.color = seg.color
+                              if (seg.bold) styleObj.fontWeight = typeof seg.bold === 'number' ? seg.bold : 600
+                              if (seg.underline) styleObj.textDecoration = 'underline'
+                              const style = Object.keys(styleObj).length ? styleObj : undefined
+                              return (
+                                <a key={si} href={seg.href} style={style} target={seg.target || undefined} rel={seg.rel || undefined}>
+                                  {seg.label}
+                                </a>
+                              )
+                            }
+                            return <span key={si}>{seg.text}</span>
+                          })}
+                        </p>
+                      )
+                    }
+                    return null
+                  }
                   if (item.type === 'image') return (
                     item.src ? (
                       <div key={i} className="w-full">
