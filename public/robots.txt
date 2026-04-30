@@ -1,0 +1,15 @@
+# robots.txt for edraaksystems.com
+# Sitemap
+Sitemap: https://edraaksystems.com/sitemap.xml
+
+# Allow selected SEO crawlers for checks
+User-agent: Ubersuggest
+Disallow:
+
+User-agent: SemrushBot
+User-agent: Semrush
+Disallow:
+
+# Block all other bots (examples: Amazonbot, OpenAI, etc.)
+User-agent: *
+Disallow: /
