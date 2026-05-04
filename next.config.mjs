@@ -73,6 +73,11 @@ const nextConfig = {
         destination: '/products/fabric-production-processing',
         permanent: true,
       },
+      {
+        source: '/services/artificial-intelligence/deep-learning',
+        destination: '/artificial-intelligence',
+        permanent: true,
+      },
     ]
   },
 }
