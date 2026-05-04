@@ -34,17 +34,17 @@
     { "type": "text", "text": "Optimization systems improve Fabric Quality Control by using inspection data to reduce waste. They study defect locations, roll lengths, and quality levels to create better cutting plans. One key benefit is reducing short fabric pieces. By cutting around defects in a smart way, manufacturers can use more fabric and reduce losses. These systems can also follow business rules and customer needs. This makes them flexible and useful. Overall, they help improve efficiency, lower costs, and increase profit." },
     { "type": "heading", "text": "Labelling in Fabric Quality Control Systems" },
     { "type": "text", "text": [
-      { "type": "link", "label": "Labelling in Fabric Quality Control", "href": "http://localhost:3001/products/labelling-system", "color": "#020026", "bold": true, "underline": true },
+      { "type": "link", "label": "Labelling in Fabric Quality Control", "href": "https://www.edraaksystems.com/products/labelling-system", "color": "#020026", "bold": true, "underline": true },
       { "type": "text", "text": " helps mark defects clearly on fabric. Automated systems place labels in the correct position as the fabric moves. This makes it easier to identify defects during cutting. It reduces errors, lowers waste, and ensures faulty parts are handled properly. This improves efficiency and keeps quality consistent." }
     ] },
     { "type": "heading", "text": "Width Measurement in Fabric Quality Control" },
     { "type": "text", "text": [
-      { "type": "link", "label": "Width measurement", "href": "http://localhost:3001/products/width-measurement-system", "color": "#020026", "bold": true, "underline": true },
+      { "type": "link", "label": "Width measurement", "href": "https://www.edraaksystems.com/products/width-measurement-system", "color": "#020026", "bold": true, "underline": true },
       { "type": "text", "text": " in Fabric Quality Control checks that fabric size stays consistent during production. Real-time systems track width and send alerts if there are changes. Accurate width control reduces waste and improves cutting accuracy. It also helps meet customer requirements and maintain quality." }
     ] },
     { "type": "heading", "text": "Color Sensor Integration in Fabric Quality Control" },
     { "type": "text", "text": [
-      { "type": "link", "label": "Color sensors in Fabric Quality Control", "href": "http://localhost:3001/products/spectrophotometer", "color": "#020026", "bold": true, "underline": true },
+      { "type": "link", "label": "Color sensors in Fabric Quality Control", "href": "https://www.edraaksystems.com/products/spectrophotometer", "color": "#020026", "bold": true, "underline": true },
       { "type": "text", "text": " measure fabric color directly during production. This removes the need for manual checks and reduces delays. It also ensures the same color across all batches. Real-time monitoring allows quick changes if needed. This improves efficiency and keeps quality standards high." }
     ] }
   ],
