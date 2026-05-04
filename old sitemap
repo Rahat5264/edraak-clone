@@ -1,0 +1,15 @@
+# Old sitemap - redirect mappings
+# Format: OLD_URL -> NEW_URL (HTTP status)
+https://www.edraaksystems.com/fabric-processing/width-measurement -> https://www.edraaksystems.com/products/width-measurement-system 301
+https://www.edraaksystems.com/hiring -> https://www.edraaksystems.com/career 301
+https://www.edraaksystems.com/industries/agritech -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/erp-systems -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/industries/pharma -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/fabric-processing -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/stitching-apparel/wash-monitoring-system -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/industries/agritech/visual-crop-analysis -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/posts/business-intelligence-quality-assurance-system -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/services/artificial-intelligence/nlp-genarative-ai -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/stitching-apparel/wages -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/posts/production-tracking-data-logging-recording-and-tracking -> https://www.edraaksystems.com/products/fabric-production-processing 301
+https://www.edraaksystems.com/industries/fabric-processing/production-tracking -> https://www.edraaksystems.com/products/fabric-production-processing 301
