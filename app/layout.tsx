@@ -163,7 +163,7 @@ const ORG_JSONLD = JSON.stringify({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: 'Edraak Systems | Quality Control & Traceability Solutions for Textiles',
-  description: 'Advanced machine vision and AI-powered quality control solutions for textile, apparel, and manufacturing industries. Real-time traceability and defect detection.',
+  description: 'AI-driven fabric quality control system that detects defects in real-time. It also ensures traceability and provides Industry 4.0 textile QC solutions.',
   keywords: 'textile quality control, apparel inspection, machine vision, AI manufacturing, traceability, fabric inspection',
   authors: [{ name: 'Edraak Systems' }],
   creator: 'Edraak Systems',
@@ -174,7 +174,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: 'Edraak Systems',
     title: 'Edraak Systems | Quality Control & Traceability Solutions',
-    description: 'Advanced machine vision and AI-powered quality control solutions for textile and apparel manufacturing.',
+    description: 'AI-driven fabric quality control system that detects defects in real-time. It also ensures traceability and provides Industry 4.0 textile QC solutions.',
     images: [
       {
         url: 'https://db.edraaksystems.com/wp-content/uploads/2026/04/images.png',
@@ -187,7 +187,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Edraak Systems | Quality Control & Traceability Solutions',
-    description: 'Advanced machine vision and AI-powered quality control solutions for textile and apparel manufacturing.',
+    description: 'AI-driven fabric quality control system that detects defects in real-time. It also ensures traceability and provides Industry 4.0 textile QC solutions.',
     creator: '@EdraakSystems',
   },
   robots: {

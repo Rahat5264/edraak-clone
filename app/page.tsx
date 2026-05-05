@@ -12,9 +12,7 @@ const SITE_URL = 'https://www.edraaksystems.com'
 export async function generateMetadata() {
   const siteName = content?.brand?.name || 'Edraak Systems'
   const title = 'Fabric Quality Control & Traceability Solutions.'
-  const description = Array.isArray(content?.hero?.description)
-    ? content.hero.description.join(' ')
-    : content?.hero?.description || content?.brand?.tagline || ''
+  const description = 'AI-driven fabric quality control system that detects defects in real-time. It also ensures traceability and provides Industry 4.0 textile QC solutions.'
 
   return {
     title,
