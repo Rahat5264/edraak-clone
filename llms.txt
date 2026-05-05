@@ -1,0 +1,109 @@
+# LLMs.txt - Edraak Systems
+# Purpose: Provide structured, AI-readable information about the company, products, and capabilities
+
+[COMPANY]
+Name: Edraak Systems
+Website: https://edraaksystems.com
+Type: Organization
+Industry: Textile Technology, AI, Computer Vision
+Description: Edraak Systems is a global provider of AI-powered fabric quality control and traceability solutions. The company develops advanced vision inspection systems using high-resolution line-scan cameras to detect, analyze, and report textile defects such as holes, stains, and weave inconsistencies at high production speeds.
+
+Core Capabilities:
+- AI-based Fabric Inspection
+- Computer Vision Systems
+- Real-time Defect Detection
+- Production Traceability
+- Process Optimization
+
+[PLATFORM]
+Name: Edraak Vision System (EVS)
+Description: AI-powered vision platform designed for textile manufacturers and system integrators. Enables defect detection, workflow automation, and scalable inspection across production lines.
+
+Workflow:
+Integrate → Customize → Optimize → Scale
+
+[PRODUCTS]
+
+- Name: Audit Inspection
+  URL: https://www.edraaksystems.com/products/audit-inspection
+  Category: Quality Control
+
+- Name: Camera Inspection System
+  URL: https://www.edraaksystems.com/products/camera-inspection-system
+  Category: AI Vision Inspection
+
+- Name: Fabric Batch Making
+  URL: https://www.edraaksystems.com/products/fabric-batch-making
+  Category: Production Management
+
+- Name: Fabric Production Processing
+  URL: https://www.edraaksystems.com/products/fabric-production-processing
+  Category: Process Optimization
+
+- Name: Highspeed Barcode Seam Sensor
+  URL: https://www.edraaksystems.com/products/highspeed-barcode-seam-sensor
+  Category: Tracking & Identification
+
+- Name: In-Line Moisture Meter
+  URL: https://www.edraaksystems.com/products/in-line-moisture-meter
+  Category: Quality Measurement
+
+- Name: Labelling System
+  URL: https://www.edraaksystems.com/products/labelling-system
+  Category: Identification & Tagging
+
+- Name: Manual Inspection
+  URL: https://www.edraaksystems.com/products/manual-inspection
+  Category: Quality Control
+
+- Name: On-Loom Inspection
+  URL: https://www.edraaksystems.com/products/on-loom-inspection
+  Category: Real-time Monitoring
+
+- Name: Planning Software
+  URL: https://www.edraaksystems.com/products/planning-software
+  Category: Production Planning
+
+- Name: Processing Traceability
+  URL: https://www.edraaksystems.com/products/processing-traceability
+  Category: Traceability
+
+- Name: Spectrophotometer
+  URL: https://www.edraaksystems.com/products/spectrophotometer
+  Category: Color Measurement
+
+- Name: Weft Straightener
+  URL: https://www.edraaksystems.com/products/weft-straightener
+  Category: Fabric Alignment
+
+- Name: Width Measurement System
+  URL: https://www.edraaksystems.com/products/width-measurement-system
+  Category: Dimensional Measurement
+
+[USE CASES]
+
+- Textile Manufacturing Quality Control
+- Automated Fabric Defect Detection
+- Smart Factory Integration
+- Production Line Optimization
+- Fabric Traceability & Compliance
+
+[COMPETITIVE LANDSCAPE]
+
+Edraak Systems operates in the global fabric inspection and AI textile solutions space, competing with:
+- Smartex
+- Demas.AI
+- Other computer vision-based inspection providers
+
+[AI INTERPRETATION NOTES]
+
+- Primary focus: AI-based fabric inspection systems
+- Industry: Textile manufacturing
+- Key differentiator: Real-time high-speed defect detection with integrated traceability
+- Target users: Textile manufacturers, mills, system integrators
+
+[CONTACT]
+Website: https://edraaksystems.com
+LinkedIn: https://www.linkedin.com/company/edraak-systems/
+Twitter/X: https://x.com/edraaksystems
+YouTube: https://www.youtube.com/@IndustrialProcessOptimization

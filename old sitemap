@@ -1,16 +1,88 @@
-# Old sitemap - redirect mappings
+# Old Sitemap - SEO-Friendly Redirect Mappings (301 Permanent Redirects)
 # Format: OLD_URL -> NEW_URL (HTTP status)
+# Last Updated: May 5, 2026
+# Strategy: Category-based intelligent redirects for maximum SEO value
+
+# ============================================
+# FABRIC PROCESSING - Quality Control & Measurement
+# ============================================
 https://www.edraaksystems.com/fabric-processing/width-measurement -> https://www.edraaksystems.com/products/width-measurement-system 301
-https://www.edraaksystems.com/hiring -> https://www.edraaksystems.com/career 301
-https://www.edraaksystems.com/industries/agritech -> https://www.edraaksystems.com 301
-https://www.edraaksystems.com/erp-systems -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/industries/pharma -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/fabric-processing -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/stitching-apparel/wash-monitoring-system -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/industries/agritech/visual-crop-analysis -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/posts/business-intelligence-quality-assurance-system -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/services/artificial-intelligence/nlp-genarative-ai -> https://www.edraaksystems.com/ 301
-https://www.edraaksystems.com/stitching-apparel/wages -> https://www.edraaksystems.com/ 301
+https://www.edraaksystems.com/fabric-processing/quality-control -> https://www.edraaksystems.com/products/camera-inspection-system 301
+https://www.edraaksystems.com/fabric-processing/fault-labeling-system -> https://www.edraaksystems.com/products/labelling-system 301
+https://www.edraaksystems.com/fabric-processing -> https://www.edraaksystems.com/products 301
+
+# ============================================
+# STITCHING & APPAREL - Production & Inspection
+# ============================================
+https://www.edraaksystems.com/stitching-apparel/smart-sewing-system -> https://www.edraaksystems.com/products/camera-inspection-system 301
+https://www.edraaksystems.com/stitching-apparel/machine-care-pro -> https://www.edraaksystems.com/contact 301
+https://www.edraaksystems.com/stitching-apparel/maintenance -> https://www.edraaksystems.com/contact 301
+https://www.edraaksystems.com/stitching-apparel/camera-measurement -> https://www.edraaksystems.com/products/width-measurement-system 301
+https://www.edraaksystems.com/stitching-apparel/wash-monitoring-system -> https://www.edraaksystems.com/products/fabric-production-processing 301
+https://www.edraaksystems.com/stitching-apparel/wages -> https://www.edraaksystems.com/products/planning-software 301
+https://www.edraaksystems.com/stitching-apparel -> https://www.edraaksystems.com/products 301
+
+# ============================================
+# PHARMA - Blister & Inspection Solutions
+# ============================================
+https://www.edraaksystems.com/pharma/blister-scanning -> https://www.edraaksystems.com/products/camera-inspection-system 301
+https://www.edraaksystems.com/industries/pharma/oee -> https://www.edraaksystems.com/products/planning-software 301
+https://www.edraaksystems.com/industries/pharma/blister-rejection -> https://www.edraaksystems.com/products/audit-inspection 301
+https://www.edraaksystems.com/industries/pharma/blister-scanning -> https://www.edraaksystems.com/products/camera-inspection-system 301
+https://www.edraaksystems.com/pharma -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/industries/pharma -> https://www.edraaksystems.com 301
+
+# ============================================
+# GENERAL / HORIZONTAL TECHNOLOGY PAGES
+# ============================================
+https://www.edraaksystems.com/general/energy-monitoring -> https://www.edraaksystems.com/energy-monitoring 301
+https://www.edraaksystems.com/general/data-engineering -> https://www.edraaksystems.com/data-and-business-analytics 301
+https://www.edraaksystems.com/general/warehouse-management -> https://www.edraaksystems.com/products/fabric-production-processing 301
+https://www.edraaksystems.com/general -> https://www.edraaksystems.com 301
+
+# ============================================
+# PRODUCTION TRACKING & MONITORING
+# ============================================
 https://www.edraaksystems.com/posts/production-tracking-data-logging-recording-and-tracking -> https://www.edraaksystems.com/products/fabric-production-processing 301
 https://www.edraaksystems.com/industries/fabric-processing/production-tracking -> https://www.edraaksystems.com/products/fabric-production-processing 301
-fabric quality control
+
+# ============================================
+# AGRITECH (OUT OF SCOPE - Redirect to Home)
+# ============================================
+https://www.edraaksystems.com/industries/agritech -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/industries/agritech/visual-crop-analysis -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/agritech -> https://www.edraaksystems.com 301
+
+# ============================================
+# SERVICES & CONSULTING (OUT OF SCOPE / ARCHIVE)
+# ============================================
+https://www.edraaksystems.com/erp-systems -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/erp-systems-odoo -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/services/artificial-intelligence/nlp-genarative-ai -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/services/artificial-intelligence/deep-learning -> https://www.edraaksystems.com/artificial-intelligence 301
+https://www.edraaksystems.com/services/artificial-intelligence/data-science -> https://www.edraaksystems.com/data-and-business-analytics 301
+https://www.edraaksystems.com/services/system-analysis-advisory -> https://www.edraaksystems.com/contact 301
+https://www.edraaksystems.com/services/hardware-design-development -> https://www.edraaksystems.com/contact 301
+
+# ============================================
+# BLOG / POSTS & CASE STUDIES
+# ============================================
+https://www.edraaksystems.com/posts/business-intelligence-quality-assurance-system -> https://www.edraaksystems.com/case-studies 301
+https://www.edraaksystems.com/posts/process-quality-control-realtime-width-measure -> https://www.edraaksystems.com/products/width-measurement-system 301
+https://www.edraaksystems.com/posts/ai-in-industrial-process-cutting-plan-optimization -> https://www.edraaksystems.com/products/cutting-optimization-module 301
+https://www.edraaksystems.com/posts/computer-vision-eagle-eye -> https://www.edraaksystems.com/products/camera-inspection-system 301
+https://www.edraaksystems.com/posts/erp-integration -> https://www.edraaksystems.com/contact 301
+https://www.edraaksystems.com/posts/gitex-2023 -> https://www.edraaksystems.com/case-studies 301
+https://www.edraaksystems.com/posts/itcn-asia-2023-islamabad -> https://www.edraaksystems.com/case-studies 301
+
+# ============================================
+# MISCELLANEOUS & LEGACY PAGES
+# ============================================
+https://www.edraaksystems.com/hiring -> https://www.edraaksystems.com/career 301
+https://www.edraaksystems.com/about/history -> https://www.edraaksystems.com/case-studies 301
+https://www.edraaksystems.com/qr/haroonrasheed -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/qr/haroonrasheed4 -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/sdg9 -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/sustainability -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/sustainability/net-0 -> https://www.edraaksystems.com 301
+https://www.edraaksystems.com/sustainability/carbon-neutrality -> https://www.edraaksystems.com 301
