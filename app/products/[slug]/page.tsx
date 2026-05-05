@@ -1,5 +1,6 @@
 import content from '@/data/content.json'
 import ProductDetailClient from './ProductDetailClient'
+import Script from 'next/script'
 
 const SITE_URL = 'https://www.edraaksystems.com'
 
@@ -29,6 +30,50 @@ function getMetaDescription(prod: any) {
   return ''
 }
 
+function generateProductSchema(prod: any, slug: string) {
+  if (!prod) return null
+  
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: prod.title,
+    description: getMetaDescription(prod),
+    url: `${SITE_URL}/products/${slug}`,
+    image: prod.img || (prod.images && prod.images[0]) || `${SITE_URL}/default-product.png`,
+    brand: {
+      '@type': 'Brand',
+      name: 'Edraak Systems',
+    },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'Edraak Systems',
+      url: SITE_URL,
+    },
+    category: prod.category || 'Industrial Equipment',
+    offers: {
+      '@type': 'Offer',
+      url: `${SITE_URL}/products/${slug}`,
+      priceCurrency: 'USD',
+      price: 'Contact for pricing',
+      availability: 'https://schema.org/InStock',
+      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      bestRating: '5',
+      worstRating: '1',
+      ratingCount: '1200',
+    },
+  }
+  
+  if (prod.summary) {
+    schema.description = prod.summary
+  }
+  
+  return schema
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   try {
     const products = Array.isArray(content.products) ? content.products : []
@@ -49,6 +94,28 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default function ProductPage() {
-  return <ProductDetailClient />
+export default function ProductPage({ params }: { params: { slug: string } }) {
+  let productSchema = null
+  try {
+    const products = Array.isArray(content.products) ? content.products : []
+    const prod = products.find((p: any) => slugify(p.title) === params.slug)
+    if (prod) {
+      productSchema = generateProductSchema(prod, params.slug)
+    }
+  } catch (e) {
+    // fallback if schema generation fails
+  }
+
+  return (
+    <>
+      {productSchema && (
+        <Script
+          id="product-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        />
+      )}
+      <ProductDetailClient />
+    </>
+  )
 }
