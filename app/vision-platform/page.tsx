@@ -1,15 +1,8 @@
 import React from 'react'
-import content from '@/data/vision-platform.json'
-import { Button } from '@/components/ui/button'
-
-const visionContent: any = content
-
-export const metadata = {
-  title: 'Vision Platform',
-  description: (visionContent?.visionSystem?.description && Array.isArray(visionContent.visionSystem.description)) ? visionContent.visionSystem.description.join(' ') : (visionContent?.hero?.description || 'AI-powered vision platform for high-speed fabric inspection and traceability.'),
-}
+import { notFound } from 'next/navigation'
 
 export default function VisionPlatformPage() {
+  notFound()
   const vision = visionContent?.visionSystem || {}
   const cam = visionContent?.cameraIndustries || {}
   const sectors = visionContent?.sectors || { items: [] }
