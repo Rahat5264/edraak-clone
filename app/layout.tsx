@@ -235,6 +235,14 @@ export default function RootLayout({
           })(window, document, "clarity", "script", "jvj59mnu8j")`}
         </Script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ORG_JSONLD }} />
+        {/* Cloudflare Turnstile - Implicit Rendering */}
+        <Script 
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
+          async 
+          defer 
+          strategy="beforeInteractive"
+        />
+        <link rel="preconnect" href="https://challenges.cloudflare.com" />
       </head>
       <body className="antialiased">
         <ThemeProvider attribute="class">

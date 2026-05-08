@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import content from '@/data/content.json'
 import { toast } from 'sonner'
 import { sendInquiry } from '@/app/actions/send-inquiry'
@@ -35,12 +35,17 @@ export default function InquiryModal() {
   const products = Array.from(productsMap.values())
 
   const [open, setOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState('')
   const [form, setForm] = useState({ name: '', email: '', address: '', company: '', message: '', product: '' })
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
+  const turnstileWidgetIdRef = useRef<string | null>(null)
 
   useEffect(() => {
     const handler = (e: any) => {
       const p = e?.detail?.product || null
       setForm({ name: '', email: '', address: '', company: '', message: '', product: (p && (p.title || p)) || (products[0] && products[0].title) || '' })
+      setTurnstileToken('')
       setOpen(true)
     }
     if (typeof window !== 'undefined') {
@@ -48,6 +53,71 @@ export default function InquiryModal() {
     }
     return () => { if (typeof window !== 'undefined') window.removeEventListener('edraaksystems:open-inquiry', handler) }
   }, [products])
+
+  useEffect(() => {
+    if (!open) return
+
+    let intervalId: number | null = null
+
+    const renderTurnstile = () => {
+      const turnstile = (window as any).turnstile
+      const container = turnstileContainerRef.current
+
+      if (!turnstile || !container) return false
+
+      try {
+        if (turnstileWidgetIdRef.current) {
+          turnstile.remove(turnstileWidgetIdRef.current)
+          turnstileWidgetIdRef.current = null
+        }
+
+        container.innerHTML = ''
+        const widgetId = turnstile.render(container, {
+          sitekey: process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITEKEY,
+          theme: 'light',
+          callback: (token: string) => setTurnstileToken(token),
+          'error-callback': () => {
+            setTurnstileToken('')
+            toast.error('Turnstile verification failed. Please try again.')
+          },
+          'expired-callback': () => {
+            setTurnstileToken('')
+            toast.warning('Verification expired. Please verify again.')
+          },
+        })
+
+        turnstileWidgetIdRef.current = widgetId
+        return true
+      } catch (error) {
+        console.error('Error rendering Turnstile:', error)
+        return false
+      }
+    }
+
+    const tryRender = () => {
+      if (renderTurnstile() && intervalId) {
+        window.clearInterval(intervalId)
+        intervalId = null
+      }
+    }
+
+    tryRender()
+    if (!turnstileWidgetIdRef.current) {
+      intervalId = window.setInterval(tryRender, 100)
+    }
+
+    return () => {
+      if (intervalId) {
+        window.clearInterval(intervalId)
+      }
+
+      const api = (window as any).turnstile
+      if (api && turnstileWidgetIdRef.current) {
+        api.remove(turnstileWidgetIdRef.current)
+        turnstileWidgetIdRef.current = null
+      }
+    }
+  }, [open])
 
   const close = () => setOpen(false)
 
@@ -59,15 +129,24 @@ export default function InquiryModal() {
       return
     }
 
+    if (!turnstileToken) {
+      toast.error('Please complete the Turnstile verification')
+      return
+    }
+
     try {
-      const res = await sendInquiry(form as any)
+      setIsSubmitting(true)
+      const res = await sendInquiry({ ...form, turnstileToken })
+      setIsSubmitting(false)
       if (res) {
         setOpen(false)
+        setTurnstileToken('')
         toast.success('Inquiry sent — we will contact you soon.')
       } else {
         toast.error('Failed to send inquiry')
       }
     } catch (err) {
+      setIsSubmitting(false)
       toast.error('Network error while sending inquiry')
     }
   }
@@ -114,9 +193,11 @@ export default function InquiryModal() {
             <textarea value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} className="w-full rounded border px-3 py-2" rows={4} />
           </div>
 
+          <div ref={turnstileContainerRef} className="sm:col-span-2 flex min-h-[78px] justify-center rounded border border-dashed border-slate-200 bg-slate-50 p-3" />
+
           <div className="sm:col-span-2 flex justify-end gap-3">
             <button type="button" onClick={close} className="px-4 py-2 border" style={{ borderRadius: 0 }}>Cancel</button>
-            <button type="submit" className="px-4 py-2 text-white" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>Send Inquiry</button>
+            <button type="submit" disabled={isSubmitting} className="px-4 py-2 text-white disabled:opacity-50 disabled:cursor-not-allowed" style={{ backgroundColor: 'rgb(5,3,42)', borderRadius: 0 }}>{isSubmitting ? 'Sending...' : 'Send Inquiry'}</button>
           </div>
         </form>
       </div>
