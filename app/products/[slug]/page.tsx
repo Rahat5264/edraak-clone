@@ -84,33 +84,35 @@ function generateProductSchema(prod: any, slug: string) {
   return schema
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params
   try {
     const products = Array.isArray(content.products) ? content.products : []
-    const prod = products.find((p: any) => slugify(p.title) === params.slug)
+    const prod = products.find((p: any) => slugify(p.title) === resolvedParams.slug)
     return {
       title: prod?.title || 'Product',
       description: getMetaDescription(prod),
       openGraph: {
         title: prod?.title || 'Product',
         description: getMetaDescription(prod),
-        url: `${SITE_URL}/products/${params.slug}`,
+        url: `${SITE_URL}/products/${resolvedParams.slug}`,
       },
       twitter: { card: 'summary_large_image', title: prod?.title || 'Product', description: getMetaDescription(prod) },
-      alternates: { canonical: `${SITE_URL}/products/${params.slug}` },
+      alternates: { canonical: `${SITE_URL}/products/${resolvedParams.slug}` },
     }
   } catch (e) {
     return { title: 'Product', description: '' }
   }
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   let productSchema = null
+  const resolvedParams = await params
   try {
     const products = Array.isArray(content.products) ? content.products : []
-    const prod = products.find((p: any) => slugify(p.title) === params.slug)
+    const prod = products.find((p: any) => slugify(p.title) === resolvedParams.slug)
     if (prod) {
-      productSchema = generateProductSchema(prod, params.slug)
+      productSchema = generateProductSchema(prod, resolvedParams.slug)
     }
   } catch (e) {
     console.error('Schema generation error:', e)
@@ -120,7 +122,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     <>
       {productSchema && (
         <Script
-          id={`product-schema-${params.slug}`}
+          id={`product-schema-${resolvedParams.slug}`}
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
