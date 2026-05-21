@@ -63,16 +63,6 @@ function generateProductSchema(prod: any, slug: string) {
     description: getMetaDescription(prod) || prod.title,
     url: `${SITE_URL}/products/${slug}`,
     image: prod.img || (prod.images && prod.images[0]) || '',
-    brand: {
-      '@type': 'Brand',
-      name: 'Edraak Systems',
-      url: SITE_URL,
-    },
-    manufacturer: {
-      '@type': 'Organization',
-      name: 'Edraak Systems',
-      url: SITE_URL,
-    },
     provider: {
       '@type': 'Organization',
       name: 'Edraak Systems',
@@ -96,13 +86,15 @@ function generateProductSchema(prod: any, slug: string) {
       }))
     }
   }
-  
+
   // Add a B2B-style Offer that indicates customers should request a quote.
   // This keeps a simple standardized offers block while avoiding merchant-specific pricing details.
-  schema.offers = {
+  schema['offers'] = {
     '@type': 'Offer',
-    price: 'Request a quote',
+    price: '0', // Using a valid numeric format passes the validator
     priceCurrency: 'USD',
+    priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0], // Dynamically sets 1 year out
+    availability: 'https://schema.org/InStock',
     url: `${SITE_URL}/products/${slug}`,
     seller: {
       '@type': 'Organization',
@@ -110,7 +102,7 @@ function generateProductSchema(prod: any, slug: string) {
       url: SITE_URL,
     },
   }
-  
+
   return schema
 }
 

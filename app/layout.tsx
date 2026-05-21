@@ -14,151 +14,72 @@ const inria = Inria_Sans({ subsets: ["latin"], weight: ['300', '700'], variable:
 // Site-level metadata (used as sensible defaults)
 const SITE_URL = 'https://www.edraaksystems.com'
 
-const ORG_JSONLD = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Edraak Systems",
-  "url": "https://edraaksystems.com",
-  "logo": "https://db.edraaksystems.com/wp-content/uploads/2022/04/ES-Logo2-2.png",
-  "description": "Edraak Systems is a global provider of AI-powered fabric quality control and traceability solutions. The company develops advanced vision inspection systems using high-resolution line-scan cameras to detect, analyze, and report textile defects such as holes, stains, and weave inconsistencies at production speeds up to 100 meters per minute. Its solutions help textile manufacturers improve quality, reduce waste, and optimize production efficiency.",
-  "sameAs": [
-    "https://www.linkedin.com/company/edraak-systems/",
-    "https://x.com/edraaksystems",
-    "https://www.youtube.com/@IndustrialProcessOptimization"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Edraak Systems Products",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Product",
-          "name": "Audit Inspection",
-          "url": "https://www.edraaksystems.com/products/audit-inspection"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "Product",
-          "name": "Camera Inspection System",
-          "url": "https://www.edraaksystems.com/products/camera-inspection-system"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "Product",
-          "name": "Fabric Batch Making",
-          "url": "https://www.edraaksystems.com/products/fabric-batch-making"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-          "@type": "Product",
-          "name": "Fabric Production Processing",
-          "url": "https://www.edraaksystems.com/products/fabric-production-processing"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "item": {
-          "@type": "Product",
-          "name": "Highspeed Barcode Seam Sensor",
-          "url": "https://www.edraaksystems.com/products/highspeed-barcode-seam-sensor"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "item": {
-          "@type": "Product",
-          "name": "In-Line Moisture Meter",
-          "url": "https://www.edraaksystems.com/products/in-line-moisture-meter"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 7,
-        "item": {
-          "@type": "Product",
-          "name": "Labelling System",
-          "url": "https://www.edraaksystems.com/products/labelling-system"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 8,
-        "item": {
-          "@type": "Product",
-          "name": "Manual Inspection",
-          "url": "https://www.edraaksystems.com/products/manual-inspection"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 9,
-        "item": {
-          "@type": "Product",
-          "name": "On-Loom Inspection",
-          "url": "https://www.edraaksystems.com/products/on-loom-inspection"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 10,
-        "item": {
-          "@type": "Product",
-          "name": "Planning Software",
-          "url": "https://www.edraaksystems.com/products/planning-software"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 11,
-        "item": {
-          "@type": "Product",
-          "name": "Processing Traceability",
-          "url": "https://www.edraaksystems.com/products/processing-traceability"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 12,
-        "item": {
-          "@type": "Product",
-          "name": "Spectrophotometer",
-          "url": "https://www.edraaksystems.com/products/spectrophotometer"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 13,
-        "item": {
-          "@type": "Product",
-          "name": "Weft Straightener",
-          "url": "https://www.edraaksystems.com/products/weft-straightener"
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 14,
-        "item": {
-          "@type": "Product",
-          "name": "Width Measurement System",
-          "url": "https://www.edraaksystems.com/products/width-measurement-system"
-        }
-      }
-    ]
+type CatalogThing = {
+  '@type': 'Thing'
+  name: string
+  url: string
+}
+
+type OfferCatalogListItem = {
+  '@type': 'ListItem'
+  position: number
+  item: CatalogThing
+}
+
+type OrganizationJsonLd = {
+  '@context': 'https://schema.org'
+  '@type': 'Organization'
+  name: string
+  url: string
+  logo: string
+  description: string
+  sameAs: string[]
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog'
+    name: string
+    itemListElement: OfferCatalogListItem[]
   }
-})
+}
+
+const catalogItems: CatalogThing[] = [
+  { '@type': 'Thing', name: 'Audit Inspection', url: 'https://www.edraaksystems.com/products/audit-inspection' },
+  { '@type': 'Thing', name: 'Camera Inspection System', url: 'https://www.edraaksystems.com/products/camera-inspection-system' },
+  { '@type': 'Thing', name: 'Fabric Batch Making', url: 'https://www.edraaksystems.com/products/fabric-batch-making' },
+  { '@type': 'Thing', name: 'Fabric Production Processing', url: 'https://www.edraaksystems.com/products/fabric-production-processing' },
+  { '@type': 'Thing', name: 'Highspeed Barcode Seam Sensor', url: 'https://www.edraaksystems.com/products/highspeed-barcode-seam-sensor' },
+  { '@type': 'Thing', name: 'In-Line Moisture Meter', url: 'https://www.edraaksystems.com/products/in-line-moisture-meter' },
+  { '@type': 'Thing', name: 'Labelling System', url: 'https://www.edraaksystems.com/products/labelling-system' },
+  { '@type': 'Thing', name: 'Manual Inspection', url: 'https://www.edraaksystems.com/products/manual-inspection' },
+  { '@type': 'Thing', name: 'On-Loom Inspection', url: 'https://www.edraaksystems.com/products/on-loom-inspection' },
+  { '@type': 'Thing', name: 'Planning Software', url: 'https://www.edraaksystems.com/products/planning-software' },
+  { '@type': 'Thing', name: 'Processing Traceability', url: 'https://www.edraaksystems.com/products/processing-traceability' },
+  { '@type': 'Thing', name: 'Spectrophotometer', url: 'https://www.edraaksystems.com/products/spectrophotometer' },
+  { '@type': 'Thing', name: 'Weft Straightener', url: 'https://www.edraaksystems.com/products/weft-straightener' },
+  { '@type': 'Thing', name: 'Width Measurement System', url: 'https://www.edraaksystems.com/products/width-measurement-system' },
+]
+
+const ORG_JSONLD: string = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Edraak Systems',
+  url: 'https://edraaksystems.com',
+  logo: 'https://db.edraaksystems.com/wp-content/uploads/2022/04/ES-Logo2-2.png',
+  description: 'Edraak Systems is a global provider of AI-powered fabric quality control and traceability solutions. The company develops advanced vision inspection systems using high-resolution line-scan cameras to detect, analyze, and report textile defects such as holes, stains, and weave inconsistencies at production speeds up to 100 meters per minute. Its solutions help textile manufacturers improve quality, reduce waste, and optimize production efficiency.',
+  sameAs: [
+    'https://www.linkedin.com/company/edraak-systems/',
+    'https://x.com/edraaksystems',
+    'https://www.youtube.com/@IndustrialProcessOptimization',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Edraak Systems Products',
+    itemListElement: catalogItems.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item,
+    })),
+  },
+} satisfies OrganizationJsonLd)
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
