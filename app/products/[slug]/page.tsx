@@ -97,6 +97,20 @@ function generateProductSchema(prod: any, slug: string) {
     }
   }
   
+  // Add a B2B-style Offer that indicates customers should request a quote.
+  // This keeps a simple standardized offers block while avoiding merchant-specific pricing details.
+  schema.offers = {
+    '@type': 'Offer',
+    price: 'Request a quote',
+    priceCurrency: 'USD',
+    url: `${SITE_URL}/products/${slug}`,
+    seller: {
+      '@type': 'Organization',
+      name: 'Edraak Systems',
+      url: SITE_URL,
+    },
+  }
+  
   return schema
 }
 
