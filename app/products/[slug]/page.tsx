@@ -43,14 +43,11 @@ function getSchemaFeatureList(prod: any) {
 }
 
 function getSchemaType(prod: any) {
-  if (typeof prod?.schema?.type === 'string' && prod.schema.type.trim()) {
-    return prod.schema.type.trim()
+  if (typeof prod?.schema?.type === 'string' && prod.schema.type.trim() === 'SoftwareApplication') {
+    return 'SoftwareApplication'
   }
 
-  const text = `${prod?.title || ''} ${prod?.subtitle || ''} ${prod?.category || ''}`.toLowerCase()
-  return /(system|software|solution|module|planning|traceability|inspection|processing|mapping|monitoring|analysis)/.test(text)
-    ? 'SoftwareApplication'
-    : 'Product'
+  return 'SoftwareApplication'
 }
 
 function generateProductSchema(prod: any, slug: string) {
@@ -61,7 +58,7 @@ function generateProductSchema(prod: any, slug: string) {
 
   const schema: any = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'SoftwareApplication',
     name: prod.title,
     description: getMetaDescription(prod) || prod.title,
     url: `${SITE_URL}/products/${slug}`,
@@ -80,10 +77,6 @@ function generateProductSchema(prod: any, slug: string) {
       '@type': 'Organization',
       name: 'Edraak Systems',
       url: SITE_URL,
-    },
-    offers: {
-      '@type': 'Offer',
-      category: 'B2B Industrial Solution',
     },
   }
 
