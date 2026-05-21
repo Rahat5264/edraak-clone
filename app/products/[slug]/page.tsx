@@ -91,9 +91,9 @@ function generateProductSchema(prod: any, slug: string) {
   // This keeps a simple standardized offers block while avoiding merchant-specific pricing details.
   schema['offers'] = {
     '@type': 'Offer',
-    price: '0', // Using a valid numeric format passes the validator
+    price: 'Request a quote',
     priceCurrency: 'USD',
-    priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0], // Dynamically sets 1 year out
+    priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
     availability: 'https://schema.org/InStock',
     url: `${SITE_URL}/products/${slug}`,
     seller: {
