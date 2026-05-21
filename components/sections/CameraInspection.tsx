@@ -8,8 +8,8 @@ import content from '@/data/content.json'
 export default function CameraInspection() {
   const raw = content.visionSystem?.videoUrl || ''
   const isMp4 = /\.mp4(\?|$)/i.test(raw)
-  const sep = raw.includes('?') ? '&' : '?'
-  const src = raw ? (isMp4 ? raw : `${raw}${sep}autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1`) : ''
+  // Do not force autoplay via query params; VideoFrame lazy-loads instead
+  const src = raw ? raw : ''
 
   return (
     <section id="camera-inspection" className="relative top-0 min-h-screen flex items-center bg-white w-full scroll-mt-10 md:scroll-mt-9">
@@ -51,7 +51,7 @@ export default function CameraInspection() {
           </div>
 
           <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
-            <VideoFrame src={src} title="Camera Inspection Video" shadow={false} />
+            <VideoFrame src={src} title="Camera Inspection Video" shadow={false} poster={'/placeholder.jpg'} autoplay={true} />
           </div>
         </div>
       </div>

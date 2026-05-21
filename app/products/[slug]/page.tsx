@@ -30,14 +30,35 @@ function getMetaDescription(prod: any) {
   return ''
 }
 
+function getSchemaFeatureList(prod: any) {
+  const source = Array.isArray(prod?.schema?.featureList) && prod.schema.featureList.length
+    ? prod.schema.featureList
+    : Array.isArray(prod?.features) && prod.features.length
+      ? prod.features
+      : Array.isArray(prod?.bullets) && prod.bullets.length
+        ? prod.bullets
+        : []
+
+  return source.filter((item: any) => typeof item === 'string' && item.trim())
+}
+
+function getSchemaType(prod: any) {
+  if (typeof prod?.schema?.type === 'string' && prod.schema.type.trim()) {
+    return prod.schema.type.trim()
+  }
+
+  const text = `${prod?.title || ''} ${prod?.subtitle || ''} ${prod?.category || ''}`.toLowerCase()
+  return /(system|software|solution|module|planning|traceability|inspection|processing|mapping|monitoring|analysis)/.test(text)
+    ? 'SoftwareApplication'
+    : 'Product'
+}
+
 function generateProductSchema(prod: any, slug: string) {
   if (!prod) return null
-  
-  // Calculate next year for priceValidUntil
-  const nextYear = new Date()
-  nextYear.setFullYear(nextYear.getFullYear() + 1)
-  const validUntil = nextYear.toISOString().split('T')[0]
-  
+
+  const schemaType = getSchemaType(prod)
+  const featureList = getSchemaFeatureList(prod)
+
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -55,50 +76,52 @@ function generateProductSchema(prod: any, slug: string) {
       name: 'Edraak Systems',
       url: SITE_URL,
     },
-  }
-
-  // Add aggregateRating (satisfies the requirement)
-  schema.aggregateRating = {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    bestRating: '5',
-    worstRating: '1',
-    ratingCount: '1200',
-  }
-
-  // Add offers for custom pricing (Request a Quote)
-  schema.offers = {
-    '@type': 'Offer',
-    url: `${SITE_URL}/products/${slug}`,
-    priceCurrency: 'USD',
-    price: '0',  // Use 0 for request-a-quote pricing
-    priceValidUntil: validUntil,
-    availability: 'https://schema.org/InStock',
-    seller: {
+    provider: {
       '@type': 'Organization',
       name: 'Edraak Systems',
       url: SITE_URL,
     },
+    offers: {
+      '@type': 'Offer',
+      category: 'B2B Industrial Solution',
+    },
+  }
+
+  if (schemaType === 'SoftwareApplication') {
+    schema.applicationCategory = prod?.schema?.applicationCategory || prod.subtitle || prod.category || 'Industrial Automation Software'
+    schema.operatingSystem = prod?.schema?.operatingSystem || 'Industrial IoT / Machine Vision Systems'
+    if (featureList.length) {
+      schema.featureList = featureList
+    }
+  } else {
+    schema.category = prod?.schema?.category || prod.subtitle || prod.category || 'Industrial product'
+    if (featureList.length) {
+      schema.additionalProperty = featureList.slice(0, 6).map((feature: string) => ({
+        '@type': 'PropertyValue',
+        name: 'Capability',
+        value: feature,
+      }))
+    }
   }
   
   return schema
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params
+  const { slug } = await params
   try {
     const products = Array.isArray(content.products) ? content.products : []
-    const prod = products.find((p: any) => slugify(p.title) === resolvedParams.slug)
+    const prod = products.find((p: any) => slugify(p.title) === slug)
     return {
       title: prod?.title || 'Product',
       description: getMetaDescription(prod),
       openGraph: {
         title: prod?.title || 'Product',
         description: getMetaDescription(prod),
-        url: `${SITE_URL}/products/${resolvedParams.slug}`,
+        url: `${SITE_URL}/products/${slug}`,
       },
       twitter: { card: 'summary_large_image', title: prod?.title || 'Product', description: getMetaDescription(prod) },
-      alternates: { canonical: `${SITE_URL}/products/${resolvedParams.slug}` },
+      alternates: { canonical: `${SITE_URL}/products/${slug}` },
     }
   } catch (e) {
     return { title: 'Product', description: '' }
@@ -107,12 +130,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   let productSchema = null
-  const resolvedParams = await params
+  const { slug } = await params
   try {
     const products = Array.isArray(content.products) ? content.products : []
-    const prod = products.find((p: any) => slugify(p.title) === resolvedParams.slug)
+    const prod = products.find((p: any) => slugify(p.title) === slug)
     if (prod) {
-      productSchema = generateProductSchema(prod, resolvedParams.slug)
+      productSchema = generateProductSchema(prod, slug)
     }
   } catch (e) {
     console.error('Schema generation error:', e)
@@ -122,7 +145,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     <>
       {productSchema && (
         <Script
-          id={`product-schema-${resolvedParams.slug}`}
+          id={`product-schema-${slug}`}
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}

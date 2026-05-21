@@ -326,6 +326,10 @@
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/1abd4881e3b18f6833c0910ecb411df40628ef0f-640x400.png"
       ],
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Industrial vision inspection software"
+      },
       "pageContent": [
         
         { "type": "image", "src": "https://db.edraaksystems.com/wp-content/uploads/2026/04/fabric-quality-control-1.jpg", "alt": "Image 1" },
@@ -374,7 +378,11 @@
       "img": "",
       "images": [
         ""
-      ]
+      ],
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Inline loom inspection software"
+      }
     },
 
     {
@@ -401,7 +409,11 @@
         "Complete roll-level operation history and audit trail"
       ],
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/Fabric-Q-C-e1776170328273.png",
-      "images": ["https://db.edraaksystems.com/wp-content/uploads/2026/04/Fabric-Q-C-e1776170328273.png"]
+      "images": ["https://db.edraaksystems.com/wp-content/uploads/2026/04/Fabric-Q-C-e1776170328273.png"],
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Industrial traceability software"
+      }
     },
     {
       "title": "Planning Software",
@@ -477,7 +489,11 @@
         "Parameter & recipe access controls",
         "Comprehensive reporting and audit trails"
       ],
-      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed.png"
+      "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed.png",
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Production planning and control software"
+      }
     },
     {
       "title": "Audit Inspection",
@@ -505,7 +521,11 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/9IsAq.jpg",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/04/9IsAq.jpg"
-      ]
+      ],
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Fault mapping and labeling software"
+      }
     },
     {
       "title": "Fabric Batch Making",
@@ -543,7 +563,11 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-02-at-12.24.32-PM.jpeg"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Industrial batch-making module"
+      }
     },
     {
       "title": "Fabric Production Processing",
@@ -581,7 +605,11 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.jpg",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/04/unnamed-1.jpg"
-      ]
+      ],
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Process verification software"
+      }
     },
     
     {
@@ -619,7 +647,11 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-14-at-4.45.06-PM.jpeg"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Industrial traceability sensor module"
+      }
     },
     {
       "title": "Manual Inspection",
@@ -656,7 +688,11 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
-      ]
+      ],
+      "schema": {
+        "type": "SoftwareApplication",
+        "applicationCategory": "Digital quality inspection software"
+      }
     },
     {
       "title": "Weft Straightener",
@@ -701,7 +737,11 @@
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/weft-straitner.png",
         "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&q=80"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Industrial fabric straightening module"
+      }
     },
     {
       "title": "Labelling System",
@@ -740,7 +780,11 @@
       "img": "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/2-1.png",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/labeling-system.png"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Inline label applicator module"
+      }
     },
     {
       "title": "Width Measurement System",
@@ -764,7 +808,11 @@
       "img": "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png",
       "images": [
         "https://fqc.edraaksystems.com/wp-content/uploads/2026/02/4.png"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Inline width measurement module"
+      }
     },
     {
       "title": "In-Line Moisture Meter",
@@ -818,7 +866,11 @@
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/03/online-moisture.png",
         "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&q=80"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Inline moisture monitoring module"
+      }
     },
     {
       "title": "Spectrophotometer",
@@ -851,7 +903,11 @@
       "img": "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-10-at-5.42.32-PM.jpeg",
       "images": [
         "https://db.edraaksystems.com/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-10-at-1.17.23-PM.jpeg"
-      ]
+      ],
+      "schema": {
+        "type": "Product",
+        "category": "Inline color monitoring module"
+      }
     }
   ],
   "productCategoriesOrder": [

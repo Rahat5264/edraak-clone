@@ -10,8 +10,8 @@ export default function Hero() {
   const raw = content.hero?.videoUrl || ''
   const h = content?.hero || {}
   const isMp4 = /\.mp4(\?|$)/i.test(raw)
-  const sep = raw.includes('?') ? '&' : '?'
-  const src = raw ? (isMp4 ? raw : `${raw}${sep}autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1`) : ''
+  // Avoid forcing autoplay via query params; lazy-loading handled in VideoFrame
+  const src = raw ? raw : ''
 
   useEffect(() => {
     const setVh = () => {
@@ -79,7 +79,7 @@ export default function Hero() {
           </div>
 
             <div className="lg:col-span-5 px-4 lg:px-8 flex justify-center lg:justify-end">
-            <VideoFrame src={src} title={h.videoTitle || ''} shadow={false} />
+            <VideoFrame src={src} title={h.videoTitle || ''} shadow={false} poster={h.poster || '/placeholder.jpg'} autoplay={true} />
           </div>
         </div>
       </div>

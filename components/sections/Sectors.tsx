@@ -139,7 +139,7 @@ export default function Sectors() {
           <div className="md:col-span-6">
             <div className="flex gap-6 items-start">
               <div className="flex-1 rounded-lg overflow-hidden bg-gray-50">
-                <img src={mainImageSrc} alt={activeItem.name} className="w-full h-64 md:h-80 object-cover block" loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
+                <img key={mainImageSrc} src={mainImageSrc} alt={activeItem.name} className="w-full h-64 md:h-80 object-cover block" loading="eager" onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/placeholder.jpg' }} />
               </div>
 
               <div
