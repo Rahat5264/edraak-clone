@@ -98,7 +98,7 @@ const SITE_URL = 'https://www.edraaksystems.com'
 
 export async function generateMetadata() {
   const title = `${contentData.title || 'Fabric Quality Control'} | Edraak Systems`
-  const description = contentData.subtitle || (contentData.paragraphs && contentData.paragraphs[0]) || 'Fabric quality control solutions by Edraak Systems.'
+  const description = contentData.subtitle || (contentData.paragraphs && contentData.paragraphs[0]) || 'Fabric quality control including four-point system, digital QC, and AI-based monitoring to reduce defects, improve accuracy, and increase production efficiency.'
   const url = `${SITE_URL}/fabric-processing/quality-control`
   return {
     title,
