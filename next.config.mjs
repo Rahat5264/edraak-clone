@@ -16,11 +16,7 @@ const nextConfig = {
         destination: '/products/width-measurement-system',
         permanent: true,
       },
-      {
-        source: '/fabric-processing/quality-control',
-        destination: '/products/camera-inspection-system',
-        permanent: true,
-      },
+      // Removed redirect for /fabric-processing/quality-control to serve its own page
       {
         source: '/fabric-processing/fault-labeling-system',
         destination: '/products/labelling-system',
