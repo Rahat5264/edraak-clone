@@ -3,15 +3,26 @@ import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
 const prod: any = {
-  title: 'Energy Monitoring',
-  subtitle: 'Energy Monitoring',
-  summary: 'To calculate the exact amount of all utilities (Electricity, water, steam & air) used on a single fabric roll/piece.',
+  title: 'Energy Monitoring System',
+  subtitle: 'Energy Monitoring System',
+  summary: `Energy Monitoring System is a hardware + software solution designed for energy monitoring in production, accurately measuring electricity, water, steam, and compressed air used in each fabric roll or production piece. This enables precise, real-time energy monitoring instead of relying on estimated averages.`,
   need: [
-    'Measuring devices of each utility',
-    'Software to calculate the data'
+    'Measuring devices for electricity, water, steam, and air',
+    'Centralized software for data collection and analysis',
+    'Machine-level integration for energy monitoring in production per fabric roll'
   ],
-  existingProcess: `Utility readings are recorded on the span of 24 hr for a department, and an average consumption is calculated. Leading to an assumed SAM (Standard Allowed Minutes) of each article, and SAM verification has a high fault chance.`,
-  proposedProcess: `The precise values will provide the energy consumed in the process of each roll of every article. This will ensure accurate SAM calculation and verification.`,
+  existingProcess: `Currently, factories follow a manual estimation approach for energy monitoring: Utility readings are taken at department level over 24 hours and average consumption is calculated for overall usage. This average is used to estimate SAM (Standard Allowed Minutes) per article.`,
+  limitations: [
+    'Based on assumptions rather than real data',
+    'No precise energy monitoring in production at roll or process level',
+    'High risk of SAM calculation and verification errors'
+  ],
+  proposedProcess: `The proposed energy monitoring system provides a data-driven approach: real-time energy monitoring at machine and process level, accurate measurement of utilities used per fabric roll, and automated data collection and analysis through software.`,
+  result: [
+    'Reliable SAM calculation and verification',
+    'Transparent energy monitoring in production',
+    'Reduced waste and improved operational efficiency'
+  ],
   img: 'https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png',
   images: [
     'https://db.edraaksystems.com/wp-content/uploads/2026/03/08c3ae8d67a75f29c2762de6ddc3d4f7ba59a2f3.png'
@@ -20,12 +31,29 @@ const prod: any = {
 
 export const metadata = {
   title: prod.title,
-  description: prod.summary || prod.subtitle || 'Energy and utilities monitoring to measure electricity, water, steam and air per roll or process.',
+  description: 'Energy Monitoring System (EMS) is a hardware + software setup that tracks real-time electricity, water, steam & gas usage across processes to cut cost & waste.',
+  alternates: {
+    canonical: 'https://www.edraaksystems.com/energy-monitoring'
+  }
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": prod.title,
+  "description": metadata.description,
+  "url": "https://www.edraaksystems.com/energy-monitoring",
+  "mainEntity": {
+    "@type": "Service",
+    "name": "Energy Monitoring System",
+    "description": metadata.description
+  }
 }
 
 export default function EnergyMonitoringPage() {
   return (
     <div className="min-h-screen bg-white py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-4xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
@@ -73,6 +101,22 @@ export default function EnergyMonitoringPage() {
               <div className="mt-6">
                 <h4 className="text-lg font-semibold mb-2">Proposed Process</h4>
                 <p className="text-slate-700">{prod.proposedProcess}</p>
+              </div>
+            )}
+
+            {Array.isArray(prod.limitations) && prod.limitations.length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Limitations</h4>
+                <ul className="list-disc pl-6 text-slate-700">
+                  {prod.limitations.map((l: string, i: number) => <li key={i}>{l}</li>)}
+                </ul>
+              </div>
+            )}
+
+            {prod.result && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-2">Result</h4>
+                {Array.isArray(prod.result) ? prod.result.map((r: string, i: number) => <p key={i} className="text-slate-700">{r}</p>) : <p className="text-slate-700">{prod.result}</p>}
               </div>
             )}
 
