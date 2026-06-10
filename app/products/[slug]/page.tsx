@@ -111,15 +111,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   try {
     const products = Array.isArray(content.products) ? content.products : []
     const prod = products.find((p: any) => slugify(p.title) === slug)
+    const metaTitle = prod?.metaTitle || prod?.title || 'Product'
+    const metaDescription = prod?.metaDescription || getMetaDescription(prod)
     return {
-      title: prod?.title || 'Product',
-      description: getMetaDescription(prod),
+      title: metaTitle,
+      description: metaDescription,
       openGraph: {
-        title: prod?.title || 'Product',
-        description: getMetaDescription(prod),
+        title: metaTitle,
+        description: metaDescription,
         url: `${SITE_URL}/products/${slug}`,
       },
-      twitter: { card: 'summary_large_image', title: prod?.title || 'Product', description: getMetaDescription(prod) },
+      twitter: { card: 'summary_large_image', title: metaTitle, description: metaDescription },
       alternates: { canonical: `${SITE_URL}/products/${slug}` },
     }
   } catch (e) {

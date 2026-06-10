@@ -2,6 +2,8 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 const prod: any = {
   title: 'Fabric Traceability',
   subtitle: 'Fabric Traceability',
@@ -20,9 +22,27 @@ const prod: any = {
   ]
 }
 
-export const metadata = {
-  title: prod.title,
-  description: prod.summary || prod.proposedProcess || 'Automated fabric traceability using encoders, seam detection and barcode/RFID scanning.',
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || prod.proposedProcess || 'Automated fabric traceability using encoders, seam detection and barcode/RFID scanning.'
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/fabric-traceability`,
+      type: 'website',
+      images: prod.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/fabric-traceability` },
+  }
 }
 
 export default function FabricTraceabilityPage() {

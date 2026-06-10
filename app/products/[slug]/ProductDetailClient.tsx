@@ -66,14 +66,18 @@ export default function ProductDetailClient() {
   useEffect(() => {
     if (!prod) return
     try {
-      const title = prod.title || 'Product'
-      document.title = `${title} | Edraak Systems`
+      const metaTitle = prod.metaTitle || prod.title || 'Product'
+      document.title = metaTitle
       let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null
-      if (meta) meta.content = ''
+      const fallbackDesc = typeof prod.summary === 'string'
+        ? prod.summary
+        : (typeof prod.desc === 'string' ? prod.desc : (Array.isArray(prod.desc) ? prod.desc.join(' ') : ''))
+      const metaDesc = prod.metaDescription || fallbackDesc || ''
+      if (meta) meta.content = metaDesc
       else {
         meta = document.createElement('meta')
         meta.name = 'description'
-        meta.content = ''
+        meta.content = metaDesc
         document.head.appendChild(meta)
       }
     } catch (e) {

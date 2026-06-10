@@ -2,6 +2,8 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 const prod: any = {
   title: 'Visual Fault Detection',
   subtitle: 'EVS(Edraak Vision System)',
@@ -20,9 +22,27 @@ const prod: any = {
   ]
 }
 
-export const metadata = {
-  title: prod.title,
-  description: prod.summary || prod.desc || 'AI-based visual fault detection for woven and non-woven fabrics to reduce waste and improve yield.',
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || prod.desc || 'AI-based visual fault detection for woven and non-woven fabrics to reduce waste and improve yield.'
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/visual-fault-detection`,
+      type: 'website',
+      images: prod.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/visual-fault-detection` },
+  }
 }
 
 export default function VisualFaultDetectionPage() {

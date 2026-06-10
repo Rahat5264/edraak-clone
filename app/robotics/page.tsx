@@ -109,5 +109,22 @@ const SITE_URL = 'https://www.edraaksystems.com'
 export async function generateMetadata() {
   const title = `${prod.title} | Edraak Systems`
   const description = prod.summary || prod.proposedProcess || 'Robotics and automation solutions for textile production.'
-  return { title, description, openGraph: { title, description, url: `${SITE_URL}/robotics` }, alternates: { canonical: `${SITE_URL}/robotics` } }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/robotics`,
+      type: 'website',
+      images: prod.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/robotics` },
+  }
 }

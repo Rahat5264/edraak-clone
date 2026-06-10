@@ -127,5 +127,22 @@ const SITE_URL = 'https://www.edraaksystems.com'
 export async function generateMetadata() {
   const title = `${prod.title} | Edraak Systems`
   const description = prod.summary || prod.desc || 'RFID and barcoding solutions for production tracking.'
-  return { title, description, openGraph: { title, description, url: `${SITE_URL}/rfid-and-barcoding` }, alternates: { canonical: `${SITE_URL}/rfid-and-barcoding` } }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/rfid-and-barcoding`,
+      type: 'website',
+      images: prod.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/rfid-and-barcoding` },
+  }
 }

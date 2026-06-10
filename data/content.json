@@ -354,6 +354,8 @@
       "subtitle": "EVS(Edraak Vision System)",
       "category": "EVS(Edraak Vision System)",
       "summary": "Inline fabric inspection system for looms and warp knitting machines.",
+      "metaTitle": "on loom inspection",
+      "metaDescription": "The Edraak Loom Inspection (ELI) is a vision system designed for inline surface inspection and quality monitoring of fabric.",
       "desc": "The Edraak Loom Inspection (ELI) is a vision system designed for inline surface inspection and quality monitoring of fabric. It detects weaving defects and deviations directly after the reed. Due to its modular and compact design, the inspection system can be integrated or retrofitted onto looms, weaving machines, or warp knitting machines. Using ELI prevents long-running defects and provides immediate quality information at the source of production.",
       "need": [
         "Inline high-speed cameras",
@@ -390,6 +392,8 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "summary": "Edraak Traceability System is an IoT-based production planning and tracking system designed for high-speed, paperless, and real-time traceable production.",
+      "metaTitle": "processing traceability",
+      "metaDescription": "Edraak Traceability System is an IoT-based production planning and tracking system designed for high-speed, paperless, and real-time traceable production.",
       "desc": "Module for capturing and tracing processing steps across machines and enabling paperless, real-time production tracking.",
       "need": [
         "QR Printers",
@@ -420,6 +424,8 @@
       "subtitle": "Production Planning & Control System (PPC)",
       "category": "Traceability System",
       "summary": "A central Production Planning & Control (PPC) system that automates scheduling, routes, and recipe assignment while ingesting live shop-floor data to adapt plans and reduce lead time.",
+      "metaTitle": "planning software",
+      "metaDescription": "Central production planning and control software that automates scheduling, routes, recipe assignment, and real-time shop-floor monitoring.",
       "desc": "PPC coordinates orders, capacity, and materials into executable production plans. It assigns machine recipes, publishes work to operator HMIs, and monitors execution using real-time signals (encoders, machine status, inspection results). When deviations occur, PPC reschedules and alerts operators to maintain throughput and quality.",
       "need": [
         "Central scheduling engine and database",
@@ -500,6 +506,8 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "summary": "Improved accuracy and speed of fault mapping by enhancing the operator interface, measurements, and precise labeling.",
+      "metaTitle": "audit inspection",
+      "metaDescription": "Real-time fabric fault mapping and label application system with encoder-based positioning, fast marking, and traceable inspection records.",
       "desc": "A real-time fabric fault mapping and labeling solution that improves operator UX, provides accurate measurements, and automates sticker application on running fabric.",
       "need": [
         "Digital Encoder",
@@ -532,6 +540,8 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "summary": "Automated batch-making module that aggregates rolls, measures and tags seams with QR/label stickers, and records per-roll metadata for reliable traceability and faster dispatch.",
+      "metaTitle": "fabric batch making",
+      "metaDescription": "Automated batch-making module that measures rolls, applies QR labels at seams, and records per-roll traceability data.",
       "desc": "The Fabric Batch Making module automates roll assembly and identification for downstream processing and shipping. Using encoders, sensors and a label/printer-applicator, it captures precise roll length and quantity, applies machine-readable tags at seam points, and logs each roll to the central Edraak Mapping database. This removes manual counting and written records, improves inventory accuracy, and enables seamless traceability across departments.",
       "need": [
         "Label/QR printer-applicator with quick-change roll",
@@ -574,6 +584,8 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "summary": "An inline production processing module that enforces recipes, captures machine parameters, and records process completion with encoder and QR evidence for end-to-end traceability.",
+      "metaTitle": "fabric production processing",
+      "metaDescription": "Inline process verification module that enforces recipes, captures machine parameters, and logs every production step in real time.",
       "desc": "This module records finishing and chemical treatment steps, verifies machine recipes and parameters before production runs, and logs completion events in real time. It integrates encoder feedback, QR scans and optional color sensors to ensure every roll carries an auditable process history.",
       "need": [
         "Encoder integration for accurate length and timing",
@@ -617,6 +629,8 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "summary": "High-speed inline system combining optical seam detection and barcode/QR capture with encoder synchronization and AI-powered read validation for precise roll metering and automated traceability.",
+      "metaTitle": "highspeed barcode + seam sensor",
+      "metaDescription": "High-speed sensor fusion module that synchronizes seam detection, barcode reads, and encoder data for precise traceability.",
       "desc": "An integrated sensor-fusion module that pairs an optical seam detector with a high-speed barcode/QR reader and encoder input. Frames and sensor ticks are analyzed at the edge using lightweight AI models to verify reads, flag ambiguous captures, and score seam quality. Verified seam+barcode events are recorded as position-anchored traceability records and can trigger automated labeling, batching, or downstream verification workflows.",
       "need": [
         "Industrial high-speed barcode/QR reader (camera or laser)",
@@ -658,6 +672,8 @@
       "subtitle": "Traceability System",
       "category": "Traceability System",
       "summary": "An on-machine inspection module that combines a fault-marking keyboard, sensors and HMI to capture precise fault locations and fabric measurements directly to the traceability database.",
+      "metaTitle": "manual inspection",
+      "metaDescription": "Digital fault inspection module that records fault locations, measurements, and optional images directly to the traceability system.",
       "desc": "Manual Inspection replaces paper-based fault logging with a machine-mounted keyboard and digital sensors. Operators mark faults and measurements on the running fabric; the system records coordinates, timestamps and optional images to provide accurate, searchable QC records.",
       "need": [
         "Machine-mounted fault-marking keyboard",
@@ -699,6 +715,8 @@
       "subtitle": "Accessories",
       "category": "Accessories",
       "summary": "The Weft Straightener determines and analyzes distortion, then corrects measured skew and bow.",
+      "metaTitle": "weft straightener",
+      "metaDescription": "Closed-loop fabric straightening system that detects weft distortion and corrects skew and bow in real time.",
       "need": [
         "Weft alignment Cameras/Sensors",
         "Roller system (Bow/skew)"
@@ -748,6 +766,8 @@
       "subtitle": "Accessories",
       "category": "Accessories",
       "summary": "Automated inline label applicator for fault marking, seams, and roll identification — works without stopping the production line.",
+      "metaTitle": "labelling system",
+      "metaDescription": "Automated inline label applicator for fault marking, seam tagging, and roll identification without stopping production.",
       "desc": "The Labelling System is an inline, high‑precision label and sticker applicator designed to automate fault marking and seam/roll identification on fabric production lines. Tightly integrated with Edraak Mapping and inspection systems, it synchronizes with encoder and vision signals to apply labels at exact coordinates while the material is running — removing manual labeling steps, reducing errors, and improving throughput and traceability.",
       "need": [
         "Label applicator head with precision actuator",
@@ -791,6 +811,8 @@
       "subtitle": "Accessories",
       "category": "Accessories",
       "summary": "To measure the width of the fabric in real-time.",
+      "metaTitle": "width measurement system",
+      "metaDescription": "Real-time fabric width measurement system with automatic deviation alerts, trend analysis, and continuous monitoring without stopping production.",
       "need": [
         "Width measuring system",
         "Software interface"
@@ -819,6 +841,8 @@
       "subtitle": "Accessories",
       "category": "Accessories",
       "summary": "Senses the moisture of fabric on the production line.",
+      "metaTitle": "in-line moisture meter",
+      "metaDescription": "Inline fabric moisture monitoring system with feedback control, reporting, and automatic process adjustment.",
       "need": [
         "Inline moisture sensors",
         "Dashboard",
@@ -877,6 +901,8 @@
       "subtitle": "Accessories",
       "category": "Accessories",
       "summary": "Senses the color shade of fabric on the production line.",
+      "metaTitle": "spectrophotometer",
+      "metaDescription": "Inline color monitoring system that measures fabric shade in real time and alerts operators on deviation.",
       "need": [
         "Inline Spectrophotometer",
         "Dashboard",

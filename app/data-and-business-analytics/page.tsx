@@ -3,6 +3,8 @@ import content from '../../data/content.json'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 const contentData: any = content
 
 const tech: any = (contentData?.technology?.items || []).find((i: any) => {
@@ -41,9 +43,27 @@ const prod: any = {
   ]
 }
 
-export const metadata = {
-  title: prod.title,
-  description: prod.summary || (Array.isArray(prod.desc) ? prod.desc.join(' ') : prod.desc) || 'Transform data into actionable operational insights.',
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || (Array.isArray(prod.desc) ? prod.desc.join(' ') : prod.desc) || 'Transform data into actionable operational insights.'
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/data-and-business-analytics`,
+      type: 'website',
+      images: prod.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/data-and-business-analytics` },
+  }
 }
 
 export default function DataAnalyticsPage() {

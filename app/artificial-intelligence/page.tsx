@@ -2,6 +2,8 @@ import Link from 'next/link'
 import InquiryButton from '@/components/ui/InquiryButton'
 import QuickLinks from '@/components/sections/QuickLinks'
 
+const SITE_URL = 'https://www.edraaksystems.com'
+
 const prod: any = {
   title: 'Artificial Intelligence',
   subtitle: 'AI-powered Fabric Inspection',
@@ -19,9 +21,27 @@ const prod: any = {
   ]
 }
 
-export const metadata = {
-  title: prod.title,
-  description: prod.summary || prod.desc || 'AI-powered fabric inspection and predictive analytics for textile manufacturing.',
+export async function generateMetadata() {
+  const title = `${prod.title} | Edraak Systems`
+  const description = prod.summary || prod.desc || 'AI-powered fabric inspection and predictive analytics for textile manufacturing.'
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/artificial-intelligence`,
+      type: 'website',
+      images: prod.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/artificial-intelligence` },
+  }
 }
 
 export default function ArtificialIntelligencePage() {

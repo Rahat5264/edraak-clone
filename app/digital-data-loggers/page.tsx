@@ -8,7 +8,24 @@ const SITE_URL = 'https://www.edraaksystems.com'
 export async function generateMetadata() {
   const title = prod?.title ? `${prod.title} | Edraak Systems` : 'Digital Data Loggers | Edraak Systems'
   const description = prod?.summary || prod?.desc || 'Industrial data loggers and monitoring solutions.'
-  return { title, description, openGraph: { title, description, url: `${SITE_URL}/digital-data-loggers` }, alternates: { canonical: `${SITE_URL}/digital-data-loggers` } }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${SITE_URL}/digital-data-loggers`,
+      type: 'website',
+      images: prod?.img ? [{ url: prod.img }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: prod?.img ? [prod.img] : undefined,
+    },
+    alternates: { canonical: `${SITE_URL}/digital-data-loggers` },
+  }
 }
 
 const findCase = (title: string) => {
