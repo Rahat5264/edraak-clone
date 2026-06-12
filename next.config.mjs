@@ -188,12 +188,12 @@ const nextConfig = {
       },
       {
         source: '/services/system-analysis-advisory',
-        destination: '/contact',
+        destination: '/services',
         permanent: true,
       },
       {
         source: '/services/hardware-design-development',
-        destination: '/contact',
+        destination: '/services',
         permanent: true,
       },
       
@@ -247,11 +247,6 @@ const nextConfig = {
       {
         source: '/industries/:path*',
         destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/services/:path*',
-        destination: '/contact',
         permanent: true,
       },
     ]
