@@ -5,27 +5,27 @@ import Link from 'next/link'
 
 const slides = [
   {
-    title: 'AI-Powered Software Engineering',
-    text: 'We design and build scalable AI-driven software systems that automate workflows, improve decision-making, and accelerate digital transformation for enterprises.',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/06/AI-POWERED-SOFTWARE.webp',
+    title: 'Next-Gen AI Engineering',
+    text: 'Harness the power of advanced machine learning and neural networks to build intelligent systems that automate complex workflows, predict outcomes, and drive exponential business growth.',
+    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1600',
   },
   {
-    title: 'Cloud & DevOps Intelligence',
-    text: 'We implement intelligent cloud architectures with automated CI/CD pipelines, monitoring systems, and optimized infrastructure for high-performance applications.',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/06/cloud-storage-background-business-network-design-1-scaled.jpg',
+    title: 'Cloud-Native Intelligence',
+    text: 'Deploy future-ready cloud architectures with autonomous CI/CD, real-time observability, and self-healing infrastructure designed for mission-critical applications at any scale.',
+    image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600',
   },
   {
-    title: 'Smart Automation Systems',
-    text: 'We build end-to-end automation ecosystems that integrate AI, APIs, and business logic to eliminate manual processes and improve operational efficiency.',
+    title: 'Hyperautomation Ecosystems',
+    text: 'Integrate AI agents, RPA, and intelligent APIs to create self-optimizing systems that eliminate bottlenecks, reduce operational costs, and unlock unprecedented efficiency.',
     image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1600',
   },
 ]
 
 const offerServices = [
   {
-    title: 'App Development',
-    subtitle: '400+ Apps Developed',
-    desc: 'From iOS to Android, build innovative apps that deliver seamless user experiences designed for today\'s mobile-first world. We handle design, backend, and store deployment.',
+    title: 'Mobile Innovation',
+    subtitle: '400+ Apps Launched',
+    desc: 'Build breakthrough iOS and Android experiences with cutting-edge frameworks, AR/VR integration, and AI-powered personalization. From concept to App Store success in weeks.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <path d="M12 2C8 2 8 6 8 6v12c0 0 0 4 4 4s4-4 4-4V6s0-4-4-4z" />
@@ -35,9 +35,9 @@ const offerServices = [
     ),
   },
   {
-    title: 'Web App Development',
-    subtitle: '100+ Web Apps Developed',
-    desc: 'We create scalable, secure, high-performance web applications that drive business growth and digital transformation. Modern frameworks, real-time features, and enterprise-grade architecture.',
+    title: 'Web3 & Modern Web',
+    subtitle: '100+ Platforms Built',
+    desc: 'Create lightning-fast, blockchain-ready web applications with real-time sync, edge computing, and immersive UX. Enterprise security meets consumer-grade performance.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <path d="M4 4h16v12H4z" />
@@ -47,9 +47,9 @@ const offerServices = [
     ),
   },
   {
-    title: 'Software Development',
-    subtitle: '80+ Softwares Developed',
-    desc: 'Custom software solutions that streamline operations, improve efficiency, and solve complex business problems. From ERPs to analytics platforms, fully tailored.',
+    title: 'Enterprise AI Systems',
+    subtitle: '80+ Solutions Deployed',
+    desc: 'Custom AI-powered platforms including predictive analytics, computer vision, NLP engines, and decision intelligence systems that transform data into competitive advantage.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <path d="M4 7l8-4 8 4-8 4-8-4z" />
@@ -59,9 +59,9 @@ const offerServices = [
     ),
   },
   {
-    title: 'UI / UX Design',
-    subtitle: '300+ Designs Delivered',
-    desc: 'We craft intuitive and modern UI/UX designs focused on user behavior, engagement, and conversion optimization. Prototyping, research, and design systems.',
+    title: 'Immersive Experience Design',
+    subtitle: '300+ Digital Products',
+    desc: 'Design breakthrough interfaces with micro-interactions, gesture controls, and adaptive layouts. We craft emotional connections through human-centered AI and behavioral design.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <path d="M3 3h18v18H3z" />
@@ -78,37 +78,37 @@ const portfolioProjects = [
     id: 1,
     name: 'Sarah Johnson',
     designation: 'CTO, FinTech Innovations',
-    projectTitle: 'AI-Powered Trading Platform',
+    projectTitle: 'AI-Powered Trading Intelligence',
     image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-    caseStudy: 'Developed an intelligent trading platform using machine learning algorithms that analyze market patterns in real-time. The system achieved 40% faster trade execution and 25% improved prediction accuracy, resulting in $15M+ additional annual revenue.',
-    tags: ['AI', 'Machine Learning', 'FinTech'],
+    caseStudy: 'Engineered an algorithmic trading platform using deep learning that analyzes market micro-structure in real-time. Achieved 40% faster execution, 25% better prediction accuracy, and generated $15M+ in annual revenue through intelligent arbitrage detection.',
+    tags: ['Deep Learning', 'FinTech', 'Real-time Analytics'],
     align: 'right'
   },
   {
     id: 2,
     name: 'Michael Chen',
     designation: 'Director of Operations, HealthCare Plus',
-    projectTitle: 'Smart Patient Management System',
+    projectTitle: 'Smart Hospital Ecosystem',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-    caseStudy: 'Built an IoT-integrated patient monitoring system that reduced hospital readmission rates by 35%. Automated scheduling and AI-driven diagnostics helped streamline workflows across 12 departments, saving over 2,000 staff hours monthly.',
-    tags: ['Healthcare', 'IoT', 'Automation'],
+    caseStudy: 'Deployed an IoT-AI patient monitoring system reducing readmissions by 35%. Intelligent scheduling and predictive diagnostics streamlined operations across 12 departments, saving 2,000+ staff hours monthly and improving patient outcomes by 42%.',
+    tags: ['HealthTech', 'IoT', 'Predictive AI'],
     align: 'left'
   },
   {
     id: 3,
     name: 'Emily Rodriguez',
     designation: 'CEO, EcoRetail Group',
-    projectTitle: 'Sustainable E-commerce Ecosystem',
+    projectTitle: 'Sustainable Commerce Cloud',
     image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
-    caseStudy: 'Created a full-scale e-commerce platform with carbon footprint tracking, smart logistics, and personalized recommendations. Achieved 210% increase in conversion rate, 3.5M+ monthly active users, and 45% reduction in delivery emissions.',
-    tags: ['E-commerce', 'Sustainability', 'Analytics'],
+    caseStudy: 'Built a carbon-aware e-commerce platform with AI logistics, personalized recommendation engine, and blockchain traceability. Achieved 210% conversion increase, 3.5M+ MAU, and 45% reduction in delivery emissions through route optimization.',
+    tags: ['GreenTech', 'AI Logistics', 'Blockchain'],
     align: 'right'
   }
 ]
 
 const solutionsData = [
   {
-    category: 'Startups',
+    category: 'Startup Accelerator',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M12 6v6l4 2m-4-8a9 9 0 1 1 0 18 9 9 0 0 1 0-18z" />
@@ -116,113 +116,113 @@ const solutionsData = [
       </svg>
     ),
     services: [
-      'Startup App Development',
-      'Startup Prototype',
-      'E-Commerce Development'
+      'MVP in 30 Days',
+      'AI-First Product Strategy',
+      'Venture-Ready Prototypes'
     ]
   },
   {
-    category: 'SMB',
+    category: 'Scale-Up Solutions',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4" />
       </svg>
     ),
     services: [
-      'Flutter App Development',
-      'Mobile App Support',
-      'Wearable App Development'
+      'Cross-Platform Scale',
+      'Performance Optimization',
+      'Wearable & IoT Integration'
     ]
   },
   {
-    category: 'Enterprise',
+    category: 'Enterprise Transformation',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M3 12h3m12 0h3M5 6l14 12m0-12L5 18M4 21h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z" />
       </svg>
     ),
     services: [
-      'IT Staff Augmentation',
-      'Blockchain Development',
-      'IP Protection'
+      'Legacy Modernization',
+      'Blockchain Integration',
+      'Enterprise AI Governance'
     ]
   }
 ]
 
 const businessDomains = [
   {
-    name: 'On-Demand Services',
+    name: 'On-Demand Economy',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
         <circle cx="12" cy="12" r="3" />
       </svg>
     ),
-    description: 'Real-time delivery, ride-sharing, and service booking platforms'
+    description: 'Real-time matching, dynamic pricing, and hyperlocal delivery platforms'
   },
   {
-    name: 'Health & Fitness',
+    name: 'Digital Health',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M4.5 12.75l6 6 9-13.5" />
         <path d="M12 8v8m-4-4h8" />
       </svg>
     ),
-    description: 'Telemedicine, wellness apps, and fitness tracking solutions'
+    description: 'Telemedicine, remote monitoring, and AI diagnostic assistants'
   },
   {
-    name: 'Smart Logistics',
+    name: 'Intelligent Logistics',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.22-1.113-.616-1.53a15.04 15.04 0 0 0-2.008-1.68M6.75 18.75H6" />
       </svg>
     ),
-    description: 'Route optimization, fleet management, and delivery automation'
+    description: 'Predictive routing, drone delivery coordination, and warehouse automation'
   },
   {
-    name: 'E-Commerce',
+    name: 'AI Commerce',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
       </svg>
     ),
-    description: 'Multi-vendor marketplaces, D2C platforms, and payment gateways'
+    description: 'Personalized shopping, visual search, and dynamic pricing engines'
   },
   {
-    name: 'Travel & Tourism',
+    name: 'Smart Travel',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
       </svg>
     ),
-    description: 'Booking engines, itinerary planners, and travel marketplaces'
+    description: 'AI trip planners, biometric verification, and dynamic inventory systems'
   },
   {
-    name: 'Real Estate',
+    name: 'PropTech',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
       </svg>
     ),
-    description: 'Property listings, VR tours, and mortgage management'
+    description: 'Virtual property tours, AI valuation, and smart contract automation'
   },
   {
-    name: 'EdTech',
+    name: 'Learning Innovation',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M4.26 10.147a60.438 60.438 0 0 1-.491-6.538A2.25 2.25 0 0 1 6.2 1.77l1.732.866a.75.75 0 0 0 .548.12 60.449 60.449 0 0 1 7.042 0 .75.75 0 0 0 .548-.12l1.732-.866a2.25 2.25 0 0 1 2.43 1.84 60.44 60.44 0 0 1-.492 6.538m-11.77 0A60.44 60.44 0 0 0 12 10.75a60.44 60.44 0 0 0 5.74-.603m-11.77 0A60.44 60.44 0 0 0 3 15.75c0 2.25 1.5 4.5 4.5 6m7.5-6v6m0-6h3m-3 0h-3" />
       </svg>
     ),
-    description: 'LMS platforms, virtual classrooms, and interactive learning'
+    description: 'Adaptive learning, gamification engines, and virtual classrooms'
   },
   {
-    name: 'Media & Entertainment',
+    name: 'Media & Metaverse',
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
       </svg>
     ),
-    description: 'Streaming platforms, content management, and social media apps'
+    description: 'Immersive streaming, AR content, and social engagement platforms'
   }
 ]
 
@@ -280,7 +280,7 @@ export default function ServicesPage() {
                 }`}>
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium mb-6">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    Innovation Meets Excellence
+                    Shaping the Future with AI
                   </span>
                 </div>
                 
@@ -300,10 +300,10 @@ export default function ServicesPage() {
                   i === heroIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}>
                   <button className="px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                    Get Started
+                    Launch Your Project
                   </button>
                   <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 hover:scale-105">
-                    Learn More
+                    Explore Solutions
                   </button>
                 </div>
               </div>
@@ -355,23 +355,19 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* REST OF YOUR COMPONENT REMAINS EXACTLY THE SAME */}
       {/* BLUE BACKGROUND SECTION - Services We Offer */}
       <section className="py-28" style={{ backgroundColor: darkBlue }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-              Services We Offer:
+              Transform Your Digital Future
             </h2>
             <p className="text-xl md:text-2xl font-semibold mt-3 text-blue-100">
-              To Boost Your Digital Strategy
+              Cutting-Edge Solutions for the AI Era
             </p>
             <div className="w-20 h-1 mx-auto mt-5 rounded-full" style={{ backgroundColor: '#3b82f6' }}></div>
             <p className="text-base md:text-lg text-blue-50/90 mt-6 leading-relaxed">
-              We offer end-to-end digital solutions that empower your business. From design to development,
-              our expert team delivers innovative mobile apps, powerful websites, and custom solutions tailored
-              to your unique needs. Let us help you transform your digital strategy and achieve success in the
-              digital age through the following services.
+              We deliver next-generation digital products powered by artificial intelligence, cloud-native architecture, and human-centric design. From concept to deployment, our expert team builds future-proof solutions that drive measurable business outcomes.
             </p>
           </div>
 
@@ -394,7 +390,7 @@ export default function ServicesPage() {
                   {service.desc}
                 </p>
                 <button className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition px-5 py-2.5 rounded-full shadow-md" style={{ backgroundColor: darkBlue }}>
-                  Read More
+                  Discover More
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
@@ -410,11 +406,11 @@ export default function ServicesPage() {
             </div>
             <div>
               <div className="text-3xl font-extrabold text-white">24/7</div>
-              <div className="text-blue-200 text-sm uppercase tracking-wide">Support & SLA</div>
+              <div className="text-blue-200 text-sm uppercase tracking-wide">AI-Powered Support</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-white">50+</div>
-              <div className="text-blue-200 text-sm uppercase tracking-wide">Expert Engineers</div>
+              <div className="text-blue-200 text-sm uppercase tracking-wide">AI Specialists</div>
             </div>
           </div>
         </div>
@@ -425,10 +421,10 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
-              Success Stories
+              Innovation in Action
             </h2>
             <p className="text-lg text-slate-600 mt-4">
-              Real results from real partnerships — explore our featured case studies
+              Real-world impact from our most ambitious projects
             </p>
             <div className="w-20 h-1 mx-auto mt-5 rounded-full" style={{ backgroundColor: darkBlue }}></div>
           </div>
@@ -483,7 +479,7 @@ export default function ServicesPage() {
                 </p>
 
                 <button className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-full transition-all duration-300 shadow-md hover:shadow-xl" style={{ backgroundColor: darkBlue }}>
-                  Read Full Case Study
+                  View Case Study
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -494,7 +490,7 @@ export default function ServicesPage() {
 
           <div className="text-center mt-12">
             <button className="px-8 py-3 border-2 font-semibold rounded-full transition-all duration-300" style={{ borderColor: darkBlue, color: darkBlue }}>
-              View All Projects →
+              Explore All Success Stories →
             </button>
           </div>
         </div>
@@ -505,10 +501,10 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
-              We Develop Solutions!
+              Tailored for Your Growth
             </h2>
             <p className="text-xl md:text-2xl font-semibold mt-3" style={{ color: darkBlue }}>
-              Catering To Every Business Need
+              Solutions That Scale With You
             </p>
             <div className="w-20 h-1 mx-auto mt-5 rounded-full" style={{ backgroundColor: darkBlue }}></div>
           </div>
@@ -545,7 +541,7 @@ export default function ServicesPage() {
 
           <div className="text-center mt-12">
             <p className="text-slate-500 text-sm">
-              Tailored solutions for businesses of all sizes — from early-stage startups to global enterprises
+              From disruptive startups to global enterprises — we build what's next
             </p>
           </div>
         </div>
@@ -556,10 +552,10 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
-              We Serve
+              Industries We Empower
             </h2>
             <p className="text-xl md:text-2xl font-semibold mt-3" style={{ color: darkBlue }}>
-              A Spectrum of Business Domains
+              Transforming Business Across Sectors
             </p>
             <div className="w-20 h-1 mx-auto mt-5 rounded-full" style={{ backgroundColor: darkBlue }}></div>
           </div>
@@ -589,7 +585,7 @@ export default function ServicesPage() {
 
           <div className="text-center mt-12">
             <p className="text-slate-500 text-sm">
-              Empowering businesses across industries with tailored digital solutions
+              Future-ready solutions for tomorrow's market leaders
             </p>
           </div>
         </div>
@@ -599,17 +595,17 @@ export default function ServicesPage() {
       <section className="py-20 md:py-24 bg-white border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-5">
-            Looking to Elevate Your Digital Presence?
+            Ready to Build the Future?
           </h2>
           
           <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Schedule a free consultation with us & discover how our cutting-edge mobile and web development solutions can transform your business.
+            Let's discuss how our AI-powered solutions can transform your business. Schedule a free strategy session today.
           </p>
           
           <div className="flex justify-center">
             <Link href="/contact">
               <button className="group inline-flex items-center gap-2 px-8 py-3 font-bold text-base md:text-lg rounded-full transition-all duration-300 shadow-md hover:shadow-xl" style={{ backgroundColor: darkBlue, color: 'white' }}>
-                LET'S CONNECT!
+                Start Your Journey →
                 <svg 
                   className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
                   fill="none" 
