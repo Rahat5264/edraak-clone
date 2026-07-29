@@ -1,56 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import industries from '@/data/other-industries.json'
 
 const SITE_URL = 'https://www.edraaksystems.com'
 
 function slugify(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
-
-const industries = [
-  {
-    name: 'Automobile',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/automibile-1.jpg',
-    intro: 'Quality control in the automobile industry at the final stages.',
-    outcome: 'Outcome is reporting, tagging of defects, and better planning for the next process.',
-  },
-  {
-    name: 'Minerals',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/pexels-mart-production-8471928-scaled.webp',
-    intro: 'Sorting and evaluation of minerals at the input stage.',
-    outcome: 'Outcome is reporting and removal of defective parts.',
-  },
-  {
-    name: 'Paper',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/paper-roll.jpg',
-    intro: 'Detecting anomalies in printing, de-coloration, and/or stains.',
-    outcome: 'Outcome is reporting, removal of defective parts, and calculation of machine efficiency.',
-  },
-  {
-    name: 'Food & Beverages',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-27-2026-11_17_48-AM.jpg',
-    intro: 'Detecting packaging issues, baking issues in biscuits, broken items, color-based issues, incorrect packaging, etc.',
-    outcome: 'Outcome is better quality control, reporting, and removal of defective parts. Calculation of machine efficiency.',
-  },
-  {
-    name: 'Textiles',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-27-2026-11_26_11-AM.webp',
-    intro: 'Fabric inspection, defect detection, and inline quality monitoring.',
-    outcome: 'Outcome is improved fabric quality, automated reporting, and fewer manual checks.',
-  },
-  {
-    name: 'Pharma',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-27-2026-11_24_25-AM.jpg',
-    intro: 'Installed in blister scanning lines, the cameras are capable of identifying defects such as broken or cracked pills.',
-    outcome: 'Outcome is reliable QA, traceable reporting, and removal of defective items.',
-  },
-  {
-    name: 'Robotics',
-    image: 'https://db.edraaksystems.com/wp-content/uploads/2026/07/robotics.jpg',
-    intro: 'Vision checks for robotic cells and automated production lines.',
-    outcome: 'Outcome is faster feedback, better process control, and reduced downtime.',
-  },
-]
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Other Industries | Edraak Systems'

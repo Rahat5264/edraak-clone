@@ -7,3 +7,4 @@
 - Expects listing/grid cards across different sections of the site to be pixel-identical — same image height, padding, card structure, background color, and button style (e.g., Other Industries cards must exactly match Products cards in all visual dimensions). Confidence: 0.8
 - Expects all site pages (including detail/child pages) to be included in the sitemap — sitemap completeness matters and missing entries should be proactively fixed. Confidence: 0.6
 - Does not want placeholder or filler entries (e.g., "Custom Lines" as a generic slot for future use) — only real, actual content items should exist on listing and detail pages. Confidence: 0.9
+- Prefers separating content/presentation data from component code — explicitly requests extracting inline industry/page data into standalone JSON files (e.g., `data/other-industries.json`) and importing them rather than keeping large data arrays inside page components. Confidence: 0.9

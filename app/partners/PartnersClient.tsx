@@ -68,7 +68,7 @@ export default function PartnersClient() {
 
         <div className="grid gap-8">
           <div className="border border-gray-200 bg-white p-6 sm:p-8 shadow-sm">
-            <h2 className="text-xl font-semibold text-foreground">Integration Partner Inquiry</h2>
+            <h2 className="text-xl font-semibold text-foreground">Become Our Integration Partner</h2>
             <p className="mt-2 text-sm leading-6 text-gray-600">
               Share your company details and partnership focus so we can review the best integration path.
             </p>
