@@ -185,7 +185,6 @@ async function collectPages(dir: string) {
               else if (typeof item.name === 'string') s = slugify(item.name);
               if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
             } else if (typeof item === 'string') {
-              // allow string slugs only when the array is directly named for the base
               const s = slugify(item);
               if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
             }

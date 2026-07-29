@@ -1221,7 +1221,9 @@
       "links": [
         { "label": "Home", "href": "#" },
         { "label": "About Us", "href": "#" },
-        { "label": "Careers", "href": "https://edraak-clone.vercel.app/career" }
+        { "label": "Careers", "href": "https://edraak-clone.vercel.app/career" },
+        { "label": "Other Industries", "href": "/other-industries" },
+        { "label": "Become A Partner", "href": "/partners" }
       ]
     },
     "products": [

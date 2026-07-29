@@ -77,7 +77,7 @@ export default function Footer() {
             <div>
               <h4 className="text-lg md:text-xl font-semibold mb-4">{content.footer.labels.company}</h4>
               <ul className="space-y-2 text-sm md:text-base text-white/85">
-                {content.footer.company.links.slice(0, 4).map((link: any, idx: number) => (
+                {content.footer.company.links.map((link: any, idx: number) => (
                   <li key={idx}>
                     <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
                   </li>

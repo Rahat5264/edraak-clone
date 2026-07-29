@@ -1,0 +1,9 @@
+- Prefers clean, flowing content layouts (headings + paragraphs) over card-based UI components like "evs overview" cards, "what helps" cards, or image cards with decorative overlays. Confidence: 0.9
+- Values visual consistency — references existing pages on the same site as the desired format pattern rather than introducing novel layouts. Confidence: 0.8
+- Prefers two-column detail page layout (text left, image right) over image-first stacked layout. Confidence: 0.9
+- Prefers rich, structured page content with proper headings and detailed paragraphs over brief summary-style cards. Confidence: 0.8
+- Each industry/category card should have a visually distinct, unique image — does not want duplicate images shared across different industries on listing/detail pages. Confidence: 0.8
+- Wants consistent typography across pages — body text font size on detail pages must match the standard size used elsewhere on the site (e.g., no `text-sm` when other pages use `text-base` or `text-lg`). Confidence: 0.8
+- Expects listing/grid cards across different sections of the site to be pixel-identical — same image height, padding, card structure, background color, and button style (e.g., Other Industries cards must exactly match Products cards in all visual dimensions). Confidence: 0.8
+- Expects all site pages (including detail/child pages) to be included in the sitemap — sitemap completeness matters and missing entries should be proactively fixed. Confidence: 0.6
+- Does not want placeholder or filler entries (e.g., "Custom Lines" as a generic slot for future use) — only real, actual content items should exist on listing and detail pages. Confidence: 0.9
