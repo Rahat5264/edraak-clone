@@ -53,7 +53,7 @@ export type WPCategory = {
   slug: string
 }
 
-const API_BASE = process.env.WORDPRESS_API_BASE || ''
+const API_BASE = (process.env.WORDPRESS_API_BASE || 'https://db.edraaksystems.com/wp-json/wp/v2').replace(/\/+$/, '')
 
 function apiUrl(path: string): string {
   return `${API_BASE}${path}`
