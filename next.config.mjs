@@ -9,6 +9,15 @@ const nextConfig = {
   async redirects() {
     return [
       // ============================================
+      // OTHER INDUSTRIES → SIMILAR INDUSTRIES
+      // ============================================
+      {
+        source: '/other-industries/:path*',
+        destination: '/similar-industries/:path*',
+        permanent: true,
+      },
+
+      // ============================================
       // FABRIC PROCESSING - Quality Control & Measurement
       // ============================================
       {

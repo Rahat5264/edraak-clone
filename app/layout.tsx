@@ -165,7 +165,7 @@ export default function RootLayout({
         />
         <link rel="preconnect" href="https://challenges.cloudflare.com" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider attribute="class">
           <Navigation />
           <Toaster />

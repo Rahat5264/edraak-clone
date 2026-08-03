@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function OtherIndustriesPage() {
+export default function SimilarIndustriesPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',

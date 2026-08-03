@@ -16,10 +16,7 @@ export default function Navigation() {
   const [activeHref, setActiveHref] = useState('')
   const [userClickedAnchor, setUserClickedAnchor] = useState(false)
 
-  const navItems = (content.navigation || []).filter((it: any) => {
-    const label = (it.label || '').toString().trim().toLowerCase()
-    return label !== 'blog'
-  })
+  const navItems = (content.navigation || [])
 
   useEffect(() => {
     if (!navRef.current) return

@@ -162,11 +162,49 @@ async function collectPages(dir: string) {
   // 3) read data files and try to enumerate slugs for each dynamic base
   // Be conservative: only enumerate arrays that clearly represent items (objects with title/slug/name)
   const dataFiles = await readJSONDataFiles();
+
+  // Manual mapping: route path → JSON file to pull slugs from
+  const manualFileMapping: Record<string, string> = {
+    '/similar-industries': 'other-industries.json',
+  }
+
   for (const base of Array.from(dynamicBases)) {
     const baseName = base.startsWith('/') ? base.slice(1) : base;
     const normalizedBase = slugify(baseName || '');
     const slugs = new Set<string>();
     const slugMtime = new Map<string, string>();
+
+    // Check manual mapping first
+    const manualFile = manualFileMapping[base];
+    if (manualFile) {
+      for (const df of dataFiles) {
+        if (df.file === manualFile) {
+          traverseJSON(df.content, [], (val, keyPath) => {
+            if (!Array.isArray(val)) return;
+            for (const item of val) {
+              if (item && typeof item === 'object') {
+                let s: string | null = null;
+                if (typeof item.slug === 'string') s = slugify(item.slug);
+                else if (typeof item.name === 'string') s = slugify(item.name);
+                else if (typeof item.title === 'string') s = slugify(item.title);
+                if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
+              }
+            }
+          });
+        }
+      }
+    }
+
+    // If manual mapping found slugs, skip auto-detection for this base
+    if (slugs.size > 0) {
+      for (const s of slugs) {
+        const urlPath = (base === '/' || base === '') ? `/${s}` : `${base}/${s}`;
+        const m = slugMtime.get(s);
+        if (m) pages.push({ path: urlPath, lastmod: m });
+        else pages.push({ path: urlPath });
+      }
+      continue;
+    }
 
     for (const df of dataFiles) {
       traverseJSON(df.content, [], (val, keyPath) => {
@@ -228,6 +266,8 @@ function computeChangefreq(route: string) {
 
 export async function GET() {
   const pages = await collectPages(APP_DIR);
+  const blogPages = await collectBlogPosts();
+  pages.push(...blogPages);
 
   // ensure home page first
   pages.sort((a, b) => (a.path === '/' ? -1 : b.path === '/' ? 1 : a.path.localeCompare(b.path)));
@@ -249,6 +289,32 @@ export async function GET() {
   });
 }
 
+async function collectBlogPosts() {
+  const base = process.env.WORDPRESS_API_BASE || 'https://db.edraaksystems.com/wp-json/wp/v2';
+  const pages: { path: string; lastmod?: string }[] = [];
+
+  // fetch all posts (up to 100) so we get their slugs + modified dates
+  try {
+    const res = await fetch(`${base}/posts?per_page=100&_fields=slug,modified`, {
+      next: { revalidate: 3600 },
+    });
+    if (res.ok) {
+      const posts: { slug: string; modified: string }[] = await res.json();
+      for (const post of posts) {
+        pages.push({
+          path: `/blog/${post.slug}`,
+          lastmod: new Date(post.modified).toISOString(),
+        });
+      }
+    }
+  } catch (e) {
+    // if WordPress is unreachable, skip blog posts
+  }
+
+  return pages;
+}
+
 // Notes:
 // - Set SITE_URL or NEXT_PUBLIC_SITE_URL to your site root (e.g. https://example.com)
 // - This route auto-discovers new static pages in the app directory (it skips dynamic [slug] routes)
+// - Blog posts are fetched live from the WordPress REST API for sitemap inclusion

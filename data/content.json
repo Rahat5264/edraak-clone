@@ -6,10 +6,11 @@
   },
   "navigation": [
     { "label": "Vision Platform", "href": "/vision-platform" },
+    { "label": "Similar Industries", "href": "/similar-industries" },
     { "label": "Products", "href": "/products" },
     { "label": "Technology", "href": "#technology" },
     { "label": "Case Studies", "href": "/#industrial-use-cases" },
-    { "label": "Blog", "href": "#blog" },
+    { "label": "Blog", "href": "/blog" },
     { "label": "Contact", "href": "/contact" }
   ],
   "hero": {
@@ -1222,8 +1223,9 @@
         { "label": "Home", "href": "#" },
         { "label": "About Us", "href": "#" },
         { "label": "Careers", "href": "https://edraak-clone.vercel.app/career" },
-        { "label": "Other Industries", "href": "/other-industries" },
-        { "label": "Become A Partner", "href": "/partners" }
+        { "label": "Similar Industries", "href": "/similar-industries" },
+        { "label": "Become A Partner", "href": "/partners" },
+        { "label": "Blog", "href": "/blog" }
       ]
     },
     "products": [

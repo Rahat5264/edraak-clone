@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function OtherIndustriesDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function SimilarIndustriesDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const industry = getIndustry(slug)
 

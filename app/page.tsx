@@ -6,6 +6,7 @@ import Sectors from '@/components/sections/Sectors'
 import IndustrialUseCases from '@/components/sections/IndustrialUseCases'
 import Technology from '@/components/sections/Technology'
 import Careers from '@/components/sections/CareersWrapper'
+import BlogSection from '@/components/sections/BlogSection'
 
 const SITE_URL = 'https://www.edraaksystems.com'
 
@@ -33,8 +34,8 @@ export default function Home() {
       <IndustrialUseCases />
       <Technology />
       <Careers />
+      <BlogSection />
     </div>
   )
 }
-      <Solutions />
 

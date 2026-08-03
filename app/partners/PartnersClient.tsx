@@ -64,6 +64,12 @@ export default function PartnersClient() {
           <p className="mt-4 text-base leading-7 text-gray-600 sm:text-lg">
             Become an integration partner with us and connect your solution to Edraak’s industrial vision workflows.
           </p>
+          <p className="mt-4 text-base leading-7 text-gray-600 sm:text-lg">
+            Partners gain access to Edraak’s deployed vision ecosystem across textile, apparel, pharma, and other manufacturing sectors. By integrating your hardware, software, or platform with EVS, you offer your customers a unified quality control and traceability solution — with real-time defect detection, automated reporting, and machine data collection built in.
+          </p>
+          <p className="mt-4 text-base leading-7 text-gray-600 sm:text-lg">
+            You benefit from joint go-to-market support, technical documentation and API access, co-branded case studies, and direct leads from manufacturers actively seeking integrated quality solutions. Together, we expand market reach while delivering end-to-end visibility that neither solution can achieve alone.
+          </p>
         </div>
 
         <div className="grid gap-8">

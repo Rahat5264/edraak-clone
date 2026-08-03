@@ -198,51 +198,51 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- Other Industries -->
+  <!-- Similar Industries -->
   <url>
-    <loc>https://www.edraaksystems.com/other-industries</loc>
+    <loc>https://www.edraaksystems.com/similar-industries</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/automobile</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/automobile</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/minerals</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/minerals</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/paper</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/paper</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/food-beverages</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/food-beverages</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/textiles</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/textile</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/robotics</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/robotics</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.edraaksystems.com/other-industries/pharma</loc>
+    <loc>https://www.edraaksystems.com/similar-industries/pharma</loc>
     <lastmod>2026-07-29T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
