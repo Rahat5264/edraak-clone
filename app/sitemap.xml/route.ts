@@ -284,7 +284,7 @@ export async function GET() {
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=0, s-maxage=3600'
+      'Cache-Control': 'public, max-age=0, s-maxage=300'
     }
   });
 }
@@ -293,19 +293,32 @@ async function collectBlogPosts() {
   const base = process.env.NEXT_PUBLIC_WORDPRESS_API_BASE || 'https://db.edraaksystems.com/wp-json/wp/v2';
   const pages: { path: string; lastmod?: string }[] = [];
 
-  // fetch all posts (up to 100) so we get their slugs + modified dates
+  // Fetch ALL published posts via pagination (no 100-post cap) so new posts
+  // are always included. Use cache: 'no-store' so the sitemap reflects the
+  // latest published blog immediately instead of a stale build/revalidate copy.
   try {
-    const res = await fetch(`${base}/posts?per_page=100&_fields=slug,modified`, {
-      next: { revalidate: 3600 },
-    });
-    if (res.ok) {
-      const posts: { slug: string; modified: string }[] = await res.json();
+    let page = 1;
+    const perPage = 100;
+    while (true) {
+      const res = await fetch(`${base}/posts?page=${page}&per_page=${perPage}&status=publish&_fields=slug,modified,status`, {
+        cache: 'no-store',
+      });
+      if (!res.ok) break;
+      const posts: { slug: string; modified: string; status?: string }[] = await res.json();
+      if (!Array.isArray(posts) || posts.length === 0) break;
+
       for (const post of posts) {
+        if (post.status && post.status !== 'publish') continue;
+        if (!post.slug) continue;
         pages.push({
           path: `/blog/${post.slug}`,
           lastmod: new Date(post.modified).toISOString(),
         });
       }
+
+      // If fewer than perPage came back, we've reached the last page.
+      if (posts.length < perPage) break;
+      page += 1;
     }
   } catch (e) {
     // if WordPress is unreachable, skip blog posts
