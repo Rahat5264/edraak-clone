@@ -290,7 +290,7 @@ export async function GET() {
 }
 
 async function collectBlogPosts() {
-  const base = process.env.WORDPRESS_API_BASE || 'https://db.edraaksystems.com/wp-json/wp/v2';
+  const base = process.env.NEXT_PUBLIC_WORDPRESS_API_BASE || 'https://db.edraaksystems.com/wp-json/wp/v2';
   const pages: { path: string; lastmod?: string }[] = [];
 
   // fetch all posts (up to 100) so we get their slugs + modified dates
