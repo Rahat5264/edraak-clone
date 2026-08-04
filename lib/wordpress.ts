@@ -69,7 +69,7 @@ export async function fetchPosts(page = 1, perPage = 12): Promise<WPPost[]> {
 
 export async function fetchPost(slug: string): Promise<WPPost | null> {
   const res = await fetch(apiUrl(`/posts?slug=${slug}&_embed=wp:featuredmedia`), {
-    next: { revalidate: 3600 },
+    cache: 'no-store',
   })
   if (!res.ok) return null
   const posts: WPPost[] = await res.json()
