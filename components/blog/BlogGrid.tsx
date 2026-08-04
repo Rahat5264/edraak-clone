@@ -66,9 +66,14 @@ export default function BlogGrid({ perPage = 3 }: { perPage?: number }) {
   useEffect(() => {
     let cancelled = false
 
+    const apiBase = (process.env.NEXT_PUBLIC_WORDPRESS_API_BASE || 'https://db.edraaksystems.com/wp-json/wp/v2').replace(/\/+$/, '')
+
     async function load() {
       try {
-        const res = await fetch(`/api/posts?page=1&per_page=${perPage}`, { cache: 'no-store' })
+        const res = await fetch(
+          `${apiBase}/posts?page=1&per_page=${perPage}&_embed=wp:featuredmedia`,
+          { cache: 'no-store' },
+        )
         if (!res.ok) throw new Error(`Request failed: ${res.status}`)
         const data = await res.json()
         if (!cancelled) setPosts(data)
