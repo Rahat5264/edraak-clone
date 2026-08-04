@@ -61,7 +61,7 @@ function apiUrl(path: string): string {
 
 export async function fetchPosts(page = 1, perPage = 12): Promise<WPPost[]> {
   const res = await fetch(apiUrl(`/posts?page=${page}&per_page=${perPage}&_embed=wp:featuredmedia`), {
-    next: { revalidate: 3600 },
+    cache: 'no-store',
   })
   if (!res.ok) return []
   return res.json()

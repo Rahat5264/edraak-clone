@@ -1,12 +1,7 @@
 import Link from 'next/link'
-import { fetchPosts } from '@/lib/wordpress'
-import ImageWithFallback from '@/components/ui/ImageWithFallback'
+import BlogGrid from '@/components/blog/BlogGrid'
 
-export default async function BlogSection() {
-  const posts = await fetchPosts(1, 3)
-
-  if (posts.length === 0) return null
-
+export default function BlogSection() {
   return (
     <section id="blog" className="py-20 md:py-32 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -24,43 +19,7 @@ export default async function BlogSection() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {posts.map((post) => {
-            const imageUrl = (post as any)._embedded?.['wp:featuredmedia']?.[0]?.source_url
-              || (post as any)._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium_large?.source_url
-              || null
-
-            return (
-              <Link
-                key={post.id}
-                href={`/blog/${post.slug}`}
-                className="group bg-white border flex flex-col hover:shadow-lg transition-shadow"
-              >
-                <div className="h-56 bg-gray-100 overflow-hidden">
-                  <ImageWithFallback
-                    src={imageUrl || ''}
-                    alt={post.title.rendered}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 flex-1 flex flex-col justify-between" style={{ backgroundColor: '#05032A' }}>
-                  <div>
-                    <p className="text-sm text-slate-300 mb-2">
-                      {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                    </p>
-                    <h3 className="text-xl font-bold text-white mb-3 line-clamp-2">{post.title.rendered}</h3>
-                    <p className="text-sm text-slate-200 leading-relaxed line-clamp-3">
-                      {post.excerpt.rendered.replace(/<[^>]*>/g, '')}
-                    </p>
-                  </div>
-                  <span className="mt-6 inline-block px-4 py-2 bg-white text-black text-sm w-fit">
-                    Read more
-                  </span>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
+        <BlogGrid perPage={3} />
 
         <div className="mt-10 text-center md:hidden">
           <Link
