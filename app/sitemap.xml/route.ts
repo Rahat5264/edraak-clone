@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 const SITE_URL = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.edraaksystems.com').replace(/\/$/, '');
 const APP_DIR = path.join(process.cwd(), 'app');
 const DATA_DIR = path.join(process.cwd(), 'data');
