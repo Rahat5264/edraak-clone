@@ -12,19 +12,19 @@ function PostSkeleton() {
   return (
     <article className="min-h-screen bg-white">
       <div className="relative w-full h-[50vh] md:h-[65vh] bg-gray-200 overflow-hidden">
-        <Skeleton className="w-full h-full rounded-none" />
+        <Skeleton className="w-full h-full rounded-none bg-gray-200" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center bg-black/20">
-          <Skeleton className="h-4 w-32 bg-white/40 mb-6 rounded" />
-          <Skeleton className="h-10 md:h-14 w-3/4 max-w-2xl bg-white/40 rounded" />
-          <Skeleton className="h-4 w-40 bg-white/40 mt-6 rounded" />
+          <Skeleton className="h-4 w-32 bg-gray-300 mb-6 rounded" />
+          <Skeleton className="h-10 md:h-14 w-3/4 max-w-2xl bg-gray-300 rounded" />
+          <Skeleton className="h-4 w-40 bg-gray-300 mt-6 rounded" />
         </div>
       </div>
       <div className="max-w-4xl mx-auto px-4 py-12 md:py-16">
-        <Skeleton className="h-5 w-full mb-6 rounded" />
-        <Skeleton className="h-5 w-11/12 mb-6 rounded" />
-        <Skeleton className="h-5 w-10/12 mb-6 rounded" />
-        <Skeleton className="h-5 w-full mb-6 rounded" />
-        <Skeleton className="h-5 w-3/4 mb-6 rounded" />
+        <Skeleton className="h-5 w-full mb-6 rounded bg-gray-200" />
+        <Skeleton className="h-5 w-11/12 mb-6 rounded bg-gray-200" />
+        <Skeleton className="h-5 w-10/12 mb-6 rounded bg-gray-200" />
+        <Skeleton className="h-5 w-full mb-6 rounded bg-gray-200" />
+        <Skeleton className="h-5 w-3/4 mb-6 rounded bg-gray-200" />
       </div>
     </article>
   )
