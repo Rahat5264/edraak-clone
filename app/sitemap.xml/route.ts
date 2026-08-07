@@ -176,28 +176,31 @@ async function collectPages(dir: string) {
     const slugs = new Set<string>();
     const slugMtime = new Map<string, string>();
 
-    // Check manual mapping first
+    // Check manual mapping first.
+    // Only the TOP-LEVEL array of the mapped file represents real items —
+    // nested arrays (pageContent headings/lists, etc.) are NOT slugs and
+    // would produce broken 404 URLs, so we do not traverse into them.
     const manualFile = manualFileMapping[base];
     if (manualFile) {
       for (const df of dataFiles) {
-        if (df.file === manualFile) {
-          traverseJSON(df.content, [], (val, keyPath) => {
-            if (!Array.isArray(val)) return;
-            for (const item of val) {
-              if (item && typeof item === 'object') {
-                let s: string | null = null;
-                if (typeof item.slug === 'string') s = slugify(item.slug);
-                else if (typeof item.name === 'string') s = slugify(item.name);
-                else if (typeof item.title === 'string') s = slugify(item.title);
-                if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
-              }
+        if (df.file === manualFile && Array.isArray(df.content)) {
+          for (const item of df.content) {
+            if (item && typeof item === 'object') {
+              let s: string | null = null;
+              if (typeof item.slug === 'string') s = slugify(item.slug);
+              else if (typeof item.name === 'string') s = slugify(item.name);
+              else if (typeof item.title === 'string') s = slugify(item.title);
+              if (s) { slugs.add(s); slugMtime.set(s, df.mtime); }
             }
-          });
+          }
         }
       }
     }
 
-    // If manual mapping found slugs, skip auto-detection for this base
+    // If manual mapping found slugs, skip auto-detection for this base.
+    // This also prevents the same data file from being re-matched by
+    // filename/key heuristics (e.g. 'other-industries.json' → '/other-industries/...'),
+    // which would generate broken redirect-only or 404 URLs.
     if (slugs.size > 0) {
       for (const s of slugs) {
         const urlPath = (base === '/' || base === '') ? `/${s}` : `${base}/${s}`;
@@ -267,9 +270,14 @@ function computeChangefreq(route: string) {
 }
 
 export async function GET() {
-  const pages = await collectPages(APP_DIR);
+  let pages = await collectPages(APP_DIR);
   const blogPages = await collectBlogPosts();
   pages.push(...blogPages);
+
+  // Exclude redirect-only and archived routes — never emit them in the sitemap.
+  // '/other-industries/*' permanently 301s to '/similar-industries/*', so any
+  // URL under it (the old '/other-industries/<slug>' pages) is a broken entry.
+  pages = pages.filter(p => !p.path.startsWith('/other-industries'));
 
   // ensure home page first
   pages.sort((a, b) => (a.path === '/' ? -1 : b.path === '/' ? 1 : a.path.localeCompare(b.path)));
