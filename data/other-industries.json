@@ -1,6 +1,8 @@
 [
   {
     "name": "Automobile",
+    "metaTitle": "Automotive AI Visual Inspection | End-of-Line QC | Edraak Systems",
+    "metaDescription": "Edraak's AI vision systems inspect automobiles at end-of-line stations, detecting surface defects, tagging issues, and enabling data-driven production planning.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/automibile-1.jpg",
     "intro": "Quality control in the automobile industry at the final stages.",
     "outcome": "Outcome is reporting, tagging of defects, and better planning for the next process.",
@@ -20,6 +22,8 @@
   },
   {
     "name": "Minerals",
+    "metaTitle": "Mineral Sorting & Grading Vision Systems | Edraak Systems",
+    "metaDescription": "Edraak's vision systems sort, grade, and evaluate minerals at the input stage, detecting defects, triggering removal, and generating batch-level quality reports.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/pexels-mart-production-8471928-scaled.webp",
     "intro": "Sorting and evaluation of minerals at the input stage.",
     "outcome": "Outcome is reporting and removal of defective parts.",
@@ -39,6 +43,8 @@
   },
   {
     "name": "Paper",
+    "metaTitle": "Paper Production Anomaly Detection | Machine Efficiency | Edraak Systems",
+    "metaDescription": "Edraak's vision systems detect printing defects, de-coloration, stains, and surface anomalies on paper lines in real time, with automatic removal and machine efficiency tracking.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/paper-roll.jpg",
     "intro": "Detecting anomalies in printing, de-coloration, and/or stains.",
     "outcome": "Outcome is reporting, removal of defective parts, and calculation of machine efficiency.",
@@ -58,6 +64,8 @@
   },
   {
     "name": "Food & Beverages",
+    "metaTitle": "Food & Beverage Vision Quality Control | Edraak Systems",
+    "metaDescription": "Edraak's AI vision inspects food and beverage packaging, seals, labels, fill levels, and product consistency at line speed, with automatic defect flagging and traceable reporting.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-27-2026-11_17_48-AM.jpg",
     "intro": "Detecting packaging issues, baking issues in biscuits, broken items, color-based issues, incorrect packaging, etc.",
     "outcome": "Outcome is better quality control, reporting, and removal of defective parts. Calculation of machine efficiency.",
@@ -77,6 +85,8 @@
   },
   {
     "name": "Textile",
+    "metaTitle": "Textile Fabric Inspection & Quality Reporting | Edraak Systems",
+    "metaDescription": "Edraak's AI vision inspects 100% of fabric at production speed — 8x faster than manual checks — with meter-to-meter quality reports, roll grading, and automated label application.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-27-2026-11_26_11-AM.webp",
     "intro": "AI-powered vision inspection for fabric defects, meter-to-meter quality reporting, and automated label application — delivering 100% inline fabric inspection at 8x the speed of manual checks.",
     "outcome": "Outcome is 100% fabric inspection coverage, 8x faster defect detection, automated meter-to-meter quality reports, reduced rework and waste, and seamless label application integrated into the production line.",
@@ -106,6 +116,8 @@
   },
   {
     "name": "Robotics",
+    "metaTitle": "Robotic Cell Vision Monitoring | Automation QC | Edraak Systems",
+    "metaDescription": "Edraak's vision systems provide real-time visual feedback for robotic cells, detecting misalignment, missing components, and anomalies to reduce downtime and stabilize automation.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/robotics.jpg",
     "intro": "Vision checks for robotic cells and automated production lines.",
     "outcome": "Outcome is faster feedback, better process control, and reduced downtime.",
@@ -125,6 +137,8 @@
   },
   {
     "name": "Pharma",
+    "metaTitle": "Pharma Blister Inspection & OEE Monitoring | Edraak Systems",
+    "metaDescription": "Edraak's AI vision inspects pharmaceutical blister packs for broken, cracked, or missing pills, auto-rejects defects, and tracks OEE, efficiency, and downtime.",
     "image": "https://db.edraaksystems.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-27-2026-11_24_25-AM.jpg",
     "intro": "Installed in blister scanning lines, the cameras identify defects such as broken or cracked pills, alert the system for automatic removal, and collect Overall Equipment Effectiveness (OEE), machine efficiency, and downtime data.",
     "outcome": "Outcome is reliable blister pack QA, automatic rejection of defective items, real-time OEE collection, machine efficiency tracking, downtime analysis, and full batch-level traceability for regulatory compliance.",
